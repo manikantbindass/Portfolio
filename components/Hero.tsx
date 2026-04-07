@@ -82,13 +82,13 @@ export default function Hero() {
       ))}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center justify-center">
           {/* Left: Text */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="order-2 lg:order-1"
+            className="order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left"
           >
             {/* Status badge */}
             <motion.div
@@ -130,7 +130,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="text-[#6B7280] dark:text-[#94A3B8] text-lg leading-relaxed max-w-xl mb-8"
+              className="text-[#6B7280] dark:text-[#94A3B8] text-lg leading-relaxed max-w-xl mb-8 mx-auto lg:mx-0"
             >
               Blockchain & AI enthusiast pursuing B.Tech in CSE (Blockchain Technology) at Parul University.
               Building scalable{" "}
@@ -143,7 +143,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="flex flex-wrap gap-4"
+              className="flex flex-wrap gap-4 justify-center lg:justify-start"
             >
               <motion.a
                 href="#projects"
@@ -169,7 +169,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
-              className="flex items-center gap-3 mt-8"
+              className="flex items-center gap-3 mt-8 justify-center lg:justify-start"
             >
               {[
                 {

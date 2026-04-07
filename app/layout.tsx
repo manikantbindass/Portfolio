@@ -57,7 +57,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#E0E5EC" />
       </head>
-      <body className="bg-[#E0E5EC] dark:bg-[#1A1D24] transition-colors duration-300">
+      <body className="bg-[#E0E5EC] dark:bg-[#1A1D24] transition-colors duration-300 w-full overflow-x-hidden">
         {children}
       </body>
     </html>

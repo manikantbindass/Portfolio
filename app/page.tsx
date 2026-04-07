@@ -37,7 +37,7 @@ export default function Home() {
   };
 
   return (
-    <main>
+    <main className="w-full overflow-x-hidden">
       <Navbar darkMode={darkMode} toggleDark={toggleDark} />
       <Hero />
       <About />
