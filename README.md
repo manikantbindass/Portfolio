@@ -12,7 +12,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS_v4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-EF0070?style=for-the-badge&logo=framer&logoColor=white)](https://www.framer.com/motion/)
-[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
+[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/manikantkai-9844s-projects/portfolio/HqJDdNgpws7E3rndiajuZRfdVBta)
 
 <p align="center">
   <a href="https://github.com/manikantbindass/Portfolio/stargazers">
@@ -23,7 +23,7 @@
   </a>
 </p>
 
-**[🌐 Live Demo](https://manikant.dev)** · **[📬 Contact](mailto:manikant.dev.ai@gmail.com)** · **[💼 LinkedIn](https://www.linkedin.com/in/manikantbindass/)**
+**[🌐 Live Demo](https://vercel.com/manikantkai-9844s-projects/portfolio/HqJDdNgpws7E3rndiajuZRfdVBta)** · **[📬 Contact](mailto:manikant.dev.ai@gmail.com)** · **[💼 LinkedIn](https://www.linkedin.com/in/manikantbindass/)**
 
 </div>
 
@@ -133,6 +133,9 @@ No environment variables required — the GitHub API is public and doesn't need 
 ## 📦 Deployment
 
 ### Vercel (Recommended)
+
+> 🚀 **This project is deployed on Vercel:**
+> **[https://vercel.com/manikantkai-9844s-projects/portfolio/HqJDdNgpws7E3rndiajuZRfdVBta](https://vercel.com/manikantkai-9844s-projects/portfolio/HqJDdNgpws7E3rndiajuZRfdVBta)**
 
 1. Push your code to GitHub
 2. Go to [vercel.com](https://vercel.com) and click **"New Project"**
