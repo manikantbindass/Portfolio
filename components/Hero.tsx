@@ -82,13 +82,13 @@ export default function Hero() {
       ))}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center place-items-center mx-auto">
           {/* Left: Text */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left"
+            className="order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left w-full"
           >
             {/* Status badge */}
             <motion.div
@@ -221,7 +221,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            className="order-1 lg:order-2 flex justify-center"
+            className="order-1 lg:order-2 flex justify-center items-center w-full"
           >
             <div className="relative">
               {/* Outer ring */}
