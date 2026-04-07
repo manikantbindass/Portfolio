@@ -163,3 +163,11 @@ body {
     transform: translateY(0);
   }
 }
+
+/* Force center all section containers */
+section > div,
+header > div {
+  margin-left: auto;
+  margin-right: auto;
+}
+

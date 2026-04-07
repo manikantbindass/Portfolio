@@ -56,7 +56,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#E0E5EC] dark:bg-[#1A1D24]"
+      className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-[#E0E5EC] dark:bg-[#1A1D24]"
     >
       {/* Floating blobs */}
       {floatingBlobs.map((blob, i) => (
@@ -82,7 +82,7 @@ export default function Hero() {
       ))}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16">
-        <div className="grid lg:grid-cols-2 gap-12 items-center justify-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mx-auto">
           {/* Left: Text */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
