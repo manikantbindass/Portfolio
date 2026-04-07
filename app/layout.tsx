@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import NeonCursor from "@/components/NeonCursor";
 
 export const metadata: Metadata = {
   title: "Manikant Kumar | AI Developer · Full Stack · Blockchain Engineer",
@@ -58,6 +59,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#E0E5EC" />
       </head>
       <body className="bg-[#E0E5EC] dark:bg-[#1A1D24] transition-colors duration-300 w-full overflow-x-hidden">
+        <NeonCursor />
         {children}
       </body>
     </html>

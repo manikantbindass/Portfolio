@@ -218,8 +218,7 @@ export default function Hero() {
               </motion.a>
               <motion.a
                 href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+                download="Manikant_Kumar_Resume.pdf"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-btn font-semibold text-[#6C63FF] dark:text-[#7C74FF] bg-[#E0E5EC] dark:bg-[#20242E] shadow-neu-sm dark:shadow-dark-neu hover:-translate-y-0.5 transition-all duration-300"
                 whileTap={{ scale: 0.97 }}
               >
