@@ -81,14 +81,77 @@ export default function Hero() {
         />
       ))}
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center place-items-center mx-auto">
-          {/* Left: Text */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16">
+        {/* Center layout: photo top, text centered below on mobile; 
+            on desktop: side by side but content block itself centered */}
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16">
+
+          {/* Profile Image — appears first on mobile, right on desktop */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+            className="flex-shrink-0 flex justify-center"
+          >
+            <div className="relative">
+              {/* Outer rotating ring */}
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0 rounded-full"
+                style={{
+                  background:
+                    "conic-gradient(from 0deg, #6C63FF, #38B2AC, #8B84FF, #6C63FF)",
+                  padding: "3px",
+                }}
+              >
+                <div className="w-full h-full rounded-full bg-[#E0E5EC] dark:bg-[#1A1D24]" />
+              </motion.div>
+
+              {/* Profile image */}
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="relative w-52 h-52 sm:w-64 sm:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 rounded-full overflow-hidden m-1"
+                style={{
+                  boxShadow:
+                    "9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255,0.5)",
+                }}
+              >
+                <Image
+                  src="/profile.jpg"
+                  alt="Manikant Kumar - AI Developer & Blockchain Engineer"
+                  fill
+                  sizes="(max-width: 640px) 208px, (max-width: 1024px) 256px, 320px"
+                  className="object-cover object-top"
+                  priority
+                />
+              </motion.div>
+
+              {/* Floating badges */}
+              <motion.div
+                animate={{ y: [0, -5, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                className="absolute -top-4 -right-4 px-3 py-2 rounded-inner text-xs font-semibold text-white bg-gradient-to-r from-[#6C63FF] to-[#8B84FF] shadow-lg"
+              >
+                🤖 AI Dev
+              </motion.div>
+              <motion.div
+                animate={{ y: [0, -5, 0] }}
+                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="absolute -bottom-4 -left-4 px-3 py-2 rounded-inner text-xs font-semibold text-white bg-gradient-to-r from-[#38B2AC] to-[#6C63FF] shadow-lg"
+              >
+                ⛓️ Web3
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Text content — centered on mobile, left-aligned on desktop */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left w-full"
+            className="flex flex-col items-center lg:items-start text-center lg:text-left max-w-xl"
           >
             {/* Status badge */}
             <motion.div
@@ -108,7 +171,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="font-display font-extrabold text-5xl sm:text-6xl lg:text-7xl text-[#3D4852] dark:text-[#E2E8F0] leading-tight tracking-tight mb-4"
+              className="font-display font-extrabold text-5xl sm:text-6xl xl:text-7xl text-[#3D4852] dark:text-[#E2E8F0] leading-tight tracking-tight mb-4"
             >
               Manikant{" "}
               <span className="gradient-text block">Kumar</span>
@@ -130,9 +193,9 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="text-[#6B7280] dark:text-[#94A3B8] text-lg leading-relaxed max-w-xl mb-8 mx-auto lg:mx-0"
+              className="text-[#6B7280] dark:text-[#94A3B8] text-lg leading-relaxed mb-8"
             >
-              Blockchain & AI enthusiast pursuing B.Tech in CSE (Blockchain Technology) at Parul University.
+              Blockchain &amp; AI enthusiast pursuing B.Tech in CSE (Blockchain Technology) at Parul University.
               Building scalable{" "}
               <span className="text-[#6C63FF] font-medium">AI + Web3</span>{" "}
               systems that bridge the gap between intelligent automation and decentralized infrastructure.
@@ -215,85 +278,26 @@ export default function Hero() {
               ))}
             </motion.div>
           </motion.div>
-
-          {/* Right: Profile Image */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            className="order-1 lg:order-2 flex justify-center items-center w-full"
-          >
-            <div className="relative">
-              {/* Outer ring */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 rounded-full"
-                style={{
-                  background:
-                    "conic-gradient(from 0deg, #6C63FF, #38B2AC, #8B84FF, #6C63FF)",
-                  padding: "3px",
-                }}
-              >
-                <div className="w-full h-full rounded-full bg-[#E0E5EC] dark:bg-[#1A1D24]" />
-              </motion.div>
-
-              {/* Profile image container */}
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden m-1"
-                style={{
-                  boxShadow:
-                    "9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255,0.5)",
-                }}
-              >
-                <Image
-                  src="/profile.jpg"
-                  alt="Manikant Kumar - AI Developer & Blockchain Engineer"
-                  fill
-                  className="object-cover object-top"
-                  priority
-                />
-              </motion.div>
-
-              {/* Floating badges */}
-              <motion.div
-                animate={{ y: [0, -5, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                className="absolute -top-4 -right-4 px-3 py-2 rounded-inner text-xs font-semibold text-white bg-gradient-to-r from-[#6C63FF] to-[#8B84FF] shadow-lg"
-              >
-                🤖 AI Dev
-              </motion.div>
-              <motion.div
-                animate={{ y: [0, -5, 0] }}
-                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute -bottom-4 -left-4 px-3 py-2 rounded-inner text-xs font-semibold text-white bg-gradient-to-r from-[#38B2AC] to-[#6C63FF] shadow-lg"
-              >
-                ⛓️ Web3
-              </motion.div>
-            </div>
-          </motion.div>
         </div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        >
-          <span className="text-xs text-[#6B7280] dark:text-[#94A3B8] font-medium tracking-widest uppercase">
-            Scroll
-          </span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          >
-            <ArrowDown size={16} className="text-[#6C63FF]" />
-          </motion.div>
-        </motion.div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+      >
+        <span className="text-xs text-[#6B7280] dark:text-[#94A3B8] font-medium tracking-widest uppercase">
+          Scroll
+        </span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+        >
+          <ArrowDown size={16} className="text-[#6C63FF]" />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
