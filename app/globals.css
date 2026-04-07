@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@config "../tailwind.config.ts";
+
+:root {
+  --neu-bg: #E0E5EC;
+  --neu-fg: #3D4852;
+  --neu-muted: #6B7280;
+  --neu-accent: #6C63FF;
+  --neu-accent-light: #8B84FF;
+  --neu-teal: #38B2AC;
+}
+
+.dark {
+  --neu-bg: #1A1D24;
+  --neu-fg: #E2E8F0;
+  --neu-muted: #94A3B8;
+  --neu-accent: #7C74FF;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #E0E5EC;
+  color: #3D4852;
+  font-family: "DM Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+.dark body {
+  background-color: #1A1D24;
+  color: #E2E8F0;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #6C63FF 0%, #38B2AC 50%, #8B84FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Neumorphic shadows */
+.neu {
+  background: #E0E5EC;
+  box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255,0.5);
+  border-radius: 32px;
+}
+
+.neu:hover {
+  box-shadow: 12px 12px 20px rgb(163,177,198,0.7), -12px -12px 20px rgba(255,255,255,0.6);
+}
+
+.neu-sm {
+  box-shadow: 5px 5px 10px rgb(163,177,198,0.6), -5px -5px 10px rgba(255,255,255,0.5);
+  border-radius: 16px;
+}
+
+.neu-inset {
+  box-shadow: inset 6px 6px 10px rgb(163,177,198,0.6), inset -6px -6px 10px rgba(255,255,255,0.5);
+}
+
+.neu-inset-deep {
+  box-shadow: inset 10px 10px 20px rgb(163,177,198,0.7), inset -10px -10px 20px rgba(255,255,255,0.6);
+}
+
+/* Dark mode neu */
+.dark .neu {
+  background: #20242E;
+  box-shadow: 9px 9px 16px rgba(0,0,0,0.4), -9px -9px 16px rgba(255,255,255,0.04);
+}
+
+.dark .neu:hover {
+  box-shadow: 12px 12px 20px rgba(0,0,0,0.5), -12px -12px 20px rgba(255,255,255,0.05);
+}
+
+.dark .neu-sm {
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.4), -5px -5px 10px rgba(255,255,255,0.04);
+}
+
+.dark .neu-inset {
+  box-shadow: inset 6px 6px 10px rgba(0,0,0,0.4), inset -6px -6px 10px rgba(255,255,255,0.04);
+}
+
+.dark .neu-inset-deep {
+  box-shadow: inset 10px 10px 20px rgba(0,0,0,0.5), inset -10px -10px 20px rgba(255,255,255,0.05);
+}
+
+/* Floating blobs */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #E0E5EC;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(163,177,198,0.6);
+  border-radius: 10px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #1A1D24;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.1);
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid #6C63FF;
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Timeline dot */
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(135deg, #6C63FF, #38B2AC);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(108,99,255,0.2);
+  flex-shrink: 0;
+}
+
+/* Skill badge hover */
+.skill-badge {
+  transition: all 0.3s ease;
+}
+
+.skill-badge:hover {
+  transform: translateY(-2px);
+}
+
+/* Section entry animations */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
