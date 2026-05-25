@@ -221,23 +221,65 @@ export default function Stats() {
               />
             </div>
 
-            {/* Top languages */}
-            <div className="glass rounded-3xl border border-white/7 overflow-hidden flex items-center justify-center p-4">
-              <img
-                src="https://github-readme-stats.vercel.app/api/top-langs/?username=manikantbindass&layout=compact&theme=transparent&hide_border=true&title_color=6366F1&text_color=94A3B8&bg_color=00000000&langs_count=6"
-                alt="Top languages"
-                className="w-full max-w-md"
-              />
+            {/* Top Languages — native component, no external image */}
+            <div className="glass rounded-3xl border border-white/7 p-6 flex flex-col gap-4">
+              <p className="text-[11px] font-bold uppercase tracking-widest text-[#6366F1]">Top Languages</p>
+              {[
+                { lang: "TypeScript", pct: 42, color: "#3178C6" },
+                { lang: "Python",     pct: 26, color: "#3572A5" },
+                { lang: "JavaScript", pct: 18, color: "#F1E05A" },
+                { lang: "Solidity",   pct: 10, color: "#AA6746" },
+                { lang: "Other",      pct:  4, color: "#6366F1" },
+              ].map(({ lang, pct, color }) => (
+                <div key={lang} className="flex flex-col gap-1.5">
+                  <div className="flex items-center justify-between">
+                    <span className="flex items-center gap-2 text-sm text-white/80 font-medium">
+                      <span className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ background: color }} />
+                      {lang}
+                    </span>
+                    <span className="text-xs font-bold" style={{ color }}>{pct}%</span>
+                  </div>
+                  <div className="progress-track">
+                    <div
+                      className="progress-fill"
+                      style={{
+                        width: inView ? `${pct}%` : "0%",
+                        background: `linear-gradient(90deg, ${color}99, ${color})`,
+                        transition: "width 1.2s cubic-bezier(0.4,0,0.2,1)",
+                      }}
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* GitHub stats card */}
-          <div className="glass rounded-3xl border border-white/7 overflow-hidden flex items-center justify-center p-4 mt-5">
-            <img
-              src="https://github-readme-stats.vercel.app/api?username=manikantbindass&show_icons=true&theme=transparent&hide_border=true&title_color=6366F1&icon_color=A78BFA&text_color=94A3B8&bg_color=00000000&include_all_commits=true&count_private=true"
-              alt="GitHub stats"
-              className="w-full max-w-2xl"
-            />
+          {/* GitHub Stats — native component, no external image */}
+          <div className="glass rounded-3xl border border-white/7 p-6 mt-5">
+            <p className="text-[11px] font-bold uppercase tracking-widest text-[#6366F1] mb-5">GitHub Stats</p>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              {[
+                { icon: "📦", label: "Public Repos",  value: stats.github.repos,   color: "#6366F1", suffix: "+" },
+                { icon: "⭐", label: "Total Stars",    value: stats.github.stars,   color: "#F59E0B", suffix: "+" },
+                { icon: "🔀", label: "Pull Requests", value: stats.github.prs,     color: "#2DD4BF", suffix: "+" },
+                { icon: "💾", label: "Total Commits", value: stats.github.commits, color: "#A78BFA", suffix: "+" },
+              ].map(({ icon, label, value, color, suffix }) => (
+                <div
+                  key={label}
+                  className="glass rounded-2xl p-4 border border-white/5 flex flex-col items-center gap-2 text-center"
+                  style={{ borderColor: `${color}18` }}
+                >
+                  <span className="text-2xl">{icon}</span>
+                  <AnimatedCounter
+                    to={value}
+                    suffix={suffix}
+                    className="font-black text-2xl text-white"
+                  />
+                  <p className="text-[10px] uppercase tracking-wider text-white/40">{label}</p>
+                  <div className="w-8 h-0.5 rounded-full" style={{ background: color }} />
+                </div>
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>
