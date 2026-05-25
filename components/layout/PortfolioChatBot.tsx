@@ -243,6 +243,26 @@ export default function PortfolioChatBot() {
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef  = useRef<HTMLInputElement>(null);
 
+  // Inject keyframes once (avoids jsx global which isn't supported in App Router)
+  useEffect(() => {
+    const id = "chatbot-keyframes";
+    if (!document.getElementById(id)) {
+      const style = document.createElement("style");
+      style.id = id;
+      style.textContent = `
+        @keyframes typingBounce {
+          0%, 60%, 100% { transform: translateY(0); }
+          30%            { transform: translateY(-5px); }
+        }
+        @keyframes chatPulse {
+          0%, 100% { opacity: 1; }
+          50%       { opacity: 0.4; }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+  }, []);
+
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [msgs, typing]);
@@ -443,12 +463,6 @@ export default function PortfolioChatBot() {
         )}
       </AnimatePresence>
 
-      <style jsx global>{`
-        @keyframes typingBounce {
-          0%, 60%, 100% { transform: translateY(0); }
-          30%            { transform: translateY(-5px); }
-        }
-      `}</style>
     </>
   );
 }
