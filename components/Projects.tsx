@@ -176,9 +176,10 @@ export default function Projects() {
     <section
       id="projects"
       ref={ref}
-      className="py-24 bg-[#E0E5EC] dark:bg-[#1A1D24] relative overflow-hidden"
+      className="py-24 bg-[#0D0D1A] relative overflow-hidden"
     >
-      <div className="absolute top-1/3 right-0 w-80 h-80 rounded-full bg-[#6C63FF]/5 blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 right-0 w-96 h-96 rounded-full bg-[#6C63FF]/6 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-72 h-72 rounded-full bg-[#38B2AC]/5 blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -188,17 +189,17 @@ export default function Projects() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-[#6C63FF] dark:text-[#7C74FF] font-semibold text-sm tracking-widest uppercase mb-2">
-            What I&apos;ve built
+          <p className="text-[#6C63FF] font-semibold text-xs tracking-[0.3em] uppercase mb-4">
+            Selected Work
           </p>
-          <h2 className="font-display font-extrabold text-4xl sm:text-5xl text-[#3D4852] dark:text-[#E2E8F0] tracking-tight">
+          <h2 className="font-display font-extrabold text-4xl sm:text-5xl text-white tracking-tight">
             Featured Projects
           </h2>
           <div className="mt-4 flex justify-center">
             <div className="h-1 w-16 rounded-full bg-gradient-to-r from-[#6C63FF] to-[#38B2AC]" />
           </div>
-          <p className="mt-4 text-[#6B7280] dark:text-[#94A3B8] max-w-xl mx-auto">
-            A selection of my latest projects from AI/ML to blockchain systems and full-stack web apps.
+          <p className="mt-4 text-white/50 max-w-xl mx-auto">
+            A curated selection of AI, blockchain and full-stack projects.
           </p>
         </motion.div>
 
@@ -206,61 +207,37 @@ export default function Projects() {
         {loading ? (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[...Array(5)].map((_, i) => (
-              <div
-                key={i}
-                className="h-64 rounded-card bg-[#E0E5EC] dark:bg-[#20242E] shadow-neu dark:shadow-dark-neu animate-pulse"
-              />
+              <div key={i} className="h-64 rounded-3xl bg-white/4 animate-pulse" />
             ))}
           </div>
         ) : (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {repos.map((repo, i) => (
               <motion.div
                 key={repo.id}
                 initial={{ opacity: 0, y: 40 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
-                whileHover={{ y: -4 }}
-                className="group relative p-6 rounded-card bg-[#E0E5EC] dark:bg-[#20242E] shadow-neu dark:shadow-dark-neu hover:shadow-neu-hover dark:hover:shadow-dark-neu-hover transition-all duration-300 flex flex-col"
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                whileHover={{ y: -6 }}
+                className="group glass-card p-6 flex flex-col transition-all duration-300"
               >
-                {/* Top */}
                 <div className="flex items-start justify-between mb-4">
-                  <div
-                    className="w-12 h-12 rounded-inner flex items-center justify-center text-2xl bg-[#E0E5EC] dark:bg-[#1A1D24]"
-                    style={{
-                      boxShadow:
-                        "inset 5px 5px 10px rgb(163,177,198,0.6), inset -5px -5px 10px rgba(255,255,255,0.5)",
-                    }}
-                  >
+                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl" style={{ background: "rgba(108,99,255,0.12)", border: "1px solid rgba(108,99,255,0.2)" }}>
                     {getProjectEmoji(repo.name)}
                   </div>
                   <div className="flex items-center gap-2">
                     {repo.homepage && (
-                      <motion.a
-                        href={repo.homepage}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Live demo"
-                        className="w-8 h-8 flex items-center justify-center rounded-btn text-[#6B7280] dark:text-[#94A3B8] hover:text-[#6C63FF] dark:hover:text-[#7C74FF] bg-[#E0E5EC] dark:bg-[#1A1D24]"
-                        style={{
-                          boxShadow:
-                            "4px 4px 8px rgb(163,177,198,0.5), -4px -4px 8px rgba(255,255,255,0.5)",
-                        }}
+                      <motion.a href={repo.homepage} target="_blank" rel="noopener noreferrer" aria-label="Live demo"
+                        className="w-8 h-8 flex items-center justify-center rounded-xl text-white/40 hover:text-[#6C63FF] transition-colors"
+                        style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}
                         whileTap={{ scale: 0.9 }}
                       >
                         <ExternalLink size={14} />
                       </motion.a>
                     )}
-                    <motion.a
-                      href={repo.html_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="GitHub repo"
-                      className="w-8 h-8 flex items-center justify-center rounded-btn text-[#6B7280] dark:text-[#94A3B8] hover:text-[#6C63FF] dark:hover:text-[#7C74FF] bg-[#E0E5EC] dark:bg-[#1A1D24]"
-                      style={{
-                        boxShadow:
-                          "4px 4px 8px rgb(163,177,198,0.5), -4px -4px 8px rgba(255,255,255,0.5)",
-                      }}
+                    <motion.a href={repo.html_url} target="_blank" rel="noopener noreferrer" aria-label="GitHub repo"
+                      className="w-8 h-8 flex items-center justify-center rounded-xl text-white/40 hover:text-[#6C63FF] transition-colors"
+                      style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}
                       whileTap={{ scale: 0.9 }}
                     >
                       <GithubIcon size={14} />
@@ -268,69 +245,43 @@ export default function Projects() {
                   </div>
                 </div>
 
-                {/* Title */}
-                <h3 className="font-display font-bold text-lg text-[#3D4852] dark:text-[#E2E8F0] mb-2 leading-snug">
+                <h3 className="font-display font-bold text-lg text-white mb-2 leading-snug group-hover:text-[#A78BFA] transition-colors">
                   {getDisplayName(repo.name)}
                 </h3>
+                <p className="text-white/50 text-sm leading-relaxed flex-1 line-clamp-3">{repo.description}</p>
 
-                {/* Description */}
-                <p className="text-[#6B7280] dark:text-[#94A3B8] text-sm leading-relaxed flex-1 line-clamp-3">
-                  {repo.description}
-                </p>
-
-                {/* Footer */}
-                <div className="mt-4 pt-4 border-t border-[#6B7280]/10 flex items-center justify-between">
+                <div className="mt-4 pt-4 border-t border-white/6 flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     {repo.language && (
-                      <div className="flex items-center gap-1.5 text-xs text-[#6B7280] dark:text-[#94A3B8]">
-                        <span
-                          className="w-2.5 h-2.5 rounded-full"
-                          style={{
-                            background: LANG_COLORS[repo.language] || "#6B7280",
-                          }}
-                        />
+                      <div className="flex items-center gap-1.5 text-xs text-white/40">
+                        <span className="w-2.5 h-2.5 rounded-full" style={{ background: LANG_COLORS[repo.language] || "#6B7280" }} />
                         {repo.language}
                       </div>
                     )}
                   </div>
-                  <div className="flex items-center gap-3 text-xs text-[#6B7280] dark:text-[#94A3B8]">
-                    <span className="flex items-center gap-1">
-                      <Star size={12} /> {repo.stargazers_count}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <GitFork size={12} /> {repo.forks_count}
-                    </span>
+                  <div className="flex gap-3 text-xs text-white/30">
+                    <span className="flex items-center gap-1"><Star size={11} /> {repo.stargazers_count}</span>
+                    <span className="flex items-center gap-1"><GitFork size={11} /> {repo.forks_count}</span>
                   </div>
                 </div>
               </motion.div>
             ))}
 
-            {/* View All Card */}
+            {/* View All */}
             <motion.a
               href="https://github.com/manikantbindass"
-              target="_blank"
-              rel="noopener noreferrer"
+              target="_blank" rel="noopener noreferrer"
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.5 }}
-              whileHover={{ y: -4 }}
-              className="flex flex-col items-center justify-center gap-3 p-6 rounded-card bg-[#E0E5EC] dark:bg-[#20242E] border-2 border-dashed border-[#6C63FF]/30 hover:border-[#6C63FF]/60 transition-all duration-300 group min-h-[200px]"
+              whileHover={{ y: -6 }}
+              className="flex flex-col items-center justify-center gap-3 p-6 rounded-3xl border-2 border-dashed border-[#6C63FF]/20 hover:border-[#6C63FF]/50 transition-all duration-300 group min-h-[200px]"
             >
-              <div
-                className="w-12 h-12 rounded-inner flex items-center justify-center text-[#6C63FF] bg-[#E0E5EC] dark:bg-[#1A1D24]"
-                style={{
-                  boxShadow:
-                    "inset 5px 5px 10px rgb(163,177,198,0.6), inset -5px -5px 10px rgba(255,255,255,0.5)",
-                }}
-              >
+              <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-[#6C63FF]" style={{ background: "rgba(108,99,255,0.1)", border: "1px solid rgba(108,99,255,0.2)" }}>
                 <GithubIcon size={22} />
               </div>
-              <span className="font-display font-semibold text-[#6C63FF] dark:text-[#7C74FF] group-hover:gap-2 transition-all">
-                View All Projects
-              </span>
-              <span className="text-xs text-[#6B7280] dark:text-[#94A3B8]">
-                github.com/manikantbindass
-              </span>
+              <span className="font-semibold text-[#6C63FF]" >View All →</span>
+              <span className="text-xs text-white/30">github.com/manikantbindass</span>
             </motion.a>
           </div>
         )}

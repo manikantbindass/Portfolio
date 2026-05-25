@@ -39,7 +39,7 @@ export default function Certifications() {
     <section
       id="certifications"
       ref={ref}
-      className="py-24 bg-[#E0E5EC] dark:bg-[#1A1D24] relative overflow-hidden"
+      className="py-24 bg-[#0D0D1A] relative overflow-hidden"
     >
       <div className="absolute top-0 left-1/4 w-64 h-64 rounded-full bg-[#8B84FF]/5 blur-3xl pointer-events-none" />
 
@@ -76,7 +76,7 @@ export default function Certifications() {
               {/* Icon */}
               <div className="flex items-start justify-between mb-4">
                 <div
-                  className="w-14 h-14 rounded-inner flex items-center justify-center text-2xl bg-[#E0E5EC] dark:bg-[#1A1D24]"
+                  className="w-14 h-14 rounded-inner flex items-center justify-center text-2xl bg-[#0D0D1A]"
                   style={{
                     boxShadow:
                       "inset 6px 6px 10px rgb(163,177,198,0.6), inset -6px -6px 10px rgba(255,255,255,0.5)",

@@ -124,9 +124,9 @@ export default function Contact() {
     <section
       id="contact"
       ref={ref}
-      className="py-24 bg-[#E0E5EC] dark:bg-[#1A1D24] relative overflow-hidden"
+      className="py-24 bg-[#0A0A0F] relative overflow-hidden"
     >
-      <div className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full bg-[#6C63FF]/5 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full bg-[#6C63FF]/6 blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -136,10 +136,10 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-[#6C63FF] dark:text-[#7C74FF] font-semibold text-sm tracking-widest uppercase mb-2">
+          <p className="text-[#6C63FF] font-semibold text-xs tracking-[0.3em] uppercase mb-2">
             Let&apos;s connect
           </p>
-          <h2 className="font-display font-extrabold text-4xl sm:text-5xl text-[#3D4852] dark:text-[#E2E8F0] tracking-tight">
+          <h2 className="font-display font-extrabold text-4xl sm:text-5xl text-white tracking-tight">
             Get In Touch
           </h2>
           <div className="mt-4 flex justify-center">
@@ -153,7 +153,7 @@ export default function Contact() {
             initial={{ opacity: 0, x: -40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="p-8 rounded-card bg-[#E0E5EC] dark:bg-[#20242E] shadow-neu dark:shadow-dark-neu"
+            className="p-8 rounded-3xl glass-card"
           >
             <h3 className="font-display font-bold text-2xl text-[#3D4852] dark:text-[#E2E8F0] mb-6 flex items-center gap-2">
               <Mail size={22} className="text-[#6C63FF]" />
@@ -181,10 +181,7 @@ export default function Contact() {
                   { id: "email", label: "Email Address", type: "email", placeholder: "john@example.com" },
                 ].map((field) => (
                   <div key={field.id}>
-                    <label
-                      htmlFor={field.id}
-                      className="block text-sm font-medium text-[#6B7280] dark:text-[#94A3B8] mb-2"
-                    >
+                    <label htmlFor={field.id} className="block text-sm font-medium text-white/60 mb-2">
                       {field.label}
                     </label>
                     <input
@@ -193,22 +190,13 @@ export default function Contact() {
                       required
                       placeholder={field.placeholder}
                       value={form[field.id as keyof typeof form]}
-                      onChange={(e) =>
-                        setForm({ ...form, [field.id]: e.target.value })
-                      }
-                      className="w-full px-4 py-3 rounded-btn bg-[#E0E5EC] dark:bg-[#1A1D24] text-[#3D4852] dark:text-[#E2E8F0] placeholder-[#A0AEC0] dark:placeholder-[#4A5568] outline-none transition-all duration-300 focus:ring-2 focus:ring-[#6C63FF] focus:ring-offset-2 focus:ring-offset-[#E0E5EC] dark:focus:ring-offset-[#20242E]"
-                      style={{
-                        boxShadow:
-                          "inset 6px 6px 10px rgb(163,177,198,0.6), inset -6px -6px 10px rgba(255,255,255,0.5)",
-                      }}
+                      onChange={(e) => setForm({ ...form, [field.id]: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/8 text-white placeholder-white/25 outline-none transition-all focus:border-[#6C63FF]/50 focus:ring-1 focus:ring-[#6C63FF]/30"
                     />
                   </div>
                 ))}
                 <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-[#6B7280] dark:text-[#94A3B8] mb-2"
-                  >
+                  <label htmlFor="message" className="block text-sm font-medium text-white/60 mb-2">
                     Message
                   </label>
                   <textarea
@@ -218,11 +206,7 @@ export default function Contact() {
                     placeholder="Tell me about your project..."
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="w-full px-4 py-3 rounded-btn bg-[#E0E5EC] dark:bg-[#1A1D24] text-[#3D4852] dark:text-[#E2E8F0] placeholder-[#A0AEC0] dark:placeholder-[#4A5568] outline-none transition-all duration-300 focus:ring-2 focus:ring-[#6C63FF] focus:ring-offset-2 focus:ring-offset-[#E0E5EC] dark:focus:ring-offset-[#20242E] resize-none"
-                    style={{
-                      boxShadow:
-                        "inset 6px 6px 10px rgb(163,177,198,0.6), inset -6px -6px 10px rgba(255,255,255,0.5)",
-                    }}
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/8 text-white placeholder-white/25 outline-none transition-all focus:border-[#6C63FF]/50 focus:ring-1 focus:ring-[#6C63FF]/30 resize-none"
                   />
                 </div>
                 <motion.button
@@ -259,29 +243,16 @@ export default function Contact() {
                   transition={{ duration: 0.5, delay: 0.3 + i * 0.06 }}
                   whileHover={{ x: 4, scale: 1.01 }}
                   whileTap={{ scale: 0.98 }}
-                  className="flex items-center gap-3 p-4 rounded-card bg-[#E0E5EC] dark:bg-[#20242E] shadow-neu-sm dark:shadow-dark-neu hover:shadow-neu dark:hover:shadow-dark-neu-hover transition-all duration-300 group"
+                  className="flex items-center gap-3 p-4 rounded-2xl glass-card group transition-all duration-300 hover:-translate-y-0.5"
                 >
                   <div
-                    className="w-10 h-10 rounded-inner flex items-center justify-center bg-[#E0E5EC] dark:bg-[#1A1D24] flex-shrink-0"
-                    style={{
-                      boxShadow:
-                        "inset 4px 4px 8px rgb(163,177,198,0.6), inset -4px -4px 8px rgba(255,255,255,0.5)",
-                      color: link.color,
-                    }}
-                  >
-                    {typeof link.icon === "string" ? (
-                      <span className="text-lg">{link.icon}</span>
-                    ) : (
-                      link.icon
-                    )}
+                    className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                    style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", color: link.color }}>
+                    {typeof link.icon === "string" ? <span className="text-lg">{link.icon}</span> : link.icon}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="font-semibold text-sm text-[#3D4852] dark:text-[#E2E8F0]">
-                      {link.label}
-                    </div>
-                    <div className="text-xs text-[#6B7280] dark:text-[#94A3B8] truncate">
-                      {link.value}
-                    </div>
+                    <div className="font-semibold text-sm text-white">{link.label}</div>
+                    <div className="text-xs text-white/40 truncate">{link.value}</div>
                   </div>
                   <svg
                     className="w-4 h-4 text-[#6B7280] dark:text-[#94A3B8] group-hover:text-[#6C63FF] dark:group-hover:text-[#7C74FF] transition-colors flex-shrink-0"

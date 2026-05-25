@@ -54,7 +54,7 @@ export default function Experience() {
     <section
       id="experience"
       ref={ref}
-      className="py-24 bg-[#E0E5EC] dark:bg-[#1A1D24] relative overflow-hidden"
+      className="py-24 bg-[#0D0D1A] relative overflow-hidden"
     >
       <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-[#38B2AC]/5 blur-3xl pointer-events-none" />
 
