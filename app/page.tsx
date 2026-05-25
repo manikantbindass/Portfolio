@@ -5,7 +5,8 @@ import FloatingDock  from "@/components/layout/FloatingDock";
 import SocialRail    from "@/components/layout/SocialRail";
 import TopBar        from "@/components/layout/TopBar";
 import ScrollProgress from "@/components/layout/ScrollProgress";
-import ScrollMoon    from "@/components/layout/ScrollMoon";
+import ScrollMoon         from "@/components/layout/ScrollMoon";
+import PortfolioChatBot   from "@/components/layout/PortfolioChatBot";
 
 import Hero    from "@/components/sections/Hero";
 import About   from "@/components/sections/About";
@@ -39,6 +40,7 @@ export default function Home() {
       <CustomCursor />
       <ScrollProgress />
       <ScrollMoon />
+      <PortfolioChatBot />
       <TopBar dark={dark} toggle={toggleDark} />
       <SocialRail />
       <FloatingDock />
