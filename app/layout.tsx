@@ -4,8 +4,8 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Manikant Kumar | AI Engineer · Full Stack · Blockchain",
   description:
-    "Portfolio of Manikant Bindass — AI Engineer, Full Stack Developer & Blockchain Builder. Building scalable AI-powered products and Web3 systems.",
-  keywords: ["Manikant Kumar","Manikant Bindass","AI Engineer","Blockchain Developer","Full Stack","Web3","Solidity","Next.js","LangChain","Portfolio"],
+    "Portfolio of Manikant Kumar — AI Engineer, Full Stack Developer & Blockchain Builder. Building scalable AI-powered products and Web3 systems.",
+  keywords: ["Manikant Kumar","AI Engineer","Blockchain Developer","Full Stack","Web3","Solidity","Next.js","LangChain","Portfolio"],
   authors: [{ name: "Manikant Kumar", url: "https://github.com/manikantbindass" }],
   openGraph: {
     title: "Manikant Kumar | AI Engineer · Blockchain · Full Stack",

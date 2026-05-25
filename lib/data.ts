@@ -1,7 +1,7 @@
 // ─── Static content for the portfolio ───────────────────────────────────────
 export const personal = {
   name:       "Manikant Kumar",
-  handle:     "Manikant Bindass",
+  handle:     "Manikant Kumar",
   role:       "AI Engineer",
   roles:      ["AI Engineer", "Full Stack Developer", "Blockchain Builder", "Problem Solver", "Web3 Innovator"],
   tagline:    "I build scalable AI-powered products, high-performance systems, and modern web experiences.",
