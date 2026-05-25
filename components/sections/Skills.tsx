@@ -23,19 +23,27 @@ const ICON_MAP: Record<string, string> = {
   "React":          "https://cdn.simpleicons.org/react/61DAFB",
   "TypeScript":     "https://cdn.simpleicons.org/typescript/3178C6",
   "TailwindCSS":    "https://cdn.simpleicons.org/tailwindcss/06B6D4",
+  "Three.js":       "https://cdn.simpleicons.org/threedotjs/ffffff",
   "Framer Motion":  "https://cdn.simpleicons.org/framer/ffffff",
+  "Vue.js":         "https://cdn.simpleicons.org/vuedotjs/4FC08D",
   // Backend
   "Node.js":        "https://cdn.simpleicons.org/nodedotjs/339933",
   "Python":         "https://cdn.simpleicons.org/python/3776AB",
+  "Java":           "https://cdn.simpleicons.org/openjdk/ffffff",
+  "Spring Boot":    "https://cdn.simpleicons.org/springboot/6DB33F",
+  "FastAPI":        "https://cdn.simpleicons.org/fastapi/009688",
   "PostgreSQL":     "https://cdn.simpleicons.org/postgresql/4169E1",
   "MongoDB":        "https://cdn.simpleicons.org/mongodb/47A248",
   "Supabase":       "https://cdn.simpleicons.org/supabase/3ECF8E",
   // AI / ML
   "LangChain":      "https://cdn.simpleicons.org/langchain/ffffff",
+  "LangGraph":      "https://cdn.simpleicons.org/langchain/1C3C3C",
   "OpenAI":         "https://cdn.simpleicons.org/openai/ffffff",
   "Gemini":         "https://cdn.simpleicons.org/googlegemini/8E75B2",
   "Pinecone":       "https://cdn.simpleicons.org/pinecone/ffffff",
   "PyTorch":        "https://cdn.simpleicons.org/pytorch/EE4C2C",
+  "TensorFlow":     "https://cdn.simpleicons.org/tensorflow/FF6F00",
+  "CrewAI":         "https://cdn.simpleicons.org/python/3776AB",
   // Blockchain
   "Solidity":       "https://cdn.simpleicons.org/solidity/ffffff",
   "Ethereum":       "https://cdn.simpleicons.org/ethereum/ffffff",
@@ -44,10 +52,13 @@ const ICON_MAP: Record<string, string> = {
   "Hardhat":        "https://cdn.simpleicons.org/hardhat/FFF100",
   // DevOps
   "Docker":         "https://cdn.simpleicons.org/docker/2496ED",
+  "Kubernetes":     "https://cdn.simpleicons.org/kubernetes/326CE5",
   "AWS":            "https://cdn.simpleicons.org/amazonwebservices/FF9900",
+  "Azure":          "https://cdn.simpleicons.org/microsoftazure/0078D4",
   "Vercel":         "https://cdn.simpleicons.org/vercel/ffffff",
   "Git":            "https://cdn.simpleicons.org/git/F05032",
   "CI/CD":          "https://cdn.simpleicons.org/githubactions/2088FF",
+  "MLflow":         "https://cdn.simpleicons.org/mlflow/0194E2",
 };
 
 export default function Skills() {
