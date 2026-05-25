@@ -156,108 +156,106 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* ── RIGHT: Photo + orbit ── */}
+        {/* ── RIGHT: Photo + orbit + AI button ── */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4, duration: 0.9, ease: "easeOut" as const }}
-          className="relative flex items-center justify-center order-first lg:order-last"
+          className="relative flex flex-col items-center justify-center gap-6 order-first lg:order-last"
         >
-          {/* Glow behind photo */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-80 h-80 rounded-full opacity-30"
-              style={{ background: "radial-gradient(circle, #6366F1 0%, transparent 70%)", filter: "blur(60px)" }} />
-          </div>
+          {/* Photo + orbits container */}
+          <div className="relative flex items-center justify-center">
+            {/* Glow behind photo */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-80 h-80 rounded-full opacity-30"
+                style={{ background: "radial-gradient(circle, #6366F1 0%, transparent 70%)", filter: "blur(60px)" }} />
+            </div>
 
-          {/* Orbit ring 1 */}
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
-            className="absolute rounded-full border border-[#6366F1]/20"
-            style={{ width: 320, height: 320 }}
-          >
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-[#6366F1]"
-              style={{ boxShadow: "0 0 14px #6366F1" }} />
-          </motion.div>
-
-          {/* Orbit ring 2 — dashed */}
-          <motion.div
-            animate={{ rotate: -360 }}
-            transition={{ duration: 34, repeat: Infinity, ease: "linear" }}
-            className="absolute rounded-full border-dashed border border-[#2DD4BF]/15"
-            style={{ width: 400, height: 400 }}
-          >
-            <div className="absolute bottom-6 right-8 w-2 h-2 rounded-full bg-[#2DD4BF]"
-              style={{ boxShadow: "0 0 10px #2DD4BF" }} />
-          </motion.div>
-
-          {/* Floating tech pills */}
-          {[
-            { label: "Next.js",  top: "8%",  left: "0%",   color: "#6366F1" },
-            { label: "Solidity", top: "20%", right: "-4%", color: "#A78BFA" },
-            { label: "AI/ML",    bottom:"18%",left: "-4%", color: "#2DD4BF" },
-            { label: "Web3",     bottom:"8%", right:"5%",  color: "#F59E0B" },
-          ].map(p => (
+            {/* Orbit ring 1 */}
             <motion.div
-              key={p.label}
-              className="absolute glass px-3 py-1.5 rounded-xl text-xs font-semibold text-white border border-white/10 z-10"
-              style={{ ...p, color: p.color, borderColor: `${p.color}25`, animationDelay: `${Math.random()*3}s` }}
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 3 + Math.random() * 2, repeat: Infinity, ease: "easeInOut" }}
+              animate={{ rotate: 360 }}
+              transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
+              className="absolute rounded-full border border-[#6366F1]/20"
+              style={{ width: 320, height: 320 }}
             >
-              {p.label}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-[#6366F1]"
+                style={{ boxShadow: "0 0 14px #6366F1" }} />
             </motion.div>
-          ))}
 
-          {/* Profile image */}
-          <div className="relative w-56 h-64 sm:w-64 sm:h-72 z-10">
-            <div className="absolute inset-0 rounded-3xl" style={{ background: "linear-gradient(135deg,rgba(99,102,241,0.3),rgba(167,139,250,0.2))", filter: "blur(1px)" }} />
-            <Image
-              src="/profile.jpg"
-              alt="Manikant Kumar — AI Developer"
-              fill
-              priority
-              className="object-cover object-top mask-bottom"
-              style={{ borderRadius: "1.5rem" }}
-              sizes="(min-width: 1024px) 288px, 224px"
-            />
+            {/* Orbit ring 2 — dashed */}
+            <motion.div
+              animate={{ rotate: -360 }}
+              transition={{ duration: 34, repeat: Infinity, ease: "linear" }}
+              className="absolute rounded-full border-dashed border border-[#2DD4BF]/15"
+              style={{ width: 400, height: 400 }}
+            >
+              <div className="absolute bottom-6 right-8 w-2 h-2 rounded-full bg-[#2DD4BF]"
+                style={{ boxShadow: "0 0 10px #2DD4BF" }} />
+            </motion.div>
+
+            {/* Floating tech pills */}
+            {[
+              { label: "Next.js",  top: "8%",   left: "0%",   color: "#6366F1" },
+              { label: "Solidity", top: "20%",  right: "-4%", color: "#A78BFA" },
+              { label: "AI/ML",    bottom:"18%", left: "-4%", color: "#2DD4BF" },
+              { label: "Web3",     bottom:"8%",  right:"5%",  color: "#F59E0B" },
+            ].map(p => (
+              <motion.div
+                key={p.label}
+                className="absolute glass px-3 py-1.5 rounded-xl text-xs font-semibold text-white border border-white/10 z-10"
+                style={{ ...p, color: p.color, borderColor: `${p.color}25` }}
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 3 + Math.random() * 2, repeat: Infinity, ease: "easeInOut" }}
+              >
+                {p.label}
+              </motion.div>
+            ))}
+
+            {/* Profile image */}
+            <div className="relative w-56 h-64 sm:w-64 sm:h-72 z-10">
+              <div className="absolute inset-0 rounded-3xl" style={{ background: "linear-gradient(135deg,rgba(99,102,241,0.3),rgba(167,139,250,0.2))", filter: "blur(1px)" }} />
+              <Image
+                src="/profile.jpg"
+                alt="Manikant Kumar — AI Developer"
+                fill
+                priority
+                className="object-cover object-top mask-bottom"
+                style={{ borderRadius: "1.5rem" }}
+                sizes="(min-width: 1024px) 288px, 224px"
+              />
+            </div>
           </div>
 
-          {/* ── AI Chatbot trigger below photo ── */}
+          {/* ── AI Chat button — visibly below photo ── */}
           <motion.button
             onClick={() => window.dispatchEvent(new CustomEvent("openChatbot"))}
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.2, duration: 0.5 }}
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.97 }}
-            className="relative z-10 flex items-center gap-2 px-4 py-2.5 rounded-2xl text-sm font-semibold cursor-pointer group"
+            transition={{ delay: 1.3, duration: 0.5 }}
+            whileHover={{ scale: 1.06, y: -3 }}
+            whileTap={{ scale: 0.96 }}
+            className="relative z-20 flex items-center gap-2.5 px-5 py-3 rounded-2xl text-sm font-semibold group"
             style={{
-              background: "linear-gradient(135deg,rgba(99,102,241,0.15),rgba(167,139,250,0.1))",
-              border: "1px solid rgba(99,102,241,0.35)",
-              boxShadow: "0 0 20px rgba(99,102,241,0.2)",
+              background: "linear-gradient(135deg,rgba(99,102,241,0.18),rgba(167,139,250,0.12))",
+              border: "1px solid rgba(99,102,241,0.4)",
+              boxShadow: "0 0 24px rgba(99,102,241,0.25), inset 0 1px 0 rgba(255,255,255,0.06)",
+              backdropFilter: "blur(10px)",
             }}
           >
-            {/* Pulse dot */}
-            <span className="relative flex h-2 w-2">
+            {/* Live pulse dot */}
+            <span className="relative flex h-2.5 w-2.5 flex-shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2DD4BF] opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2DD4BF]" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#2DD4BF]" />
             </span>
-
-            <Sparkles size={14} className="text-[#A78BFA] group-hover:rotate-12 transition-transform duration-300" />
-
-            <span className="text-white/80 group-hover:text-white transition-colors">
-              Ask my <span className="text-[#A78BFA] font-bold">AI</span>
+            <Sparkles size={15} className="text-[#A78BFA]" />
+            <span className="text-white/85 group-hover:text-white transition-colors">
+              Ask my <span className="text-[#A78BFA] font-bold">AI</span> anything
             </span>
-
-            {/* Shimmer sweep */}
-            <span
-              className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-              style={{ background: "linear-gradient(90deg,transparent,rgba(167,139,250,0.12),transparent)" }}
-            />
+            {/* Arrow hint */}
+            <span className="text-[#6366F1] text-xs opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all">→</span>
           </motion.button>
-
         </motion.div>
+
       </div>
 
       {/* Scroll hint */}
