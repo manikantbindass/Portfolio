@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Navbar         from "@/components/Navbar";
 import Hero           from "@/components/Hero";
 import About          from "@/components/About";
@@ -12,13 +13,26 @@ import Contact        from "@/components/Contact";
 import Footer         from "@/components/Footer";
 
 export default function Home() {
-  // Dark mode is always on — full cosmos dark experience
-  const darkMode = true;
-  const toggleDark = () => {}; // Reserved for future implementation
+  const [dark, setDark] = useState(true);
+
+  useEffect(() => {
+    const stored = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const isDark = stored ? stored === "dark" : prefersDark;
+    setDark(isDark);
+    document.documentElement.classList.toggle("dark", isDark);
+  }, []);
+
+  const toggleDark = () => {
+    const next = !dark;
+    setDark(next);
+    document.documentElement.classList.toggle("dark", next);
+    localStorage.setItem("theme", next ? "dark" : "light");
+  };
 
   return (
     <main className="w-full overflow-x-hidden">
-      <Navbar darkMode={darkMode} toggleDark={toggleDark} />
+      <Navbar darkMode={dark} toggleDark={toggleDark} />
       <Hero />
       <About />
       <Experience />
