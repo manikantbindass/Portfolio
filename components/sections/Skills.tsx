@@ -16,6 +16,40 @@ const CATS = [
   { key: "devops",     label: "DevOps",     color: "#F43F5E" },
 ] as const;
 
+// ── Icon map: skill name → cdn.simpleicons.org URL ──────────────────────────
+const ICON_MAP: Record<string, string> = {
+  // Frontend
+  "Next.js":        "https://cdn.simpleicons.org/nextdotjs/ffffff",
+  "React":          "https://cdn.simpleicons.org/react/61DAFB",
+  "TypeScript":     "https://cdn.simpleicons.org/typescript/3178C6",
+  "TailwindCSS":    "https://cdn.simpleicons.org/tailwindcss/06B6D4",
+  "Framer Motion":  "https://cdn.simpleicons.org/framer/ffffff",
+  // Backend
+  "Node.js":        "https://cdn.simpleicons.org/nodedotjs/339933",
+  "Python":         "https://cdn.simpleicons.org/python/3776AB",
+  "PostgreSQL":     "https://cdn.simpleicons.org/postgresql/4169E1",
+  "MongoDB":        "https://cdn.simpleicons.org/mongodb/47A248",
+  "Supabase":       "https://cdn.simpleicons.org/supabase/3ECF8E",
+  // AI / ML
+  "LangChain":      "https://cdn.simpleicons.org/langchain/ffffff",
+  "OpenAI":         "https://cdn.simpleicons.org/openai/ffffff",
+  "Gemini":         "https://cdn.simpleicons.org/googlegemini/8E75B2",
+  "Pinecone":       "https://cdn.simpleicons.org/pinecone/ffffff",
+  "PyTorch":        "https://cdn.simpleicons.org/pytorch/EE4C2C",
+  // Blockchain
+  "Solidity":       "https://cdn.simpleicons.org/solidity/ffffff",
+  "Ethereum":       "https://cdn.simpleicons.org/ethereum/ffffff",
+  "Web3.js":        "https://cdn.simpleicons.org/web3dotjs/F16822",
+  "IPFS":           "https://cdn.simpleicons.org/ipfs/65C2CB",
+  "Hardhat":        "https://cdn.simpleicons.org/hardhat/FFF100",
+  // DevOps
+  "Docker":         "https://cdn.simpleicons.org/docker/2496ED",
+  "AWS":            "https://cdn.simpleicons.org/amazonwebservices/FF9900",
+  "Vercel":         "https://cdn.simpleicons.org/vercel/ffffff",
+  "Git":            "https://cdn.simpleicons.org/git/F05032",
+  "CI/CD":          "https://cdn.simpleicons.org/githubactions/2088FF",
+};
+
 export default function Skills() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
@@ -91,28 +125,67 @@ export default function Skills() {
           transition={{ duration: 0.4 }}
           className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4"
         >
-          {items.map((s, i) => (
-            <motion.div
-              key={s.name}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: i * 0.06, duration: 0.4 }}
-              className="glass rounded-2xl p-5 border border-white/7 card-hover flex flex-col gap-3 items-center text-center"
-            >
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center font-bold text-lg"
-                style={{ background: `${cat.color}15`, border: `1px solid ${cat.color}30`, color: cat.color }}>
-                {s.name.slice(0, 2)}
-              </div>
-              <p className="font-semibold text-white text-sm">{s.name}</p>
-              <div className="w-full progress-track">
+          {items.map((s, i) => {
+            const iconUrl = ICON_MAP[s.name];
+            return (
+              <motion.div
+                key={s.name}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: i * 0.06, duration: 0.4 }}
+                whileHover={{ y: -6, scale: 1.03 }}
+                className="glass rounded-2xl p-5 border border-white/7 flex flex-col gap-3 items-center text-center group cursor-default"
+                style={{ borderColor: `${cat.color}20` }}
+              >
+                {/* Icon container */}
                 <div
-                  className="progress-fill"
-                  style={{ width: inView ? `${s.level}%` : "0%", background: `linear-gradient(90deg,${cat.color}88,${cat.color})` }}
-                />
-              </div>
-              <p className="text-xs font-mono text-white/40">{s.level}%</p>
-            </motion.div>
-          ))}
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center relative overflow-hidden"
+                  style={{
+                    background: `${cat.color}12`,
+                    border: `1px solid ${cat.color}30`,
+                  }}
+                >
+                  {/* Glow pulse on hover */}
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
+                    style={{ background: `radial-gradient(circle at center, ${cat.color}35 0%, transparent 70%)` }}
+                  />
+
+                  {iconUrl ? (
+                    <motion.img
+                      src={iconUrl}
+                      alt={`${s.name} logo`}
+                      width={30}
+                      height={30}
+                      draggable={false}
+                      className="relative z-10 select-none"
+                      style={{ width: 30, height: 30, objectFit: "contain" }}
+                      whileHover={{ rotate: [0, -12, 12, -6, 6, 0], scale: 1.2 }}
+                      transition={{ duration: 0.5 }}
+                    />
+                  ) : (
+                    <span className="font-black text-xl relative z-10" style={{ color: cat.color }}>
+                      {s.name.slice(0, 2)}
+                    </span>
+                  )}
+                </div>
+
+                <p className="font-semibold text-white text-sm">{s.name}</p>
+
+                <div className="w-full progress-track">
+                  <div
+                    className="progress-fill"
+                    style={{
+                      width: inView ? `${s.level}%` : "0%",
+                      background: `linear-gradient(90deg,${cat.color}88,${cat.color})`,
+                    }}
+                  />
+                </div>
+
+                <p className="text-xs font-mono" style={{ color: cat.color }}>{s.level}%</p>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>
