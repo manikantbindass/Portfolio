@@ -244,3 +244,62 @@
 .animate-fade-up    { animation: fade-up 0.7s cubic-bezier(0.16,1,0.3,1) both; }
 .animate-scale-in   { animation: scale-in 0.5s cubic-bezier(0.16,1,0.3,1) both; }
 .animate-aurora     { animation: aurora 14s ease-in-out infinite alternate; }
+
+/* ── Scroll Moon ────────────────────────────────────────────────────────── */
+.moon-disc {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%,
+    #fffde7 0%,
+    #f5e9b0 30%,
+    #e0c97a 60%,
+    #c8a83a 85%,
+    #a07820 100%
+  );
+  position: relative;
+  box-shadow:
+    inset -8px -6px 18px rgba(0,0,0,0.35),
+    inset  4px  4px 14px rgba(255,255,230,0.45);
+}
+.moon-crescent {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 70% 30%,
+    rgba(10, 8, 30, 0.55) 0%,
+    transparent 55%
+  );
+}
+.moon-glow {
+  position: absolute;
+  inset: -28px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 240, 160, calc(var(--glow-opacity, 0.4))) 0%,
+    rgba(200, 168, 58, 0.12) 50%,
+    transparent 75%
+  );
+  filter: blur(10px);
+  pointer-events: none;
+}
+.moon-crater {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.18);
+  box-shadow: inset 1px 1px 3px rgba(255,255,200,0.2);
+}
+.moon-crater-1 { width: 14px; height: 14px; top: 22%; left: 28%; }
+.moon-crater-2 { width:  9px; height:  9px; top: 55%; left: 55%; }
+.moon-crater-3 { width:  6px; height:  6px; top: 32%; left: 60%; }
+
+/* container holds disc + glow + craters together */
+.scroll-moon { position: fixed; }
+.scroll-moon > * { position: absolute; top: 0; left: 0; }
+.scroll-moon .moon-disc { position: relative; }
+.scroll-moon .moon-crescent,
+.scroll-moon .moon-crater { position: absolute; }
+.scroll-moon .moon-glow { top: -28px; left: -28px; }
+
