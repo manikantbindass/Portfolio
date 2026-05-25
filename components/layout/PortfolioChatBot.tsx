@@ -261,6 +261,11 @@ export default function PortfolioChatBot() {
       `;
       document.head.appendChild(style);
     }
+
+    // Listen for hero "Ask my AI" button click
+    const handleOpen = () => setOpen(true);
+    window.addEventListener("openChatbot", handleOpen);
+    return () => window.removeEventListener("openChatbot", handleOpen);
   }, []);
 
   useEffect(() => {

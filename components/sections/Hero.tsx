@@ -2,7 +2,8 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Download, ArrowRight } from "lucide-react";
+import { Download, ArrowRight, Sparkles } from "lucide-react";
+
 
 const ROLES = ["AI Engineer", "Full Stack Developer", "Blockchain Builder", "Problem Solver", "Web3 Innovator"];
 
@@ -221,6 +222,41 @@ export default function Hero() {
               sizes="(min-width: 1024px) 288px, 224px"
             />
           </div>
+
+          {/* ── AI Chatbot trigger below photo ── */}
+          <motion.button
+            onClick={() => window.dispatchEvent(new CustomEvent("openChatbot"))}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2, duration: 0.5 }}
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.97 }}
+            className="relative z-10 flex items-center gap-2 px-4 py-2.5 rounded-2xl text-sm font-semibold cursor-pointer group"
+            style={{
+              background: "linear-gradient(135deg,rgba(99,102,241,0.15),rgba(167,139,250,0.1))",
+              border: "1px solid rgba(99,102,241,0.35)",
+              boxShadow: "0 0 20px rgba(99,102,241,0.2)",
+            }}
+          >
+            {/* Pulse dot */}
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2DD4BF] opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2DD4BF]" />
+            </span>
+
+            <Sparkles size={14} className="text-[#A78BFA] group-hover:rotate-12 transition-transform duration-300" />
+
+            <span className="text-white/80 group-hover:text-white transition-colors">
+              Ask my <span className="text-[#A78BFA] font-bold">AI</span>
+            </span>
+
+            {/* Shimmer sweep */}
+            <span
+              className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+              style={{ background: "linear-gradient(90deg,transparent,rgba(167,139,250,0.12),transparent)" }}
+            />
+          </motion.button>
+
         </motion.div>
       </div>
 
