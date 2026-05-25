@@ -94,7 +94,7 @@ export default function Hero() {
               style={{ fontSize: "clamp(2.8rem, 7vw, 5rem)" }}
             >
               Manikant{" "}
-              <span className="gradient-text">Bindass</span>
+              <span className="gradient-text">Kumar</span>
             </h1>
           </motion.div>
 
