@@ -175,6 +175,71 @@ export default function Stats() {
             </motion.a>
           ))}
         </div>
+
+        {/* ── GitHub Activity ── */}
+        <motion.div
+          variants={fadeUp(0.3)}
+          initial="hidden"
+          animate={inView ? "show" : "hidden"}
+          className="mt-10"
+        >
+          {/* Sub-heading */}
+          <div className="flex items-center gap-3 mb-6">
+            <span className="text-2xl">🐙</span>
+            <div>
+              <p className="section-label">Open Source Activity</p>
+              <h3 className="text-white font-black text-2xl">GitHub <span className="gradient-text">Contributions</span></h3>
+            </div>
+            <a
+              href="https://github.com/manikantbindass"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-auto btn-ghost text-xs"
+            >
+              View Profile →
+            </a>
+          </div>
+
+          {/* Contribution graph (full-width) */}
+          <div className="glass rounded-3xl p-1 border border-white/7 overflow-hidden mb-5">
+            <img
+              src="https://ghchart.rshah.org/6366F1/manikantbindass"
+              alt="Manikant Kumar GitHub contribution graph"
+              className="w-full rounded-2xl"
+              style={{ filter: "brightness(1.1) saturate(1.2)" }}
+            />
+          </div>
+
+          {/* Streak + Top Langs row */}
+          <div className="grid md:grid-cols-2 gap-5">
+            {/* Streak card */}
+            <div className="glass rounded-3xl border border-white/7 overflow-hidden flex items-center justify-center p-4">
+              <img
+                src="https://streak-stats.demolab.com?user=manikantbindass&theme=transparent&hide_border=true&ring=6366F1&fire=A78BFA&currStreakLabel=6366F1&sideLabels=94A3B8&dates=94A3B8&currStreakNum=ffffff&sideNums=ffffff&background=00000000"
+                alt="GitHub streak stats"
+                className="w-full max-w-md"
+              />
+            </div>
+
+            {/* Top languages */}
+            <div className="glass rounded-3xl border border-white/7 overflow-hidden flex items-center justify-center p-4">
+              <img
+                src="https://github-readme-stats.vercel.app/api/top-langs/?username=manikantbindass&layout=compact&theme=transparent&hide_border=true&title_color=6366F1&text_color=94A3B8&bg_color=00000000&langs_count=6"
+                alt="Top languages"
+                className="w-full max-w-md"
+              />
+            </div>
+          </div>
+
+          {/* GitHub stats card */}
+          <div className="glass rounded-3xl border border-white/7 overflow-hidden flex items-center justify-center p-4 mt-5">
+            <img
+              src="https://github-readme-stats.vercel.app/api?username=manikantbindass&show_icons=true&theme=transparent&hide_border=true&title_color=6366F1&icon_color=A78BFA&text_color=94A3B8&bg_color=00000000&include_all_commits=true&count_private=true"
+              alt="GitHub stats"
+              className="w-full max-w-2xl"
+            />
+          </div>
+        </motion.div>
       </div>
     </section>
   );
