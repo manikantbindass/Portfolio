@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Download, ArrowRight, Sparkles } from "lucide-react";
 
 
-const ROLES = ["AI Engineer", "Full Stack Developer", "Blockchain Builder", "Problem Solver", "Web3 Innovator"];
+const ROLES = ["AI Augmented Full Stack Developer", "Blockchain Developer", "Backend and DevSecOps"];
 
 function useTypewriter(words: string[], speed = 80, pause = 2200) {
   const [display, setDisplay] = useState("");
