@@ -1,16 +1,18 @@
 "use client";
+import { useEffect, useState } from "react";
+import CustomCursor  from "@/components/layout/CustomCursor";
+import FloatingDock  from "@/components/layout/FloatingDock";
+import SocialRail    from "@/components/layout/SocialRail";
+import TopBar        from "@/components/layout/TopBar";
+import ScrollProgress from "@/components/layout/ScrollProgress";
 
-import { useState, useEffect } from "react";
-import Navbar         from "@/components/Navbar";
-import Hero           from "@/components/Hero";
-import About          from "@/components/About";
-import Experience     from "@/components/Experience";
-import Projects       from "@/components/Projects";
-import Blog           from "@/components/Blog";
-import Stats          from "@/components/Stats";
-import Certifications from "@/components/Certifications";
-import Contact        from "@/components/Contact";
-import Footer         from "@/components/Footer";
+import Hero    from "@/components/sections/Hero";
+import About   from "@/components/sections/About";
+import Projects from "@/components/sections/Projects";
+import Skills  from "@/components/sections/Skills";
+import Stats   from "@/components/sections/Stats";
+import Contact from "@/components/sections/Contact";
+import Footer  from "@/components/sections/Footer";
 
 export default function Home() {
   const [dark, setDark] = useState(true);
@@ -18,7 +20,7 @@ export default function Home() {
   useEffect(() => {
     const stored = localStorage.getItem("theme");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const isDark = stored ? stored === "dark" : prefersDark;
+    const isDark = stored === "light" ? false : stored === "dark" ? true : prefersDark;
     setDark(isDark);
     document.documentElement.classList.toggle("dark", isDark);
   }, []);
@@ -31,17 +33,24 @@ export default function Home() {
   };
 
   return (
-    <main className="w-full overflow-x-hidden">
-      <Navbar darkMode={dark} toggleDark={toggleDark} />
-      <Hero />
-      <About />
-      <Experience />
-      <Projects />
-      <Blog />
-      <Stats />
-      <Certifications />
-      <Contact />
-      <Footer />
-    </main>
+    <>
+      {/* Layout shell */}
+      <CustomCursor />
+      <ScrollProgress />
+      <TopBar dark={dark} toggle={toggleDark} />
+      <SocialRail />
+      <FloatingDock />
+
+      {/* Content */}
+      <main className="w-full overflow-x-hidden">
+        <Hero />
+        <About />
+        <Projects />
+        <Skills />
+        <Stats />
+        <Contact />
+        <Footer />
+      </main>
+    </>
   );
 }
