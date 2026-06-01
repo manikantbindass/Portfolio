@@ -34,15 +34,15 @@ export const personal = {
 
 export const stats = {
   leetcode: {
-    total:   135,
-    easy:    52,
-    medium:  68,
-    hard:    15,
-    rating:  1620,
-    ranking: "Top 20%",
+    total:   184,
+    easy:    47,
+    medium:  101,
+    hard:    36,
+    rating:  1500,
+    ranking: "858,657",
   },
   github: {
-    repos:       239,   // public_repos from GitHub API
+    repos:       239,
     stars:       12,
     commits:     900,
     prs:         40,
