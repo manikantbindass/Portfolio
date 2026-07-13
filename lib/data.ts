@@ -12,13 +12,13 @@ export const personal = {
     "Backend Engineer",
     "Web3 Innovator",
   ],
-  tagline:    "Building scalable AI-powered products, blockchain systems, and high-performance backends — combining mathematics, coding discipline, and system design thinking.",
-  bio:        "A tech enthusiast from India exploring AI, Blockchain, Deep Learning, Neural Networks, LLMs, RAG systems, and Agentic AI. I solve complex problems by combining mathematics, coding discipline, and system design thinking to build scalable solutions.",
+  tagline:    "Forward Deployed Engineer candidate building AI-powered full-stack applications, scalable microservices, and enterprise-grade backend systems — combining system design, algorithms, and engineering discipline.",
+  bio:        "Pursuing B.Tech in Computer Science (Blockchain Technology) with hands-on experience developing AI-powered and full-stack applications using Python, Java, React.js, Node.js, FastAPI, and PostgreSQL. Strong foundation in Data Structures, Algorithms, Distributed Systems, REST API development, Microservices, and System Design. Passionate about solving customer-facing engineering challenges, integrating enterprise APIs, debugging production systems, and delivering scalable software solutions.",
   email:      "manikant.dev.ai@gmail.com",
   location:   "Ahmedabad, India",
-  university: "Parul University",
+  university: "Parul Institute of Engineering and Technology",
   degree:     "B.Tech CSE (Blockchain Technology)",
-  period:     "2022 – 2026",
+  period:     "2023 – 2027",
   available:  true,
   links: {
     github:    "https://github.com/manikantbindass",
@@ -38,7 +38,7 @@ export const stats = {
     easy:    95,
     medium:  200,
     hard:    55,
-    rating:  1500,
+    rating:  1620, // from resume
     ranking: "Auto-updated",
   },
   github: {
@@ -48,8 +48,8 @@ export const stats = {
     prs:         40,
     followers:   44,
   },
-  hackathons: 5,
-  projects:   20,
+  hackathons: 1,
+  projects:   15,
 };
 
 export const projects = [
@@ -191,23 +191,34 @@ export const marqueeItems = [
 
 export const experience = [
   {
-    role:     "AI-Augmented Full Stack Developer",
+    role:     "Lab Tech Support",
+    company:  "CV Raman Center, Parul University",
+    period:   "Feb 2026 – Mar 2026",
+    desc:     "Managed infrastructure supporting 3000+ systems during GATE and JAM examinations. Configured domains, networks and systems ensuring reliable and uninterrupted operations at scale.",
+  },
+  {
+    role:     "IT Intern — System Support Cell",
+    company:  "Parul University",
+    period:   "Sept 2025 – Feb 2026",
+    desc:     "Maintained university IT infrastructure and enterprise devices. Supported networking, troubleshooting and deployment activities across campus systems.",
+  },
+  {
+    role:     "Full Stack Developer (Projects)",
     company:  "Freelance / Open Source",
     period:   "2023 – Present",
-    desc:     "Building AI-powered RAG systems, agentic AI pipelines, blockchain smart contracts, and full-stack web applications. Focus on LLM integration (OpenAI, Anthropic, Gemini), LangChain, LangGraph, system design, and scalable backend engineering.",
+    desc:     "Building AI-powered applications and full-stack systems using FastAPI, Node.js, PostgreSQL, React.js, and LangChain. Designed microservices architectures with event-driven workflows (Kafka, Redis) and RAG-based document intelligence platforms.",
   },
   {
     role:     "B.Tech CSE — Blockchain Technology",
-    company:  "Parul University, Ahmedabad",
-    period:   "2022 – 2026",
-    desc:     "Specialization in blockchain technology, distributed systems, AI/ML, deep learning, neural networks, and software engineering fundamentals. Active in competitive programming (Codeforces, LeetCode) and hackathons.",
+    company:  "Parul Institute of Engineering and Technology",
+    period:   "2023 – 2027",
+    desc:     "Specialization in blockchain technology, distributed systems, AI/ML, and software engineering fundamentals. CGPA: 7.49. Active in competitive programming (LeetCode 350+, Codeforces, CodeChef, HackerRank).",
   },
 ];
 
 export const certifications = [
-  { title: "Ethereum Developer Bootcamp",       issuer: "Alchemy",         year: 2024, emoji: "🏆" },
-  { title: "Solidity Smart Contract Security",  issuer: "OpenZeppelin",    year: 2024, emoji: "🛡️" },
-  { title: "LangChain & LLM Development",       issuer: "DeepLearning.AI", year: 2024, emoji: "🤖" },
-  { title: "AWS Cloud Practitioner",            issuer: "Amazon AWS",      year: 2023, emoji: "☁️" },
-  { title: "Full Stack Web Development",        issuer: "Meta",            year: 2023, emoji: "💻" },
+  { title: "Introduction to IoT",                              issuer: "Cisco",  date: "Feb 2025",  emoji: "🌐" },
+  { title: "Computer Network and Internet Protocols",          issuer: "NPTEL",  date: "June 2025", emoji: "🔗" },
+  { title: "Artificial Intelligence: Concepts and Techniques", issuer: "NPTEL",  date: "Nov 2025",  emoji: "🤖" },
+  { title: "Blockchain and its Applications",                  issuer: "NPTEL",  date: "May 2026",  emoji: "⛓️" },
 ];

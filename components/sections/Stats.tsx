@@ -69,7 +69,7 @@ export default function Stats() {
               easy:   data.easy   ?? lc.easy,
               medium: data.medium ?? lc.medium,
               hard:   data.hard   ?? lc.hard,
-              rating: data.rating ?? lc.rating,
+              rating: data.rating ?? 1620,
             });
             if (data.source === "live") setLiveLabel("live");
           }
@@ -113,10 +113,10 @@ export default function Stats() {
       href: "https://github.com/manikantbindass",
     },
     {
-      name: "Hackathons", emoji: "🏆", color: "#2DD4BF",
+      name: "Hackathon", emoji: "🏆", color: "#2DD4BF",
       stats: [
-        { label: "Competed", value: fallbackStats.hackathons, suffix: "+" },
-        { label: "Projects", value: fallbackStats.projects,   suffix: "+" },
+        { label: "Competed", value: 1,                          suffix: "" },
+        { label: "Projects", value: fallbackStats.projects,    suffix: "+" },
       ],
       href: "https://devfolio.co/@manikantbindass",
     },

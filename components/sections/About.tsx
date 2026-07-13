@@ -9,11 +9,11 @@ const fadeUp = (delay = 0) => ({
 });
 
 const skills = [
-  { label: "AI / LLM Engineering",  pct: 88, color: "#6366F1" },
-  { label: "Full Stack Development", pct: 90, color: "#A78BFA" },
-  { label: "Blockchain / Web3",      pct: 82, color: "#2DD4BF" },
-  { label: "Smart Contracts",        pct: 80, color: "#F59E0B" },
-  { label: "DevOps / Cloud",         pct: 74, color: "#F43F5E" },
+  { label: "Backend & API Development", pct: 88, color: "#6366F1" },
+  { label: "AI / ML Engineering",       pct: 85, color: "#A78BFA" },
+  { label: "Full Stack Development",    pct: 87, color: "#2DD4BF" },
+  { label: "Data Structures & Algorithms", pct: 82, color: "#F59E0B" },
+  { label: "DevOps / Cloud",            pct: 74, color: "#F43F5E" },
 ];
 
 function SkillBar({ label, pct, color, inView }: { label: string; pct: number; color: string; inView: boolean }) {
@@ -74,16 +74,17 @@ export default function About() {
                   </div>
                 </div>
                 <p className="text-white/60 leading-relaxed text-sm">
-                  I&apos;m a passionate <span className="text-[#6366F1] font-semibold">AI & Blockchain developer</span> pursuing
-                  B.Tech in Computer Science with specialization in Blockchain Technology. I thrive at the intersection
-                  of cutting-edge AI and decentralized systems — building products that matter.
+                  I&apos;m a <span className="text-[#6366F1] font-semibold">Forward Deployed Engineer candidate</span> pursuing
+                  B.Tech in Computer Science (Blockchain Technology) at Parul University. I thrive at the intersection
+                  of AI, backend systems, and distributed architectures — building products that solve real engineering challenges.
                 </p>
                 <p className="text-white/60 leading-relaxed text-sm">
-                  From training LLMs and building RAG pipelines to writing gas-optimized Solidity contracts and
-                  deploying full-stack dApps — I love solving hard problems with elegant code.
+                  Experienced with <span className="text-[#A78BFA] font-semibold">Python, Java, React.js, Node.js, FastAPI, and PostgreSQL</span>.
+                  Passionate about scalable microservices, REST APIs, RAG systems, enterprise API integration,
+                  and debugging production systems in cross-functional environments.
                 </p>
                 <div className="flex flex-wrap gap-2 pt-1">
-                  {["LangChain", "Solidity", "Next.js", "Python", "Ethereum", "OpenAI"].map(t => (
+                  {["FastAPI", "Node.js", "React.js", "Python", "Java", "PostgreSQL"].map(t => (
                     <span key={t} className="text-xs font-semibold px-3 py-1 rounded-full border border-[#6366F1]/30 text-[#818CF8]"
                       style={{ background: "rgba(99,102,241,0.08)" }}>{t}</span>
                   ))}
@@ -152,7 +153,7 @@ export default function About() {
                     <span className="text-xl">{c.emoji}</span>
                     <div className="flex-1 min-w-0">
                       <p className="text-white text-sm font-semibold truncate">{c.title}</p>
-                      <p className="text-white/40 text-xs">{c.issuer} · {c.year}</p>
+                      <p className="text-white/40 text-xs">{c.issuer} · {(c as { issuer: string; date?: string; year?: number }).date ?? (c as { issuer: string; date?: string; year?: number }).year}</p>
                     </div>
                   </motion.div>
                 ))}

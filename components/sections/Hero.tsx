@@ -35,9 +35,9 @@ const fadeUp = {
 };
 
 const quickStats = [
-  { label: "Projects Built",  value: "20+",  color: "#6366F1" },
+  { label: "Projects Built",  value: "15+",  color: "#6366F1" },
   { label: "LeetCode Solved", value: "350+", color: "#A78BFA" },
-  { label: "Hackathons",      value: "5+",   color: "#2DD4BF" },
+  { label: "Hackathon",       value: "1",    color: "#2DD4BF" },
   { label: "GitHub Repos",    value: "239+", color: "#F59E0B" },
 ];
 
