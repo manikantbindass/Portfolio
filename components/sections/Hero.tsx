@@ -36,7 +36,7 @@ const fadeUp = {
 
 const quickStats = [
   { label: "Projects Built",  value: "20+",  color: "#6366F1" },
-  { label: "LeetCode Solved", value: "184+", color: "#A78BFA" },
+  { label: "LeetCode Solved", value: "350+", color: "#A78BFA" },
   { label: "Hackathons",      value: "5+",   color: "#2DD4BF" },
   { label: "GitHub Repos",    value: "239+", color: "#F59E0B" },
 ];
@@ -125,7 +125,7 @@ export default function Hero() {
               Explore Projects <ArrowRight size={15} />
             </motion.a>
             <motion.a
-              href="/Resume.pdf"
+              href="/Manikant FDE Resume.pdf"
               download
               data-magnetic
               className="flex items-center gap-2 text-sm font-semibold text-white/85 px-6 py-3 rounded-2xl glass border border-white/10"

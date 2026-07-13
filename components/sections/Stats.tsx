@@ -1,8 +1,8 @@
 "use client";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
-import { stats } from "@/lib/data";
+import { stats as fallbackStats } from "@/lib/data";
 
 const fadeUp = (delay = 0) => ({
   hidden: { opacity: 0, y: 30 },
@@ -15,9 +15,7 @@ function CircleRing({ pct, color, size = 100 }: { pct: number; color: string; si
   const dash = (pct / 100) * circ;
   return (
     <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} aria-hidden>
-      {/* Track */}
       <circle cx={size/2} cy={size/2} r={r} fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="5" />
-      {/* Fill */}
       <circle
         cx={size/2} cy={size/2} r={r} fill="none"
         stroke={color} strokeWidth="5"
@@ -30,49 +28,98 @@ function CircleRing({ pct, color, size = 100 }: { pct: number; color: string; si
   );
 }
 
-const platforms = [
-  {
-    name: "LeetCode",
-    emoji: "🔥",
-    color: "#F59E0B",
-    stats: [
-      { label: "Solved",  value: stats.leetcode.total,   suffix: "+" },
-      { label: "Rating",  value: stats.leetcode.rating,  suffix: "+" },
-    ],
-    href: "https://leetcode.com/u/manikantbindass/",
-  },
-  {
-    name: "GitHub",
-    emoji: "🐙",
-    color: "#6366F1",
-    stats: [
-      { label: "Repos",   value: stats.github.repos,   suffix: "+" },
-      { label: "Commits", value: stats.github.commits, suffix: "+" },
-    ],
-    href: "https://github.com/manikantbindass",
-  },
-  {
-    name: "Hackathons",
-    emoji: "🏆",
-    color: "#2DD4BF",
-    stats: [
-      { label: "Competed", value: stats.hackathons, suffix: "+" },
-      { label: "Projects", value: stats.projects,   suffix: "+" },
-    ],
-    href: "https://devfolio.co/@manikantbindass",
-  },
-];
+// ── Types ─────────────────────────────────────────────────────────────────────
+interface LCStats { total: number; easy: number; medium: number; hard: number; rating: number; }
+interface GHStats { repos: number; followers: number; }
 
 export default function Stats() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
-  const lc = stats.leetcode;
+  // Live stats state — starts from data.ts fallback, overwritten by API
+  const [lc, setLc] = useState<LCStats>({
+    total:  fallbackStats.leetcode.total,
+    easy:   fallbackStats.leetcode.easy,
+    medium: fallbackStats.leetcode.medium,
+    hard:   fallbackStats.leetcode.hard,
+    rating: fallbackStats.leetcode.rating,
+  });
+  const [gh, setGh] = useState<GHStats>({
+    repos:     fallbackStats.github.repos,
+    followers: fallbackStats.github.followers,
+  });
+  const [liveLabel, setLiveLabel] = useState<"live" | "cached" | "fallback">("cached");
+
+  // ── Fetch live stats on mount ──────────────────────────────────────────────
+  useEffect(() => {
+    let cancelled = false;
+
+    async function fetchStats() {
+      try {
+        const [lcRes, ghRes] = await Promise.allSettled([
+          fetch("/api/leetcode"),
+          fetch("/api/github"),
+        ]);
+
+        if (!cancelled) {
+          if (lcRes.status === "fulfilled" && lcRes.value.ok) {
+            const data = await lcRes.value.json();
+            setLc({
+              total:  data.total  ?? lc.total,
+              easy:   data.easy   ?? lc.easy,
+              medium: data.medium ?? lc.medium,
+              hard:   data.hard   ?? lc.hard,
+              rating: data.rating ?? lc.rating,
+            });
+            if (data.source === "live") setLiveLabel("live");
+          }
+          if (ghRes.status === "fulfilled" && ghRes.value.ok) {
+            const data = await ghRes.value.json();
+            setGh({ repos: data.repos ?? gh.repos, followers: data.followers ?? gh.followers });
+          }
+        }
+      } catch {
+        // silently use fallback
+      }
+    }
+
+    fetchStats();
+    return () => { cancelled = true; };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const total = lc.easy + lc.medium + lc.hard;
   const difficulties = [
-    { label: "Easy",   count: lc.easy,   pct: Math.round(lc.easy   / total * 100), color: "#2DD4BF" },
-    { label: "Medium", count: lc.medium, pct: Math.round(lc.medium / total * 100), color: "#F59E0B" },
-    { label: "Hard",   count: lc.hard,   pct: Math.round(lc.hard   / total * 100), color: "#F43F5E" },
+    { label: "Easy",   count: lc.easy,   pct: total ? Math.round(lc.easy   / total * 100) : 33, color: "#2DD4BF" },
+    { label: "Medium", count: lc.medium, pct: total ? Math.round(lc.medium / total * 100) : 34, color: "#F59E0B" },
+    { label: "Hard",   count: lc.hard,   pct: total ? Math.round(lc.hard   / total * 100) : 33, color: "#F43F5E" },
+  ];
+
+  const platforms = [
+    {
+      name: "LeetCode",  emoji: "🔥", color: "#F59E0B",
+      stats: [
+        { label: "Solved",  value: lc.total,  suffix: "+" },
+        { label: "Rating",  value: lc.rating, suffix: "+" },
+      ],
+      href: "https://leetcode.com/u/manikantbindass/",
+    },
+    {
+      name: "GitHub", emoji: "🐙", color: "#6366F1",
+      stats: [
+        { label: "Repos",   value: gh.repos,                    suffix: "+" },
+        { label: "Commits", value: fallbackStats.github.commits, suffix: "+" },
+      ],
+      href: "https://github.com/manikantbindass",
+    },
+    {
+      name: "Hackathons", emoji: "🏆", color: "#2DD4BF",
+      stats: [
+        { label: "Competed", value: fallbackStats.hackathons, suffix: "+" },
+        { label: "Projects", value: fallbackStats.projects,   suffix: "+" },
+      ],
+      href: "https://devfolio.co/@manikantbindass",
+    },
   ];
 
   return (
@@ -91,6 +138,11 @@ export default function Stats() {
           <h2 className="section-heading text-white">
             Coding <span className="gradient-text-gold">Stats</span>
           </h2>
+          {/* Live indicator */}
+          <div className="inline-flex items-center gap-1.5 mt-2 px-3 py-1 rounded-full glass border border-white/8 text-[10px] text-white/40">
+            <span className={`w-1.5 h-1.5 rounded-full ${liveLabel === "live" ? "bg-[#2DD4BF] animate-pulse" : "bg-white/25"}`} />
+            {liveLabel === "live" ? "Live data · auto-updates every 6 hours" : "Cached data"}
+          </div>
         </motion.div>
 
         {/* LeetCode ring card */}
@@ -100,9 +152,9 @@ export default function Stats() {
             {/* Big ring */}
             <div className="flex flex-col items-center gap-3 flex-shrink-0">
               <div className="relative">
-                <CircleRing pct={Math.round(total / 700 * 100)} color="#F59E0B" size={140} />
+                <CircleRing pct={Math.min(Math.round(lc.total / 600 * 100), 100)} color="#F59E0B" size={140} />
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <AnimatedCounter to={total} suffix="+" className="font-black text-3xl text-white" />
+                  <AnimatedCounter to={lc.total} suffix="+" className="font-black text-3xl text-white" />
                   <span className="text-[10px] text-white/40 font-medium">Solved</span>
                 </div>
               </div>
@@ -137,8 +189,14 @@ export default function Stats() {
                 <AnimatedCounter to={lc.rating} suffix="+" className="font-black text-2xl gradient-text-gold" />
               </div>
               <div className="glass rounded-2xl p-4 border border-white/6 flex flex-col gap-1">
-                <p className="text-[10px] uppercase tracking-wider text-white/35">Global Ranking</p>
-                <p className="font-black text-2xl text-[#2DD4BF]">{lc.ranking}</p>
+                <p className="text-[10px] uppercase tracking-wider text-white/35">LeetCode</p>
+                <a
+                  href="https://leetcode.com/u/manikantbindass/"
+                  target="_blank" rel="noopener noreferrer"
+                  className="font-black text-lg text-[#F59E0B] hover:underline"
+                >
+                  @manikantbindass →
+                </a>
               </div>
             </div>
           </div>
@@ -221,15 +279,15 @@ export default function Stats() {
               />
             </div>
 
-            {/* Top Languages — native component, no external image */}
+            {/* Top Languages */}
             <div className="glass rounded-3xl border border-white/7 p-6 flex flex-col gap-4">
               <p className="text-[11px] font-bold uppercase tracking-widest text-[#6366F1]">Top Languages</p>
               {[
-                { lang: "TypeScript", pct: 42, color: "#3178C6" },
-                { lang: "Python",     pct: 26, color: "#3572A5" },
-                { lang: "JavaScript", pct: 18, color: "#F1E05A" },
-                { lang: "Solidity",   pct: 10, color: "#AA6746" },
-                { lang: "Other",      pct:  4, color: "#6366F1" },
+                { lang: "TypeScript", pct: 38, color: "#3178C6" },
+                { lang: "Python",     pct: 28, color: "#3572A5" },
+                { lang: "Java",       pct: 16, color: "#B07219" },
+                { lang: "JavaScript", pct: 12, color: "#F1E05A" },
+                { lang: "Solidity",   pct:  6, color: "#AA6746" },
               ].map(({ lang, pct, color }) => (
                 <div key={lang} className="flex flex-col gap-1.5">
                   <div className="flex items-center justify-between">
@@ -254,15 +312,15 @@ export default function Stats() {
             </div>
           </div>
 
-          {/* GitHub Stats — native component, no external image */}
+          {/* GitHub Stats */}
           <div className="glass rounded-3xl border border-white/7 p-6 mt-5">
             <p className="text-[11px] font-bold uppercase tracking-widest text-[#6366F1] mb-5">GitHub Stats</p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {[
-                { icon: "📦", label: "Public Repos",  value: stats.github.repos,   color: "#6366F1", suffix: "+" },
-                { icon: "⭐", label: "Total Stars",    value: stats.github.stars,   color: "#F59E0B", suffix: "+" },
-                { icon: "🔀", label: "Pull Requests", value: stats.github.prs,     color: "#2DD4BF", suffix: "+" },
-                { icon: "💾", label: "Total Commits", value: stats.github.commits, color: "#A78BFA", suffix: "+" },
+                { icon: "📦", label: "Public Repos",  value: gh.repos,                         color: "#6366F1", suffix: "+" },
+                { icon: "👥", label: "Followers",      value: gh.followers,                     color: "#A78BFA", suffix: "+" },
+                { icon: "🔀", label: "Pull Requests",  value: fallbackStats.github.prs,         color: "#2DD4BF", suffix: "+" },
+                { icon: "💾", label: "Total Commits",  value: fallbackStats.github.commits,     color: "#F59E0B", suffix: "+" },
               ].map(({ icon, label, value, color, suffix }) => (
                 <div
                   key={label}

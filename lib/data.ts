@@ -34,12 +34,12 @@ export const personal = {
 
 export const stats = {
   leetcode: {
-    total:   184,
-    easy:    47,
-    medium:  101,
-    hard:    36,
+    total:   350,  // fallback — live data fetched from /api/leetcode
+    easy:    95,
+    medium:  200,
+    hard:    55,
     rating:  1500,
-    ranking: "858,657",
+    ranking: "Auto-updated",
   },
   github: {
     repos:       239,
