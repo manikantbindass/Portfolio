@@ -1,279 +1,81 @@
-<div align="center">
+# Manikant Kumar — Engineering Portfolio
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:6366F1,50:A78BFA,100:2DD4BF&height=220&section=header&text=Manikant%20Kumar%20—%20Portfolio&fontSize=42&fontAlignY=42&animation=fadeIn&fontColor=ffffff" />
+A Next.js 16, React, TypeScript, Tailwind, and Framer Motion portfolio with a cosmic glass interface in dark and light themes. The signature technology marquees, scroll-driven moon, typewriter, floating navigation, custom cursor, and portfolio guide are preserved.
 
-<a href="https://portfolio-ten-omega-4ibkho6f7u.vercel.app">
-  <img src="https://readme-typing-svg.demolab.com?font=Plus+Jakarta+Sans&weight=800&size=22&pause=900&color=A78BFA&center=true&vCenter=true&width=700&lines=AI-Augmented+Full+Stack+Developer;Blockchain+Smart+Contract+Developer;System+Design+Engineer;Agentic+AI+Builder;Web3+Innovator" alt="Typing SVG" />
-</a>
+## Run locally
 
-<br/>
+Use Node.js 24 LTS and npm with the checked-in lockfile.
 
-[![Next.js](https://img.shields.io/badge/Next.js_16-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
-[![Framer Motion](https://img.shields.io/badge/Framer_Motion-EF0070?style=for-the-badge&logo=framer&logoColor=white)](https://www.framer.com/motion/)
-[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://portfolio-ten-omega-4ibkho6f7u.vercel.app)
-
-<p align="center">
-  <a href="https://github.com/manikantbindass/Portfolio/stargazers">
-    <img src="https://img.shields.io/github/stars/manikantbindass/Portfolio?style=social" />
-  </a>
-  <a href="https://github.com/manikantbindass/Portfolio/forks">
-    <img src="https://img.shields.io/github/forks/manikantbindass/Portfolio?style=social" />
-  </a>
-  <img src="https://img.shields.io/github/last-commit/manikantbindass/Portfolio?color=6366F1&style=flat-square" />
-  <img src="https://img.shields.io/github/languages/top/manikantbindass/Portfolio?color=A78BFA&style=flat-square" />
-</p>
-
-**[🌐 Live Site](https://portfolio-ten-omega-4ibkho6f7u.vercel.app)** · **[📬 Contact](mailto:manikant.dev.ai@gmail.com)** · **[💼 LinkedIn](https://www.linkedin.com/in/manikantbindass/)** · **[🐙 GitHub](https://github.com/manikantbindass)**
-
-</div>
-
----
-
-## 🌌 Overview
-
-A **premium, fully responsive developer portfolio** built with Next.js 16, TypeScript, and Framer Motion — showcasing my work across **AI/ML, Blockchain, Full Stack Development, and System Design**. Designed with a **cosmic dark glassmorphism** aesthetic featuring real-time animations, an AI assistant chatbot, scroll-driven moon arc, interactive skill cards with real tech logos, and live GitHub contribution graphs.
-
-> 🔗 **Live:** [https://portfolio-ten-omega-4ibkho6f7u.vercel.app](https://portfolio-ten-omega-4ibkho6f7u.vercel.app)
-
----
-
-## ✨ Features
-
-| Feature | Details |
-|---|---|
-| 🌌 **Cosmic Dark Design** | Deep space glassmorphism, aurora blobs, canvas starfield background |
-| 🌙 **Scroll-Driven Moon Arc** | Moon animates across the viewport as you scroll through the page |
-| 🤖 **AI Portfolio Chatbot** | Embedded assistant answering questions about skills, projects, GitHub stats |
-| ⌨️ **Typewriter Hero** | Multi-role animated typewriter with 6 rotating titles |
-| 🖼️ **Profile Photo** | Cropped circular image with gradient ring + floating animation |
-| 💻 **Skill Cards with Real Logos** | 25 tech logos from `cdn.simpleicons.org` with wiggle + glow hover |
-| 📊 **GitHub Activity Section** | Live contribution graph, animated streak card, native Top Languages chart |
-| 🚀 **Project Showcase** | 8 featured projects with tags, live links, and GitHub links |
-| 🏆 **Stats Counter** | Animated counters for GitHub repos, commits, LeetCode, hackathons |
-| 🎭 **Framer Motion Animations** | Fade-in, scroll-triggered, hover-lift, press-depth throughout |
-| 🌙 **Dark / Light Mode** | Toggle with `localStorage` persistence |
-| 📱 **Fully Responsive** | Mobile-first, tested across all breakpoints |
-| 🎯 **SEO Optimized** | Meta tags, OG image, Twitter cards, semantic HTML |
-| ⌨️ **Keyboard Navigation** | Full focus states and accessible markup |
-| 🔗 **Social Rail** | Floating left-side social icon dock |
-| 🧲 **Magnetic Cursor** | Custom cursor with magnetic pull on interactive elements |
-| 📜 **Scroll Progress Bar** | Top progress indicator tied to page scroll |
-
----
-
-## 🎨 Design System
-
-Built on a **cosmic dark glassmorphism** design language:
-
-| Token | Value |
-|---|---|
-| Background | `#050A18` — deep navy-black |
-| Glass cards | `rgba(255,255,255,0.04)` + `backdrop-filter: blur` |
-| Primary accent | `#6366F1` (Indigo) |
-| Secondary accent | `#A78BFA` (Purple) |
-| Teal accent | `#2DD4BF` |
-| Gold accent | `#F59E0B` |
-| Aurora blobs | Radial gradients, softly animated |
-| Typography | **Plus Jakarta Sans** (body) + **Outfit** (headings) |
-
----
-
-## 🤖 AI Portfolio Chatbot
-
-The built-in chatbot can answer questions about Manikant with **zero API cost** — all responses are served from an embedded knowledge base:
-
-| Topic | Sample Questions |
-|---|---|
-| About | "Who is Manikant?", "Tell me about him" |
-| Projects | "What projects has he built?", "Tell me about MetaRole.AI" |
-| Skills | "What is his tech stack?", "AI/ML skills?" |
-| GitHub | "GitHub stats?", "How many repos?" |
-| LeetCode | "LeetCode stats?", "DSA skills?" |
-| Contact | "How to contact him?", "Is he available to hire?" |
-| Education | "Where did he study?", "B.Tech details?" |
-| Blockchain | "What blockchain work has he done?" |
-
-**Features:** typing indicator, suggestion chips on open, markdown rendering with clickable links, auto-scroll, animated toggle button with pulse ring.
-
----
-
-## 🚀 Featured Projects
-
-| Project | Description | Tech |
-|---|---|---|
-| 🤖 [MetaRole.AI](https://github.com/manikantbindass/MetaRole.ai) | AI career co-pilot — skill analysis, roadmap generation, resume optimization | Next.js · LangChain · OpenAI · Supabase |
-| 💊 [SecureRxChain](https://github.com/manikantbindass/SecureRxChain-Blockchain-Based-Drug-Supply-Chain-Counterfeit-Medicine-Prevention-System) | Blockchain anti-counterfeit drug supply chain with QR traceability | Solidity · Ethereum · Web3.js · IPFS |
-| 🧠 [Intramind.AI](https://github.com/manikantbindass/Intramind.ai) | Enterprise AI knowledge base with RAG, semantic search, team workspaces | LangChain · Pinecone · FastAPI · TypeScript |
-| 🛡️ [RemoteShield X](https://github.com/manikantbindass/RdPBrowser) | Enterprise secure remote work browser with WireGuard VPN | Tauri · Flutter · Docker · WireGuard |
-| 🔍 [TraceHunt AI](https://github.com/manikantbindass/Tracehunt) | AI observability platform — API monitoring, anomaly detection, root cause analysis | Python · FastAPI · LLMs · OpenAI |
-| 🔒 [SolGuard AI](https://github.com/manikantbindass/SolGuardAI-An-AI-Powered-Blockchain-Smart-Contract-) | AI smart contract auditor — vulnerability detection, gas optimization | LangChain · Solidity · Python |
-| 🔗 [AutoLedger AI](https://github.com/manikantbindass/AutoLedgerAI-Self-healing-blockchain-network-using-reinforcement-learning) | Self-healing blockchain with RL agents for consensus management | Python · TensorFlow · Blockchain |
-| 📚 [DSA Mastersheet](https://github.com/manikantbindass/DSA-Preparation-FAANG-) | Complete FAANG DSA roadmap — Beginner to Advanced | Java · C++ · Python |
-
----
-
-## 💻 Tech Stack
-
-| Layer | Technology |
-|---|---|
-| Framework | Next.js 16 (App Router + Turbopack) |
-| Language | TypeScript |
-| Styling | Tailwind CSS v4 |
-| Animations | Framer Motion |
-| Icons | Lucide React · Simple Icons CDN |
-| Fonts | Plus Jakarta Sans · Outfit (Google Fonts) |
-| Background | HTML5 Canvas (starfield) |
-| Deployment | Vercel |
-
----
-
-## 📁 Project Structure
-
-```
-Portfolio/
-├── app/
-│   ├── globals.css              # Design tokens, glass, aurora, animations
-│   ├── layout.tsx               # Root layout + SEO metadata
-│   └── page.tsx                 # Main page composition
-│
-├── components/
-│   ├── layout/
-│   │   ├── TopBar.tsx           # Sticky nav + dark mode toggle
-│   │   ├── SocialRail.tsx       # Floating left social icon dock
-│   │   ├── FloatingDock.tsx     # Magnetic floating bottom dock
-│   │   ├── CustomCursor.tsx     # Magnetic custom cursor
-│   │   ├── ScrollProgress.tsx   # Top scroll progress bar
-│   │   ├── ScrollMoon.tsx       # Scroll-driven moon arc animation
-│   │   └── PortfolioChatBot.tsx # AI assistant chatbot
-│   │
-│   └── sections/
-│       ├── Hero.tsx             # Profile photo + typewriter + CTA
-│       ├── About.tsx            # Bio, education, stats
-│       ├── Skills.tsx           # Tabbed skill cards with real logos
-│       ├── Projects.tsx         # Featured project cards
-│       ├── Stats.tsx            # GitHub contribution graph + streak
-│       └── Contact.tsx          # Contact form + social links
-│
-├── lib/
-│   └── data.ts                  # All portfolio data (projects, skills, stats)
-│
-├── public/
-│   └── profile.jpg              # Profile photo
-│
-├── tailwind.config.ts           # Custom design tokens
-└── next.config.ts               # Next.js image + security config
-```
-
----
-
-## 🛠️ Getting Started
-
-### Prerequisites
-
-- Node.js 18+
-- npm or yarn
-
-### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/manikantbindass/Portfolio.git
-
-# Navigate into the project
-cd Portfolio
-
-# Install dependencies
-npm install
-
-# Start the development server
+```sh
+npm ci
 npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-### Build for Production
-
-```bash
+npm run typecheck
+npm run lint
+npm test
 npm run build
-npm run start
+npm start
 ```
 
-> No environment variables required — all data is embedded in `lib/data.ts` and GitHub's public API is used without a token.
+For a running local server, `node scripts/smoke.mjs` validates every case study, all resume routes and PDF responses, screenshot files, metadata endpoints, API labels, and unknown-route 404s. Set `PORTFOLIO_TEST_URL` when using a port other than 3000.
 
----
+## Project showcase
 
-## 📦 Deployment
+Six recent highlights are selected from GitHub's public `pushed_at` timestamps, captured on 25 October 2026. FlowNovaAI was added as project 16 at the owner's request; its README-only status is explicit.
 
-### Vercel (Live)
+| Project                            | Case study                  | Highlight        | Repository captures |
+| ---------------------------------- | --------------------------- | ---------------- | ------------------: |
+| AutoHealOps                        | `/projects/autohealops`     | Recent highlight |                   4 |
+| FlowNovaAI                         | `/projects/flownova`        | Recent highlight |                   0 |
+| DSA Preparation                    | `/projects/dsa`             | Recent highlight |                   0 |
+| TraceHunt AI                       | `/projects/tracehunt`       | Recent highlight |                   3 |
+| FinovaIQ                           | `/projects/finovaiq`        | Recent highlight |                   2 |
+| FlowPilot                          | `/projects/flowpilot`       | Recent highlight |                   0 |
+| ChainPass                          | `/projects/chainpass`       |                  |                   4 |
+| LeetCode AI Sync                   | `/projects/leetcode-sync`   |                  |                   0 |
+| Enterprise RAG Knowledge Assistant | `/projects/enterprise-rag`  |                  |                   0 |
+| RemoteShield X                     | `/projects/remoteshield`    |                  |                   0 |
+| Intramind.AI                       | `/projects/intramind`       |                  |                   0 |
+| MetaRole.AI                        | `/projects/metarole`        |                  |                   0 |
+| SecureRxChain                      | `/projects/securerx`        |                  |                   0 |
+| SolGuard AI                        | `/projects/solguard`        |                  |                   0 |
+| AutoLedger AI                      | `/projects/autoledger`      |                  |                   0 |
+| AI-Adaptive Linux Scheduler        | `/projects/linux-scheduler` |                  |                   0 |
 
-This portfolio is deployed at:
-**[https://portfolio-ten-omega-4ibkho6f7u.vercel.app](https://portfolio-ten-omega-4ibkho6f7u.vercel.app)**
+`lib/projects.json` holds editorial content, stack, implementation boundaries, pinned source links, and genuine screenshot provenance. `lib/projects.ts` defines its type. Detail routes are statically generated and support refresh/direct navigation. Tabs support arrow keys, Home, and End; the native gallery dialog supports focus containment, arrows, and Escape.
 
-To deploy your own:
+The local source audit is recorded in `docs/repository-audit.json`. Badges, decorative banners, and generic hero assets are not passed off as application screenshots. When no genuine capture is available, the UI uses a labeled source diagram. README diagrams are available where found.
 
-```bash
-# Install Vercel CLI
-npm i -g vercel
+## Three resumes
 
-# Deploy
-vercel deploy
-```
+| Focus      | Preview               | Original PDF copy                        |
+| ---------- | --------------------- | ---------------------------------------- |
+| Full Stack | `/resumes/full-stack` | `/resumes/manikant-kumar-full-stack.pdf` |
+| DevOps     | `/resumes/devops`     | `/resumes/manikant-kumar-devops.pdf`     |
+| AI / ML    | `/resumes/ai-ml`      | `/resumes/manikant-kumar-ai-ml.pdf`      |
 
-Or connect your GitHub repo at [vercel.com](https://vercel.com) for automatic deployments on every push.
+The supplied PDF bytes are unchanged. Their historical solved counts and CGPAs therefore remain as authored. Manikant confirmed **7.49** as the current CGPA for the website. The site uses **Vadodara, Gujarat** and **2023–2027**, consistent across the three resumes. Native embedded PDF preview depends on browser support; visible Download and Open PDF actions remain available on mobile.
 
----
+## Verified statistics
 
-## 📊 GitHub Stats
+- `/api/leetcode` queries the official LeetCode GraphQL endpoint and validates all difficulty counts and their sum. A missing contest rating is omitted rather than invented.
+- `/api/github` uses the public GitHub REST API. Languages represent primary-language counts of non-fork public repositories, not invented byte percentages.
+- Successful responses are cached server-side for six hours. Verification timestamps describe when data was actually fetched, not when a cached response was served.
+- Both endpoints fall back to `lib/stats-snapshot.json` with the explicit `verified snapshot` label. No failed request is labeled live.
+- The 25 October 2026 verified snapshot contains **526 solved** (136 Easy, 280 Medium, 110 Hard), contest rating **2579.723**, **250 public repositories**, and **48 followers**.
+- A shared provider keeps hero metrics, the stats section, and chatbot answers consistent.
 
-<div align="center">
+No API token is required. Public provider outages and GitHub rate limits are expected failure modes. The optional contribution calendar is supplied by ghchart and labeled independently.
 
-![GitHub Contribution Graph](https://ghchart.rshah.org/6366F1/manikantbindass)
+## Portfolio guide and contact
 
-[![GitHub Streak](https://streak-stats.demolab.com?user=manikantbindass&theme=transparent&hide_border=true&ring=6366F1&fire=A78BFA&currStreakLabel=6366F1&sideLabels=94A3B8&dates=94A3B8&currStreakNum=ffffff&sideNums=ffffff&background=00000000)](https://git.io/streak-stats)
+The guide retains the cost-free curated-answer architecture. It does not claim to be a live LLM. Answers derive from the same project, resume, profile, and statistics data as the website; user text is rendered as React text instead of injected HTML.
 
-</div>
+The contact form validates fields and opens an email draft. It explicitly requires the visitor to send that draft in their email client; it does not claim delivery or an unimplemented backend submission.
 
----
+## Existing Vercel project
 
-## 🧑‍💻 About Manikant
+Keep the existing Vercel project and domain: https://portfolio-ten-omega-4ibkho6f7u.vercel.app/
 
-> *"AI-Augmented Full Stack Developer | Blockchain Smart Contract Developer | System Design Engineer"*
+The repository remains a normal Next.js App Router project. Use `npm ci` and `npm run build`; no new secrets or environment settings are needed. The review branch can be connected to a Vercel preview. After review and explicit production authorization, merge into the existing production branch or promote the reviewed preview using the project's current deployment workflow. No production deployment is performed by this change.
 
-- 🎓 **B.Tech CSE (Blockchain Technology)** — Parul University, Ahmedabad (2022–2026)
-- 📍 **Ahmedabad, India**
-- 💼 **239+** public GitHub repositories
-- 🔥 **135+** LeetCode problems solved · Rating **1620+** · Top 20%
-- 🚀 **5+** hackathons · **20+** projects built
-- 🌐 **Open to work** — Full Stack · AI/ML · Blockchain · System Design roles
-
-| Link | URL |
-|---|---|
-| 🐙 GitHub | [github.com/manikantbindass](https://github.com/manikantbindass) |
-| 💼 LinkedIn | [linkedin.com/in/manikantbindass](https://www.linkedin.com/in/manikantbindass/) |
-| 🐦 Twitter/X | [x.com/manikantbindass](https://x.com/manikantbindass) |
-| 📺 YouTube | [youtube.com/@RootEDSigma](https://www.youtube.com/@RootEDSigma) |
-| 🏆 LeetCode | [leetcode.com/u/manikantbindass](https://leetcode.com/u/manikantbindass/) |
-| 📝 Medium | [medium.com/@manikant.ai](https://medium.com/@manikant.ai) |
-| 🔗 Linktree | [linktr.ee/manikantbindass](https://linktr.ee/manikantbindass) |
-
----
-
-## 📜 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
-<div align="center">
-  <p>Built with ❤️ and ☕ by <a href="https://github.com/manikantbindass"><strong>Manikant Kumar</strong></a></p>
-  <p>
-    <a href="https://github.com/manikantbindass">GitHub</a> ·
-    <a href="https://www.linkedin.com/in/manikantbindass/">LinkedIn</a> ·
-    <a href="https://x.com/manikantbindass">Twitter</a> ·
-    <a href="https://linktr.ee/manikantbindass">Linktree</a>
-  </p>
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:2DD4BF,50:6366F1,100:A78BFA&height=100&section=footer" />
-</div>
+See `docs/DELIVERY.md` for validation and remaining limitations.

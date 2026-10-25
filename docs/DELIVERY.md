@@ -1,0 +1,59 @@
+# Portfolio delivery report
+
+## Scope
+
+The owner's follow-up expands the initial request to three supplied resumes and 16 project repositories. The six recent highlights are AutoHealOps, FlowNovaAI, DSA Preparation, TraceHunt AI, FinovaIQ, and FlowPilot, ordered by the captured GitHub push timestamps. CGPA 7.49 was explicitly confirmed by the owner.
+
+## Preserved and improved
+
+- Next.js App Router, React, TypeScript, Tailwind, and Framer Motion remain the architecture.
+- Both technology marquees, typewriter roles, starfield/aurora, moon arc, custom cursor, floating social/navigation elements, counters, hover motion, and curated chatbot remain.
+- Shared semantic surfaces support light and dark themes. Theme initialization honors stored/system preference before painting; storage failures are tolerated.
+- Project pages are generated from typed editorial data and use accessible tabs and a native modal screenshot gallery.
+- Resume selection, independent preview routes, original PDF downloads, metadata, canonical URLs, sitemap, robots, and a generated social image are included.
+- Contact feedback describes an email draft rather than claiming delivery. Chat content is rendered safely as text/links.
+
+## Assets and evidence
+
+Thirteen genuine repository captures were copied: TraceHunt (3), AutoHealOps (4), FinovaIQ (2), and ChainPass (4). Their pinned provenance links appear in galleries. The remaining 12 entries use clearly labeled source visualizations; decorative logos, hero artwork, and README badges are not represented as screenshots. Native README architecture diagrams are included where found.
+
+Five existing demo URLs responded with HTTP 200: MetaRole, SecureRxChain, AutoHealOps, FinovaIQ, and FlowPilot. Availability is distinct from complete end-to-end feature verification. External services, credentials, blockchain networks, and provider integrations were not independently deployed or transaction-tested.
+
+`repository-audit.json` records repository commits, source files, screenshot counts, and material limitations. `../README.md` lists all routes and asset paths.
+
+## Statistics
+
+The official LeetCode GraphQL endpoint independently returned 526 solved (136 Easy, 280 Medium, 110 Hard) and contest rating 2579.723 on 25 October 2026. GitHub REST returned 250 public repositories and 48 followers. Exact observation timestamps are stored in `lib/stats-snapshot.json`.
+
+Successful API reads use a six-hour server cache and carry their original verification timestamps. Invalid payloads, rate limits, and network failures return an explicitly labeled verified snapshot. The local restricted-network run exercised that fallback. Hero, statistics, and guide answers consume one shared provider. No estimated commits, pull requests, language percentages, or fabricated live labels remain in the active interface.
+
+## Resumes
+
+Original supplied bytes are preserved at:
+
+- `/resumes/manikant-kumar-full-stack.pdf`
+- `/resumes/manikant-kumar-devops.pdf`
+- `/resumes/manikant-kumar-ai-ml.pdf`
+
+Independent preview pages and visible download/new-tab actions are provided. Embedded PDF display depends on browser support; the in-app browser did not visibly render its native PDF canvas during inspection. All three HTTP responses were verified as PDF content with a valid PDF header. The original documents retain their historical LeetCode numbers and the AI/ML document's historical CGPA; the website uses independently verified statistics and the owner's confirmed 7.49.
+
+## Validation
+
+The first production build passed with all 16 project paths and three resume paths. Five data-validation tests cover complete counts, missing ratings, zero counts, GraphQL errors, malformed counts, and mismatched totals. The HTTP smoke check passed all project/resume paths, PDFs, screenshot files, metadata endpoints, API source labels, and unknown-route 404s.
+
+Interactive browser checks covered light/dark themes, desktop and mobile layouts, filters, search, keyboard tab navigation, gallery next/Escape behavior, mobile navigation, resume controls, and the guide's verified statistics answer. Browser inspection found and prompted repair of an existing nested footer link causing hydration failure. The mobile resume page had equal content and viewport widths (no horizontal overflow). Reduced-motion behavior was checked in source; no Lighthouse scores or real-device Safari results are claimed.
+
+The dependency update retains Next.js 16 and resolves the initial critical advisory; npm audit reported zero vulnerabilities after compatible fixes. Final build/lint/test results are recorded in the pull request.
+
+## Review and deployment
+
+Changes belong on `feat/premium-portfolio`, with a draft pull request against the existing production branch. No production deployment or merge is part of this delivery. Keep the existing Vercel project/domain and settings. Review the branch in Vercel Preview, then merge or promote only after explicit production authorization.
+
+## Remaining boundaries
+
+- FlowNovaAI has a two-line README and no published implementation.
+- Intramind's inspected RAG pipeline is a placeholder.
+- AutoLedger's dashboard feed and Linux Scheduler are simulations; AutoHealOps public hosting uses an explicitly isolated browser simulation.
+- Credential URLs have not been supplied for certifications.
+- Contribution-chart availability belongs to the external chart provider.
+- No paid AI service, new backend mail service, or secrets are introduced.

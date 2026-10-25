@@ -1,28 +1,42 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
+import { usePortfolioStats } from "@/components/StatsProvider";
 import { Download, ArrowRight, Sparkles } from "lucide-react";
 
-
-const ROLES = ["AI Augmented Full Stack Developer", "Blockchain Developer", "Backend and DevSecOps"];
+const ROLES = [
+  "AI Augmented Full Stack Developer",
+  "Blockchain Developer",
+  "Backend and DevSecOps",
+];
 
 function useTypewriter(words: string[], speed = 80, pause = 2200) {
-  const [display, setDisplay] = useState("");
-  const [wIdx, setWIdx] = useState(0);
-  const [cIdx, setCIdx] = useState(0);
-  const [del, setDel] = useState(false);
+  const reduced = useReducedMotion();
+  const [state, setState] = useState({ word: 0, char: 0, deleting: false });
   useEffect(() => {
-    const cur = words[wIdx];
-    let t: ReturnType<typeof setTimeout>;
-    if (!del && cIdx <= cur.length) t = setTimeout(() => setCIdx(c => c + 1), speed);
-    else if (del && cIdx >= 0) t = setTimeout(() => setCIdx(c => c - 1), speed / 2);
-    setDisplay(cur.slice(0, cIdx));
-    if (!del && cIdx === cur.length) t = setTimeout(() => setDel(true), pause);
-    if (del && cIdx === 0) { setDel(false); setWIdx(w => (w + 1) % words.length); }
-    return () => clearTimeout(t);
-  }, [cIdx, del, wIdx, words, speed, pause]);
-  return display;
+    if (reduced) return;
+    const current = words[state.word];
+    const done = !state.deleting && state.char === current.length;
+    const timer = setTimeout(
+      () => {
+        setState((s) => {
+          if (!s.deleting && s.char === current.length)
+            return { ...s, deleting: true };
+          if (s.deleting && s.char === 0)
+            return {
+              word: (s.word + 1) % words.length,
+              char: 0,
+              deleting: false,
+            };
+          return { ...s, char: s.char + (s.deleting ? -1 : 1) };
+        });
+      },
+      done ? pause : state.deleting ? speed / 2 : speed,
+    );
+    return () => clearTimeout(timer);
+  }, [state, words, speed, pause, reduced]);
+  return reduced ? words[0] : words[state.word].slice(0, state.char);
 }
 
 const stagger = {
@@ -31,45 +45,58 @@ const stagger = {
 };
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
-  show:   { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" as const } },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: "easeOut" as const },
+  },
 };
-
-const quickStats = [
-  { label: "Projects Built",  value: "15+",  color: "#6366F1" },
-  { label: "LeetCode Solved", value: "350+", color: "#A78BFA" },
-  { label: "Hackathon",       value: "1",    color: "#2DD4BF" },
-  { label: "GitHub Repos",    value: "239+", color: "#F59E0B" },
-];
 
 export default function Hero() {
   const role = useTypewriter(ROLES);
+  const { lc, gh } = usePortfolioStats();
+  const quickStats = [
+    { label: "Projects showcased", value: "16", color: "var(--accent)" },
+    { label: "LeetCode solved", value: lc.total, color: "var(--accent2)" },
+    { label: "Public repositories", value: gh.repos, color: "var(--teal)" },
+  ];
 
   return (
     <section
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-16 pb-28"
-      style={{ background: "#030712" }}
+      style={{ background: "var(--bg)" }}
     >
       {/* ── Aurora background blobs ── */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
-        <div className="aurora-blob w-[700px] h-[700px] bg-[#6366F1] opacity-[0.12]"
-          style={{ top: "10%", left: "-10%" }} />
-        <div className="aurora-blob w-[600px] h-[600px] bg-[#A78BFA] opacity-[0.09]"
-          style={{ bottom: "5%", right: "-8%", animationDelay: "4s" }} />
-        <div className="aurora-blob w-[400px] h-[400px] bg-[#2DD4BF] opacity-[0.06]"
-          style={{ top: "40%", left: "50%", animationDelay: "8s" }} />
+      <div
+        className="absolute inset-0 overflow-hidden pointer-events-none"
+        aria-hidden
+      >
+        <div
+          className="aurora-blob w-[700px] h-[700px] bg-[#6366F1] opacity-[0.12]"
+          style={{ top: "10%", left: "-10%" }}
+        />
+        <div
+          className="aurora-blob w-[600px] h-[600px] bg-[#A78BFA] opacity-[0.09]"
+          style={{ bottom: "5%", right: "-8%", animationDelay: "4s" }}
+        />
+        <div
+          className="aurora-blob w-[400px] h-[400px] bg-[#2DD4BF] opacity-[0.06]"
+          style={{ top: "40%", left: "50%", animationDelay: "8s" }}
+        />
         {/* Star field */}
         {Array.from({ length: 60 }).map((_, i) => (
-          <div key={i}
+          <div
+            key={i}
             className="absolute rounded-full bg-white animate-pulse-soft"
             style={{
-              width: Math.random() * 2 + 1,
-              height: Math.random() * 2 + 1,
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              opacity: Math.random() * 0.4 + 0.1,
-              animationDelay: `${Math.random() * 4}s`,
-              animationDuration: `${2 + Math.random() * 3}s`,
+              width: (i % 3) + 1,
+              height: (i % 3) + 1,
+              top: `${(i * 37 + 11) % 100}%`,
+              left: `${(i * 61 + 7) % 100}%`,
+              opacity: (i % 5) * 0.08 + 0.1,
+              animationDelay: `${i % 4}s`,
+              animationDuration: `${2 + (i % 3)}s`,
             }}
           />
         ))}
@@ -77,10 +104,15 @@ export default function Hero() {
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-2 gap-12 items-center">
         {/* ── LEFT: Text ── */}
-        <motion.div variants={stagger} initial="hidden" animate="show" className="flex flex-col items-start gap-6">
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          animate="show"
+          className="flex flex-col items-start gap-6"
+        >
           {/* Badge */}
           <motion.div variants={fadeUp}>
-            <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-xs font-semibold text-white/70">
+            <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-xs font-semibold text-[var(--muted)]">
               <span className="w-2 h-2 rounded-full bg-[#2DD4BF] animate-pulse-soft" />
               Available for freelance &amp; full-time
             </div>
@@ -91,25 +123,30 @@ export default function Hero() {
             <p className="section-label mb-2">Hello, I&apos;m</p>
             <h1
               id="hero-heading"
-              className="font-bold leading-none tracking-tight text-white"
+              className="font-bold leading-none tracking-tight text-[var(--fg)]"
               style={{ fontSize: "clamp(2.8rem, 7vw, 5rem)" }}
             >
-              Manikant{" "}
-              <span className="gradient-text">Kumar</span>
+              Manikant <span className="gradient-text">Kumar</span>
             </h1>
           </motion.div>
 
           {/* Typewriter role */}
           <motion.div variants={fadeUp} className="h-8 flex items-center">
-            <span className="font-mono text-base sm:text-lg font-semibold text-[#A78BFA]">
+            <span className="font-mono text-base sm:text-lg font-semibold text-[var(--accent2)]">
               {role}
               <span className="inline-block w-0.5 h-5 bg-[#A78BFA] ml-1 animate-blink align-middle" />
             </span>
           </motion.div>
 
           {/* Tagline */}
-          <motion.p variants={fadeUp} className="text-white/55 leading-relaxed max-w-lg" style={{ fontSize: "1.05rem" }}>
-            I build scalable AI-powered products, high-performance systems, and modern web experiences that push the boundaries of technology.
+          <motion.p
+            variants={fadeUp}
+            className="text-[var(--muted)] leading-relaxed max-w-lg"
+            style={{ fontSize: "1.05rem" }}
+          >
+            I build AI-powered applications, thoughtful backend systems, and
+            useful web experiences. Explore the code, architecture, and
+            decisions behind my work.
           </motion.p>
 
           {/* CTAs */}
@@ -117,40 +154,65 @@ export default function Hero() {
             <motion.a
               href="#projects"
               data-magnetic
-              className="flex items-center gap-2 text-sm font-semibold text-white px-6 py-3 rounded-2xl transition-all"
-              style={{ background: "linear-gradient(135deg,#6366F1,#A78BFA)", boxShadow: "0 6px 24px rgba(99,102,241,0.4)" }}
+              className="flex items-center gap-2 text-sm font-semibold text-[var(--fg)] px-6 py-3 rounded-2xl transition-all"
+              style={{
+                background: "linear-gradient(135deg,#6366F1,#A78BFA)",
+                boxShadow: "0 6px 24px rgba(99,102,241,0.4)",
+              }}
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.97 }}
             >
               Explore Projects <ArrowRight size={15} />
             </motion.a>
             <motion.a
-              href="/Manikant FDE Resume.pdf"
-              download
+              href="#resumes"
               data-magnetic
-              className="flex items-center gap-2 text-sm font-semibold text-white/85 px-6 py-3 rounded-2xl glass border border-white/10"
-              whileHover={{ scale: 1.04, y: -2, borderColor: "rgba(99,102,241,0.4)" }}
+              className="flex items-center gap-2 text-sm font-semibold text-[var(--fg)] px-6 py-3 rounded-2xl glass border border-white/10"
+              whileHover={{
+                scale: 1.04,
+                y: -2,
+                borderColor: "rgba(99,102,241,0.4)",
+              }}
               whileTap={{ scale: 0.97 }}
             >
-              <Download size={15} /> Download CV
+              <Download size={15} /> View Resumes
             </motion.a>
             <motion.a
               href="#contact"
               data-magnetic
-              className="flex items-center gap-2 text-sm font-semibold text-[#2DD4BF] px-6 py-3 rounded-2xl border border-[#2DD4BF]/25"
-              whileHover={{ scale: 1.04, y: -2, borderColor: "rgba(45,212,191,0.5)" }}
+              className="flex items-center gap-2 text-sm font-semibold text-[var(--teal)] px-6 py-3 rounded-2xl border border-[#2DD4BF]/25"
+              whileHover={{
+                scale: 1.04,
+                y: -2,
+                borderColor: "rgba(45,212,191,0.5)",
+              }}
               whileTap={{ scale: 0.97 }}
             >
               Contact Me
             </motion.a>
           </motion.div>
 
+          <a href="#stats" className="text-[10px] text-[var(--muted)]">{lc.source} · Data sources &amp; verification →</a>
+
           {/* Quick stats */}
-          <motion.div variants={fadeUp} className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full max-w-lg">
-            {quickStats.map(s => (
-              <div key={s.label} className="glass rounded-2xl p-3 flex flex-col gap-1">
-                <span className="font-bold text-xl text-white" style={{ color: s.color }}>{s.value}</span>
-                <span className="text-[10px] text-white/40 font-medium">{s.label}</span>
+          <motion.div
+            variants={fadeUp}
+            className="grid grid-cols-2 sm:grid-cols-3 gap-3 w-full max-w-lg"
+          >
+            {quickStats.map((s) => (
+              <div
+                key={s.label}
+                className="glass rounded-2xl p-3 flex flex-col gap-1"
+              >
+                <span
+                  className="font-bold text-xl text-[var(--fg)]"
+                  style={{ color: s.color }}
+                >
+                  {s.value}
+                </span>
+                <span className="text-[10px] text-[var(--muted)] font-medium">
+                  {s.label}
+                </span>
               </div>
             ))}
           </motion.div>
@@ -161,14 +223,20 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4, duration: 0.9, ease: "easeOut" as const }}
-          className="relative flex flex-col items-center justify-center gap-6 order-first lg:order-last"
+          className="relative flex flex-col items-center justify-center gap-6 "
         >
           {/* Photo + orbits container */}
           <div className="relative flex items-center justify-center">
             {/* Glow behind photo */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-80 h-80 rounded-full opacity-30"
-                style={{ background: "radial-gradient(circle, #6366F1 0%, transparent 70%)", filter: "blur(60px)" }} />
+              <div
+                className="w-80 h-80 rounded-full opacity-30"
+                style={{
+                  background:
+                    "radial-gradient(circle, #6366F1 0%, transparent 70%)",
+                  filter: "blur(60px)",
+                }}
+              />
             </div>
 
             {/* Orbit ring 1 */}
@@ -178,8 +246,10 @@ export default function Hero() {
               className="absolute rounded-full border border-[#6366F1]/20"
               style={{ width: 320, height: 320 }}
             >
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-[#6366F1]"
-                style={{ boxShadow: "0 0 14px #6366F1" }} />
+              <div
+                className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-[#6366F1]"
+                style={{ boxShadow: "0 0 14px #6366F1" }}
+              />
             </motion.div>
 
             {/* Orbit ring 2 — dashed */}
@@ -189,23 +259,29 @@ export default function Hero() {
               className="absolute rounded-full border-dashed border border-[#2DD4BF]/15"
               style={{ width: 400, height: 400 }}
             >
-              <div className="absolute bottom-6 right-8 w-2 h-2 rounded-full bg-[#2DD4BF]"
-                style={{ boxShadow: "0 0 10px #2DD4BF" }} />
+              <div
+                className="absolute bottom-6 right-8 w-2 h-2 rounded-full bg-[#2DD4BF]"
+                style={{ boxShadow: "0 0 10px #2DD4BF" }}
+              />
             </motion.div>
 
             {/* Floating tech pills */}
             {[
-              { label: "Next.js",  top: "8%",   left: "0%",   color: "#6366F1" },
-              { label: "Solidity", top: "20%",  right: "-4%", color: "#A78BFA" },
-              { label: "AI/ML",    bottom:"18%", left: "-4%", color: "#2DD4BF" },
-              { label: "Web3",     bottom:"8%",  right:"5%",  color: "#F59E0B" },
-            ].map(p => (
+              { label: "Next.js", top: "8%", left: "0%", color: "#6366F1" },
+              { label: "Solidity", top: "20%", right: "-4%", color: "#A78BFA" },
+              { label: "AI/ML", bottom: "18%", left: "-4%", color: "#2DD4BF" },
+              { label: "Web3", bottom: "8%", right: "5%", color: "#F59E0B" },
+            ].map((p) => (
               <motion.div
                 key={p.label}
-                className="absolute glass px-3 py-1.5 rounded-xl text-xs font-semibold text-white border border-white/10 z-10"
+                className="absolute glass px-3 py-1.5 rounded-xl text-xs font-semibold text-[var(--fg)] border border-white/10 z-10"
                 style={{ ...p, color: p.color, borderColor: `${p.color}25` }}
                 animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 3 + Math.random() * 2, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
               >
                 {p.label}
               </motion.div>
@@ -213,7 +289,14 @@ export default function Hero() {
 
             {/* Profile image */}
             <div className="relative w-56 h-64 sm:w-64 sm:h-72 z-10">
-              <div className="absolute inset-0 rounded-3xl" style={{ background: "linear-gradient(135deg,rgba(99,102,241,0.3),rgba(167,139,250,0.2))", filter: "blur(1px)" }} />
+              <div
+                className="absolute inset-0 rounded-3xl"
+                style={{
+                  background:
+                    "linear-gradient(135deg,rgba(99,102,241,0.3),rgba(167,139,250,0.2))",
+                  filter: "blur(1px)",
+                }}
+              />
               <Image
                 src="/profile.jpg"
                 alt="Manikant Kumar — AI Developer"
@@ -236,9 +319,11 @@ export default function Hero() {
             whileTap={{ scale: 0.96 }}
             className="relative z-20 flex items-center gap-2.5 px-5 py-3 rounded-2xl text-sm font-semibold group"
             style={{
-              background: "linear-gradient(135deg,rgba(99,102,241,0.18),rgba(167,139,250,0.12))",
+              background:
+                "linear-gradient(135deg,rgba(99,102,241,0.18),rgba(167,139,250,0.12))",
               border: "1px solid rgba(99,102,241,0.4)",
-              boxShadow: "0 0 24px rgba(99,102,241,0.25), inset 0 1px 0 rgba(255,255,255,0.06)",
+              boxShadow:
+                "0 0 24px rgba(99,102,241,0.25), inset 0 1px 0 rgba(255,255,255,0.06)",
               backdropFilter: "blur(10px)",
             }}
           >
@@ -247,15 +332,17 @@ export default function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2DD4BF] opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#2DD4BF]" />
             </span>
-            <Sparkles size={15} className="text-[#A78BFA]" />
-            <span className="text-white/85 group-hover:text-white transition-colors">
-              Ask my <span className="text-[#A78BFA] font-bold">AI</span> anything
+            <Sparkles size={15} className="text-[var(--accent2)]" />
+            <span className="text-[var(--fg)] group-hover:text-[var(--fg)] transition-colors">
+              Ask my{" "}
+              <span className="text-[var(--accent2)] font-bold">assistant</span>
             </span>
             {/* Arrow hint */}
-            <span className="text-[#6366F1] text-xs opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all">→</span>
+            <span className="text-[var(--accent)] text-xs opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all">
+              →
+            </span>
           </motion.button>
         </motion.div>
-
       </div>
 
       {/* Scroll hint */}
@@ -265,7 +352,9 @@ export default function Hero() {
         transition={{ delay: 1.6 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="text-[10px] uppercase tracking-[0.25em] text-white/25">scroll</span>
+        <span className="text-[10px] uppercase tracking-[0.25em] text-[var(--muted)]">
+          scroll
+        </span>
         <motion.div
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 1.8, repeat: Infinity }}

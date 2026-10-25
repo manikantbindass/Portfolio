@@ -1,0 +1,106 @@
+import type { IconType } from "react-icons";
+import {
+  SiCrewai,
+  SiDocker,
+  SiEthereum,
+  SiExpress,
+  SiFastapi,
+  SiGit,
+  SiGithubactions,
+  SiGooglechrome,
+  SiHuggingface,
+  SiIpfs,
+  SiKubernetes,
+  SiLangchain,
+  SiLanggraph,
+  SiMlflow,
+  SiMongodb,
+  SiNestjs,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiOpenai,
+  SiPostgresql,
+  SiPrisma,
+  SiPython,
+  SiPytorch,
+  SiReact,
+  SiScikitlearn,
+  SiSolidity,
+  SiSpringboot,
+  SiSqlite,
+  SiSupabase,
+  SiTailwindcss,
+  SiTauri,
+  SiTensorflow,
+  SiThreedotjs,
+  SiTypescript,
+  SiVercel,
+  SiVite,
+  SiVuedotjs,
+  SiWeb3Dotjs,
+  SiWireguard,
+} from "react-icons/si";
+import { FaJava, FaAws } from "react-icons/fa";
+const icons: Record<string, IconType> = {
+  "Next.js": SiNextdotjs,
+  React: SiReact,
+  TypeScript: SiTypescript,
+  TailwindCSS: SiTailwindcss,
+  "Tailwind CSS": SiTailwindcss,
+  "Three.js": SiThreedotjs,
+  "Vue.js": SiVuedotjs,
+  "Node.js": SiNodedotjs,
+  Python: SiPython,
+  "Spring Boot": SiSpringboot,
+  FastAPI: SiFastapi,
+  PostgreSQL: SiPostgresql,
+  MongoDB: SiMongodb,
+  Supabase: SiSupabase,
+  LangChain: SiLangchain,
+  LangGraph: SiLanggraph,
+  OpenAI: SiOpenai,
+  PyTorch: SiPytorch,
+  TensorFlow: SiTensorflow,
+  CrewAI: SiCrewai,
+  Solidity: SiSolidity,
+  Ethereum: SiEthereum,
+  "Web3.js": SiWeb3Dotjs,
+  "Ethers.js": SiEthereum,
+  IPFS: SiIpfs,
+  Docker: SiDocker,
+  Kubernetes: SiKubernetes,
+  Git: SiGit,
+  "GitHub Actions": SiGithubactions,
+  "CI/CD": SiGithubactions,
+  Vercel: SiVercel,
+  MLflow: SiMlflow,
+  "scikit-learn": SiScikitlearn,
+  Express: SiExpress,
+  NestJS: SiNestjs,
+  Prisma: SiPrisma,
+  SQLite: SiSqlite,
+  Vite: SiVite,
+  Tauri: SiTauri,
+  WireGuard: SiWireguard,
+  Recharts: SiReact,
+  "Chrome Extensions": SiGooglechrome,
+  Transformers: SiHuggingface,
+  Java: FaJava,
+  AWS: FaAws,
+};
+export default function TechIcon({
+  name,
+  size = 22,
+}: {
+  name: string;
+  size?: number;
+}) {
+  const Icon = icons[name];
+  return Icon ? (
+    <Icon size={size} aria-hidden />
+  ) : (
+    <span aria-hidden style={{ fontSize: size * 0.5, fontFamily: "monospace" }}>
+      {name.slice(0, 2)}
+    </span>
+  );
+}

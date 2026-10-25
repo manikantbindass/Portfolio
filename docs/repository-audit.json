@@ -1,0 +1,222 @@
+[
+  {
+    "project": "MetaRole.AI",
+    "repo": "MetaRole.ai",
+    "commit": "a3fc6ace14d5baa5903de6ba5a8bd758b0ffaf99",
+    "readmeCharacters": 10736,
+    "sourceFiles": [
+      "frontend/app/api/analyze-skills/route.ts",
+      "frontend/app/api/_lib/session.ts",
+      "frontend/package.json"
+    ],
+    "screenshots": 0,
+    "demo": "https://meta-role-ai.vercel.app",
+    "limitations": "Session storage is process-local; durable analysis history requires a persistent store. OpenAI features require server configuration."
+  },
+  {
+    "project": "SecureRxChain",
+    "repo": "SecureRxChain-Blockchain-Based-Drug-Supply-Chain-Counterfeit-Medicine-Prevention-System",
+    "commit": "c5c0260fe1ee1196a4e8a4c499eb55f2d8610c9b",
+    "readmeCharacters": 8750,
+    "sourceFiles": [
+      "frontend/src/context/Web3Context.jsx",
+      "backend/routes/drugs.js",
+      "blockchain/contracts/DrugRegistry.sol"
+    ],
+    "screenshots": 0,
+    "demo": "https://securerxchain.vercel.app",
+    "limitations": "The frontend uses Ethers.js rather than the older Web3.js portfolio label. Real contract writes require a correctly configured network and deployment."
+  },
+  {
+    "project": "Intramind.AI",
+    "repo": "Intramind.ai",
+    "commit": "93d86127223a824a4216d92f554c30f3816659fc",
+    "readmeCharacters": 2689,
+    "sourceFiles": [
+      "backend/ai/rag_pipeline.py",
+      "backend/api/routes/chat.py",
+      "knowflow-ai/backend/main.py"
+    ],
+    "screenshots": 0,
+    "demo": null,
+    "limitations": "The checked-in RAG pipeline returns a placeholder. Production RAG, citations, and access controls described in the README are not established by the inspected implementation."
+  },
+  {
+    "project": "RemoteShield X",
+    "repo": "RdPBrowser",
+    "commit": "0aa4b400aeb87c248632f7760db1be30ba4bac88",
+    "readmeCharacters": 11110,
+    "sourceFiles": [
+      "desktop/src/components/VpnGuard.tsx",
+      "backend/src/middleware/vpnCheck.js",
+      "backend/src/index.js"
+    ],
+    "screenshots": 0,
+    "demo": null,
+    "limitations": "OS-level enforcement and VPN policy need deployment-specific validation. Source presence does not establish a security certification or support guarantee."
+  },
+  {
+    "project": "TraceHunt AI",
+    "repo": "Tracehunt",
+    "commit": "3f64e4ad7bc834740fc87cfde52ae80cdca48655",
+    "readmeCharacters": 17808,
+    "sourceFiles": [
+      "apps/api/app/main.py",
+      "apps/web/package.json",
+      "README.md"
+    ],
+    "screenshots": 3,
+    "demo": null,
+    "limitations": "Local heuristic analysis is available without an API key. SSO, multi-tenancy, distributed tracing, and automatic remediation are outside this release."
+  },
+  {
+    "project": "SolGuard AI",
+    "repo": "SolGuardAI-An-AI-Powered-Blockchain-Smart-Contract-",
+    "commit": "f36d6b650efacdd08910bb189f7be0cb98ff8577",
+    "readmeCharacters": 9849,
+    "sourceFiles": [
+      "agents/orchestrator.py",
+      "agents/phase2_neural/risk_classifier.py",
+      "agents/phase4_patching/patch_agent.py"
+    ],
+    "screenshots": 0,
+    "demo": null,
+    "limitations": "The classifier can fall back to rules. Loading a base CodeBERT classifier does not demonstrate trained vulnerability accuracy, and generated patches require independent review."
+  },
+  {
+    "project": "AutoLedger AI",
+    "repo": "AutoLedgerAI-Self-healing-blockchain-network-using-reinforcement-learning",
+    "commit": "f8812bf84c8a6f86447b19b1ab71db6b8b7974a6",
+    "readmeCharacters": 10473,
+    "sourceFiles": [
+      "backend/main.py",
+      "rl-agent/models/ppo_agent.py",
+      "blockchain/core/ledger.py"
+    ],
+    "screenshots": 0,
+    "demo": null,
+    "limitations": "The dashboard backend uses mock network state and random score changes. An integrated trained self-healing consensus network is not demonstrated by that feed."
+  },
+  {
+    "project": "DSA Preparation",
+    "repo": "DSA-Preparation-FAANG",
+    "commit": "046e32c21b2a46f0789fada368277eb46c250169",
+    "readmeCharacters": 90291,
+    "sourceFiles": [
+      "README.md",
+      "api/leetcode-stats.json"
+    ],
+    "screenshots": 0,
+    "demo": null,
+    "limitations": "README sections contain snapshots from different dates. The portfolio reads current counts independently from the official LeetCode endpoint rather than treating historical badges as live."
+  },
+  {
+    "project": "AutoHealOps",
+    "repo": "AutoHealOps-Self-Healing-Kubernetes-Cluster-with-AI-Fault-Detection",
+    "commit": "a1b5d2c94b506aca387b579b951bd11e1e458dfd",
+    "readmeCharacters": 15514,
+    "sourceFiles": [
+      "frontend/src/services/browserDemo.js",
+      "backend/services/autonomy.py",
+      "backend/services/k8s_service.py"
+    ],
+    "screenshots": 4,
+    "demo": "https://autohealops.vercel.app",
+    "limitations": "The public demo has no cluster or trained model attached. Real-cluster acceptance remains pending; the local controller is not an HA production control plane."
+  },
+  {
+    "project": "FinovaIQ",
+    "repo": "FinovaIQ-AI-Personal-Finance-Investment-Dashboard",
+    "commit": "ae0525678069246f109e2b373c395919e064c919",
+    "readmeCharacters": 4946,
+    "sourceFiles": [
+      "apps/api/src/finance.ts",
+      "apps/api/src/finance.service.ts",
+      "apps/web/package.json"
+    ],
+    "screenshots": 2,
+    "demo": "https://finovaiq.vercel.app",
+    "limitations": "No bank connections or live market prices are supplied. Browser chart approximations are separate from persisted precise monetary calculations. Redis workers remain pending."
+  },
+  {
+    "project": "LeetCode AI Sync",
+    "repo": "Leetcode-GitPush-extension",
+    "commit": "85b4bf980ccf764eba4981af31699c92e13da335",
+    "readmeCharacters": 11279,
+    "sourceFiles": [
+      "extension/src/background/index.ts",
+      "extension/src/background/queue.ts",
+      "extension/public/manifest.json"
+    ],
+    "screenshots": 0,
+    "demo": null,
+    "limitations": "Generated solutions need review. Extension permissions, provider credentials, and GitHub access require deliberate configuration; no store publication is claimed."
+  },
+  {
+    "project": "Enterprise RAG Knowledge Assistant",
+    "repo": "Enterprise-RAG-Knowledge-Assistant",
+    "commit": "d42c64fbfa4d18c3d15d394aa27d579538997028",
+    "readmeCharacters": 8647,
+    "sourceFiles": [
+      "frontend/src/lib/store.tsx",
+      "backend/chat_service/main.py",
+      "frontend/package.json"
+    ],
+    "screenshots": 0,
+    "demo": null,
+    "limitations": "The default browser mode performs lexical retrieval and formatted answers. Selecting a model in settings does not establish a live LLM connection or enterprise SSO enforcement."
+  },
+  {
+    "project": "ChainPass",
+    "repo": "Blockchain-Based-Smart-Ticket-System-Concert-railway-public-and-Private-Transport-",
+    "commit": "0fd1c0da7d2e26e54bea2249b406b4214b065711",
+    "readmeCharacters": 8977,
+    "sourceFiles": [
+      "apps/api/src/app.ts",
+      "apps/api/src/outbox.ts",
+      "packages/contracts/src/TicketRegistry.sol"
+    ],
+    "screenshots": 4,
+    "demo": null,
+    "limitations": "Railway reservations and test identity checks are simulations. Real auth/payments require provider configuration. No throughput or availability SLA is claimed."
+  },
+  {
+    "project": "AI-Adaptive Linux Scheduler",
+    "repo": "AI-adaptive-LINUX-Schedular-Dashboard-for-workload-optimization",
+    "commit": "d117af44dd2d390e703f18e1abbb3ae407124bdc",
+    "readmeCharacters": 1210,
+    "sourceFiles": [
+      "backend/server.js",
+      "frontend/package.json"
+    ],
+    "screenshots": 0,
+    "demo": null,
+    "limitations": "The backend does not modify a real Linux scheduler or run a trained model. Its AI optimization label refers to deterministic threshold logic over simulated processes."
+  },
+  {
+    "project": "FlowPilot",
+    "repo": "SaaS-Product-Landing-Page-with-Interactive-Pricing-Demo",
+    "commit": "651835e939b763ecfe919081fe8c1946f2480414",
+    "readmeCharacters": 2940,
+    "sourceFiles": [
+      "src/components/InteractiveDemo.tsx",
+      "src/lib/pricing.ts",
+      "src/components/SignupModal.tsx"
+    ],
+    "screenshots": 0,
+    "demo": "https://manikantbindass.github.io/SaaS-Product-Landing-Page-with-Interactive-Pricing-Demo/",
+    "limitations": "FlowPilot is a fictional brand. Workflow runs, analytics, and form submissions remain local demonstrations, rather than a connected SaaS backend."
+  },
+  {
+    "project": "FlowNovaAI",
+    "repo": "FlowNovaAI",
+    "commit": "ea03cfe58b1b150640410891d474486abf019eb5",
+    "readmeCharacters": 50,
+    "sourceFiles": [
+      "README.md"
+    ],
+    "screenshots": 0,
+    "demo": null,
+    "limitations": "Only a two-line README is present in the inspected commit. No application, architecture, technology choices, or implemented features are claimed."
+  }
+]

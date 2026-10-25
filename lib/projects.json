@@ -1,0 +1,927 @@
+[
+  {
+    "id": "autohealops",
+    "slug": "autohealops",
+    "title": "AutoHealOps",
+    "subtitle": "Infrastructure intelligence & guarded recovery",
+    "description": "An operations console for workload telemetry, explainable fault detection, and bounded recovery workflows, with an isolated public browser simulation.",
+    "categories": [
+      "AI / Machine Learning",
+      "Backend / Cloud / DevOps",
+      "Full Stack"
+    ],
+    "tags": ["React", "FastAPI", "Python", "Kubernetes", "Docker", "MongoDB"],
+    "github": "https://github.com/manikantbindass/AutoHealOps-Self-Healing-Kubernetes-Cluster-with-AI-Fault-Detection",
+    "live": "https://autohealops.vercel.app",
+    "featured": true,
+    "status": "Public simulation + optional local integrations",
+    "updatedAt": "2026-10-25T02:19:51Z",
+    "users": "Operators learning to inspect faults and review constrained recovery actions.",
+    "features": [
+      "Cluster explorer, incident and audit views",
+      "Deterministic browser simulation",
+      "Local anomaly pipeline and guarded recovery controller"
+    ],
+    "architecture": [
+      "React console",
+      "browser simulation OR FastAPI",
+      "telemetry store / AI service",
+      "optional Kubernetes adapter"
+    ],
+    "challenges": [
+      "The public demo has no cluster or trained model attached. Real-cluster acceptance remains pending; the local controller is not an HA production control plane."
+    ],
+    "screenshots": [
+      {
+        "src": "/projects/autohealops/autohealops-vercel.png",
+        "caption": "AutoHealOps — autohealops vercel (repository capture; demo data where shown)",
+        "source": "https://github.com/manikantbindass/AutoHealOps-Self-Healing-Kubernetes-Cluster-with-AI-Fault-Detection/blob/a1b5d2c94b506aca387b579b951bd11e1e458dfd/docs/screenshots/autohealops-vercel.png"
+      },
+      {
+        "src": "/projects/autohealops/autohealops-cluster.png",
+        "caption": "AutoHealOps — autohealops cluster (repository capture; demo data where shown)",
+        "source": "https://github.com/manikantbindass/AutoHealOps-Self-Healing-Kubernetes-Cluster-with-AI-Fault-Detection/blob/a1b5d2c94b506aca387b579b951bd11e1e458dfd/docs/screenshots/autohealops-cluster.png"
+      },
+      {
+        "src": "/projects/autohealops/autohealops-intelligence.png",
+        "caption": "AutoHealOps — autohealops intelligence (repository capture; demo data where shown)",
+        "source": "https://github.com/manikantbindass/AutoHealOps-Self-Healing-Kubernetes-Cluster-with-AI-Fault-Detection/blob/a1b5d2c94b506aca387b579b951bd11e1e458dfd/docs/screenshots/autohealops-intelligence.png"
+      },
+      {
+        "src": "/projects/autohealops/autohealops-mobile.png",
+        "caption": "AutoHealOps — autohealops mobile (repository capture; demo data where shown)",
+        "source": "https://github.com/manikantbindass/AutoHealOps-Self-Healing-Kubernetes-Cluster-with-AI-Fault-Detection/blob/a1b5d2c94b506aca387b579b951bd11e1e458dfd/docs/screenshots/autohealops-mobile.png"
+      }
+    ],
+    "evidence": [
+      {
+        "path": "frontend/src/services/browserDemo.js",
+        "url": "https://github.com/manikantbindass/AutoHealOps-Self-Healing-Kubernetes-Cluster-with-AI-Fault-Detection/blob/a1b5d2c94b506aca387b579b951bd11e1e458dfd/frontend/src/services/browserDemo.js"
+      },
+      {
+        "path": "backend/services/autonomy.py",
+        "url": "https://github.com/manikantbindass/AutoHealOps-Self-Healing-Kubernetes-Cluster-with-AI-Fault-Detection/blob/a1b5d2c94b506aca387b579b951bd11e1e458dfd/backend/services/autonomy.py"
+      },
+      {
+        "path": "backend/services/k8s_service.py",
+        "url": "https://github.com/manikantbindass/AutoHealOps-Self-Healing-Kubernetes-Cluster-with-AI-Fault-Detection/blob/a1b5d2c94b506aca387b579b951bd11e1e458dfd/backend/services/k8s_service.py"
+      }
+    ],
+    "sourceCommit": "a1b5d2c94b506aca387b579b951bd11e1e458dfd",
+    "verifiedAt": "2026-10-25T02:57:57.676979+00:00",
+    "architectureReference": "flowchart LR\n  UI[React console] -->|REST + WS| API[FastAPI control plane]\n  API --> DB[(SQLite demo / MongoDB)]\n  API --> AI[Isolation Forest / explicit rules]\n  API --> POLICY[Approval + dry-run + limits]\n  POLICY --> SIM[Isolated demo simulation]\n  POLICY --> K8S[Opt-in namespace Deployment API]\n  PROM[Prometheus] -->|platform scrape| API\n  API -->|live metric queries| PROM\n  GRAF[Grafana] --> PROM",
+    "problem": "Operators need to connect abnormal workload behavior to bounded, reviewable recovery actions.",
+    "solution": "Provide telemetry, evidence, incidents, and guarded healing controls while separating public simulation from optional real adapters.",
+    "technicalDetails": [
+      "The public browser adapter keeps visitor simulations local. The optional backend supplies persistent events, telemetry, and an anomaly service.",
+      "Recovery code enforces namespace and ownership boundaries, budgets, cooldowns, and pause states. Real Kubernetes interaction is optional and has its own validation requirements."
+    ]
+  },
+  {
+    "id": "flownova",
+    "slug": "flownova",
+    "title": "FlowNovaAI",
+    "subtitle": "Agent workflow automation concept",
+    "description": "A newly created repository describing an AI agent workflow automation builder.",
+    "categories": ["AI / Machine Learning", "Developer Tools"],
+    "tags": [],
+    "github": "https://github.com/manikantbindass/FlowNovaAI",
+    "live": null,
+    "featured": true,
+    "status": "Concept / README only",
+    "updatedAt": "2026-10-25T00:57:32Z",
+    "users": "Intended direction: a builder for agent automation workflows.",
+    "features": ["Repository initialized with a project description"],
+    "architecture": ["README", "implementation not yet published"],
+    "challenges": [
+      "Only a two-line README is present in the inspected commit. No application, architecture, technology choices, or implemented features are claimed."
+    ],
+    "screenshots": [],
+    "evidence": [
+      {
+        "path": "README.md",
+        "url": "https://github.com/manikantbindass/FlowNovaAI/blob/ea03cfe58b1b150640410891d474486abf019eb5/README.md"
+      }
+    ],
+    "sourceCommit": "ea03cfe58b1b150640410891d474486abf019eb5",
+    "verifiedAt": "2026-10-25T02:58:08.650402+00:00",
+    "problem": "The README identifies agent workflow automation as the intended problem area.",
+    "solution": "A workflow builder is the stated direction; no implementation or concrete solution architecture has been published.",
+    "technicalDetails": [
+      "The inspected repository contains README.md only. No dependency manifest, application source, or screenshot assets were present."
+    ]
+  },
+  {
+    "id": "dsa",
+    "slug": "dsa",
+    "title": "DSA Preparation",
+    "subtitle": "Patterns, practice, and recall",
+    "description": "A structured collection of algorithm solutions, pattern notes, contest work, and synchronized LeetCode progress.",
+    "categories": ["Developer Tools"],
+    "tags": ["Java", "Python", "Go", "Algorithms"],
+    "github": "https://github.com/manikantbindass/DSA-Preparation-FAANG",
+    "live": null,
+    "featured": true,
+    "status": "Active learning repository",
+    "updatedAt": "2026-10-25T00:46:14Z",
+    "users": "Interview preparation and deliberate algorithm practice.",
+    "features": [
+      "Topic-organized problem solutions",
+      "Pattern and contest notes",
+      "Automated public statistics snapshots"
+    ],
+    "architecture": [
+      "LeetCode submissions",
+      "synchronization workflow",
+      "topic folders / statistics JSON"
+    ],
+    "challenges": [
+      "README sections contain snapshots from different dates. The portfolio reads current counts independently from the official LeetCode endpoint rather than treating historical badges as live."
+    ],
+    "screenshots": [],
+    "evidence": [
+      {
+        "path": "README.md",
+        "url": "https://github.com/manikantbindass/DSA-Preparation-FAANG/blob/046e32c21b2a46f0789fada368277eb46c250169/README.md"
+      },
+      {
+        "path": "api/leetcode-stats.json",
+        "url": "https://github.com/manikantbindass/DSA-Preparation-FAANG/blob/046e32c21b2a46f0789fada368277eb46c250169/api/leetcode-stats.json"
+      }
+    ],
+    "sourceCommit": "046e32c21b2a46f0789fada368277eb46c250169",
+    "verifiedAt": "2026-10-25T02:57:56.170153+00:00",
+    "architectureReference": "flowchart LR\n    A[\"O(1)<br/>constant\"] --> B[\"O(log n)<br/>binary search\"]\n    B --> C[\"O(n)<br/>single pass\"]\n    C --> D[\"O(n log n)<br/>efficient sorting\"]\n    D --> E[\"O(n^2)<br/>nested loops\"]\n    E --> F[\"O(n^3)<br/>triple loops / Floyd-Warshall\"]\n    F --> G[\"O(2^n)<br/>subsets / bitmask DP\"]\n    G --> H[\"O(n!)<br/>permutations\"]",
+    "problem": "Repeated practice is less useful when solutions and patterns are scattered or difficult to revisit.",
+    "solution": "Organize implementations by topic and maintain public progress snapshots through synchronization workflows.",
+    "technicalDetails": [
+      "Topic folders organize implementations and learning notes by recurring problem patterns, with separate contest practice.",
+      "The repository contains dated statistics blocks. Historical solved totals and the current portfolio API are intentionally treated as different verification moments."
+    ]
+  },
+  {
+    "id": "tracehunt",
+    "slug": "tracehunt",
+    "title": "TraceHunt AI",
+    "subtitle": "Evidence-based incident investigation",
+    "description": "An observability workspace bringing endpoint checks, structured logs, anomaly rules, and incident evidence into one place.",
+    "categories": [
+      "AI / Machine Learning",
+      "Backend / Cloud / DevOps",
+      "Full Stack"
+    ],
+    "tags": ["Next.js", "FastAPI", "PostgreSQL", "Redis", "OpenAI"],
+    "github": "https://github.com/manikantbindass/Tracehunt",
+    "live": null,
+    "featured": true,
+    "status": "Single-workspace development foundation",
+    "updatedAt": "2026-10-24T09:52:23Z",
+    "users": "Developers investigating service failures and correlating incident evidence.",
+    "features": [
+      "HTTP monitor lifecycle and check history",
+      "Structured log ingestion and incident timelines",
+      "Local heuristic analysis with optional OpenAI enrichment"
+    ],
+    "architecture": [
+      "Next.js console",
+      "FastAPI",
+      "SQL outbox / worker",
+      "PostgreSQL / Redis"
+    ],
+    "challenges": [
+      "Local heuristic analysis is available without an API key. SSO, multi-tenancy, distributed tracing, and automatic remediation are outside this release."
+    ],
+    "screenshots": [
+      {
+        "src": "/projects/tracehunt/tracehunt-overview.jpg",
+        "caption": "TraceHunt AI — tracehunt overview (repository capture; demo data where shown)",
+        "source": "https://github.com/manikantbindass/Tracehunt/blob/3f64e4ad7bc834740fc87cfde52ae80cdca48655/docs/images/tracehunt-overview.jpg"
+      },
+      {
+        "src": "/projects/tracehunt/tracehunt-monitors.jpg",
+        "caption": "TraceHunt AI — tracehunt monitors (repository capture; demo data where shown)",
+        "source": "https://github.com/manikantbindass/Tracehunt/blob/3f64e4ad7bc834740fc87cfde52ae80cdca48655/docs/images/tracehunt-monitors.jpg"
+      },
+      {
+        "src": "/projects/tracehunt/tracehunt-intelligence.jpg",
+        "caption": "TraceHunt AI — tracehunt intelligence (repository capture; demo data where shown)",
+        "source": "https://github.com/manikantbindass/Tracehunt/blob/3f64e4ad7bc834740fc87cfde52ae80cdca48655/docs/images/tracehunt-intelligence.jpg"
+      }
+    ],
+    "evidence": [
+      {
+        "path": "apps/api/app/main.py",
+        "url": "https://github.com/manikantbindass/Tracehunt/blob/3f64e4ad7bc834740fc87cfde52ae80cdca48655/apps/api/app/main.py"
+      },
+      {
+        "path": "apps/web/package.json",
+        "url": "https://github.com/manikantbindass/Tracehunt/blob/3f64e4ad7bc834740fc87cfde52ae80cdca48655/apps/web/package.json"
+      },
+      {
+        "path": "README.md",
+        "url": "https://github.com/manikantbindass/Tracehunt/blob/3f64e4ad7bc834740fc87cfde52ae80cdca48655/README.md"
+      }
+    ],
+    "sourceCommit": "3f64e4ad7bc834740fc87cfde52ae80cdca48655",
+    "verifiedAt": "2026-10-25T02:57:52.307035+00:00",
+    "architectureReference": "flowchart LR\n    Engineer[Engineering team] --> Web[Next.js dashboard]\n    Web -->|same-origin API proxy| API[FastAPI]\n    App[Applications / log shippers] -->|structured logs| API\n    API --> SQL[(PostgreSQL\\ntelemetry + incidents + outbox)]\n    Worker[Background worker] --> SQL\n    Worker -->|validated HTTP checks| Targets[Monitored endpoints]\n    Worker --> Redis[(Redis\\nevent notifications)]\n    Worker -->|optional| Webhook[Alert webhook]\n    API --> Analysis[Incident analysis]\n    Analysis --> Local[Local evidence heuristics]\n    Analysis -->|optional| OpenAI[OpenAI Responses API]",
+    "problem": "Endpoint failures, logs, and releases are difficult to reason about when evidence lives in separate tools.",
+    "solution": "Bring monitors, incident timelines, and reviewable hypotheses into a single-workspace console.",
+    "technicalDetails": [
+      "Monitor configuration, structured events, and incident transitions are persisted through the FastAPI/SQL layer rather than represented only as dashboard state.",
+      "A SQL outbox and background worker separate event handling from HTTP requests. Local heuristic investigations remain available when optional model integration is absent."
+    ]
+  },
+  {
+    "id": "finovaiq",
+    "slug": "finovaiq",
+    "title": "FinovaIQ",
+    "subtitle": "Personal-finance workspace",
+    "description": "A finance dashboard with manual accounts, precise transaction accounting, budgets, portfolios, and an explicitly labeled demo copilot.",
+    "categories": [
+      "AI / Machine Learning",
+      "Full Stack",
+      "Backend / Cloud / DevOps"
+    ],
+    "tags": [
+      "Next.js",
+      "NestJS",
+      "Prisma",
+      "PostgreSQL",
+      "TypeScript",
+      "FastAPI"
+    ],
+    "github": "https://github.com/manikantbindass/FinovaIQ-AI-Personal-Finance-Investment-Dashboard",
+    "live": "https://finovaiq.vercel.app",
+    "featured": true,
+    "status": "Development milestone with hosted demo",
+    "updatedAt": "2026-10-24T09:27:34Z",
+    "users": "People exploring manual personal-finance tracking using fictional demonstration records.",
+    "features": [
+      "Income, expense and transfer workflows",
+      "Budget and investment calculations",
+      "Persisted dashboard and optional AI adapter"
+    ],
+    "architecture": [
+      "Next.js workspace",
+      "NestJS API",
+      "Prisma / PostgreSQL; optional FastAPI AI service"
+    ],
+    "challenges": [
+      "No bank connections or live market prices are supplied. Browser chart approximations are separate from persisted precise monetary calculations. Redis workers remain pending."
+    ],
+    "screenshots": [
+      {
+        "src": "/projects/finovaiq/dashboard.png",
+        "caption": "FinovaIQ — dashboard (repository capture; demo data where shown)",
+        "source": "https://github.com/manikantbindass/FinovaIQ-AI-Personal-Finance-Investment-Dashboard/blob/ae0525678069246f109e2b373c395919e064c919/docs/screenshots/dashboard.png"
+      },
+      {
+        "src": "/projects/finovaiq/mobile-dashboard.png",
+        "caption": "FinovaIQ — mobile dashboard (repository capture; demo data where shown)",
+        "source": "https://github.com/manikantbindass/FinovaIQ-AI-Personal-Finance-Investment-Dashboard/blob/ae0525678069246f109e2b373c395919e064c919/docs/screenshots/mobile-dashboard.png"
+      }
+    ],
+    "evidence": [
+      {
+        "path": "apps/api/src/finance.ts",
+        "url": "https://github.com/manikantbindass/FinovaIQ-AI-Personal-Finance-Investment-Dashboard/blob/ae0525678069246f109e2b373c395919e064c919/apps/api/src/finance.ts"
+      },
+      {
+        "path": "apps/api/src/finance.service.ts",
+        "url": "https://github.com/manikantbindass/FinovaIQ-AI-Personal-Finance-Investment-Dashboard/blob/ae0525678069246f109e2b373c395919e064c919/apps/api/src/finance.service.ts"
+      },
+      {
+        "path": "apps/web/package.json",
+        "url": "https://github.com/manikantbindass/FinovaIQ-AI-Personal-Finance-Investment-Dashboard/blob/ae0525678069246f109e2b373c395919e064c919/apps/web/package.json"
+      }
+    ],
+    "sourceCommit": "ae0525678069246f109e2b373c395919e064c919",
+    "verifiedAt": "2026-10-25T02:57:59.083178+00:00",
+    "problem": "Manual income, expenses, budgets, and investments need consistent accounting across views.",
+    "solution": "Use a persistent API and precise monetary calculations behind a responsive finance workspace.",
+    "technicalDetails": [
+      "The finance layer converts monetary strings into minor-unit BigInt values; Prisma Decimal is configured for higher-precision calculations.",
+      "The web workspace calls a NestJS API backed by Prisma/PostgreSQL. The deterministic demo copilot and optional FastAPI/OpenAI adapter have explicitly different behavior."
+    ]
+  },
+  {
+    "id": "flowpilot",
+    "slug": "flowpilot",
+    "title": "FlowPilot",
+    "subtitle": "Interactive SaaS product experience",
+    "description": "A responsive SaaS demonstration with a workflow sandbox, seat-based pricing calculator, and a trial configuration modal.",
+    "categories": ["Full Stack"],
+    "tags": ["React", "TypeScript", "Tailwind CSS", "Vite", "Recharts"],
+    "github": "https://github.com/manikantbindass/SaaS-Product-Landing-Page-with-Interactive-Pricing-Demo",
+    "live": "https://manikantbindass.github.io/SaaS-Product-Landing-Page-with-Interactive-Pricing-Demo/",
+    "featured": true,
+    "status": "Frontend demonstration",
+    "updatedAt": "2026-10-23T09:33:55Z",
+    "users": "Teams evaluating an illustrative workflow product and developers studying interactive product UI.",
+    "features": [
+      "Workflow toggles and task filtering",
+      "Monthly/annual pricing with a seat slider",
+      "Validated local trial configuration"
+    ],
+    "architecture": [
+      "React components",
+      "browser state",
+      "pricing utilities / sample data"
+    ],
+    "challenges": [
+      "FlowPilot is a fictional brand. Workflow runs, analytics, and form submissions remain local demonstrations, rather than a connected SaaS backend."
+    ],
+    "screenshots": [],
+    "evidence": [
+      {
+        "path": "src/components/InteractiveDemo.tsx",
+        "url": "https://github.com/manikantbindass/SaaS-Product-Landing-Page-with-Interactive-Pricing-Demo/blob/651835e939b763ecfe919081fe8c1946f2480414/src/components/InteractiveDemo.tsx"
+      },
+      {
+        "path": "src/lib/pricing.ts",
+        "url": "https://github.com/manikantbindass/SaaS-Product-Landing-Page-with-Interactive-Pricing-Demo/blob/651835e939b763ecfe919081fe8c1946f2480414/src/lib/pricing.ts"
+      },
+      {
+        "path": "src/components/SignupModal.tsx",
+        "url": "https://github.com/manikantbindass/SaaS-Product-Landing-Page-with-Interactive-Pricing-Demo/blob/651835e939b763ecfe919081fe8c1946f2480414/src/components/SignupModal.tsx"
+      }
+    ],
+    "sourceCommit": "651835e939b763ecfe919081fe8c1946f2480414",
+    "verifiedAt": "2026-10-25T02:58:07.405163+00:00",
+    "problem": "A product landing page needs to explain pricing and interaction before a visitor commits.",
+    "solution": "Offer a local workflow sandbox and a calculator that preserves plan, billing cycle, and seat selections.",
+    "technicalDetails": [
+      "Pricing calculations are separated from presentation components and compute monthly/annual totals, effective seats, and annual savings.",
+      "InteractiveDemo, PricingSection, and SignupModal coordinate through browser state. The repository documents that no connected SaaS backend or real signup service is included."
+    ]
+  },
+  {
+    "id": "chainpass",
+    "slug": "chainpass",
+    "title": "ChainPass",
+    "subtitle": "One pass. More possibilities.",
+    "description": "A ticketing application with transactional inventory, private wallets, signed QR admission, and optional on-chain issuance proofs.",
+    "categories": [
+      "Blockchain / Web3",
+      "Full Stack",
+      "Backend / Cloud / DevOps"
+    ],
+    "tags": [
+      "React",
+      "TypeScript",
+      "Fastify",
+      "PostgreSQL",
+      "SQLite",
+      "Solidity"
+    ],
+    "github": "https://github.com/manikantbindass/Blockchain-Based-Smart-Ticket-System-Concert-railway-public-and-Private-Transport-",
+    "live": null,
+    "featured": false,
+    "status": "Locally runnable ticketing platform",
+    "updatedAt": "2026-10-20T18:39:10Z",
+    "users": "Customers and organizers exploring events, transport, bookings, and admission.",
+    "features": [
+      "Transactional bookings with idempotency keys",
+      "Signed QR credentials and organizer check-in",
+      "Optional Firebase, Razorpay and durable blockchain outbox"
+    ],
+    "architecture": [
+      "React web",
+      "Fastify API",
+      "PostgreSQL / SQLite",
+      "outbox worker",
+      "optional EVM registry"
+    ],
+    "challenges": [
+      "Railway reservations and test identity checks are simulations. Real auth/payments require provider configuration. No throughput or availability SLA is claimed."
+    ],
+    "screenshots": [
+      {
+        "src": "/projects/chainpass/desktop.png",
+        "caption": "ChainPass — desktop (repository capture; demo data where shown)",
+        "source": "https://github.com/manikantbindass/Blockchain-Based-Smart-Ticket-System-Concert-railway-public-and-Private-Transport-/blob/0fd1c0da7d2e26e54bea2249b406b4214b065711/docs/screenshots/desktop.png"
+      },
+      {
+        "src": "/projects/chainpass/mobile.png",
+        "caption": "ChainPass — mobile (repository capture; demo data where shown)",
+        "source": "https://github.com/manikantbindass/Blockchain-Based-Smart-Ticket-System-Concert-railway-public-and-Private-Transport-/blob/0fd1c0da7d2e26e54bea2249b406b4214b065711/docs/screenshots/mobile.png"
+      },
+      {
+        "src": "/projects/chainpass/rail-desktop.png",
+        "caption": "ChainPass — rail desktop (repository capture; demo data where shown)",
+        "source": "https://github.com/manikantbindass/Blockchain-Based-Smart-Ticket-System-Concert-railway-public-and-Private-Transport-/blob/0fd1c0da7d2e26e54bea2249b406b4214b065711/docs/screenshots/rail-desktop.png"
+      },
+      {
+        "src": "/projects/chainpass/rail-mobile.png",
+        "caption": "ChainPass — rail mobile (repository capture; demo data where shown)",
+        "source": "https://github.com/manikantbindass/Blockchain-Based-Smart-Ticket-System-Concert-railway-public-and-Private-Transport-/blob/0fd1c0da7d2e26e54bea2249b406b4214b065711/docs/screenshots/rail-mobile.png"
+      }
+    ],
+    "evidence": [
+      {
+        "path": "apps/api/src/app.ts",
+        "url": "https://github.com/manikantbindass/Blockchain-Based-Smart-Ticket-System-Concert-railway-public-and-Private-Transport-/blob/0fd1c0da7d2e26e54bea2249b406b4214b065711/apps/api/src/app.ts"
+      },
+      {
+        "path": "apps/api/src/outbox.ts",
+        "url": "https://github.com/manikantbindass/Blockchain-Based-Smart-Ticket-System-Concert-railway-public-and-Private-Transport-/blob/0fd1c0da7d2e26e54bea2249b406b4214b065711/apps/api/src/outbox.ts"
+      },
+      {
+        "path": "packages/contracts/src/TicketRegistry.sol",
+        "url": "https://github.com/manikantbindass/Blockchain-Based-Smart-Ticket-System-Concert-railway-public-and-Private-Transport-/blob/0fd1c0da7d2e26e54bea2249b406b4214b065711/packages/contracts/src/TicketRegistry.sol"
+      }
+    ],
+    "sourceCommit": "0fd1c0da7d2e26e54bea2249b406b4214b065711",
+    "verifiedAt": "2026-10-25T02:58:04.839302+00:00",
+    "architectureReference": "flowchart LR\n  B[React browser] -->|same origin /api| A[Fastify API replicas]\n  A -->|transaction| P[(PostgreSQL)]\n  A -->|same transaction| O[(Outbox records)]\n  W[Anchoring worker] --> O\n  W -->|idempotent commitment batch| E[EVM registry]\n  A --> S[Static frontend assets]\n  B --> F[Firebase Authentication]\n  B --> R[Razorpay hosted checkout]\n  A -->|verify identity| F\n  R -->|signed webhook| A",
+    "problem": "Ticketing must handle limited inventory, repeated checkout requests, and one-time admission without leaking private credentials.",
+    "solution": "Use transactional booking, idempotency, signed QR admission, and optional asynchronous blockchain anchoring.",
+    "technicalDetails": [
+      "Bookings and outbox writes share database transactions; conditional updates and idempotency prevent duplicate issuance and inventory overselling.",
+      "The worker leases outbox rows, renews ownership, and confirms anchoring through an adapter. SQLite supports local use while PostgreSQL provides the intended multi-replica database path."
+    ]
+  },
+  {
+    "id": "leetcode-sync",
+    "slug": "leetcode-sync",
+    "title": "LeetCode AI Sync",
+    "subtitle": "From accepted submission to repository",
+    "description": "A Chrome extension for detecting accepted LeetCode submissions, generating optional language variants, and pushing code through a retryable GitHub workflow.",
+    "categories": ["Developer Tools", "AI / Machine Learning"],
+    "tags": ["TypeScript", "React", "Chrome Extensions", "GitHub API"],
+    "github": "https://github.com/manikantbindass/Leetcode-GitPush-extension",
+    "live": null,
+    "featured": false,
+    "status": "Developer-tool prototype",
+    "updatedAt": "2026-08-16T19:53:24Z",
+    "users": "Developers maintaining a searchable archive of their algorithm practice.",
+    "features": [
+      "Network, DOM and polling submission detection",
+      "GitHub repository and folder selection",
+      "Provider adapters and a retry queue"
+    ],
+    "architecture": [
+      "LeetCode content script",
+      "background service worker",
+      "optional AI provider",
+      "GitHub API / retry queue"
+    ],
+    "challenges": [
+      "Generated solutions need review. Extension permissions, provider credentials, and GitHub access require deliberate configuration; no store publication is claimed."
+    ],
+    "screenshots": [],
+    "evidence": [
+      {
+        "path": "extension/src/background/index.ts",
+        "url": "https://github.com/manikantbindass/Leetcode-GitPush-extension/blob/85b4bf980ccf764eba4981af31699c92e13da335/extension/src/background/index.ts"
+      },
+      {
+        "path": "extension/src/background/queue.ts",
+        "url": "https://github.com/manikantbindass/Leetcode-GitPush-extension/blob/85b4bf980ccf764eba4981af31699c92e13da335/extension/src/background/queue.ts"
+      },
+      {
+        "path": "extension/public/manifest.json",
+        "url": "https://github.com/manikantbindass/Leetcode-GitPush-extension/blob/85b4bf980ccf764eba4981af31699c92e13da335/extension/public/manifest.json"
+      }
+    ],
+    "sourceCommit": "85b4bf980ccf764eba4981af31699c92e13da335",
+    "verifiedAt": "2026-10-25T02:58:00.966100+00:00",
+    "architectureReference": "┌─────────────────────────────────────────────┐\n│  Extensions                  Developer mode ●│\n└─────────────────────────────────────────────┘",
+    "problem": "Manually filing accepted submissions can interrupt practice and leave repository history incomplete.",
+    "solution": "Detect submissions through multiple signals, queue work durably, and push reviewed outputs through GitHub adapters.",
+    "technicalDetails": [
+      "The background queue uses IndexedDB, with queue records mirrored into extension storage for the interface.",
+      "Content scripts and the background worker separate browser detection from asynchronous provider and GitHub operations. Failed work can remain visible for retry."
+    ]
+  },
+  {
+    "id": "enterprise-rag",
+    "slug": "enterprise-rag",
+    "title": "Enterprise RAG Knowledge Assistant",
+    "subtitle": "Searchable organizational knowledge",
+    "description": "A document workspace with browser-native chunking and BM25 retrieval, plus a separately configurable FastAPI service architecture.",
+    "categories": [
+      "AI / Machine Learning",
+      "Full Stack",
+      "Backend / Cloud / DevOps"
+    ],
+    "tags": ["Next.js", "TypeScript", "FastAPI", "PostgreSQL", "BM25"],
+    "github": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant",
+    "live": null,
+    "featured": false,
+    "status": "Browser-native retrieval + optional services",
+    "updatedAt": "2026-06-13T11:42:15Z",
+    "users": "Teams exploring document retrieval and source-linked answers.",
+    "features": [
+      "Text extraction and document chunking",
+      "BM25 search with cited excerpts",
+      "Persistent browser conversations and settings"
+    ],
+    "architecture": [
+      "Next.js documents / chat",
+      "AppStore / localStorage",
+      "BM25 retrieval; optional FastAPI services"
+    ],
+    "challenges": [
+      "The default browser mode performs lexical retrieval and formatted answers. Selecting a model in settings does not establish a live LLM connection or enterprise SSO enforcement."
+    ],
+    "screenshots": [],
+    "evidence": [
+      {
+        "path": "frontend/src/lib/store.tsx",
+        "url": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant/blob/d42c64fbfa4d18c3d15d394aa27d579538997028/frontend/src/lib/store.tsx"
+      },
+      {
+        "path": "backend/chat_service/main.py",
+        "url": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant/blob/d42c64fbfa4d18c3d15d394aa27d579538997028/backend/chat_service/main.py"
+      },
+      {
+        "path": "frontend/package.json",
+        "url": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant/blob/d42c64fbfa4d18c3d15d394aa27d579538997028/frontend/package.json"
+      }
+    ],
+    "sourceCommit": "d42c64fbfa4d18c3d15d394aa27d579538997028",
+    "verifiedAt": "2026-10-25T02:58:03.139226+00:00",
+    "architectureReference": "┌─────────────────────────────────────────────────────────────────┐\n│                     Browser (Next.js 15)                        │\n│                                                                 │\n│  ┌──────────────┐  ┌──────────────┐  ┌──────────────────────┐  │\n│  │  Documents   │  │     Chat     │  │  Dashboard / Admin   │  │\n│  │   Page       │  │    Page      │  │      / Settings      │  │\n│  └──────┬───────┘  └──────┬───────┘  └──────────┬───────────┘  │\n│         │                 │                      │              │\n│  ┌──────▼─────────────────▼──────────────────────▼───────────┐  │\n│  │               AppStore (useReducer + localStorage)        │  │\n│  │   documents[] · conversations[] · queryLogs[] · settings  │  │\n│  └──────────────────────────┬───────────────────────────────┘   │\n│                             │                                   │\n│  ┌──────────────────────────▼───────────────────────────────┐   │\n│  │              RAG Engine (client-side)                    │   │\n│  │   buildChunks() · ragSearch() BM25 · formatAnswer()      │   │\n│  └──────────────────────────────────────────────────────────┘   │\n└──────────────────────────────┬──────────────────────────────────┘\n                               │ (optional)\n┌──────────────────────────────▼──────────────────────────────────┐\n│                Python Backend (FastAPI)                         │\n│   PDF/DOCX parsing · OpenAI embeddings · pgvector search       │\n│   LangGraph agents · SSO · Multi-tenancy · Audit logs          │\n└─────────────────────────────────────────────────────────────────┘",
+    "problem": "A collection of documents is not useful if readers cannot find the passages relevant to a question.",
+    "solution": "Chunk text, retrieve relevant excerpts, and provide cited answers in a browser-native workspace, with optional backend services.",
+    "technicalDetails": [
+      "The frontend AppStore models documents, chunks, conversations, query logs, users, and retrieval settings, persisting browser state locally.",
+      "The default retrieval engine uses BM25 over text chunks. FastAPI services provide a separate optional path for binary parsing, embeddings, and other server integrations."
+    ]
+  },
+  {
+    "id": "remoteshield",
+    "slug": "remoteshield",
+    "title": "RemoteShield X",
+    "subtitle": "Secure remote-work browser",
+    "description": "A desktop browser and administration toolkit with Tauri, a Node gateway, VPN checks, and mobile project assets.",
+    "categories": ["Backend / Cloud / DevOps", "Full Stack"],
+    "tags": [
+      "Tauri",
+      "React",
+      "TypeScript",
+      "Express",
+      "WireGuard",
+      "PostgreSQL"
+    ],
+    "github": "https://github.com/manikantbindass/RdPBrowser",
+    "live": null,
+    "featured": false,
+    "status": "Infrastructure prototype",
+    "updatedAt": "2026-04-29T23:59:02+05:30",
+    "users": "Teams investigating controlled remote browsing and central network egress.",
+    "features": [
+      "Desktop tabs and navigation",
+      "VPN guard and gateway middleware",
+      "Administrative session routes"
+    ],
+    "architecture": [
+      "Tauri desktop",
+      "VPN guard / WireGuard",
+      "Express gateway",
+      "PostgreSQL"
+    ],
+    "challenges": [
+      "OS-level enforcement and VPN policy need deployment-specific validation. Source presence does not establish a security certification or support guarantee."
+    ],
+    "screenshots": [],
+    "evidence": [
+      {
+        "path": "desktop/src/components/VpnGuard.tsx",
+        "url": "https://github.com/manikantbindass/RdPBrowser/blob/0aa4b400aeb87c248632f7760db1be30ba4bac88/desktop/src/components/VpnGuard.tsx"
+      },
+      {
+        "path": "backend/src/middleware/vpnCheck.js",
+        "url": "https://github.com/manikantbindass/RdPBrowser/blob/0aa4b400aeb87c248632f7760db1be30ba4bac88/backend/src/middleware/vpnCheck.js"
+      },
+      {
+        "path": "backend/src/index.js",
+        "url": "https://github.com/manikantbindass/RdPBrowser/blob/0aa4b400aeb87c248632f7760db1be30ba4bac88/backend/src/index.js"
+      }
+    ],
+    "sourceCommit": "0aa4b400aeb87c248632f7760db1be30ba4bac88",
+    "verifiedAt": "2026-10-25T02:57:51.123238+00:00",
+    "architectureReference": "┌──────────────────────────────────────────────────────────────────┐\n│                        USER DEVICES                              │\n│  ┌────────────────┐  ┌──────────────────┐  ┌─────────────────┐  │\n│  │ Windows Desktop│  │  Linux Desktop   │  │  macOS Desktop  │  │\n│  │  (Tauri App)   │  │   (Tauri App)    │  │   (Tauri App)   │  │\n│  └───────┬────────┘  └────────┬─────────┘  └────────┬────────┘  │\n│          │                   │                       │           │\n│          └───────────────────┼───────────────────────┘           │\n│                              │ WireGuard Encrypted Tunnel        │\n│  ┌───────────────────────────┼───────────────────────────────┐   │\n│  │          Android Device   │                               │   │\n│  │          (Flutter App)    │                               │   │\n│  └───────────────────────────┘                               │   │\n└──────────────────────────────┬───────────────────────────────────┘\n                               │\n                    ┌──────────▼──────────────┐\n                    │   VPS (Static IP)        │\n                    │  ┌────────────────────┐  │\n                    │  │   WireGuard VPN    │  │\n                    │  │   Kill-Switch ON   │  │\n                    │  └────────┬───────────┘  │\n                    │           │              │\n                    │  ┌────────▼───────────┐  │\n                    │  │   Nginx (SSL/TLS)  │  │\n                    │  └────────┬───────────┘  │\n                    │           │              │\n                    │  ┌────────▼───────────┐  │\n                    │  │  Node.js Backend   │  │\n                    │  │  Express + JWT     │  │\n                    │  │  Socket.io         │  │\n                    │  └────────┬───────────┘  │\n                    │           │              │\n                    │  ┌────────▼───────────┐  │\n                    │  │    PostgreSQL DB    │  │\n                    │  └────────────────────┘  │\n                    └──────────┬───────────────┘\n                               │\n                    ┌──────────▼──────────────┐\n                    │       INTERNET           │\n                    └─────────────────────────┘",
+    "problem": "Remote browsing policies depend on device, gateway, and network behavior working together.",
+    "solution": "Combine a Tauri browser, VPN checks, and a central gateway for experiments with controlled browsing.",
+    "technicalDetails": [
+      "The desktop source separates browser tabs, navigation, login, and VPN guards. The Node gateway separates authentication, admin, and proxy routes.",
+      "Networking and operating-system restrictions are deployment concerns in addition to application code. Their effectiveness must be tested on each supported platform."
+    ]
+  },
+  {
+    "id": "intramind",
+    "slug": "intramind",
+    "title": "Intramind.AI",
+    "subtitle": "Knowledge retrieval exploration",
+    "description": "An early knowledge-platform scaffold exploring a Next.js interface and a FastAPI document-questioning architecture.",
+    "categories": ["AI / Machine Learning", "Backend / Cloud / DevOps"],
+    "tags": ["Next.js", "TypeScript", "FastAPI", "Python"],
+    "github": "https://github.com/manikantbindass/Intramind.ai",
+    "live": null,
+    "featured": false,
+    "status": "Early scaffold",
+    "updatedAt": "2026-04-27T11:58:32+05:30",
+    "users": "Teams exploring how to make internal knowledge searchable.",
+    "features": [
+      "Landing and login page scaffolds",
+      "FastAPI application entry point",
+      "Chat route scaffold"
+    ],
+    "architecture": [
+      "Next.js interface",
+      "FastAPI route scaffold",
+      "placeholder RAG pipeline"
+    ],
+    "challenges": [
+      "The checked-in RAG pipeline returns a placeholder. Production RAG, citations, and access controls described in the README are not established by the inspected implementation."
+    ],
+    "screenshots": [],
+    "evidence": [
+      {
+        "path": "backend/ai/rag_pipeline.py",
+        "url": "https://github.com/manikantbindass/Intramind.ai/blob/93d86127223a824a4216d92f554c30f3816659fc/backend/ai/rag_pipeline.py"
+      },
+      {
+        "path": "backend/api/routes/chat.py",
+        "url": "https://github.com/manikantbindass/Intramind.ai/blob/93d86127223a824a4216d92f554c30f3816659fc/backend/api/routes/chat.py"
+      },
+      {
+        "path": "knowflow-ai/backend/main.py",
+        "url": "https://github.com/manikantbindass/Intramind.ai/blob/93d86127223a824a4216d92f554c30f3816659fc/knowflow-ai/backend/main.py"
+      }
+    ],
+    "sourceCommit": "93d86127223a824a4216d92f554c30f3816659fc",
+    "verifiedAt": "2026-10-25T02:57:49.881690+00:00",
+    "problem": "Internal knowledge is spread across documents rather than a single searchable interface.",
+    "solution": "Explore a document-to-answer architecture; the published implementation currently stops at scaffolds and a placeholder pipeline.",
+    "technicalDetails": [
+      "The FastAPI entry point registers an API router, while a separate chat scaffold exposes a basic service response.",
+      "RAGPipeline.run currently returns a fixed placeholder response. The richer retrieval and security descriptions in the README remain unverified implementation goals."
+    ]
+  },
+  {
+    "id": "metarole",
+    "slug": "metarole",
+    "title": "MetaRole.AI",
+    "subtitle": "AI career co-pilot",
+    "description": "Resume analysis, skill graphs, career suggestions, and tailored document generation in a terminal-inspired workspace.",
+    "categories": ["AI / Machine Learning", "Full Stack"],
+    "tags": ["Next.js", "TypeScript", "OpenAI", "D3.js", "Python"],
+    "github": "https://github.com/manikantbindass/MetaRole.ai",
+    "live": "https://meta-role-ai.vercel.app",
+    "featured": false,
+    "status": "Prototype with API integrations",
+    "updatedAt": "2026-04-07T15:11:42+05:30",
+    "users": "Job seekers comparing their skills with target roles.",
+    "features": [
+      "Resume upload and PDF parsing",
+      "Skill graph generation",
+      "Career prediction and document-generation routes"
+    ],
+    "architecture": [
+      "Next.js upload UI",
+      "API routes",
+      "OpenAI helpers",
+      "in-memory sessions"
+    ],
+    "challenges": [
+      "Session storage is process-local; durable analysis history requires a persistent store. OpenAI features require server configuration."
+    ],
+    "screenshots": [],
+    "evidence": [
+      {
+        "path": "frontend/app/api/analyze-skills/route.ts",
+        "url": "https://github.com/manikantbindass/MetaRole.ai/blob/a3fc6ace14d5baa5903de6ba5a8bd758b0ffaf99/frontend/app/api/analyze-skills/route.ts"
+      },
+      {
+        "path": "frontend/app/api/_lib/session.ts",
+        "url": "https://github.com/manikantbindass/MetaRole.ai/blob/a3fc6ace14d5baa5903de6ba5a8bd758b0ffaf99/frontend/app/api/_lib/session.ts"
+      },
+      {
+        "path": "frontend/package.json",
+        "url": "https://github.com/manikantbindass/MetaRole.ai/blob/a3fc6ace14d5baa5903de6ba5a8bd758b0ffaf99/frontend/package.json"
+      }
+    ],
+    "sourceCommit": "a3fc6ace14d5baa5903de6ba5a8bd758b0ffaf99",
+    "verifiedAt": "2026-10-25T02:57:46.456191+00:00",
+    "architectureReference": "┌──────────────────────────────────────┐\n                    │         METAROLE AI SYSTEM           │\n                    └──────────────────────────────────────┘\n                                      │\n              ┌───────────────────────┼───────────────────────┐\n              ▼                       ▼                       ▼\n   ┌─────────────────┐    ┌─────────────────────┐   ┌──────────────────┐\n   │   FRONTEND      │    │     BACKEND (API)    │   │   AI ENGINE      │\n   │  Next.js 14     │◄──►│    FastAPI (Python)  │◄─►│  Python + GPT-4  │\n   │  App Router     │    │    REST Endpoints    │   │  LangChain       │\n   │  Tailwind CSS   │    │    JWT Auth          │   │  FAISS VectorDB  │\n   │  Framer Motion  │    │    PostgreSQL ORM    │   │  resume_parser   │\n   │  shadcn/ui      │    │    Redis Cache       │   │  skill_gap       │\n   └─────────────────┘    └─────────────────────┘   │  career_predict  │\n            │                       │                │  resume_gen      │\n            │                       │                └──────────────────┘\n            ▼                       ▼\n   ┌─────────────────┐    ┌──────────────────────┐\n   │    Vercel CDN   │    │   PostgreSQL 16       │\n   │    (Frontend)   │    │   + FAISS Vector DB   │\n   └─────────────────┘    └──────────────────────┘",
+    "problem": "A resume lists skills, but does not directly explain how they fit a target role.",
+    "solution": "Turn uploaded resume text into a skill graph and route the resulting context through analysis and generation endpoints.",
+    "technicalDetails": [
+      "The upload flow parses PDF content before requesting analysis. The skill-analysis route returns graph nodes and edges for the interface.",
+      "Generation and prediction are separate routes sharing session context. Process-local session state makes persistence and deployment lifetime explicit trade-offs."
+    ]
+  },
+  {
+    "id": "securerx",
+    "slug": "securerx",
+    "title": "SecureRxChain",
+    "subtitle": "Pharmaceutical traceability",
+    "description": "A drug-batch tracking prototype combining role-based dashboards, QR verification, and wallet-signed registry interactions.",
+    "categories": ["Blockchain / Web3", "Full Stack"],
+    "tags": ["React", "Express", "MongoDB", "Solidity", "Ethers.js"],
+    "github": "https://github.com/manikantbindass/SecureRxChain-Blockchain-Based-Drug-Supply-Chain-Counterfeit-Medicine-Prevention-System",
+    "live": "https://securerxchain.vercel.app",
+    "featured": false,
+    "status": "Web3 prototype",
+    "updatedAt": "2026-04-06T02:19:03+05:30",
+    "users": "Manufacturers, distributors, pharmacies, and consumers exploring batch provenance.",
+    "features": [
+      "Manufacturer and distributor dashboards",
+      "MetaMask connection and signing",
+      "Drug registry contract and QR scanner"
+    ],
+    "architecture": [
+      "React dashboards",
+      "Express API / MetaMask signer",
+      "MongoDB / DrugRegistry contract"
+    ],
+    "challenges": [
+      "The frontend uses Ethers.js rather than the older Web3.js portfolio label. Real contract writes require a correctly configured network and deployment."
+    ],
+    "screenshots": [],
+    "evidence": [
+      {
+        "path": "frontend/src/context/Web3Context.jsx",
+        "url": "https://github.com/manikantbindass/SecureRxChain-Blockchain-Based-Drug-Supply-Chain-Counterfeit-Medicine-Prevention-System/blob/c5c0260fe1ee1196a4e8a4c499eb55f2d8610c9b/frontend/src/context/Web3Context.jsx"
+      },
+      {
+        "path": "backend/routes/drugs.js",
+        "url": "https://github.com/manikantbindass/SecureRxChain-Blockchain-Based-Drug-Supply-Chain-Counterfeit-Medicine-Prevention-System/blob/c5c0260fe1ee1196a4e8a4c499eb55f2d8610c9b/backend/routes/drugs.js"
+      },
+      {
+        "path": "blockchain/contracts/DrugRegistry.sol",
+        "url": "https://github.com/manikantbindass/SecureRxChain-Blockchain-Based-Drug-Supply-Chain-Counterfeit-Medicine-Prevention-System/blob/c5c0260fe1ee1196a4e8a4c499eb55f2d8610c9b/blockchain/contracts/DrugRegistry.sol"
+      }
+    ],
+    "sourceCommit": "c5c0260fe1ee1196a4e8a4c499eb55f2d8610c9b",
+    "verifiedAt": "2026-10-25T02:57:48.016797+00:00",
+    "problem": "Drug batches move between several actors, making provenance and ownership difficult to inspect in one place.",
+    "solution": "Separate role-specific batch workflows from wallet-signed registry interactions and metadata storage.",
+    "technicalDetails": [
+      "Web3Context constructs an Ethers BrowserProvider, obtains a signer, and connects it to the DrugRegistry ABI.",
+      "The application separates user/metadata routes from the Solidity registry. A local/default contract address must be replaced for another deployment."
+    ]
+  },
+  {
+    "id": "solguard",
+    "slug": "solguard",
+    "title": "SolGuard AI",
+    "subtitle": "Smart-contract audit research",
+    "description": "A staged auditing prototype coordinating Solidity parsing, static checks, risk scoring, optional language-model reasoning, and patch suggestions.",
+    "categories": [
+      "Blockchain / Web3",
+      "AI / Machine Learning",
+      "Developer Tools"
+    ],
+    "tags": ["Python", "Solidity", "React", "Slither", "Transformers"],
+    "github": "https://github.com/manikantbindass/SolGuardAI-An-AI-Powered-Blockchain-Smart-Contract-",
+    "live": null,
+    "featured": false,
+    "status": "Experimental audit pipeline",
+    "updatedAt": "2026-04-05T20:34:48+05:30",
+    "users": "Smart-contract developers reviewing candidate vulnerabilities and remediation suggestions.",
+    "features": [
+      "Agent orchestration and phase selection",
+      "Static findings with risk classification",
+      "Reasoning and patch-generation modules"
+    ],
+    "architecture": [
+      "Solidity input",
+      "parsing / static analysis",
+      "classifier",
+      "reasoning",
+      "patch report"
+    ],
+    "challenges": [
+      "The classifier can fall back to rules. Loading a base CodeBERT classifier does not demonstrate trained vulnerability accuracy, and generated patches require independent review."
+    ],
+    "screenshots": [],
+    "evidence": [
+      {
+        "path": "agents/orchestrator.py",
+        "url": "https://github.com/manikantbindass/SolGuardAI-An-AI-Powered-Blockchain-Smart-Contract-/blob/f36d6b650efacdd08910bb189f7be0cb98ff8577/agents/orchestrator.py"
+      },
+      {
+        "path": "agents/phase2_neural/risk_classifier.py",
+        "url": "https://github.com/manikantbindass/SolGuardAI-An-AI-Powered-Blockchain-Smart-Contract-/blob/f36d6b650efacdd08910bb189f7be0cb98ff8577/agents/phase2_neural/risk_classifier.py"
+      },
+      {
+        "path": "agents/phase4_patching/patch_agent.py",
+        "url": "https://github.com/manikantbindass/SolGuardAI-An-AI-Powered-Blockchain-Smart-Contract-/blob/f36d6b650efacdd08910bb189f7be0cb98ff8577/agents/phase4_patching/patch_agent.py"
+      }
+    ],
+    "sourceCommit": "f36d6b650efacdd08910bb189f7be0cb98ff8577",
+    "verifiedAt": "2026-10-25T02:57:53.513611+00:00",
+    "architectureReference": "┌─────────────────────────────────────────────────────────────────┐\n│                        SolGuard AI Platform                     │\n│                                                                 │\n│  Phase 1        Phase 2        Phase 3        Phase 4           │\n│  Lexical    →   Neural    →   Semantic   →   Patching   →  XAI │\n│  Observer       Auditor       Architect      Agent        UI    │\n│                                                                 │\n│  AST/CFG        GNN/BERT      LLM CoT        OpenZeppelin       │\n│  Slither        SmartBugs     GPT-4/Claude   Foundry/HH         │\n└─────────────────────────────────────────────────────────────────┘",
+    "problem": "Contract vulnerabilities need more context than a single lint warning provides.",
+    "solution": "Coordinate static findings, risk scoring, reasoning, and proposed patches as inspectable stages.",
+    "technicalDetails": [
+      "The orchestrator loads agents independently and records which phases complete. Static analysis results feed risk classification and subsequent reasoning.",
+      "The classifier explicitly records codebert or rule_based as its model source. Optional dependency availability and model quality are separate from simply displaying a confidence score."
+    ]
+  },
+  {
+    "id": "autoledger",
+    "slug": "autoledger",
+    "title": "AutoLedger AI",
+    "subtitle": "Adaptive blockchain research",
+    "description": "A blockchain and reinforcement-learning exploration with a React dashboard and a simulated FastAPI network-state feed.",
+    "categories": ["Blockchain / Web3", "AI / Machine Learning"],
+    "tags": ["Python", "PyTorch", "FastAPI", "React"],
+    "github": "https://github.com/manikantbindass/AutoLedgerAI-Self-healing-blockchain-network-using-reinforcement-learning",
+    "live": null,
+    "featured": false,
+    "status": "Research prototype / simulated dashboard",
+    "updatedAt": "2026-03-31T18:13:01+05:30",
+    "users": "Developers exploring validator trust and adaptive network behavior.",
+    "features": [
+      "Simulated node trust updates over WebSockets",
+      "Transaction and consensus endpoints",
+      "PPO actor-critic model module"
+    ],
+    "architecture": [
+      "React dashboard",
+      "FastAPI WebSocket",
+      "simulated node state; separate PPO and ledger modules"
+    ],
+    "challenges": [
+      "The dashboard backend uses mock network state and random score changes. An integrated trained self-healing consensus network is not demonstrated by that feed."
+    ],
+    "screenshots": [],
+    "evidence": [
+      {
+        "path": "backend/main.py",
+        "url": "https://github.com/manikantbindass/AutoLedgerAI-Self-healing-blockchain-network-using-reinforcement-learning/blob/f8812bf84c8a6f86447b19b1ab71db6b8b7974a6/backend/main.py"
+      },
+      {
+        "path": "rl-agent/models/ppo_agent.py",
+        "url": "https://github.com/manikantbindass/AutoLedgerAI-Self-healing-blockchain-network-using-reinforcement-learning/blob/f8812bf84c8a6f86447b19b1ab71db6b8b7974a6/rl-agent/models/ppo_agent.py"
+      },
+      {
+        "path": "blockchain/core/ledger.py",
+        "url": "https://github.com/manikantbindass/AutoLedgerAI-Self-healing-blockchain-network-using-reinforcement-learning/blob/f8812bf84c8a6f86447b19b1ab71db6b8b7974a6/blockchain/core/ledger.py"
+      }
+    ],
+    "sourceCommit": "f8812bf84c8a6f86447b19b1ab71db6b8b7974a6",
+    "verifiedAt": "2026-10-25T02:57:54.823466+00:00",
+    "architectureReference": "┌─────────────────────────────────────────────────────────────────────┐\n│                         AutoLedgerAI System                          │\n└─────────────────────────────────────────────────────────────────────┘\n\n      ┌──────────────┐         ┌──────────────┐\n      │  React.js    │◄────────┤  FastAPI     │\n      │  Dashboard   │         │  Backend     │\n      └──────────────┘         └──────┬───────┘\n             ▲                        │\n             │                        │\n             │                ┌───────▼────────┐\n             │                │  Blockchain    │\n             │                │  Core (PBFT)   │\n             │                └───────┬────────┘\n             │                        │\n      ┌──────┴──────┐         ┌───────▼────────┐\n      │  Grafana    │         │  RL Agent      │\n      │  Monitoring │◄────────┤  (DQN/PPO)     │\n      └─────────────┘         └───────┬────────┘\n                                      │\n           ┌──────────────────────────┼──────────────────────────┐\n           │                          │                          │\n      ┌────▼────┐              ┌──────▼──────┐          ┌────────▼────┐\n      │ Trust   │              │  Detection  │          │   Kafka     │\n      │ System  │              │  Engine     │          │   Stream    │\n      └─────────┘              └─────────────┘          └─────────────┘\n                                      │\n                               ┌──────▼──────┐\n                               │  MongoDB    │\n                               │  Database   │\n                               └─────────────┘",
+    "problem": "Validator behavior and trust changes are difficult to understand without a visible feedback loop.",
+    "solution": "Explore trust scoring, consensus, and reinforcement-learning modules alongside a clearly simulated network dashboard.",
+    "technicalDetails": [
+      "The FastAPI dashboard serves mock_network_state and changes node trust values on a WebSocket interval. It is a simulation rather than a production consensus feed.",
+      "A separate PyTorch actor-critic module samples actions and estimates values. Its presence does not establish that dashboard decisions are driven by a trained policy."
+    ]
+  },
+  {
+    "id": "linux-scheduler",
+    "slug": "linux-scheduler",
+    "title": "AI-Adaptive Linux Scheduler",
+    "subtitle": "Workload scheduling visualization",
+    "description": "A full-stack simulation of process metrics and rule-based priority adjustments, visualized through a responsive monitoring dashboard.",
+    "categories": ["Backend / Cloud / DevOps", "Developer Tools"],
+    "tags": ["React", "Vite", "Express", "Recharts"],
+    "github": "https://github.com/manikantbindass/AI-adaptive-LINUX-Schedular-Dashboard-for-workload-optimization",
+    "live": null,
+    "featured": false,
+    "status": "Rule-based simulation",
+    "updatedAt": "2026-03-28T12:00:55+05:30",
+    "users": "Learners exploring CPU pressure, process priorities, and scheduler trade-offs.",
+    "features": [
+      "Simulated process and CPU metrics",
+      "Priority adjustments above a load threshold",
+      "Historical charts and optimization logs"
+    ],
+    "architecture": [
+      "React / Recharts",
+      "Express endpoints",
+      "in-memory process simulator / threshold rules"
+    ],
+    "challenges": [
+      "The backend does not modify a real Linux scheduler or run a trained model. Its AI optimization label refers to deterministic threshold logic over simulated processes."
+    ],
+    "screenshots": [],
+    "evidence": [
+      {
+        "path": "backend/server.js",
+        "url": "https://github.com/manikantbindass/AI-adaptive-LINUX-Schedular-Dashboard-for-workload-optimization/blob/d117af44dd2d390e703f18e1abbb3ae407124bdc/backend/server.js"
+      },
+      {
+        "path": "frontend/package.json",
+        "url": "https://github.com/manikantbindass/AI-adaptive-LINUX-Schedular-Dashboard-for-workload-optimization/blob/d117af44dd2d390e703f18e1abbb3ae407124bdc/frontend/package.json"
+      }
+    ],
+    "sourceCommit": "d117af44dd2d390e703f18e1abbb3ae407124bdc",
+    "verifiedAt": "2026-10-25T02:58:06.206035+00:00",
+    "architectureReference": "graph TD;\n    A[React/Vite Frontend] -->|REST API Calls| B[Node.js Backend]\n    B -->|Generates| C[Process Metrics]\n    B -->|Evaluates Load| D[AI Optimizer Module]\n    D -->|Throttles| C\n    C -->|Sends JSON| A",
+    "problem": "CPU pressure and priority adjustments are easier to study when process behavior is visible.",
+    "solution": "Simulate process metrics and threshold-driven throttling through an Express API and charting interface.",
+    "technicalDetails": [
+      "The Express service keeps process and metric history in memory and periodically generates workload fluctuations.",
+      "Above an aggregate CPU threshold, selected non-root simulated processes have CPU values reduced and nice values raised. This is rule-based simulation rather than a kernel scheduler integration."
+    ]
+  }
+]

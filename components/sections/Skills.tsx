@@ -1,72 +1,32 @@
 "use client";
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
+import TechIcon from "@/components/ui/TechIcon";
 import { skills, marqueeItems } from "@/lib/data";
 
 const fadeUp = (delay = 0) => ({
   hidden: { opacity: 0, y: 30 },
-  show:   { opacity: 1, y: 0, transition: { duration: 0.65, delay, ease: "easeOut" as const } },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.65, delay, ease: "easeOut" as const },
+  },
 });
 
 const CATS = [
-  { key: "frontend",   label: "Frontend",   color: "#6366F1" },
-  { key: "backend",    label: "Backend",    color: "#A78BFA" },
-  { key: "aiml",       label: "AI / ML",    color: "#2DD4BF" },
+  { key: "frontend", label: "Frontend", color: "#6366F1" },
+  { key: "backend", label: "Backend", color: "#A78BFA" },
+  { key: "aiml", label: "AI / ML", color: "#2DD4BF" },
   { key: "blockchain", label: "Blockchain", color: "#F59E0B" },
-  { key: "devops",     label: "DevOps",     color: "#F43F5E" },
+  { key: "devops", label: "DevOps", color: "#F43F5E" },
 ] as const;
-
-// ── Icon map: skill name → cdn.simpleicons.org URL ──────────────────────────
-const ICON_MAP: Record<string, string> = {
-  // Frontend
-  "Next.js":        "https://cdn.simpleicons.org/nextdotjs/ffffff",
-  "React":          "https://cdn.simpleicons.org/react/61DAFB",
-  "TypeScript":     "https://cdn.simpleicons.org/typescript/3178C6",
-  "TailwindCSS":    "https://cdn.simpleicons.org/tailwindcss/06B6D4",
-  "Three.js":       "https://cdn.simpleicons.org/threedotjs/ffffff",
-  "Framer Motion":  "https://cdn.simpleicons.org/framer/ffffff",
-  "Vue.js":         "https://cdn.simpleicons.org/vuedotjs/4FC08D",
-  // Backend
-  "Node.js":        "https://cdn.simpleicons.org/nodedotjs/339933",
-  "Python":         "https://cdn.simpleicons.org/python/3776AB",
-  "Java":           "https://cdn.simpleicons.org/openjdk/ffffff",
-  "Spring Boot":    "https://cdn.simpleicons.org/springboot/6DB33F",
-  "FastAPI":        "https://cdn.simpleicons.org/fastapi/009688",
-  "PostgreSQL":     "https://cdn.simpleicons.org/postgresql/4169E1",
-  "MongoDB":        "https://cdn.simpleicons.org/mongodb/47A248",
-  "Supabase":       "https://cdn.simpleicons.org/supabase/3ECF8E",
-  // AI / ML
-  "LangChain":      "https://cdn.simpleicons.org/langchain/ffffff",
-  "LangGraph":      "https://cdn.simpleicons.org/langchain/1C3C3C",
-  "OpenAI":         "https://cdn.simpleicons.org/openai/ffffff",
-  "Gemini":         "https://cdn.simpleicons.org/googlegemini/8E75B2",
-  "Pinecone":       "https://cdn.simpleicons.org/pinecone/ffffff",
-  "PyTorch":        "https://cdn.simpleicons.org/pytorch/EE4C2C",
-  "TensorFlow":     "https://cdn.simpleicons.org/tensorflow/FF6F00",
-  "CrewAI":         "https://cdn.simpleicons.org/python/3776AB",
-  // Blockchain
-  "Solidity":       "https://cdn.simpleicons.org/solidity/ffffff",
-  "Ethereum":       "https://cdn.simpleicons.org/ethereum/ffffff",
-  "Web3.js":        "https://cdn.simpleicons.org/web3dotjs/F16822",
-  "IPFS":           "https://cdn.simpleicons.org/ipfs/65C2CB",
-  "Hardhat":        "https://cdn.simpleicons.org/hardhat/FFF100",
-  // DevOps
-  "Docker":         "https://cdn.simpleicons.org/docker/2496ED",
-  "Kubernetes":     "https://cdn.simpleicons.org/kubernetes/326CE5",
-  "AWS":            "https://cdn.simpleicons.org/amazonwebservices/FF9900",
-  "Azure":          "https://cdn.simpleicons.org/microsoftazure/0078D4",
-  "Vercel":         "https://cdn.simpleicons.org/vercel/ffffff",
-  "Git":            "https://cdn.simpleicons.org/git/F05032",
-  "CI/CD":          "https://cdn.simpleicons.org/githubactions/2088FF",
-  "MLflow":         "https://cdn.simpleicons.org/mlflow/0194E2",
-};
 
 export default function Skills() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const [active, setActive] = useState<keyof typeof skills>("frontend");
 
-  const cat = CATS.find(c => c.key === active)!;
+  const cat = CATS.find((c) => c.key === active)!;
   const items = skills[active];
 
   return (
@@ -74,35 +34,59 @@ export default function Skills() {
       id="skills"
       ref={ref}
       className="relative section-pad overflow-hidden"
-      style={{ background: "#050A18" }}
+      style={{ background: "var(--bg2)" }}
     >
-      <div className="aurora-blob w-[450px] h-[450px] bg-[#2DD4BF] opacity-[0.06] absolute -bottom-10 -left-20 pointer-events-none" aria-hidden />
+      <div
+        className="aurora-blob w-[450px] h-[450px] bg-[#2DD4BF] opacity-[0.06] absolute -bottom-10 -left-20 pointer-events-none"
+        aria-hidden
+      />
 
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         {/* Header */}
-        <motion.div variants={fadeUp()} initial="hidden" animate={inView ? "show" : "hidden"} className="text-center mb-12">
+        <motion.div
+          variants={fadeUp()}
+          initial="hidden"
+          animate={inView ? "show" : "hidden"}
+          className="text-center mb-12"
+        >
           <p className="section-label mb-3">Technology Stack</p>
-          <h2 className="section-heading text-white">
+          <h2 className="section-heading text-[var(--fg)]">
             Skills &amp; <span className="gradient-text">Expertise</span>
           </h2>
         </motion.div>
 
         {/* Marquee rows */}
-        <motion.div variants={fadeUp(0.1)} initial="hidden" animate={inView ? "show" : "hidden"} className="mb-12 flex flex-col gap-3">
+        <motion.div
+          variants={fadeUp(0.1)}
+          initial="hidden"
+          animate={inView ? "show" : "hidden"}
+          className="mb-12 flex flex-col gap-3"
+        >
           <div className="marquee-wrap">
             <div className="marquee-inner">
               {[...marqueeItems, ...marqueeItems].map((item, i) => (
-                <span key={i} className="glass border border-white/7 px-4 py-2 rounded-full text-xs font-semibold text-white/60 whitespace-nowrap flex-shrink-0">
-                  {item}
+                <span
+                  key={i}
+                  aria-hidden={i >= marqueeItems.length}
+                  className="glass border border-white/7 px-4 py-2 rounded-full text-xs font-semibold text-[var(--muted)] whitespace-nowrap flex-shrink-0 inline-flex items-center gap-2"
+                >
+                  <TechIcon name={item} size={16} /> {item}
                 </span>
               ))}
             </div>
           </div>
           <div className="marquee-wrap">
             <div className="marquee-inner-rev">
-              {[...marqueeItems.slice().reverse(), ...marqueeItems.slice().reverse()].map((item, i) => (
-                <span key={i} className="glass border border-white/7 px-4 py-2 rounded-full text-xs font-semibold text-white/40 whitespace-nowrap flex-shrink-0">
-                  {item}
+              {[
+                ...marqueeItems.slice().reverse(),
+                ...marqueeItems.slice().reverse(),
+              ].map((item, i) => (
+                <span
+                  key={i}
+                  aria-hidden={i >= marqueeItems.length}
+                  className="glass border border-white/7 px-4 py-2 rounded-full text-xs font-semibold text-[var(--muted)] whitespace-nowrap flex-shrink-0 inline-flex items-center gap-2"
+                >
+                  <TechIcon name={item} size={16} /> {item}
                 </span>
               ))}
             </div>
@@ -110,18 +94,30 @@ export default function Skills() {
         </motion.div>
 
         {/* Category tabs */}
-        <motion.div variants={fadeUp(0.15)} initial="hidden" animate={inView ? "show" : "hidden"} className="flex flex-wrap gap-2 justify-center mb-10">
-          {CATS.map(c => (
+        <motion.div
+          variants={fadeUp(0.15)}
+          initial="hidden"
+          animate={inView ? "show" : "hidden"}
+          className="flex flex-wrap gap-2 justify-center mb-10"
+        >
+          {CATS.map((c) => (
             <button
               key={c.key}
               onClick={() => setActive(c.key)}
               data-magnetic
               className={`px-5 py-2.5 rounded-2xl text-sm font-semibold transition-all duration-200 border ${
                 active === c.key
-                  ? "text-white border-transparent"
-                  : "glass border-white/8 text-white/50 hover:text-white/80"
+                  ? "text-[var(--fg)] border-transparent"
+                  : "glass border-white/8 text-[var(--muted)] hover:text-[var(--fg)]"
               }`}
-              style={active === c.key ? { background: `linear-gradient(135deg,${c.color}cc,${c.color}88)`, boxShadow: `0 4px 16px ${c.color}40` } : {}}
+              style={
+                active === c.key
+                  ? {
+                      background: `linear-gradient(135deg,${c.color}cc,${c.color}88)`,
+                      boxShadow: `0 4px 16px ${c.color}40`,
+                    }
+                  : {}
+              }
             >
               {c.label}
             </button>
@@ -137,7 +133,6 @@ export default function Skills() {
           className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4"
         >
           {items.map((s, i) => {
-            const iconUrl = ICON_MAP[s.name];
             return (
               <motion.div
                 key={s.name}
@@ -159,41 +154,22 @@ export default function Skills() {
                   {/* Glow pulse on hover */}
                   <div
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
-                    style={{ background: `radial-gradient(circle at center, ${cat.color}35 0%, transparent 70%)` }}
-                  />
-
-                  {iconUrl ? (
-                    <motion.img
-                      src={iconUrl}
-                      alt={`${s.name} logo`}
-                      width={30}
-                      height={30}
-                      draggable={false}
-                      className="relative z-10 select-none"
-                      style={{ width: 30, height: 30, objectFit: "contain" }}
-                      whileHover={{ rotate: [0, -12, 12, -6, 6, 0], scale: 1.2 }}
-                      transition={{ duration: 0.5 }}
-                    />
-                  ) : (
-                    <span className="font-black text-xl relative z-10" style={{ color: cat.color }}>
-                      {s.name.slice(0, 2)}
-                    </span>
-                  )}
-                </div>
-
-                <p className="font-semibold text-white text-sm">{s.name}</p>
-
-                <div className="w-full progress-track">
-                  <div
-                    className="progress-fill"
                     style={{
-                      width: inView ? `${s.level}%` : "0%",
-                      background: `linear-gradient(90deg,${cat.color}88,${cat.color})`,
+                      background: `radial-gradient(circle at center, ${cat.color}35 0%, transparent 70%)`,
                     }}
                   />
+
+                  <motion.span
+                    whileHover={{ rotate: [0, -12, 12, -6, 0], scale: 1.15 }}
+                    className="relative z-10 text-[var(--accent)]"
+                  >
+                    <TechIcon name={s.name} size={30} />
+                  </motion.span>
                 </div>
 
-                <p className="text-xs font-mono" style={{ color: cat.color }}>{s.level}%</p>
+                <p className="font-semibold text-[var(--fg)] text-sm">
+                  {s.name}
+                </p>
               </motion.div>
             );
           })}
