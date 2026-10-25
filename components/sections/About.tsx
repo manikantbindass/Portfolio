@@ -1,10 +1,14 @@
 "use client";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Award } from "lucide-react";
 import { experience, certifications, personal } from "@/lib/data";
 import styles from "./About.module.css";
 import AboutAnimalScene from "./AboutAnimalScene";
+import AboutCardScene, { type AboutSceneTheme } from "./AboutCardScene";
+
+const experienceScenes: AboutSceneTheme[] = ["robot", "ai", "web3", "cosmic"];
+const certificationScenes: AboutSceneTheme[] = ["nature", "web3", "ai", "robot"];
 
 const fadeUp = (delay = 0) => ({
   hidden: { opacity: 0, y: 30 },
@@ -39,6 +43,7 @@ function SkillBar({
 }
 
 export default function About() {
+  const [animationsPaused, setAnimationsPaused] = useState(false);
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
@@ -47,8 +52,9 @@ export default function About() {
       id="about"
       ref={ref}
       className={`relative section-pad overflow-hidden ${styles.section}`}
+      data-animations-paused={animationsPaused}
     >
-      <AboutAnimalScene />
+      <AboutAnimalScene paused={animationsPaused} onToggle={() => setAnimationsPaused((value) => !value)} />
       {/* Shading blends the animated scene with the glass panels. */}
       <div
         className={styles.lighting}
@@ -78,6 +84,7 @@ export default function About() {
               animate={inView ? "show" : "hidden"}
             >
               <div className={`${styles.panel} ${styles.bio} flex flex-col gap-4`}>
+                <AboutCardScene theme="nature" />
                 <div className="flex items-center gap-3">
                   <div
                     className={`${styles.avatar} w-14 h-14 rounded-2xl flex items-center justify-center text-2xl font-black text-[var(--fg)]`}
@@ -148,6 +155,7 @@ export default function About() {
               animate={inView ? "show" : "hidden"}
             >
               <div className={`${styles.panel} flex flex-col gap-5`}>
+                <AboutCardScene theme="cosmic" offset={1} />
                 <p className="font-bold text-[var(--fg)] text-sm">
                   Core Strengths
                 </p>
@@ -180,6 +188,7 @@ export default function About() {
                     animate={inView ? "show" : "hidden"}
                     className={`${styles.panel} ${styles.experience} flex gap-4`}
                   >
+                    <AboutCardScene theme={experienceScenes[i % experienceScenes.length]} offset={i + 2} />
                     <div
                       className={styles.timelineDot}
                       aria-hidden
@@ -223,6 +232,7 @@ export default function About() {
                     animate={inView ? "show" : "hidden"}
                     className={`${styles.panel} ${styles.certification} flex items-center gap-3`}
                   >
+                    <AboutCardScene theme={certificationScenes[i % certificationScenes.length]} offset={i + 6} />
                     <span className={styles.award}><Award size={20} aria-hidden /></span>
                     <div className="flex-1 min-w-0">
                       <p className="text-[var(--fg)] text-sm font-semibold">

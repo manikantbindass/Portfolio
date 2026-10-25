@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
 import { Pause, Play } from "lucide-react";
 import styles from "./About.module.css";
 
-export default function AboutAnimalScene() {
-  const [paused, setPaused] = useState(false);
+export default function AboutAnimalScene({ paused, onToggle }: {
+  paused: boolean;
+  onToggle: () => void;
+}) {
   return (
     <>
       <div className={styles.animalBackdrop} aria-hidden="true" data-paused={paused}>
@@ -17,8 +18,8 @@ export default function AboutAnimalScene() {
       <button
         type="button"
         className={styles.sceneControl}
-        onClick={() => setPaused((value) => !value)}
-        aria-label={paused ? "Play About animal animation" : "Pause About animal animation"}
+        onClick={onToggle}
+        aria-label={paused ? "Play About animations" : "Pause About animations"}
         aria-pressed={paused}
       >
         {paused ? <Play size={14} aria-hidden /> : <Pause size={14} aria-hidden />}

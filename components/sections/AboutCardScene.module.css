@@ -1,0 +1,100 @@
+.scene {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+  contain: paint;
+}
+.scene::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, var(--about-scene-wash) 12%, var(--about-scene-wash-soft) 70%);
+}
+.artwork {
+  position: absolute;
+  top: 50%;
+  right: var(--scene-art-right, -7%);
+  width: var(--scene-art-width, 85%);
+  min-width: var(--scene-art-min, 220px);
+  max-width: 560px;
+  aspect-ratio: 1;
+  opacity: var(--about-scene-opacity);
+  mask-image: radial-gradient(ellipse 70% 68% at 65% 50%, #000 25%, #000 50%, transparent 85%);
+  animation: drift 18s ease-in-out infinite;
+  animation-delay: var(--scene-delay);
+}
+.frame {
+  position: absolute;
+  inset: 0;
+  background-image: var(--scene-image);
+  background-size: 400% 200%;
+  background-repeat: no-repeat;
+  animation: frames 4s steps(1, end) infinite;
+  animation-delay: var(--scene-delay);
+  filter: saturate(0.72);
+}
+.nextFrame {
+  animation: next-frames 4s steps(1, end) infinite, dissolve 0.5s linear infinite;
+  animation-delay: var(--scene-delay), var(--scene-delay);
+}
+.nature { --scene-image: url("/about/scenes/nature.webp"); --scene-light: var(--teal); }
+.cosmic { --scene-image: url("/about/scenes/cosmic.webp"); --scene-light: var(--accent2); }
+.ai { --scene-image: url("/about/scenes/ai.webp"); --scene-light: var(--accent); }
+.web3 { --scene-image: url("/about/scenes/web3.webp"); --scene-light: var(--teal); }
+.robot { --scene-image: url("/about/scenes/robot.webp"); --scene-light: var(--accent2); }
+.haze {
+  position: absolute;
+  inset: -30%;
+  opacity: 0.1;
+  background: radial-gradient(ellipse at 80% 35%, var(--scene-light), transparent 50%);
+  animation: mist 22s ease-in-out infinite alternate;
+}
+.reflection {
+  position: absolute;
+  inset: -100%;
+  opacity: 0.035;
+  background: linear-gradient(115deg, transparent 45%, #fff 49%, transparent 54%);
+  animation: reflection 24s ease-in-out infinite;
+}
+.motes { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--scene-light); opacity: 0.32; }
+.motes circle { fill: currentColor; animation: glimmer 7s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.scene .artwork, .scene .frame, .scene .haze, .scene .reflection, .scene .motes circle {
+  animation-play-state: var(--about-animation-state, running);
+}
+@keyframes drift {
+  0%, 100% { transform: translate(0, -50%) scale(1); }
+  50% { transform: translate(-6px, calc(-50% - 5px)) scale(1.025); }
+}
+@keyframes mist { to { transform: translate(-6%, 5%) rotate(5deg); } }
+@keyframes reflection { 0%, 15%, 100% { transform: translateX(-20%); } 65% { transform: translateX(30%); } }
+@keyframes glimmer { 0%, 100% { opacity: 0.2; transform: translateY(0) scale(0.8); } 50% { opacity: 0.8; transform: translateY(-5px) scale(1.1); } }
+@keyframes dissolve { 0%, 55% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes frames {
+  0%, 100% { background-position: 0 0; }
+  12.5% { background-position: 33.3333% 0; }
+  25% { background-position: 66.6667% 0; }
+  37.5% { background-position: 100% 0; }
+  50% { background-position: 0 100%; }
+  62.5% { background-position: 33.3333% 100%; }
+  75% { background-position: 66.6667% 100%; }
+  87.5% { background-position: 100% 100%; }
+}
+@keyframes next-frames {
+  0%, 100% { background-position: 33.3333% 0; }
+  12.5% { background-position: 66.6667% 0; }
+  25% { background-position: 100% 0; }
+  37.5% { background-position: 0 100%; }
+  50% { background-position: 33.3333% 100%; }
+  62.5% { background-position: 66.6667% 100%; }
+  75% { background-position: 100% 100%; }
+  87.5% { background-position: 0 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scene .artwork, .scene .frame, .scene .haze, .scene .reflection, .scene .motes circle { animation: none; }
+  .artwork { transform: translateY(-50%); }
+  .nextFrame { display: none; }
+}
+@media (prefers-reduced-transparency: reduce) { .scene { display: none; } }

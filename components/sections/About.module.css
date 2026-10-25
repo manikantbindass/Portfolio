@@ -1,4 +1,8 @@
 .section {
+  --about-animation-state: running;
+  --about-scene-opacity: 0.32;
+  --about-scene-wash: rgba(247, 250, 255, 0.85);
+  --about-scene-wash-soft: rgba(247, 250, 255, 0.6);
   --about-panel: rgba(255, 255, 255, 0.76);
   --about-edge: rgba(255, 255, 255, 0.9);
   --about-inset: rgba(255, 255, 255, 0.85);
@@ -11,6 +15,9 @@
 }
 
 :global(.dark) .section {
+  --about-scene-opacity: 0.4;
+  --about-scene-wash: rgba(9, 15, 29, 0.85);
+  --about-scene-wash-soft: rgba(9, 15, 29, 0.72);
   --about-panel: rgba(13, 19, 33, 0.68);
   --about-edge: rgba(235, 238, 245, 0.18);
   --about-inset: rgba(255, 255, 255, 0.14);
@@ -18,6 +25,7 @@
   --about-line: rgba(235, 238, 245, 0.16);
   --about-shade: linear-gradient(180deg, rgba(6, 9, 19, 0.5), rgba(12, 17, 31, 0.16) 40%, rgba(6, 9, 19, 0.48));
 }
+.section[data-animations-paused="true"] { --about-animation-state: paused; }
 
 .heading { min-height: 650px; }
 
@@ -28,6 +36,7 @@
   inset: 0;
   background: url("/about/animals-playing.png") 0 0 / 400% 200% no-repeat;
   animation: animals-play 2.8s steps(1, end) infinite;
+  animation-play-state: var(--about-animation-state);
   filter: saturate(0.82) drop-shadow(0 12px 20px rgba(15, 22, 40, 0.14));
 }
 .glassFloor { position: absolute; inset: auto -10% 4%; height: 16%; border-radius: 50%; background: linear-gradient(140deg, var(--surface), color-mix(in srgb, var(--accent) 12%, transparent)); border: 1px solid var(--border); box-shadow: inset 0 2px 0 rgba(255,255,255,.15); }
@@ -58,6 +67,8 @@
 
 .panel {
   position: relative;
+  isolation: isolate;
+  overflow: hidden;
   padding: 28px;
   border: 1px solid var(--about-edge);
   border-radius: 28px;
@@ -69,6 +80,8 @@
     inset 0 -1px 0 rgba(120, 125, 135, 0.04),
     0 12px 32px rgba(15, 18, 24, 0.045);
 }
+.panel > :not([data-about-scene]) { position: relative; z-index: 1; }
+.panel::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; box-shadow: inset 0 1px 0 var(--about-inset), inset 1px 0 0 rgba(255, 255, 255, 0.06); }
 
 .bio { padding: 32px; gap: 22px; }
 .avatar {
@@ -96,8 +109,10 @@
 .statusDot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 4px var(--about-chip); flex-shrink: 0; }
 .groupLabel { margin-bottom: 16px; padding-left: 4px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
 .experience { padding: 24px; border-radius: 24px; }
+.experience [data-about-scene] { --scene-art-width: 55%; --scene-art-min: 200px; --scene-art-right: -15px; }
 .timelineDot { flex: 0 0 9px; height: 9px; margin-top: 5px; border-radius: 50%; border: 1px solid var(--about-edge); background: linear-gradient(135deg, var(--accent), var(--accent2)); box-shadow: 0 0 0 5px var(--about-chip); }
-.certification { padding: 18px 20px; border-radius: 22px; }
+.certification { padding: 18px 20px; border-radius: 22px; min-height: 104px; }
+.certification [data-about-scene] { --scene-art-width: 160px; --scene-art-min: 160px; --scene-art-right: -8px; }
 .award { display: grid; place-items: center; flex: 0 0 40px; height: 40px; border: 1px solid var(--about-line); border-radius: 14px; color: var(--accent); background: var(--about-chip); }
 
 @media (max-width: 640px) {

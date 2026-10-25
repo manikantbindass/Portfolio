@@ -3,6 +3,8 @@ import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Send, Mail, CheckCircle } from "lucide-react";
 import { personal } from "@/lib/data";
+import ContactAquarium from "./ContactAquarium";
+import styles from "./ContactAquarium.module.css";
 
 const fadeUp = (delay = 0) => ({
   hidden: { opacity: 0, y: 30 },
@@ -61,9 +63,7 @@ export default function Contact() {
     setTimeout(() => setSent(false), 5000);
   };
 
-  const inputCls = `w-full px-4 py-3 rounded-2xl text-sm text-[var(--fg)] placeholder-white/25 outline-none transition-all duration-200
-    bg-white/4 border border-white/8 focus:border-[#6366F1]/50 focus:ring-1 focus:ring-[#6366F1]/25
-    hover:border-white/15`;
+  const inputCls = styles.field;
 
   return (
     <section
@@ -102,9 +102,11 @@ export default function Contact() {
             initial="hidden"
             animate={inView ? "show" : "hidden"}
           >
-            <div className="glass rounded-3xl p-8 border border-white/7">
+            <div className={`${styles.messageCard} rounded-3xl p-8`}>
+              <ContactAquarium />
+              <div className={styles.content}>
               <h3 className="font-bold text-[var(--fg)] text-xl mb-6 flex items-center gap-2">
-                <Mail size={20} className="text-[var(--accent)]" />
+                <Mail size={20} className={styles.titleIcon} />
                 Send a Message
               </h3>
               <AnimatePresence mode="wait">
@@ -196,11 +198,7 @@ export default function Contact() {
                     </div>
                     <motion.button
                       type="submit"
-                      className="flex items-center justify-center gap-2 text-sm font-bold text-[var(--fg)] py-3.5 rounded-2xl transition-all"
-                      style={{
-                        background: "linear-gradient(135deg,#6366F1,#A78BFA)",
-                        boxShadow: "0 4px 20px rgba(99,102,241,0.4)",
-                      }}
+                      className={styles.submit}
                       whileHover={{ scale: 1.02, y: -1 }}
                       whileTap={{ scale: 0.98 }}
                       data-magnetic
@@ -210,6 +208,7 @@ export default function Contact() {
                   </motion.form>
                 )}
               </AnimatePresence>
+              </div>
             </div>
           </motion.div>
 
