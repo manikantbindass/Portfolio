@@ -1,4 +1,26 @@
 import data from "./projects.json";
+export interface ProjectDetail {
+  title: string;
+  description: string;
+  source: string;
+}
+export interface ProjectTechnology {
+  name: string;
+  description: string;
+  stage: string;
+  source?: string;
+  version?: string;
+}
+export interface ProjectCaseStudy {
+  architectureSummary: string;
+  features: ProjectDetail[];
+  technologies: ProjectTechnology[];
+  decisions: (ProjectDetail & { tradeoff: string })[];
+  outcomes: ProjectDetail[];
+  workflow: string[];
+  commands: string[];
+  setup: string;
+}
 export interface Project {
   id: string;
   slug: string;
@@ -24,6 +46,8 @@ export interface Project {
   evidence: { path: string; url: string }[];
   sourceCommit: string;
   verifiedAt: string;
+  contentStage: string;
+  caseStudy: ProjectCaseStudy;
 }
 export const projects: Project[] = data;
 export const projectCategories = [

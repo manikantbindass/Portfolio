@@ -3,7 +3,7 @@ import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import TechIcon from "@/components/ui/TechIcon";
 import type { Project } from "@/lib/projects";
-import { ProjectVisual } from "@/components/sections/Projects";
+import ProjectVisual from "@/components/ProjectVisual";
 const tabs = [
   "Overview",
   "Architecture",
@@ -20,6 +20,19 @@ export default function ProjectDetails({ project: p }: { project: Project }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const priorFocus = useRef<HTMLElement | null>(null);
   const count = p.screenshots.length;
+  const study = p.caseStudy;
+  const concept = p.contentStage === "concept";
+  const sourceLink = (path?: string) =>
+    path ? (
+      <a
+        className="detail-source"
+        href={`${p.github}/blob/${p.sourceCommit}/${path}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {concept ? "Project brief" : "View source"} ↗ <span>{path}</span>
+      </a>
+    ) : null;
   useEffect(() => {
     if (fullscreen) {
       priorFocus.current = document.activeElement as HTMLElement;
@@ -49,9 +62,7 @@ export default function ProjectDetails({ project: p }: { project: Project }) {
   const architecture = (
     <figure className="architecture-figure">
       <figcaption>
-        {p.id === "flownova"
-          ? "Published repository status"
-          : "Architecture visualization derived from inspected source"}
+        {concept ? "Proposed workflow architecture" : "System workflow"}
       </figcaption>
       <div>
         {p.architecture.map((node, i) => (
@@ -62,9 +73,6 @@ export default function ProjectDetails({ project: p }: { project: Project }) {
           </div>
         ))}
       </div>
-      <p className="source-note">
-        Read the pinned source links below for implementation details.
-      </p>
     </figure>
   );
   return (
@@ -104,169 +112,252 @@ export default function ProjectDetails({ project: p }: { project: Project }) {
             <p className="section-label">01 / Overview</p>
             <h2>{p.subtitle}</h2>
             <p>{p.description}</p>
-            <h3>The problem</h3>
-            <p>{p.problem}</p>
-            <h3>The approach</h3>
-            <p>{p.solution}</p>
+            <div className="case-context-grid">
+              <article>
+                <h3>The problem</h3>
+                <p>{p.problem}</p>
+              </article>
+              <article>
+                <h3>The approach</h3>
+                <p>{p.solution}</p>
+              </article>
+            </div>
             <h3>Who it is for</h3>
             <p>{p.users}</p>
-            <h3>Scope & status</h3>
-            <p>
-              {p.status}. The sections here describe the inspected commit, with
-              explicit boundaries for simulations and optional integrations.
-            </p>
+            <h3>{concept ? "Proposed user journey" : "A typical workflow"}</h3>
+            <ol className="workflow-list">
+              {study.workflow.map((step, i) => (
+                <li key={step}>
+                  <span>{String(i + 1).padStart(2, "0")}</span>
+                  <p>{step}</p>
+                </li>
+              ))}
+            </ol>
+            <div className="project-scope">
+              <span className="scope-label">Project status</span>
+              <p>{p.status}</p>
+              {concept && (
+                <p>
+                  The public repository is a project brief. The design and
+                  technology suggestions in this case study are explicitly
+                  proposed.
+                </p>
+              )}
+            </div>
           </>
         )}
         {active === 1 && (
           <>
-            <h2>How the pieces connect</h2>
+            <p className="section-label">02 / Architecture</p>
+            <h2>
+              {concept
+                ? "A proposed execution model"
+                : "How the pieces connect"}
+            </h2>
+            <p>{study.architectureSummary}</p>
             {architecture}
+            <h3>{concept ? "Design notes" : "Implementation details"}</h3>
+            {p.technicalDetails.map((detail) => (
+              <p key={detail}>{detail}</p>
+            ))}
+            <h3>Source modules</h3>
+            <div className="module-links">
+              {p.evidence
+                .filter((e) => !e.path.toLowerCase().endsWith("readme.md"))
+                .map((e) => (
+                  <div key={e.path}>{sourceLink(e.path)}</div>
+                ))}
+            </div>
             {p.architectureReference && (
               <details className="repository-diagram">
-                <summary>
-                  Original architecture diagram from the repository README
-                </summary>
+                <summary>Repository README architecture reference</summary>
+                <p className="source-note">
+                  The original diagram describes the repository’s design. The
+                  implementation details above explain which parts are connected
+                  in the reviewed code.
+                </p>
                 <pre>{p.architectureReference}</pre>
-                <a
-                  href={`${p.github}/blob/${p.sourceCommit}/README.md`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Read the original diagram ↗
-                </a>
+                {sourceLink("README.md")}
               </details>
             )}
-            <h3>Architecture boundaries</h3>
-            {p.challenges.map((c) => (
-              <p key={c}>{c}</p>
-            ))}
           </>
         )}
         {active === 2 && (
           <>
+            <p className="section-label">03 / Features</p>
             <h2>
-              {p.id === "flownova"
-                ? "Published scope"
-                : "Implemented building blocks"}
+              {concept
+                ? "Planned product capabilities"
+                : "What the project does"}
             </h2>
+            {concept && (
+              <p>
+                These are proposed milestones for the published workflow-builder
+                idea.
+              </p>
+            )}
             <ol className="feature-list">
-              {p.features.map((f, i) => (
-                <li key={f}>
-                  <span>0{i + 1}</span>
+              {study.features.map((feature, i) => (
+                <li key={feature.title}>
+                  <span>{String(i + 1).padStart(2, "0")}</span>
                   <div>
-                    <h3>{f}</h3>
-                    <p>
-                      {p.id === "flownova"
-                        ? "Implementation has not been published in this repository."
-                        : "See the pinned source files and README for the implementation and setup requirements."}
-                    </p>
+                    <h3>{feature.title}</h3>
+                    <p>{feature.description}</p>
+                    {sourceLink(feature.source)}
                   </div>
                 </li>
               ))}
             </ol>
-            <p>{p.challenges[0]}</p>
           </>
         )}
         {active === 3 && (
           <>
-            <h2>The technology behind it</h2>
+            <p className="section-label">04 / Technology Stack</p>
+            <h2>
+              {concept
+                ? "Proposed technology choices"
+                : "The technology behind it"}
+            </h2>
             <p>
-              Technologies identified in source files and dependency manifests.
-              Design rationale is only stated where documented.
+              {concept
+                ? "A suggested starting stack for the workflow-builder concept. These are design options, not dependencies found in published application code."
+                : "Each technology has a specific role in this project. Version labels are declared manifest ranges from the reviewed source, rather than claims about installed production versions."}
             </p>
             <div className="stack-grid">
-              {p.tags.map((t, i) => (
-                <div className="glass" key={t}>
-                  <span>0{i + 1}</span>
-                  <TechIcon name={t} />
-                  <h3>{t}</h3>
-                  <p>
-                    Referenced in the inspected source or project configuration.
-                  </p>
-                </div>
+              {study.technologies.map((tech) => (
+                <article className="glass technology-card" key={tech.name}>
+                  <TechIcon name={tech.name} />
+                  <h3>{tech.name}</h3>
+                  {tech.version && (
+                    <span className="tech-version">
+                      Declared {tech.version}
+                    </span>
+                  )}
+                  {tech.stage === "proposed" && (
+                    <span className="tech-version">Proposed option</span>
+                  )}
+                  <p>{tech.description}</p>
+                  {tech.source && sourceLink(tech.source)}
+                </article>
               ))}
             </div>
-            <h3>Implementation choices</h3>
-            {p.technicalDetails.map((detail) => (
-              <p key={detail}>{detail}</p>
-            ))}
-            {!p.tags.length && (
-              <p>No technology stack has been published yet.</p>
-            )}
           </>
         )}
         {active === 4 && (
           <>
-            <h2>Inside the project</h2>
+            <p className="section-label">05 / Gallery</p>
+            <h2>
+              {count
+                ? "Inside the application"
+                : concept
+                  ? "Workflow design study"
+                  : "Architecture & source explorer"}
+            </h2>
             {count ? (
-              <div className="gallery-grid">
-                {p.screenshots.map((s, i) => (
-                  <figure key={s.src}>
-                    <button
-                      onClick={() => {
-                        setImage(i);
-                        setFullscreen(true);
-                      }}
-                      aria-label={`Expand ${s.caption}`}
-                    >
-                      <Image
-                        src={s.src}
-                        alt={s.caption}
-                        width={1200}
-                        height={760}
-                        sizes="(max-width:700px) 100vw, 600px"
-                        loading="lazy"
-                      />
-                    </button>
-                    <figcaption>
-                      {s.caption} ·{" "}
-                      <a
-                        href={s.source}
-                        target="_blank"
-                        rel="noopener noreferrer"
+              <>
+                <p>
+                  Application captures committed in the repository. Captions
+                  identify demo data where shown.
+                </p>
+                <div className="gallery-grid">
+                  {p.screenshots.map((shot, i) => (
+                    <figure key={shot.src}>
+                      <button
+                        onClick={() => {
+                          setImage(i);
+                          setFullscreen(true);
+                        }}
+                        aria-label={`Expand ${shot.caption}`}
                       >
-                        Source ↗
-                      </a>
-                    </figcaption>
-                  </figure>
-                ))}
-              </div>
+                        <Image
+                          src={shot.src}
+                          alt={shot.caption}
+                          width={1200}
+                          height={760}
+                          sizes="(max-width:700px) 100vw, 600px"
+                          loading="lazy"
+                        />
+                      </button>
+                      <figcaption>
+                        {shot.caption} ·{" "}
+                        <a
+                          href={shot.source}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Original capture ↗
+                        </a>
+                      </figcaption>
+                    </figure>
+                  ))}
+                </div>
+              </>
             ) : (
               <>
                 <p>
-                  No genuine application screenshots were found in the inspected
-                  repository. This is a source structure visualization, not a
-                  fabricated UI.
+                  {concept
+                    ? "The brief has no application capture. This visual outlines a proposed build direction."
+                    : "Explore the project through its system workflow and source modules. Application screenshots are not available in the reviewed repository."}
                 </p>
                 {architecture}
+                <div className="gallery-source-grid">
+                  {study.features.slice(0, 4).map((feature) => (
+                    <article className="glass" key={feature.title}>
+                      <h3>{feature.title}</h3>
+                      <p>{feature.description}</p>
+                      {sourceLink(feature.source)}
+                    </article>
+                  ))}
+                </div>
               </>
             )}
           </>
         )}
         {active === 5 && (
           <>
-            <h2>Engineering trade-offs & limits</h2>
-            {p.challenges.map((c) => (
-              <p key={c}>{c}</p>
-            ))}
-            <p>
-              These notes describe observable implementation boundaries. No
-              personal anecdotes, benchmark improvements, or security guarantees
-              are inferred.
-            </p>
+            <p className="section-label">06 / Engineering Challenges</p>
+            <h2>Decisions & trade-offs</h2>
+            <div className="decision-list">
+              {study.decisions.map((decision) => (
+                <article key={decision.title}>
+                  <h3>{decision.title}</h3>
+                  <p>{decision.description}</p>
+                  <div className="decision-tradeoff">
+                    <span>Trade-off</span>
+                    <p>{decision.tradeoff}</p>
+                  </div>
+                  {sourceLink(decision.source)}
+                </article>
+              ))}
+            </div>
           </>
         )}
         {active === 6 && (
           <>
-            <h2>Source, status, and next steps</h2>
-            <p>{p.status}</p>
-            <p>{p.challenges[0]}</p>
-            <p>
-              Repository source reviewed at commit{" "}
-              <code>{p.sourceCommit.slice(0, 12)}</code>. This review does not
-              constitute end-to-end validation of the project’s external
-              services.
-            </p>
+            <p className="section-label">07 / Results and Links</p>
+            <h2>
+              {concept
+                ? "Project brief & next milestones"
+                : "Deliverables & running the project"}
+            </h2>
+            {study.outcomes.map((outcome) => (
+              <article className="case-outcome" key={outcome.title}>
+                <h3>{outcome.title}</h3>
+                <p>{outcome.description}</p>
+                {sourceLink(outcome.source)}
+              </article>
+            ))}
+            <h3>
+              {study.commands.length
+                ? "Start locally"
+                : "Explore the repository"}
+            </h3>
+            <p>{study.setup}</p>
+            {study.commands.length > 0 && (
+              <pre className="setup-commands">
+                <code>{study.commands.join("\n")}</code>
+              </pre>
+            )}
             <div className="resume-actions">
               <a
                 className="button primary"
@@ -283,17 +374,27 @@ export default function ProjectDetails({ project: p }: { project: Project }) {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Demo · HTTP availability verified ↗
+                  Open demo ↗
                 </a>
               )}
             </div>
-            <p>
-              No measured impact, revenue, or user-count claims are supplied.
+            <p className="source-note">
+              Source snapshot{" "}
+              <a
+                href={`${p.github}/tree/${p.sourceCommit}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {p.sourceCommit.slice(0, 12)} ↗
+              </a>{" "}
+              · Reviewed {p.verifiedAt.slice(0, 10)}. Setup instructions
+              describe the repository; external services were not deployed as
+              part of this portfolio update.
             </p>
           </>
         )}
         <aside className="evidence">
-          <h3>Inspect the evidence</h3>
+          <h3>Project references</h3>
           {p.evidence.map((e) => (
             <a
               key={e.path}

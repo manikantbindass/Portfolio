@@ -2,49 +2,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
-import { projects, projectCategories, type Project } from "@/lib/projects";
-export function ProjectVisual({
-  project,
-  priority = false,
-}: {
-  project: Project;
-  priority?: boolean;
-}) {
-  const image = project.screenshots[0];
-  return image ? (
-    <div className="project-image">
-      <Image
-        src={image.src}
-        alt={image.caption}
-        fill
-        sizes="(max-width:640px) 100vw, (max-width:1000px) 50vw, 420px"
-        priority={priority}
-      />
-      <span className="capture-label">REPOSITORY CAPTURE</span>
-    </div>
-  ) : (
-    <div
-      className="project-diagram"
-      aria-label={`${project.title} source structure visualization`}
-    >
-      <span className="diagram-label">
-        {project.id === "flownova"
-          ? "CONCEPT · IMPLEMENTATION PENDING"
-          : "SOURCE STRUCTURE · NOT AN APP SCREENSHOT"}
-      </span>
-      <span className="diagram-title">{project.title}</span>
-      <div className="diagram-nodes">
-        {project.architecture.slice(0, 3).map((node, i) => (
-          <span key={node}>
-            <small>0{i + 1}</small>
-            {node}
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-}
+import ProjectVisual from "@/components/ProjectVisual";
+import { projects, projectCategories } from "@/lib/projects";
 export default function Projects() {
   const [category, setCategory] = useState("All Projects");
   const [query, setQuery] = useState("");
@@ -137,7 +96,7 @@ export default function Projects() {
                   {p.tags.length ? (
                     p.tags.slice(0, 4).map((t) => <span key={t}>{t}</span>)
                   ) : (
-                    <span>README only · stack not published</span>
+                    <span>Project brief · planned workflow</span>
                   )}
                 </div>
                 <div className="project-links">
