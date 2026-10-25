@@ -1,0 +1,9 @@
+# DSA architecture cat animation
+
+Asset: `public/projects/dsa/cat-play-sprite.png` (1774 × 887 PNG with alpha, four columns and two rows).
+
+Generated with the built-in imagegen tool. The website cycles through the eight frames using CSS and animates a separate glass ball. The scene appears only in the DSA Preparation case-study architecture banner. It has a pause control and a static reduced-motion state.
+
+## Generation prompt
+
+Use case: photorealistic-natural. Asset type: production website animation sprite sheet. Create an EXACT 4-column by 2-row grid of EIGHT equally sized square animation frames, 2048x1024 overall preferred. Transparent RGBA background everywhere outside the cat, including transparent gutters. One consistent photorealistic young silver-gray shorthaired tabby cat, three-quarter side view FACING RIGHT, full body including tail and paws entirely inside each cell. All eight frames have identical camera, lighting, scale, ground line, and cat center; no movement of the entire cat between cells. The eight cells in left-to-right reading order form a seamless playful loop: crouch alert; raise right front paw; extend paw forward to bat an imaginary ball to the right; paw fully extended; follow through; paw retract; relaxed crouch; return to first pose. Realistic fur, anatomically correct legs, subtly expressive ears, natural pale eyes, soft cool gray studio rim lighting. Cat occupies about 80 percent of each cell and sits on the same invisible baseline at 85 percent height. No floor, no scenery, no actual ball (the website adds its own glass ball), no shadows outside the cat silhouette, no cell borders, no gridlines, NO TEXT, no labels or frame numbers, no watermark. This is a usable eight-frame spritesheet, not a collage: exactly four columns, exactly two rows, regular alignment. Photoreal rendering, calm glass UI aesthetic, avoid cartoons and neon.

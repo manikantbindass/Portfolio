@@ -1,16 +1,19 @@
 import Image from "next/image";
 import type { Project } from "@/lib/projects";
+import DsaCatScene from "@/components/DsaCatScene";
+import styles from "./DsaCatScene.module.css";
 export default function ProjectVisual({
   project,
   priority = false,
 }: {
   project: Pick<
     Project,
-    "title" | "screenshots" | "architecture" | "contentStage"
+    "slug" | "title" | "screenshots" | "architecture" | "contentStage"
   >;
   priority?: boolean;
 }) {
   const image = project.screenshots[0];
+  const showCat = priority && project.slug === "dsa";
   return image ? (
     <div className="project-image">
       <Image
@@ -24,9 +27,10 @@ export default function ProjectVisual({
     </div>
   ) : (
     <div
-      className="project-diagram"
+      className={`project-diagram${showCat ? ` ${styles.diagram}` : ""}`}
       aria-label={`${project.title} source structure visualization`}
     >
+      {showCat && <DsaCatScene />}
       <span className="diagram-label">
         {project.contentStage === "concept"
           ? "PROPOSED WORKFLOW DESIGN"
