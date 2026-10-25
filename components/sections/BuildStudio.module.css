@@ -1,0 +1,44 @@
+.section { background: radial-gradient(ellipse at 15% 65%, color-mix(in srgb, var(--accent) 6%, transparent), transparent 55%), var(--bg2); }
+.heading { display: flex; align-items: end; justify-content: space-between; gap: 36px; margin-bottom: 36px; }
+.intro { max-width: 340px; color: var(--muted); font-size: 13px; line-height: 1.9; }
+.tracks { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 22px; }
+.tracks button { display: inline-flex; align-items: center; gap: 9px; padding: 12px 17px; border: 1px solid var(--border); border-radius: 14px; color: var(--muted); background: color-mix(in srgb, var(--surface) 65%, transparent); font-size: 12px; font-weight: 600; cursor: pointer; transition: border-color .2s, color .2s, background-color .2s; }
+.tracks button[aria-selected="true"] { color: var(--fg); border-color: color-mix(in srgb, var(--accent) 50%, var(--border)); background: color-mix(in srgb, var(--accent) 12%, var(--surface)); box-shadow: inset 0 1px 0 var(--glass-highlight); }
+.tracks button:hover { color: var(--fg); border-color: var(--accent); }
+.workspace { display: grid; grid-template-columns: .85fr 1.15fr; overflow: hidden; border-radius: 28px; box-shadow: inset 0 1px 0 var(--glass-highlight), var(--shadow); }
+.summary { display: flex; flex-direction: column; align-items: start; gap: 24px; padding: 44px; background: radial-gradient(ellipse at 0 0, color-mix(in srgb, var(--accent2) 10%, transparent), transparent 70%); }
+.kicker { display: flex; align-items: center; gap: 8px; color: var(--accent); font-size: 10px; font-weight: 650; letter-spacing: .04em; }
+.summary h3 { font-size: clamp(24px, 3vw, 36px); line-height: 1.2; letter-spacing: -.05em; text-wrap: balance; }
+.summary p { color: var(--muted); font-size: 13px; line-height: 1.9; }
+.caseLink { display: inline-flex; align-items: center; gap: 9px; margin-top: auto; padding-top: 24px; color: var(--accent); font-size: 12px; font-weight: 650; }
+.caseLink:hover { text-decoration: underline; text-underline-offset: 4px; }
+.blueprint { position: relative; min-width: 0; padding: 32px; border-left: 1px solid var(--border); background-image: radial-gradient(var(--border) .7px, transparent .7px); background-size: 18px 18px; }
+.blueprintHeader { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; margin-bottom: 22px; font: 10px/1.5 monospace; color: var(--muted); }
+.steps { list-style: none; display: grid; gap: 12px; }
+.steps li { position: relative; }
+.steps li:not(:last-child)::after { content: ""; position: absolute; top: 100%; height: 12px; width: 1px; left: 26px; background: var(--border); }
+.steps button { display: flex; width: 100%; align-items: center; gap: 14px; text-align: left; padding: 14px; border: 1px solid var(--border); border-radius: 14px; background: var(--bg2); color: var(--muted); font-size: 12px; line-height: 1.65; cursor: pointer; transition: background-color .2s, border-color .2s; }
+.steps button[aria-pressed="true"] { border-color: color-mix(in srgb, var(--accent) 55%, var(--border)); color: var(--fg); background: color-mix(in srgb, var(--accent) 8%, var(--bg2)); box-shadow: inset 0 1px 0 var(--glass-highlight); }
+.steps button:hover { border-color: var(--accent); }
+.stepNumber { display: grid; place-items: center; flex: 0 0 26px; height: 26px; border: 1px solid var(--border); border-radius: 9px; font: 10px monospace; color: var(--accent); }
+.steps button > svg { flex-shrink: 0; margin-left: auto; color: var(--accent); }
+.detail { min-height: 185px; margin-top: 26px; padding: 20px; border: 1px solid var(--border); border-radius: 16px; background: var(--bg); }
+.detailLabel { font: 9px/1.5 monospace; color: var(--teal); }
+.detail h4 { margin-top: 10px; font-size: 14px; font-weight: 650; }
+.detail p { margin-block: 10px 14px; color: var(--muted); font-size: 12px; line-height: 1.8; }
+.detail a { display: inline-flex; align-items: center; gap: 6px; color: var(--accent); font-size: 11px; }
+@media (max-width: 900px) {
+  .heading { align-items: start; flex-direction: column; gap: 18px; }
+  .intro { max-width: 560px; }
+  .workspace { grid-template-columns: 1fr; }
+  .summary { padding: 28px; gap: 18px; }
+  .caseLink { padding-top: 6px; }
+  .blueprint { border-left: 0; border-top: 1px solid var(--border); }
+}
+@media (max-width: 500px) {
+  .tracks { display: grid; grid-template-columns: 1fr; }
+  .tracks button { justify-content: start; }
+  .blueprint { padding: 22px; }
+  .summary { padding: 24px; }
+  .steps button { padding: 12px; gap: 10px; }
+}

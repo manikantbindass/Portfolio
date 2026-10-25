@@ -10,6 +10,13 @@ export default function Footer() {
       className="portfolio-footer relative border-t border-white/6 py-10"
       style={{ background: "var(--bg)" }}
     >
+      <nav className="footer-section-links" aria-label="Explore the portfolio">
+        <a href="#projects">Projects</a>
+        <a href="#build">Inside the Build</a>
+        <a href="#resumes">Resumes</a>
+        <a href="#faq">Questions &amp; answers</a>
+        <a href="#contact">Contact</a>
+      </nav>
       <div className="max-w-7xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         <motion.div
           initial={{ opacity: 0 }}

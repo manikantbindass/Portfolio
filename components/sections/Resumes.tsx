@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { ArrowUpRight, Download, FileText } from "lucide-react";
+import { ArrowUpRight, Download, Braces, Cloud, BrainCircuit } from "lucide-react";
 import { resumes } from "@/lib/resumes";
+const resumeIcons = { "full-stack": Braces, devops: Cloud, "ai-ml": BrainCircuit };
 export default function Resumes() {
   return (
     <section id="resumes" className="section-pad">
@@ -15,10 +16,12 @@ export default function Resumes() {
           Choose the resume that fits the opportunity.
         </p>
         <div className="resume-grid">
-          {resumes.map((r, i) => (
-            <article className="glass resume-card card-hover" key={r.slug}>
+          {resumes.map((r, i) => {
+            const Icon = resumeIcons[r.slug];
+            return (
+            <article className="glass resume-card card-hover" key={r.slug} data-resume-track={r.slug}>
               <div className="eyebrow-row">
-                <FileText size={22} />
+                <span className="resume-track-icon"><Icon size={22} aria-hidden /></span>
                 <span>RESUME 0{i + 1} · PDF</span>
               </div>
               <h3>{r.title}</h3>
@@ -44,7 +47,7 @@ export default function Resumes() {
                 </a>
               </div>
             </article>
-          ))}
+          );})}
         </div>
       </div>
     </section>

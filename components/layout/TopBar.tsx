@@ -5,9 +5,10 @@ import { Moon, Sun, Menu, X, ArrowUpRight } from "lucide-react";
 const links = [
   ["hero", "Home"],
   ["about", "About"],
-  ["skills", "Skills"],
   ["experience", "Experience"],
   ["projects", "Projects"],
+  ["build", "Inside the Build"],
+  ["skills", "Skills"],
   ["stats", "Coding Stats"],
   ["resumes", "Resumes"],
   ["contact", "Contact"],
@@ -43,8 +44,15 @@ export default function TopBar({
         <small>ENGINEER & BUILDER</small>
       </Link>
       <nav
+        id="portfolio-navigation"
         aria-label="Primary navigation"
         className={open ? "header-links is-open" : "header-links"}
+        onKeyDown={(event) => {
+          if (event.key === "Escape" && open) {
+            setOpen(false);
+            document.getElementById("portfolio-menu-toggle")?.focus();
+          }
+        }}
       >
         {links.map(([id, label]) => (
           <a
@@ -69,9 +77,11 @@ export default function TopBar({
           Let’s talk <ArrowUpRight size={14} />
         </Link>
         <button
+          id="portfolio-menu-toggle"
           className="icon-button menu-toggle"
           aria-label={open ? "Close navigation" : "Open navigation"}
           aria-expanded={open}
+          aria-controls="portfolio-navigation"
           onClick={() => setOpen(!open)}
         >
           {open ? <X size={20} /> : <Menu size={20} />}

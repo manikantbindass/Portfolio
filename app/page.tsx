@@ -16,6 +16,8 @@ import Stats from "@/components/sections/Stats";
 import Contact from "@/components/sections/Contact";
 import Resumes from "@/components/sections/Resumes";
 import Footer from "@/components/sections/Footer";
+import BuildStudio from "@/components/sections/BuildStudio";
+import PortfolioFAQ from "@/components/sections/PortfolioFAQ";
 
 export default function Home() {
   return (
@@ -37,9 +39,11 @@ export default function Home() {
         <Hero />
         <About />
         <Projects />
+        <BuildStudio />
         <Skills />
         <Stats />
         <Resumes />
+        <PortfolioFAQ />
         <Contact />
         <Footer />
       </main>
