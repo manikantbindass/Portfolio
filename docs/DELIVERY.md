@@ -39,7 +39,7 @@ Independent preview pages and visible download/new-tab actions are provided. Emb
 
 ## Validation
 
-The first production build passed with all 16 project paths and three resume paths. Five data-validation tests cover complete counts, missing ratings, zero counts, GraphQL errors, malformed counts, and mismatched totals. The HTTP smoke check passed all project/resume paths, PDFs, screenshot files, metadata endpoints, API source labels, and unknown-route 404s.
+The final production build passed on Next.js 16.4.3, including TypeScript and all 28 generated pages. ESLint passed with zero errors and five warnings. Five data-validation tests cover complete counts, missing ratings, zero counts, GraphQL errors, malformed counts, and mismatched totals. The HTTP smoke check passed all project/resume paths, PDFs, screenshot files, metadata endpoints, API source labels, and unknown-route 404s.
 
 Interactive browser checks covered light/dark themes, desktop and mobile layouts, filters, search, keyboard tab navigation, gallery next/Escape behavior, mobile navigation, resume controls, and the guide's verified statistics answer. Browser inspection found and prompted repair of an existing nested footer link causing hydration failure. The mobile resume page had equal content and viewport widths (no horizontal overflow). Reduced-motion behavior was checked in source; no Lighthouse scores or real-device Safari results are claimed.
 
@@ -47,7 +47,11 @@ The dependency update retains Next.js 16 and resolves the initial critical advis
 
 ## Review and deployment
 
-Changes belong on `feat/premium-portfolio`, with a draft pull request against the existing production branch. No production deployment or merge is part of this delivery. Keep the existing Vercel project/domain and settings. Review the branch in Vercel Preview, then merge or promote only after explicit production authorization.
+PR #1 was merged into `main` on 25 October 2026 after the owner authorized production publication. Merge commit: `d2a213096d6f8d5e50723ea23978c331b5ef7150`. Vercel reported a successful production deployment through the existing GitHub integration, preserving the project, domain, and settings.
+
+Production verification passed for all 16 case-study routes, three resume preview routes, three PDF responses, metadata endpoints, statistics APIs, and unknown-route 404s. Each production PDF matched the SHA-256 hash of its supplied original. Both statistics endpoints returned explicitly labeled cached API responses.
+
+Live site: https://portfolio-ten-omega-4ibkho6f7u.vercel.app/
 
 ## Remaining boundaries
 

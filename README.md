@@ -76,6 +76,6 @@ The contact form validates fields and opens an email draft. It explicitly requir
 
 Keep the existing Vercel project and domain: https://portfolio-ten-omega-4ibkho6f7u.vercel.app/
 
-The repository remains a normal Next.js App Router project. Use `npm ci` and `npm run build`; no new secrets or environment settings are needed. The review branch can be connected to a Vercel preview. After review and explicit production authorization, merge into the existing production branch or promote the reviewed preview using the project's current deployment workflow. No production deployment is performed by this change.
+The repository remains a normal Next.js App Router project. Use `npm ci` and `npm run build`; no new secrets or environment settings are needed. PR #1 was merged into `main` with the owner's authorization on 25 October 2026 (commit `d2a213096d6f8d5e50723ea23978c331b5ef7150`). The existing Vercel GitHub integration deployed it successfully to the existing domain. All 16 project routes, three resume previews/downloads, metadata endpoints, and statistics APIs passed production smoke checks. Future updates to `main` use this same deployment workflow.
 
 See `docs/DELIVERY.md` for validation and remaining limitations.
