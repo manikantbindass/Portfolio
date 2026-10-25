@@ -104,9 +104,9 @@ export default function About() {
                   </div>
                 </div>
                 <p className="text-[var(--muted)] leading-relaxed text-sm">
-                  I&apos;m a{" "}
+                  I&apos;m an{" "}
                   <span className="text-[var(--accent)] font-semibold">
-                    Forward Deployed Engineer candidate
+                    AI Augumented Full Stack Developer
                   </span>{" "}
                   pursuing B.Tech in Computer Science (Blockchain Technology) at
                   Parul University. I thrive at the intersection of AI, backend
