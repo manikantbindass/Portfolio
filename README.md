@@ -290,7 +290,7 @@ The website refreshes successful API reads through a **six-hour server cache**, 
 
 - 🎓 **B.Tech CSE (Blockchain Technology)** — Parul Institute of Engineering and Technology, Vadodara (**2023–2027**)
 - 📍 **Vadodara, Gujarat, India**
-- 📘 **CGPA: 7.49**, confirmed by the owner
+- 📘 **CGPA: 7.49** **(till 6Th Sem)**
 - 🛠️ **16 showcased repositories**, including six recent highlights
 - 💼 **Lab Tech Support**, CV Raman Center, Parul University — February–March 2026
 - 🖥️ **IT Intern, System Support Cell**, Parul University — September 2025–February 2026
