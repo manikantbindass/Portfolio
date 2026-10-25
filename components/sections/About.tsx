@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { Award } from "lucide-react";
 import { experience, certifications, personal } from "@/lib/data";
 import styles from "./About.module.css";
+import AboutAnimalScene from "./AboutAnimalScene";
 
 const fadeUp = (delay = 0) => ({
   hidden: { opacity: 0, y: 30 },
@@ -47,7 +48,8 @@ export default function About() {
       ref={ref}
       className={`relative section-pad overflow-hidden ${styles.section}`}
     >
-      {/* Blob */}
+      <AboutAnimalScene />
+      {/* Shading blends the animated scene with the glass panels. */}
       <div
         className={styles.lighting}
         aria-hidden
@@ -59,7 +61,7 @@ export default function About() {
           variants={fadeUp()}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
-          className="text-center mb-16"
+          className={`text-center mb-16 ${styles.heading}`}
         >
           <p className="section-label mb-3">Get to know me</p>
           <h2 className="section-heading text-[var(--fg)]">
@@ -84,7 +86,7 @@ export default function About() {
                   </div>
                   <div>
                     <p className="font-bold text-[var(--fg)] text-lg">
-                      {personal.handle}
+                      ManikantKumar
                     </p>
                     <p className="text-[var(--muted)] text-sm">
                       {personal.degree}
