@@ -1,7 +1,7 @@
 "use client";
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-import TechIcon from "@/components/ui/TechIcon";
+import ProjectTechnologyStack from "@/components/ProjectTechnologyStack";
 import type { Project } from "@/lib/projects";
 import ProjectVisual from "@/components/ProjectVisual";
 const tabs = [
@@ -101,7 +101,7 @@ export default function ProjectDetails({ project: p }: { project: Project }) {
         ))}
       </div>
       <section
-        className="glass case-panel"
+        className={`glass case-panel${active === 3 ? " case-panel--technology" : ""}`}
         role="tabpanel"
         id={`panel-${active}`}
         aria-labelledby={`tab-${active}`}
@@ -211,37 +211,7 @@ export default function ProjectDetails({ project: p }: { project: Project }) {
           </>
         )}
         {active === 3 && (
-          <>
-            <p className="section-label">04 / Technology Stack</p>
-            <h2>
-              {concept
-                ? "Proposed technology choices"
-                : "The technology behind it"}
-            </h2>
-            <p>
-              {concept
-                ? "A suggested starting stack for the workflow-builder concept. These are design options, not dependencies found in published application code."
-                : "Each technology has a specific role in this project. Version labels are declared manifest ranges from the reviewed source, rather than claims about installed production versions."}
-            </p>
-            <div className="stack-grid">
-              {study.technologies.map((tech) => (
-                <article className="glass technology-card" key={tech.name}>
-                  <TechIcon name={tech.name} />
-                  <h3>{tech.name}</h3>
-                  {tech.version && (
-                    <span className="tech-version">
-                      Declared {tech.version}
-                    </span>
-                  )}
-                  {tech.stage === "proposed" && (
-                    <span className="tech-version">Proposed option</span>
-                  )}
-                  <p>{tech.description}</p>
-                  {tech.source && sourceLink(tech.source)}
-                </article>
-              ))}
-            </div>
-          </>
+          <ProjectTechnologyStack technologies={study.technologies} concept={concept} githubUrl={p.github} sourceCommit={p.sourceCommit} />
         )}
         {active === 4 && (
           <>

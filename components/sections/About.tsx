@@ -1,7 +1,9 @@
 "use client";
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { Award } from "lucide-react";
 import { experience, certifications, personal } from "@/lib/data";
+import styles from "./About.module.css";
 
 const fadeUp = (delay = 0) => ({
   hidden: { opacity: 0, y: 30 },
@@ -43,12 +45,11 @@ export default function About() {
     <section
       id="about"
       ref={ref}
-      className="relative section-pad overflow-hidden"
-      style={{ background: "var(--bg2)" }}
+      className={`relative section-pad overflow-hidden ${styles.section}`}
     >
       {/* Blob */}
       <div
-        className="aurora-blob w-[500px] h-[500px] bg-[#A78BFA] opacity-[0.07] absolute -top-20 -right-20 pointer-events-none"
+        className={styles.lighting}
         aria-hidden
       />
 
@@ -74,13 +75,10 @@ export default function About() {
               initial="hidden"
               animate={inView ? "show" : "hidden"}
             >
-              <div className="glass rounded-3xl p-7 flex flex-col gap-4 border border-white/6">
+              <div className={`${styles.panel} ${styles.bio} flex flex-col gap-4`}>
                 <div className="flex items-center gap-3">
                   <div
-                    className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl font-black text-[var(--fg)]"
-                    style={{
-                      background: "linear-gradient(135deg,#6366F1,#A78BFA)",
-                    }}
+                    className={`${styles.avatar} w-14 h-14 rounded-2xl flex items-center justify-center text-2xl font-black text-[var(--fg)]`}
                   >
                     MK
                   </div>
@@ -126,8 +124,7 @@ export default function About() {
                   ].map((t) => (
                     <span
                       key={t}
-                      className="text-xs font-semibold px-3 py-1 rounded-full border border-[#6366F1]/30 text-[var(--accent)]"
-                      style={{ background: "rgba(99,102,241,0.08)" }}
+                      className={styles.chip}
                     >
                       {t}
                     </span>
@@ -135,8 +132,8 @@ export default function About() {
                 </div>
 
                 {/* Available badge */}
-                <div className="flex items-center gap-2 text-xs text-[var(--teal)] font-semibold">
-                  <span className="w-2 h-2 rounded-full bg-[#2DD4BF] animate-pulse-soft" />
+                <div className={`${styles.availability} flex items-center gap-2 text-xs font-semibold`}>
+                  <span className={styles.statusDot} aria-hidden />
                   Open to work — Freelance &amp; Full-time
                 </div>
               </div>
@@ -148,7 +145,7 @@ export default function About() {
               initial="hidden"
               animate={inView ? "show" : "hidden"}
             >
-              <div className="glass rounded-3xl p-7 border border-white/6 flex flex-col gap-5">
+              <div className={`${styles.panel} flex flex-col gap-5`}>
                 <p className="font-bold text-[var(--fg)] text-sm">
                   Core Strengths
                 </p>
@@ -168,7 +165,7 @@ export default function About() {
             >
               <p
                 id="experience"
-                className="font-bold text-[var(--fg)] mb-4 text-sm uppercase tracking-widest opacity-50"
+                className={styles.groupLabel}
               >
                 Experience &amp; Education
               </p>
@@ -179,23 +176,18 @@ export default function About() {
                     variants={fadeUp(0.18 + i * 0.08)}
                     initial="hidden"
                     animate={inView ? "show" : "hidden"}
-                    className="glass rounded-2xl p-5 border border-white/6 card-hover flex gap-4"
+                    className={`${styles.panel} ${styles.experience} flex gap-4`}
                   >
                     <div
-                      className="timeline-dot mt-1"
-                      style={{
-                        background:
-                          i === 0
-                            ? "linear-gradient(135deg,#6366F1,#A78BFA)"
-                            : "linear-gradient(135deg,#2DD4BF,#6366F1)",
-                      }}
+                      className={styles.timelineDot}
+                      aria-hidden
                     />
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-wrap items-start justify-between gap-2 mb-1">
                         <p className="font-bold text-[var(--fg)] text-sm">
                           {exp.role}
                         </p>
-                        <span className="text-[10px] font-mono text-[var(--muted)] px-2 py-0.5 rounded-full border border-white/10">
+                        <span className={styles.period}>
                           {exp.period}
                         </span>
                       </div>
@@ -217,7 +209,7 @@ export default function About() {
               initial="hidden"
               animate={inView ? "show" : "hidden"}
             >
-              <p className="font-bold text-[var(--fg)] mb-4 text-sm uppercase tracking-widest opacity-50">
+              <p className={styles.groupLabel}>
                 Certifications
               </p>
               <div className="grid gap-3">
@@ -227,11 +219,11 @@ export default function About() {
                     variants={fadeUp(0.32 + i * 0.05)}
                     initial="hidden"
                     animate={inView ? "show" : "hidden"}
-                    className="glass rounded-2xl px-4 py-3 border border-white/6 flex items-center gap-3 card-hover"
+                    className={`${styles.panel} ${styles.certification} flex items-center gap-3`}
                   >
-                    <span className="text-xl">{c.emoji}</span>
+                    <span className={styles.award}><Award size={20} aria-hidden /></span>
                     <div className="flex-1 min-w-0">
-                      <p className="text-[var(--fg)] text-sm font-semibold truncate">
+                      <p className="text-[var(--fg)] text-sm font-semibold">
                         {c.title}
                       </p>
                       <p className="text-[var(--muted)] text-xs">
