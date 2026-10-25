@@ -22,28 +22,29 @@ const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 ───────────────────────────────────────────────────────────────────────────── */
 export default function CustomCursor() {
   /* ── Refs ── */
-  const outerRef   = useRef<HTMLDivElement>(null);
-  const innerRef   = useRef<HTMLDivElement>(null);
-  const labelRef   = useRef<HTMLDivElement>(null);
-  const trailsRef  = useRef<HTMLDivElement[]>([]);
-  const glowRef    = useRef<HTMLDivElement>(null);
+  const outerRef = useRef<HTMLDivElement>(null);
+  const innerRef = useRef<HTMLDivElement>(null);
+  const labelRef = useRef<HTMLDivElement>(null);
+  const trailsRef = useRef<HTMLDivElement[]>([]);
+  const glowRef = useRef<HTMLDivElement>(null);
 
   /* Position trackers (refs for RAF performance) */
-  const mouse   = useRef({ x: -200, y: -200 });
-  const outer   = useRef({ x: -200, y: -200 });
-  const trail   = useRef<{ x: number; y: number; alpha: number }[]>(
-    Array.from({ length: MAX_TRAIL }, () => ({ x: -200, y: -200, alpha: 0 }))
+  const mouse = useRef({ x: -200, y: -200 });
+  const outer = useRef({ x: -200, y: -200 });
+  const trail = useRef<{ x: number; y: number; alpha: number }[]>(
+    Array.from({ length: MAX_TRAIL }, () => ({ x: -200, y: -200, alpha: 0 })),
   );
-  const raf     = useRef<number>(0);
+  const raf = useRef<number>(0);
 
   /* ── State (React state only for things that need re-render) ── */
-  const [state,   setState]   = useState<CursorState>("default");
-  const [label,   setLabel]   = useState<CursorLabel>("");
+  const [state, setState] = useState<CursorState>("default");
+  const [label, setLabel] = useState<CursorLabel>("");
   const [visible, setVisible] = useState(false);
   const [clicking, setClicking] = useState(false);
+  const [clickPosition, setClickPosition] = useState({ x: 0, y: 0 });
 
   /* ── Mutable state refs (avoid stale closures in RAF) ── */
-  const stateRef    = useRef<CursorState>("default");
+  const stateRef = useRef<CursorState>("default");
   const clickingRef = useRef(false);
 
   const updateState = useCallback((s: CursorState) => {
@@ -57,17 +58,22 @@ export default function CustomCursor() {
   useEffect(() => {
     // Disable on touch devices
     if (typeof window === "undefined") return;
-    if (window.matchMedia("(pointer: coarse)").matches) return;
-
-    setVisible(true);
+    if (
+      window.matchMedia("(pointer: coarse), (prefers-reduced-motion: reduce)")
+        .matches
+    )
+      return;
 
     /* ── Mouse move ── */
     const onMove = (e: MouseEvent) => {
+      setVisible(true);
       mouse.current = { x: e.clientX, y: e.clientY };
     };
 
     /* ── Detect element type on hover ── */
-    const getElementType = (el: HTMLElement): { state: CursorState; label: CursorLabel } => {
+    const getElementType = (
+      el: HTMLElement,
+    ): { state: CursorState; label: CursorLabel } => {
       if (el.closest("h1,h2,h3,h4,h5,h6,p,span[class*='text'],label"))
         return { state: "text", label: "" };
       if (el.closest("[data-cursor='view'], .project-card, [data-cursor-view]"))
@@ -76,8 +82,7 @@ export default function CustomCursor() {
         return { state: "hover", label: "OPEN" };
       if (el.closest("button, [role='button'], [data-magnetic]"))
         return { state: "hover", label: "CLICK" };
-      if (el.closest("a"))
-        return { state: "hover", label: "OPEN" };
+      if (el.closest("a")) return { state: "hover", label: "OPEN" };
       if (el.closest("img, [data-cursor-img]"))
         return { state: "hover", label: "VIEW" };
       return { state: "default", label: "" };
@@ -99,11 +104,18 @@ export default function CustomCursor() {
     };
 
     /* ── Click pulse ── */
-    const onDown = () => { clickingRef.current = true; setClicking(true); };
-    const onUp   = () => { clickingRef.current = false; setClicking(false); };
+    const onDown = () => {
+      clickingRef.current = true;
+      setClicking(true);
+      setClickPosition({ ...mouse.current });
+    };
+    const onUp = () => {
+      clickingRef.current = false;
+      setClicking(false);
+    };
 
     /* ── Leave window ── */
-    const onExit  = () => updateState("hidden");
+    const onExit = () => updateState("hidden");
     const onEnterDoc = () => updateState("default");
 
     /* ─── RAF TICK ─── */
@@ -118,20 +130,17 @@ export default function CustomCursor() {
 
       /* Apply outer */
       if (outerRef.current) {
-        outerRef.current.style.transform =
-          `translate(${outer.current.x}px, ${outer.current.y}px)`;
+        outerRef.current.style.transform = `translate(${outer.current.x}px, ${outer.current.y}px)`;
       }
 
       /* Inner dot — near-instant */
       if (innerRef.current) {
-        innerRef.current.style.transform =
-          `translate(${mx}px, ${my}px)`;
+        innerRef.current.style.transform = `translate(${mx}px, ${my}px)`;
       }
 
       /* Label follows outer */
       if (labelRef.current) {
-        labelRef.current.style.transform =
-          `translate(${outer.current.x}px, ${outer.current.y}px)`;
+        labelRef.current.style.transform = `translate(${outer.current.x}px, ${outer.current.y}px)`;
       }
 
       /* Glow follows outer with extra lag */
@@ -145,12 +154,24 @@ export default function CustomCursor() {
 
       /* Trail particles */
       for (let i = MAX_TRAIL - 1; i > 0; i--) {
-        trail.current[i].x     = lerp(trail.current[i].x,     trail.current[i - 1].x, 0.35);
-        trail.current[i].y     = lerp(trail.current[i].y,     trail.current[i - 1].y, 0.35);
-        trail.current[i].alpha = lerp(trail.current[i].alpha, trail.current[i - 1].alpha, 0.35);
+        trail.current[i].x = lerp(
+          trail.current[i].x,
+          trail.current[i - 1].x,
+          0.35,
+        );
+        trail.current[i].y = lerp(
+          trail.current[i].y,
+          trail.current[i - 1].y,
+          0.35,
+        );
+        trail.current[i].alpha = lerp(
+          trail.current[i].alpha,
+          trail.current[i - 1].alpha,
+          0.35,
+        );
       }
-      trail.current[0].x     = lerp(trail.current[0].x, mx, 0.5);
-      trail.current[0].y     = lerp(trail.current[0].y, my, 0.5);
+      trail.current[0].x = lerp(trail.current[0].x, mx, 0.5);
+      trail.current[0].y = lerp(trail.current[0].y, my, 0.5);
       trail.current[0].alpha = 1;
       // Decay alpha along trail
       for (let i = 0; i < MAX_TRAIL; i++) {
@@ -160,29 +181,29 @@ export default function CustomCursor() {
         if (!el) return;
         const p = trail.current[i];
         el.style.transform = `translate(${p.x}px, ${p.y}px)`;
-        el.style.opacity   = String(p.alpha * 0.55);
+        el.style.opacity = String(p.alpha * 0.55);
       });
 
       raf.current = requestAnimationFrame(tick);
     };
 
     /* ── Event listeners ── */
-    window.addEventListener("mousemove",  onMove,     { passive: true });
-    document.addEventListener("mouseover",  onEnter,  { passive: true });
-    document.addEventListener("mouseout",   onLeave,  { passive: true });
-    document.addEventListener("mousedown",  onDown,   { passive: true });
-    document.addEventListener("mouseup",    onUp,     { passive: true });
+    window.addEventListener("mousemove", onMove, { passive: true });
+    document.addEventListener("mouseover", onEnter, { passive: true });
+    document.addEventListener("mouseout", onLeave, { passive: true });
+    document.addEventListener("mousedown", onDown, { passive: true });
+    document.addEventListener("mouseup", onUp, { passive: true });
     document.documentElement.addEventListener("mouseleave", onExit);
     document.documentElement.addEventListener("mouseenter", onEnterDoc);
 
     raf.current = requestAnimationFrame(tick);
 
     return () => {
-      window.removeEventListener("mousemove",  onMove);
-      document.removeEventListener("mouseover",  onEnter);
-      document.removeEventListener("mouseout",   onLeave);
-      document.removeEventListener("mousedown",  onDown);
-      document.removeEventListener("mouseup",    onUp);
+      window.removeEventListener("mousemove", onMove);
+      document.removeEventListener("mouseover", onEnter);
+      document.removeEventListener("mouseout", onLeave);
+      document.removeEventListener("mousedown", onDown);
+      document.removeEventListener("mouseup", onUp);
       document.documentElement.removeEventListener("mouseleave", onExit);
       document.documentElement.removeEventListener("mouseenter", onEnterDoc);
       cancelAnimationFrame(raf.current);
@@ -194,10 +215,10 @@ export default function CustomCursor() {
   /* ─────────────────────────────────────────────────────────────
      DERIVED VISUAL PROPERTIES
   ───────────────────────────────────────────────────────────── */
-  const isHover   = state === "hover";
-  const isText    = state === "text";
-  const isHidden  = state === "hidden";
-  const hasLabel  = isHover && label !== "";
+  const isHover = state === "hover";
+  const isText = state === "text";
+  const isHidden = state === "hidden";
+  const hasLabel = isHover && label !== "";
 
   /* Outer ring size */
   const outerSize = clicking ? 52 : isHover ? 56 : isText ? 44 : 38;
@@ -211,15 +232,15 @@ export default function CustomCursor() {
   const outerBg = isText
     ? "transparent"
     : isHover
-    ? "rgba(99,102,241,0.08)"
-    : "rgba(99,102,241,0.03)";
+      ? "rgba(99,102,241,0.08)"
+      : "rgba(99,102,241,0.03)";
 
   /* Outer ring shadow */
   const outerShadow = clicking
     ? "0 0 40px rgba(99,102,241,1), 0 0 70px rgba(167,139,250,0.5), inset 0 0 16px rgba(99,102,241,0.3)"
     : isHover
-    ? "0 0 28px rgba(99,102,241,0.75), 0 0 55px rgba(167,139,250,0.35), inset 0 0 12px rgba(99,102,241,0.12)"
-    : "0 0 14px rgba(99,102,241,0.45), inset 0 0 6px rgba(99,102,241,0.08)";
+      ? "0 0 28px rgba(99,102,241,0.75), 0 0 55px rgba(167,139,250,0.35), inset 0 0 12px rgba(99,102,241,0.12)"
+      : "0 0 14px rgba(99,102,241,0.45), inset 0 0 6px rgba(99,102,241,0.08)";
 
   return (
     <>
@@ -239,12 +260,13 @@ export default function CustomCursor() {
       >
         <div
           style={{
-            width:  160,
+            width: 160,
             height: 160,
             marginLeft: -80,
-            marginTop:  -80,
+            marginTop: -80,
             borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(99,102,241,0.18) 0%, rgba(167,139,250,0.08) 50%, transparent 80%)",
+            background:
+              "radial-gradient(circle, rgba(99,102,241,0.18) 0%, rgba(167,139,250,0.08) 50%, transparent 80%)",
             filter: "blur(20px)",
             opacity: isHidden ? 0 : isHover ? 1 : 0.6,
             transition: "opacity 0.4s ease",
@@ -260,25 +282,24 @@ export default function CustomCursor() {
         return (
           <div
             key={i}
-            ref={el => { if (el) trailsRef.current[i] = el; }}
+            ref={(el) => {
+              if (el) trailsRef.current[i] = el;
+            }}
             aria-hidden="true"
             className="pointer-events-none fixed top-0 left-0 z-[9991] rounded-full"
             style={{
               willChange: "transform, opacity",
-              width:  size,
+              width: size,
               height: size,
               marginLeft: -size / 2,
-              marginTop:  -size / 2,
+              marginTop: -size / 2,
               background:
                 i < 3
                   ? "rgba(99,102,241,0.9)"
                   : i < 6
-                  ? "rgba(167,139,250,0.65)"
-                  : "rgba(45,212,191,0.45)",
-              boxShadow:
-                i < 4
-                  ? `0 0 ${6 - i}px rgba(99,102,241,0.7)`
-                  : "none",
+                    ? "rgba(167,139,250,0.65)"
+                    : "rgba(45,212,191,0.45)",
+              boxShadow: i < 4 ? `0 0 ${6 - i}px rgba(99,102,241,0.7)` : "none",
               transform: "translate(-200px,-200px)",
               opacity: 0,
               transition: "opacity 0.1s ease",
@@ -302,15 +323,15 @@ export default function CustomCursor() {
       >
         <div
           style={{
-            width:  outerSize,
+            width: outerSize,
             height: outerSize,
             marginLeft: -outerSize / 2,
-            marginTop:  -outerSize / 2,
+            marginTop: -outerSize / 2,
             borderRadius: "50%",
-            border:     outerBorder,
+            border: outerBorder,
             background: outerBg,
-            boxShadow:  outerShadow,
-            opacity:    isHidden ? 0 : 1,
+            boxShadow: outerShadow,
+            opacity: isHidden ? 0 : 1,
             transition: [
               "width 0.28s cubic-bezier(0.16,1,0.3,1)",
               "height 0.28s cubic-bezier(0.16,1,0.3,1)",
@@ -320,11 +341,14 @@ export default function CustomCursor() {
               "background 0.22s ease",
             ].join(", "),
             /* Gradient animated border via background-clip trick on hover */
-            ...(isHover ? {
-              background: "conic-gradient(rgba(99,102,241,0.15) 0deg, rgba(167,139,250,0.15) 120deg, rgba(45,212,191,0.15) 240deg, rgba(99,102,241,0.15) 360deg)",
-              border: "none",
-              padding: "1.5px",
-            } : {}),
+            ...(isHover
+              ? {
+                  background:
+                    "conic-gradient(rgba(99,102,241,0.15) 0deg, rgba(167,139,250,0.15) 120deg, rgba(45,212,191,0.15) 240deg, rgba(99,102,241,0.15) 360deg)",
+                  border: "none",
+                  padding: "1.5px",
+                }
+              : {}),
           }}
         >
           {/* Gradient border inner fill */}
@@ -359,7 +383,7 @@ export default function CustomCursor() {
             width: 56,
             height: 56,
             marginLeft: -28,
-            marginTop:  -28,
+            marginTop: -28,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -400,21 +424,21 @@ export default function CustomCursor() {
       >
         <div
           style={{
-            width:      isText ? 0 : isHover ? 4 : 5,
-            height:     isText ? 0 : isHover ? 4 : 5,
+            width: isText ? 0 : isHover ? 4 : 5,
+            height: isText ? 0 : isHover ? 4 : 5,
             marginLeft: isText ? 0 : isHover ? -2 : -2.5,
-            marginTop:  isText ? 0 : isHover ? -2 : -2.5,
+            marginTop: isText ? 0 : isHover ? -2 : -2.5,
             borderRadius: "50%",
-            background:  clicking
+            background: clicking
               ? "rgba(255,255,255,1)"
               : isHover
-              ? "rgba(167,139,250,1)"
-              : "rgba(99,102,241,1)",
+                ? "rgba(167,139,250,1)"
+                : "rgba(99,102,241,1)",
             boxShadow: clicking
               ? "0 0 12px #fff, 0 0 24px rgba(99,102,241,0.9)"
               : isHover
-              ? "0 0 8px rgba(167,139,250,0.9)"
-              : "0 0 6px rgba(99,102,241,0.9)",
+                ? "0 0 8px rgba(167,139,250,0.9)"
+                : "0 0 6px rgba(99,102,241,0.9)",
             opacity: isHidden ? 0 : 1,
             transition: [
               "width 0.2s ease",
@@ -436,7 +460,7 @@ export default function CustomCursor() {
           aria-hidden="true"
           className="pointer-events-none fixed top-0 left-0 z-[9996] cursor-ripple"
           style={{
-            transform: `translate(${mouse.current.x}px, ${mouse.current.y}px)`,
+            transform: `translate(${clickPosition.x}px, ${clickPosition.y}px)`,
           }}
         >
           <div
@@ -444,10 +468,11 @@ export default function CustomCursor() {
               width: 60,
               height: 60,
               marginLeft: -30,
-              marginTop:  -30,
+              marginTop: -30,
               borderRadius: "50%",
               border: "1px solid rgba(99,102,241,0.7)",
-              animation: "cursor-ripple-anim 0.5s cubic-bezier(0,0,0.2,1) forwards",
+              animation:
+                "cursor-ripple-anim 0.5s cubic-bezier(0,0,0.2,1) forwards",
             }}
           />
         </div>
@@ -458,7 +483,7 @@ export default function CustomCursor() {
       ──────────────────────────────────────────────────── */}
       <style>{`
         /* Hide native cursor everywhere */
-        *, *::before, *::after { cursor: none !important; }
+
         @media (pointer: coarse) { *, *::before, *::after { cursor: auto !important; } }
 
         /* Click ripple */

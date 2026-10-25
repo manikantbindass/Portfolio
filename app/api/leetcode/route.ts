@@ -1,69 +1,38 @@
 import { NextResponse } from "next/server";
-
-// ── LeetCode Live Stats API Route ────────────────────────────────────────────
-// Fetches from alfa-leetcode-api with a fallback to hardcoded values.
-// Cache for 6 hours to avoid rate limits.
-export const revalidate = 21600; // 6 hours ISR cache
-
+import { unstable_cache } from "next/cache";
+import { parseLeetCode } from "@/lib/leetcode";
+import snapshot from "@/lib/stats-snapshot.json";
+const getStats = unstable_cache(
+  async () => {
+    const res = await fetch("https://leetcode.com/graphql/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Referer: "https://leetcode.com",
+      },
+      body: JSON.stringify({
+        query:
+          'query { matchedUser(username:"manikantbindass") { submitStatsGlobal { acSubmissionNum { difficulty count } } } userContestRanking(username:"manikantbindass") { rating attendedContestsCount } }',
+      }),
+      signal: AbortSignal.timeout(8000),
+      cache: "no-store",
+    });
+    if (!res.ok) throw new Error("LeetCode unavailable");
+    const counts = parseLeetCode(await res.json());
+    return {
+      ...counts,
+      source: "cached API response",
+      provider: "LeetCode GraphQL",
+      verifiedAt: new Date().toISOString(),
+    };
+  },
+  ["leetcode-profile-v2"],
+  { revalidate: 21600 },
+);
 export async function GET() {
   try {
-    const [solvedRes, contestRes] = await Promise.allSettled([
-      fetch("https://alfa-leetcode-api.onrender.com/manikantbindass/solved", {
-        next: { revalidate: 21600 },
-        signal: AbortSignal.timeout(8000),
-      }),
-      fetch("https://alfa-leetcode-api.onrender.com/manikantbindass/contest", {
-        next: { revalidate: 21600 },
-        signal: AbortSignal.timeout(8000),
-      }),
-    ]);
-
-    let solved = { solvedProblem: 350, easySolved: 80, mediumSolved: 200, hardSolved: 70 };
-    let rating = 1500;
-
-    if (solvedRes.status === "fulfilled" && solvedRes.value.ok) {
-      const data = await solvedRes.value.json();
-      solved = {
-        solvedProblem: data.solvedProblem ?? solved.solvedProblem,
-        easySolved:    data.easySolved    ?? solved.easySolved,
-        mediumSolved:  data.mediumSolved  ?? solved.mediumSolved,
-        hardSolved:    data.hardSolved    ?? solved.hardSolved,
-      };
-    }
-
-    if (contestRes.status === "fulfilled" && contestRes.value.ok) {
-      const data = await contestRes.value.json();
-      const lastContest = data.contestParticipation?.[0];
-      if (lastContest?.rating) rating = Math.round(lastContest.rating);
-    }
-
-    return NextResponse.json(
-      {
-        total:   solved.solvedProblem,
-        easy:    solved.easySolved,
-        medium:  solved.mediumSolved,
-        hard:    solved.hardSolved,
-        rating,
-        source:  "live",
-      },
-      {
-        headers: {
-          "Cache-Control": "public, s-maxage=21600, stale-while-revalidate=3600",
-        },
-      }
-    );
+    return NextResponse.json(await getStats());
   } catch {
-    // Fallback values if API is down
-    return NextResponse.json(
-      {
-        total:   350,
-        easy:    80,
-        medium:  200,
-        hard:    70,
-        rating:  1500,
-        source:  "fallback",
-      },
-      { status: 200 }
-    );
+    return NextResponse.json(snapshot.leetcode);
   }
 }

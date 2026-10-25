@@ -1,0 +1,19 @@
+{
+  "leetcode": {
+    "total": 526,
+    "easy": 136,
+    "medium": 280,
+    "hard": 110,
+    "rating": 2579.723,
+    "source": "verified snapshot",
+    "provider": "LeetCode GraphQL",
+    "verifiedAt": "2026-10-25T02:53:41.615296+00:00"
+  },
+  "github": {
+    "repos": 250,
+    "followers": 48,
+    "source": "verified snapshot",
+    "provider": "GitHub REST API",
+    "verifiedAt": "2026-10-25T02:53:41.615296+00:00"
+  }
+}
