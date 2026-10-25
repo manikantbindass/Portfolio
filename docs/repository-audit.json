@@ -5,13 +5,20 @@
     "commit": "a3fc6ace14d5baa5903de6ba5a8bd758b0ffaf99",
     "readmeCharacters": 10736,
     "sourceFiles": [
-      "frontend/app/api/analyze-skills/route.ts",
+      "README.md",
       "frontend/app/api/_lib/session.ts",
+      "frontend/app/api/analyze-skills/route.ts",
+      "frontend/app/api/upload-resume/route.ts",
       "frontend/package.json"
     ],
     "screenshots": 0,
     "demo": "https://meta-role-ai.vercel.app",
-    "limitations": "Session storage is process-local; durable analysis history requires a persistent store. OpenAI features require server configuration."
+    "limitations": "Session storage is process-local; durable analysis history requires a persistent store. OpenAI features require server configuration.",
+    "reviewedAt": "2026-10-25T10:05:44.637064+00:00",
+    "detailedFeatures": 4,
+    "technologyRoles": 5,
+    "engineeringDecisions": 2,
+    "contentStage": "source"
   },
   {
     "project": "SecureRxChain",
@@ -19,13 +26,24 @@
     "commit": "c5c0260fe1ee1196a4e8a4c499eb55f2d8610c9b",
     "readmeCharacters": 8750,
     "sourceFiles": [
-      "frontend/src/context/Web3Context.jsx",
+      "README.md",
+      "ai/app.py",
+      "ai/requirements.txt",
+      "backend/package.json",
       "backend/routes/drugs.js",
-      "blockchain/contracts/DrugRegistry.sol"
+      "blockchain/contracts/DrugRegistry.sol",
+      "blockchain/test/DrugRegistry.test.js",
+      "frontend/package.json",
+      "frontend/src/context/Web3Context.jsx"
     ],
     "screenshots": 0,
     "demo": "https://securerxchain.vercel.app",
-    "limitations": "The frontend uses Ethers.js rather than the older Web3.js portfolio label. Real contract writes require a correctly configured network and deployment."
+    "limitations": "The frontend uses Ethers.js rather than the older Web3.js portfolio label. Real contract writes require a correctly configured network and deployment.",
+    "reviewedAt": "2026-10-25T10:05:44.641063+00:00",
+    "detailedFeatures": 4,
+    "technologyRoles": 6,
+    "engineeringDecisions": 2,
+    "contentStage": "source"
   },
   {
     "project": "Intramind.AI",
@@ -33,13 +51,22 @@
     "commit": "93d86127223a824a4216d92f554c30f3816659fc",
     "readmeCharacters": 2689,
     "sourceFiles": [
+      "README.md",
       "backend/ai/rag_pipeline.py",
       "backend/api/routes/chat.py",
-      "knowflow-ai/backend/main.py"
+      "frontend/app/(auth)/login/page.tsx",
+      "knowflow-ai/backend/main.py",
+      "knowflow-ai/frontend/package.json",
+      "knowflow-ai/frontend/src/app/page.tsx"
     ],
     "screenshots": 0,
     "demo": null,
-    "limitations": "The checked-in RAG pipeline returns a placeholder. Production RAG, citations, and access controls described in the README are not established by the inspected implementation."
+    "limitations": "The checked-in RAG pipeline returns a placeholder. Production RAG, citations, and access controls described in the README are not established by the inspected implementation.",
+    "reviewedAt": "2026-10-25T10:05:44.636157+00:00",
+    "detailedFeatures": 4,
+    "technologyRoles": 6,
+    "engineeringDecisions": 2,
+    "contentStage": "source"
   },
   {
     "project": "RemoteShield X",
@@ -47,13 +74,24 @@
     "commit": "0aa4b400aeb87c248632f7760db1be30ba4bac88",
     "readmeCharacters": 11110,
     "sourceFiles": [
-      "desktop/src/components/VpnGuard.tsx",
+      "README.md",
+      "backend/package.json",
+      "backend/src/__tests__/app.test.js",
+      "backend/src/index.js",
       "backend/src/middleware/vpnCheck.js",
-      "backend/src/index.js"
+      "backend/src/routes/admin.js",
+      "desktop/package.json",
+      "desktop/src/components/Browser.tsx",
+      "desktop/src/components/VpnGuard.tsx"
     ],
     "screenshots": 0,
     "demo": null,
-    "limitations": "OS-level enforcement and VPN policy need deployment-specific validation. Source presence does not establish a security certification or support guarantee."
+    "limitations": "OS-level enforcement and VPN policy need deployment-specific validation. Source presence does not establish a security certification or support guarantee.",
+    "reviewedAt": "2026-10-25T10:05:44.630328+00:00",
+    "detailedFeatures": 4,
+    "technologyRoles": 7,
+    "engineeringDecisions": 2,
+    "contentStage": "source"
   },
   {
     "project": "TraceHunt AI",
@@ -61,13 +99,21 @@
     "commit": "3f64e4ad7bc834740fc87cfde52ae80cdca48655",
     "readmeCharacters": 17808,
     "sourceFiles": [
+      "README.md",
       "apps/api/app/main.py",
-      "apps/web/package.json",
-      "README.md"
+      "apps/api/app/security.py",
+      "apps/api/app/services.py",
+      "apps/api/tests/test_security.py",
+      "apps/web/package.json"
     ],
     "screenshots": 3,
     "demo": null,
-    "limitations": "Local heuristic analysis is available without an API key. SSO, multi-tenancy, distributed tracing, and automatic remediation are outside this release."
+    "limitations": "Local heuristic analysis is available without an API key. SSO, multi-tenancy, distributed tracing, and automatic remediation are outside this release.",
+    "reviewedAt": "2026-10-25T10:05:44.612136+00:00",
+    "detailedFeatures": 4,
+    "technologyRoles": 6,
+    "engineeringDecisions": 2,
+    "contentStage": "source"
   },
   {
     "project": "SolGuard AI",
@@ -75,13 +121,21 @@
     "commit": "f36d6b650efacdd08910bb189f7be0cb98ff8577",
     "readmeCharacters": 9849,
     "sourceFiles": [
+      "README.md",
       "agents/orchestrator.py",
       "agents/phase2_neural/risk_classifier.py",
-      "agents/phase4_patching/patch_agent.py"
+      "agents/phase4_patching/patch_agent.py",
+      "frontend/package.json",
+      "frontend/src/App.jsx"
     ],
     "screenshots": 0,
     "demo": null,
-    "limitations": "The classifier can fall back to rules. Loading a base CodeBERT classifier does not demonstrate trained vulnerability accuracy, and generated patches require independent review."
+    "limitations": "The classifier can fall back to rules. Loading a base CodeBERT classifier does not demonstrate trained vulnerability accuracy, and generated patches require independent review.",
+    "reviewedAt": "2026-10-25T10:05:44.644841+00:00",
+    "detailedFeatures": 4,
+    "technologyRoles": 5,
+    "engineeringDecisions": 2,
+    "contentStage": "source"
   },
   {
     "project": "AutoLedger AI",
@@ -89,26 +143,42 @@
     "commit": "f8812bf84c8a6f86447b19b1ab71db6b8b7974a6",
     "readmeCharacters": 10473,
     "sourceFiles": [
+      "README.md",
       "backend/main.py",
+      "blockchain/core/ledger.py",
+      "frontend/package.json",
+      "requirements.txt",
       "rl-agent/models/ppo_agent.py",
-      "blockchain/core/ledger.py"
+      "trust-system/trust_manager.py"
     ],
     "screenshots": 0,
     "demo": null,
-    "limitations": "The dashboard backend uses mock network state and random score changes. An integrated trained self-healing consensus network is not demonstrated by that feed."
+    "limitations": "The dashboard backend uses mock network state and random score changes. An integrated trained self-healing consensus network is not demonstrated by that feed.",
+    "reviewedAt": "2026-10-25T10:05:44.645535+00:00",
+    "detailedFeatures": 4,
+    "technologyRoles": 5,
+    "engineeringDecisions": 2,
+    "contentStage": "source"
   },
   {
     "project": "DSA Preparation",
     "repo": "DSA-Preparation-FAANG",
-    "commit": "046e32c21b2a46f0789fada368277eb46c250169",
+    "commit": "70e302e33b9633a58c870fa8d7fdb21e098047d9",
     "readmeCharacters": 90291,
     "sourceFiles": [
+      ".github/workflows/leetcode.yml",
+      "LeetCode-Contests/README.md",
       "README.md",
       "api/leetcode-stats.json"
     ],
     "screenshots": 0,
     "demo": null,
-    "limitations": "README sections contain snapshots from different dates. The portfolio reads current counts independently from the official LeetCode endpoint rather than treating historical badges as live."
+    "limitations": "README sections contain snapshots from different dates. The portfolio reads current counts independently from the official LeetCode endpoint rather than treating historical badges as live.",
+    "reviewedAt": "2026-10-25T10:05:44.605701+00:00",
+    "detailedFeatures": 4,
+    "technologyRoles": 5,
+    "engineeringDecisions": 2,
+    "contentStage": "source"
   },
   {
     "project": "AutoHealOps",
@@ -116,13 +186,23 @@
     "commit": "a1b5d2c94b506aca387b579b951bd11e1e458dfd",
     "readmeCharacters": 15514,
     "sourceFiles": [
-      "frontend/src/services/browserDemo.js",
+      "README.md",
+      "ai-engine/requirements.txt",
       "backend/services/autonomy.py",
-      "backend/services/k8s_service.py"
+      "backend/services/k8s_service.py",
+      "backend/tests/test_autonomy.py",
+      "frontend/package.json",
+      "frontend/src/pages/ClusterPage.jsx",
+      "frontend/src/services/browserDemo.js"
     ],
     "screenshots": 4,
     "demo": "https://autohealops.vercel.app",
-    "limitations": "The public demo has no cluster or trained model attached. Real-cluster acceptance remains pending; the local controller is not an HA production control plane."
+    "limitations": "The public demo has no cluster or trained model attached. Real-cluster acceptance remains pending; the local controller is not an HA production control plane.",
+    "reviewedAt": "2026-10-25T10:05:44.599101+00:00",
+    "detailedFeatures": 4,
+    "technologyRoles": 7,
+    "engineeringDecisions": 2,
+    "contentStage": "source"
   },
   {
     "project": "FinovaIQ",
@@ -130,13 +210,24 @@
     "commit": "ae0525678069246f109e2b373c395919e064c919",
     "readmeCharacters": 4946,
     "sourceFiles": [
-      "apps/api/src/finance.ts",
+      "README.md",
+      "apps/ai/requirements.txt",
+      "apps/api/package.json",
+      "apps/api/src/auth.ts",
       "apps/api/src/finance.service.ts",
-      "apps/web/package.json"
+      "apps/api/src/finance.test.ts",
+      "apps/api/src/finance.ts",
+      "apps/web/package.json",
+      "package.json"
     ],
     "screenshots": 2,
     "demo": "https://finovaiq.vercel.app",
-    "limitations": "No bank connections or live market prices are supplied. Browser chart approximations are separate from persisted precise monetary calculations. Redis workers remain pending."
+    "limitations": "No bank connections or live market prices are supplied. Browser chart approximations are separate from persisted precise monetary calculations. Redis workers remain pending.",
+    "reviewedAt": "2026-10-25T10:05:44.613232+00:00",
+    "detailedFeatures": 4,
+    "technologyRoles": 7,
+    "engineeringDecisions": 2,
+    "contentStage": "source"
   },
   {
     "project": "LeetCode AI Sync",
@@ -144,13 +235,21 @@
     "commit": "85b4bf980ccf764eba4981af31699c92e13da335",
     "readmeCharacters": 11279,
     "sourceFiles": [
+      "README.md",
+      "extension/package.json",
+      "extension/public/manifest.json",
+      "extension/src/background/github.ts",
       "extension/src/background/index.ts",
-      "extension/src/background/queue.ts",
-      "extension/public/manifest.json"
+      "extension/src/background/queue.ts"
     ],
     "screenshots": 0,
     "demo": null,
-    "limitations": "Generated solutions need review. Extension permissions, provider credentials, and GitHub access require deliberate configuration; no store publication is claimed."
+    "limitations": "Generated solutions need review. Extension permissions, provider credentials, and GitHub access require deliberate configuration; no store publication is claimed.",
+    "reviewedAt": "2026-10-25T10:05:44.622435+00:00",
+    "detailedFeatures": 4,
+    "technologyRoles": 6,
+    "engineeringDecisions": 2,
+    "contentStage": "source"
   },
   {
     "project": "Enterprise RAG Knowledge Assistant",
@@ -158,13 +257,21 @@
     "commit": "d42c64fbfa4d18c3d15d394aa27d579538997028",
     "readmeCharacters": 8647,
     "sourceFiles": [
-      "frontend/src/lib/store.tsx",
+      "README.md",
+      "backend/api_gateway/requirements.txt",
       "backend/chat_service/main.py",
-      "frontend/package.json"
+      "frontend/package.json",
+      "frontend/src/lib/store.tsx",
+      "tests/unit/test_rag_pipeline.py"
     ],
     "screenshots": 0,
     "demo": null,
-    "limitations": "The default browser mode performs lexical retrieval and formatted answers. Selecting a model in settings does not establish a live LLM connection or enterprise SSO enforcement."
+    "limitations": "The default browser mode performs lexical retrieval and formatted answers. Selecting a model in settings does not establish a live LLM connection or enterprise SSO enforcement.",
+    "reviewedAt": "2026-10-25T10:05:44.624627+00:00",
+    "detailedFeatures": 4,
+    "technologyRoles": 6,
+    "engineeringDecisions": 2,
+    "contentStage": "source"
   },
   {
     "project": "ChainPass",
@@ -172,13 +279,24 @@
     "commit": "0fd1c0da7d2e26e54bea2249b406b4214b065711",
     "readmeCharacters": 8977,
     "sourceFiles": [
+      "README.md",
+      "apps/api/package.json",
       "apps/api/src/app.ts",
       "apps/api/src/outbox.ts",
+      "apps/api/src/security.ts",
+      "apps/web/package.json",
+      "docs/TESTING.md",
+      "package.json",
       "packages/contracts/src/TicketRegistry.sol"
     ],
     "screenshots": 4,
     "demo": null,
-    "limitations": "Railway reservations and test identity checks are simulations. Real auth/payments require provider configuration. No throughput or availability SLA is claimed."
+    "limitations": "Railway reservations and test identity checks are simulations. Real auth/payments require provider configuration. No throughput or availability SLA is claimed.",
+    "reviewedAt": "2026-10-25T10:05:44.618726+00:00",
+    "detailedFeatures": 4,
+    "technologyRoles": 7,
+    "engineeringDecisions": 2,
+    "contentStage": "source"
   },
   {
     "project": "AI-Adaptive Linux Scheduler",
@@ -186,12 +304,19 @@
     "commit": "d117af44dd2d390e703f18e1abbb3ae407124bdc",
     "readmeCharacters": 1210,
     "sourceFiles": [
+      "README.md",
+      "backend/package.json",
       "backend/server.js",
       "frontend/package.json"
     ],
     "screenshots": 0,
     "demo": null,
-    "limitations": "The backend does not modify a real Linux scheduler or run a trained model. Its AI optimization label refers to deterministic threshold logic over simulated processes."
+    "limitations": "The backend does not modify a real Linux scheduler or run a trained model. Its AI optimization label refers to deterministic threshold logic over simulated processes.",
+    "reviewedAt": "2026-10-25T10:05:44.647176+00:00",
+    "detailedFeatures": 4,
+    "technologyRoles": 5,
+    "engineeringDecisions": 2,
+    "contentStage": "source"
   },
   {
     "project": "FlowPilot",
@@ -199,24 +324,36 @@
     "commit": "651835e939b763ecfe919081fe8c1946f2480414",
     "readmeCharacters": 2940,
     "sourceFiles": [
+      "README.md",
+      "package.json",
       "src/components/InteractiveDemo.tsx",
-      "src/lib/pricing.ts",
-      "src/components/SignupModal.tsx"
+      "src/components/SignupModal.tsx",
+      "src/lib/pricing.test.ts",
+      "src/lib/pricing.ts"
     ],
     "screenshots": 0,
     "demo": "https://manikantbindass.github.io/SaaS-Product-Landing-Page-with-Interactive-Pricing-Demo/",
-    "limitations": "FlowPilot is a fictional brand. Workflow runs, analytics, and form submissions remain local demonstrations, rather than a connected SaaS backend."
+    "limitations": "FlowPilot is a fictional brand. Workflow runs, analytics, and form submissions remain local demonstrations, rather than a connected SaaS backend.",
+    "reviewedAt": "2026-10-25T10:05:44.618004+00:00",
+    "detailedFeatures": 4,
+    "technologyRoles": 5,
+    "engineeringDecisions": 2,
+    "contentStage": "source"
   },
   {
     "project": "FlowNovaAI",
     "repo": "FlowNovaAI",
     "commit": "ea03cfe58b1b150640410891d474486abf019eb5",
     "readmeCharacters": 50,
-    "sourceFiles": [
-      "README.md"
-    ],
+    "sourceFiles": ["README.md"],
     "screenshots": 0,
     "demo": null,
-    "limitations": "Only a two-line README is present in the inspected commit. No application, architecture, technology choices, or implemented features are claimed."
+    "limitations": "The public branch contains README.md only; the case study explicitly labels its architecture and stack as a proposed design.",
+    "reviewedAt": "2026-10-25T10:05:44.605518+00:00",
+    "detailedFeatures": 3,
+    "technologyRoles": 4,
+    "engineeringDecisions": 2,
+    "contentStage": "concept",
+    "publicBranches": ["main"]
   }
 ]

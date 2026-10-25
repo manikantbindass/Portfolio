@@ -10,7 +10,15 @@
       "Backend / Cloud / DevOps",
       "Full Stack"
     ],
-    "tags": ["React", "FastAPI", "Python", "Kubernetes", "Docker", "MongoDB"],
+    "tags": [
+      "React",
+      "FastAPI",
+      "Python",
+      "Kubernetes",
+      "MongoDB",
+      "Docker",
+      "scikit-learn"
+    ],
     "github": "https://github.com/manikantbindass/AutoHealOps-Self-Healing-Kubernetes-Cluster-with-AI-Fault-Detection",
     "live": "https://autohealops.vercel.app",
     "featured": true,
@@ -18,9 +26,10 @@
     "updatedAt": "2026-10-25T02:19:51Z",
     "users": "Operators learning to inspect faults and review constrained recovery actions.",
     "features": [
-      "Cluster explorer, incident and audit views",
-      "Deterministic browser simulation",
-      "Local anomaly pipeline and guarded recovery controller"
+      "Visitor-local simulation",
+      "Workload investigation",
+      "Bounded recovery runbooks",
+      "Optional Kubernetes integration"
     ],
     "architecture": [
       "React console",
@@ -55,8 +64,12 @@
     ],
     "evidence": [
       {
-        "path": "frontend/src/services/browserDemo.js",
-        "url": "https://github.com/manikantbindass/AutoHealOps-Self-Healing-Kubernetes-Cluster-with-AI-Fault-Detection/blob/a1b5d2c94b506aca387b579b951bd11e1e458dfd/frontend/src/services/browserDemo.js"
+        "path": "README.md",
+        "url": "https://github.com/manikantbindass/AutoHealOps-Self-Healing-Kubernetes-Cluster-with-AI-Fault-Detection/blob/a1b5d2c94b506aca387b579b951bd11e1e458dfd/README.md"
+      },
+      {
+        "path": "ai-engine/requirements.txt",
+        "url": "https://github.com/manikantbindass/AutoHealOps-Self-Healing-Kubernetes-Cluster-with-AI-Fault-Detection/blob/a1b5d2c94b506aca387b579b951bd11e1e458dfd/ai-engine/requirements.txt"
       },
       {
         "path": "backend/services/autonomy.py",
@@ -65,36 +78,168 @@
       {
         "path": "backend/services/k8s_service.py",
         "url": "https://github.com/manikantbindass/AutoHealOps-Self-Healing-Kubernetes-Cluster-with-AI-Fault-Detection/blob/a1b5d2c94b506aca387b579b951bd11e1e458dfd/backend/services/k8s_service.py"
+      },
+      {
+        "path": "backend/tests/test_autonomy.py",
+        "url": "https://github.com/manikantbindass/AutoHealOps-Self-Healing-Kubernetes-Cluster-with-AI-Fault-Detection/blob/a1b5d2c94b506aca387b579b951bd11e1e458dfd/backend/tests/test_autonomy.py"
+      },
+      {
+        "path": "frontend/package.json",
+        "url": "https://github.com/manikantbindass/AutoHealOps-Self-Healing-Kubernetes-Cluster-with-AI-Fault-Detection/blob/a1b5d2c94b506aca387b579b951bd11e1e458dfd/frontend/package.json"
+      },
+      {
+        "path": "frontend/src/pages/ClusterPage.jsx",
+        "url": "https://github.com/manikantbindass/AutoHealOps-Self-Healing-Kubernetes-Cluster-with-AI-Fault-Detection/blob/a1b5d2c94b506aca387b579b951bd11e1e458dfd/frontend/src/pages/ClusterPage.jsx"
+      },
+      {
+        "path": "frontend/src/services/browserDemo.js",
+        "url": "https://github.com/manikantbindass/AutoHealOps-Self-Healing-Kubernetes-Cluster-with-AI-Fault-Detection/blob/a1b5d2c94b506aca387b579b951bd11e1e458dfd/frontend/src/services/browserDemo.js"
       }
     ],
     "sourceCommit": "a1b5d2c94b506aca387b579b951bd11e1e458dfd",
-    "verifiedAt": "2026-10-25T02:57:57.676979+00:00",
+    "verifiedAt": "2026-10-25T10:05:44.599101+00:00",
     "architectureReference": "flowchart LR\n  UI[React console] -->|REST + WS| API[FastAPI control plane]\n  API --> DB[(SQLite demo / MongoDB)]\n  API --> AI[Isolation Forest / explicit rules]\n  API --> POLICY[Approval + dry-run + limits]\n  POLICY --> SIM[Isolated demo simulation]\n  POLICY --> K8S[Opt-in namespace Deployment API]\n  PROM[Prometheus] -->|platform scrape| API\n  API -->|live metric queries| PROM\n  GRAF[Grafana] --> PROM",
     "problem": "Operators need to connect abnormal workload behavior to bounded, reviewable recovery actions.",
     "solution": "Provide telemetry, evidence, incidents, and guarded healing controls while separating public simulation from optional real adapters.",
     "technicalDetails": [
       "The public browser adapter keeps visitor simulations local. The optional backend supplies persistent events, telemetry, and an anomaly service.",
       "Recovery code enforces namespace and ownership boundaries, budgets, cooldowns, and pause states. Real Kubernetes interaction is optional and has its own validation requirements."
-    ]
+    ],
+    "caseStudy": {
+      "architectureSummary": "The React console selects an isolated browser simulation or local FastAPI platform. Local services persist telemetry/incidents and coordinate detection, while an optional namespace-scoped Kubernetes adapter exposes Deployment operations. Recovery checks workload identity, policy budgets, cooldowns, pause state, and verification.",
+      "features": [
+        {
+          "title": "Visitor-local simulation",
+          "description": "The public browser adapter maintains synthetic telemetry, policy state, incidents, and action history without a backend or Kubernetes credentials.",
+          "source": "frontend/src/services/browserDemo.js"
+        },
+        {
+          "title": "Workload investigation",
+          "description": "Cluster and incident views connect workload telemetry, abnormalities, alerts, and audit history for evidence-driven inspection.",
+          "source": "frontend/src/pages/ClusterPage.jsx"
+        },
+        {
+          "title": "Bounded recovery runbooks",
+          "description": "Opt-in automatic recovery uses workload-attributed evidence, pause controls, cooldowns, hourly/action limits, and post-action checks. Failed verification pauses healing.",
+          "source": "backend/services/autonomy.py"
+        },
+        {
+          "title": "Optional Kubernetes integration",
+          "description": "The adapter reads namespaced Pods/Deployments and supports configured deployment operations; real access requires cluster credentials and explicit scope.",
+          "source": "backend/services/k8s_service.py"
+        }
+      ],
+      "technologies": [
+        {
+          "name": "React",
+          "description": "Renders the multi-view console and isolated public simulation.",
+          "stage": "source",
+          "version": "^18.2.0",
+          "source": "frontend/package.json"
+        },
+        {
+          "name": "FastAPI",
+          "description": "Provides local platform endpoints and operational updates.",
+          "stage": "source",
+          "version": "==0.162.0",
+          "source": "ai-engine/requirements.txt"
+        },
+        {
+          "name": "Python",
+          "description": "Implements policy, persistence adapters, detection, and recovery logic.",
+          "stage": "source",
+          "source": "README.md"
+        },
+        {
+          "name": "Kubernetes",
+          "description": "Supplies optional real namespace-scoped inventory and Deployment actions.",
+          "stage": "source",
+          "source": "README.md"
+        },
+        {
+          "name": "MongoDB",
+          "description": "Provides Compose persistence while the native local demo uses SQLite.",
+          "stage": "source",
+          "source": "README.md"
+        },
+        {
+          "name": "Docker",
+          "description": "Packages local services through Compose.",
+          "stage": "source",
+          "source": "README.md"
+        },
+        {
+          "name": "scikit-learn",
+          "description": "Supplies the optional Isolation Forest anomaly pipeline.",
+          "stage": "source",
+          "version": "==1.9.1",
+          "source": "ai-engine/requirements.txt"
+        }
+      ],
+      "decisions": [
+        {
+          "title": "Separate simulation from real operations",
+          "description": "Public hosting uses a browser adapter; local configuration can attach a cluster.",
+          "tradeoff": "The same interface stays explorable without credentials, but public actions do not establish real-cluster acceptance.",
+          "source": "frontend/src/services/browserDemo.js"
+        },
+        {
+          "title": "Bound authority before scaling",
+          "description": "Workload identity, budgets, cooldowns, and verification constrain recovery.",
+          "tradeoff": "Those gates still require real-cluster validation; the current local deployment is not an HA control plane.",
+          "source": "backend/services/autonomy.py"
+        }
+      ],
+      "outcomes": [
+        {
+          "title": "Published deliverable",
+          "description": "A public console, persistent local platform, detection service, recovery controller, and optional Kubernetes adapter.",
+          "source": "README.md"
+        },
+        {
+          "title": "Verification assets",
+          "description": "Simulation, API, autonomy, and model test files accompany real application captures with synthetic telemetry.",
+          "source": "backend/tests/test_autonomy.py"
+        }
+      ],
+      "workflow": [
+        "Choose public simulation or configure local services.",
+        "Inspect abnormal workload evidence.",
+        "Review or enable a bounded runbook.",
+        "Verify rollout/telemetry and inspect the audit trail."
+      ],
+      "commands": ["docker compose up --build -d --wait --wait-timeout 240"],
+      "setup": "Use Docker with Linux containers and Compose for the full stack. The public demo has no cluster/model attached. Follow setup guidance for local identity, optional monitoring, and real namespace credentials."
+    },
+    "contentStage": "source"
   },
   {
     "id": "flownova",
     "slug": "flownova",
     "title": "FlowNovaAI",
     "subtitle": "Agent workflow automation concept",
-    "description": "A newly created repository describing an AI agent workflow automation builder.",
+    "description": "An AI agent workflow automation builder concept, with a proposed editor, execution lifecycle, and run-history design.",
     "categories": ["AI / Machine Learning", "Developer Tools"],
     "tags": [],
     "github": "https://github.com/manikantbindass/FlowNovaAI",
     "live": null,
     "featured": true,
-    "status": "Concept / README only",
+    "status": "Agent workflow project brief",
     "updatedAt": "2026-10-25T00:57:32Z",
     "users": "Intended direction: a builder for agent automation workflows.",
-    "features": ["Repository initialized with a project description"],
-    "architecture": ["README", "implementation not yet published"],
+    "features": [
+      "Agent workflow builder",
+      "Execution lifecycle",
+      "Inspectable results"
+    ],
+    "architecture": [
+      "Workflow canvas",
+      "Execution coordinator",
+      "Agent tasks",
+      "Run history"
+    ],
     "challenges": [
-      "Only a two-line README is present in the inspected commit. No application, architecture, technology choices, or implemented features are claimed."
+      "The public repository supplies a project brief. The architecture, technology choices, and milestones on this page are explicitly proposed design work."
     ],
     "screenshots": [],
     "evidence": [
@@ -104,12 +249,89 @@
       }
     ],
     "sourceCommit": "ea03cfe58b1b150640410891d474486abf019eb5",
-    "verifiedAt": "2026-10-25T02:58:08.650402+00:00",
+    "verifiedAt": "2026-10-25T10:05:44.605518+00:00",
     "problem": "The README identifies agent workflow automation as the intended problem area.",
     "solution": "A workflow builder is the stated direction; no implementation or concrete solution architecture has been published.",
     "technicalDetails": [
       "The inspected repository contains README.md only. No dependency manifest, application source, or screenshot assets were present."
-    ]
+    ],
+    "caseStudy": {
+      "architectureSummary": "FlowNovaAI is currently an AI agent workflow automation project brief. The canvas, execution coordinator, agent steps, and run-history flow shown here is an explicitly proposed implementation plan, not a diagram of existing application code.",
+      "features": [
+        {
+          "title": "Agent workflow builder",
+          "description": "The README establishes the builder direction. A proposed first milestone is a typed workflow definition and an editor for agent tasks and dependencies.",
+          "source": "README.md"
+        },
+        {
+          "title": "Execution lifecycle",
+          "description": "A proposed run model would track queued, running, succeeded, and failed tasks so the interface can report actual execution state.",
+          "source": "README.md"
+        },
+        {
+          "title": "Inspectable results",
+          "description": "Proposed step-level inputs, outputs, and failure records would support deliberate retries and debugging before external integrations are enabled.",
+          "source": "README.md"
+        }
+      ],
+      "technologies": [
+        {
+          "name": "TypeScript",
+          "description": "Proposed for shared editor/API workflow contracts. No language manifest has been published.",
+          "stage": "proposed"
+        },
+        {
+          "name": "React",
+          "description": "Proposed for a component-based workflow canvas; it is not an existing dependency.",
+          "stage": "proposed"
+        },
+        {
+          "name": "FastAPI",
+          "description": "Proposed option for a Python execution API and model-provider adapters; this is not a confirmed framework choice.",
+          "stage": "proposed"
+        },
+        {
+          "name": "PostgreSQL",
+          "description": "Proposed option for durable workflow/run history; no database code is published.",
+          "stage": "proposed"
+        }
+      ],
+      "decisions": [
+        {
+          "title": "Define semantics before integrations",
+          "description": "Begin with task inputs, dependency ordering, and a durable run model.",
+          "tradeoff": "This is a design recommendation. Retries, idempotency, provider permissions, and tests still need implementation.",
+          "source": "README.md"
+        },
+        {
+          "title": "Distinguish the brief from the build plan",
+          "description": "Keep the published goal separate from proposed implementation choices.",
+          "tradeoff": "A detailed plan is useful but must not be represented as an already deployed workflow engine.",
+          "source": "README.md"
+        }
+      ],
+      "outcomes": [
+        {
+          "title": "Published artifact",
+          "description": "README.md contains the name FlowNovaAI and the description AI Agent Workflow Automation Builder. The main branch is the only public branch at this review.",
+          "source": "README.md"
+        },
+        {
+          "title": "Proposed first deliverable",
+          "description": "A minimal editor, validated workflow definition, and local step runner would turn the brief into a runnable prototype.",
+          "source": "README.md"
+        }
+      ],
+      "workflow": [
+        "Proposed: define tasks and dependencies.",
+        "Proposed: validate the workflow and create a run.",
+        "Proposed: execute tasks and record outputs/errors.",
+        "Proposed: inspect run history before enabling external side effects."
+      ],
+      "commands": [],
+      "setup": "The public branch has no dependency manifest or executable setup. This page supplies the available brief and a clearly labeled design proposal, without claiming the proposed stack exists."
+    },
+    "contentStage": "concept"
   },
   {
     "id": "dsa",
@@ -118,7 +340,7 @@
     "subtitle": "Patterns, practice, and recall",
     "description": "A structured collection of algorithm solutions, pattern notes, contest work, and synchronized LeetCode progress.",
     "categories": ["Developer Tools"],
-    "tags": ["Java", "Python", "Go", "Algorithms"],
+    "tags": ["Java", "Python", "Go", "GitHub Actions", "JSON"],
     "github": "https://github.com/manikantbindass/DSA-Preparation-FAANG",
     "live": null,
     "featured": true,
@@ -126,9 +348,10 @@
     "updatedAt": "2026-10-25T00:46:14Z",
     "users": "Interview preparation and deliberate algorithm practice.",
     "features": [
-      "Topic-organized problem solutions",
-      "Pattern and contest notes",
-      "Automated public statistics snapshots"
+      "Multi-language solutions",
+      "Pattern-based organization",
+      "Contest practice",
+      "Timestamped public progress"
     ],
     "architecture": [
       "LeetCode submissions",
@@ -141,23 +364,123 @@
     "screenshots": [],
     "evidence": [
       {
+        "path": ".github/workflows/leetcode.yml",
+        "url": "https://github.com/manikantbindass/DSA-Preparation-FAANG/blob/70e302e33b9633a58c870fa8d7fdb21e098047d9/.github/workflows/leetcode.yml"
+      },
+      {
+        "path": "LeetCode-Contests/README.md",
+        "url": "https://github.com/manikantbindass/DSA-Preparation-FAANG/blob/70e302e33b9633a58c870fa8d7fdb21e098047d9/LeetCode-Contests/README.md"
+      },
+      {
         "path": "README.md",
-        "url": "https://github.com/manikantbindass/DSA-Preparation-FAANG/blob/046e32c21b2a46f0789fada368277eb46c250169/README.md"
+        "url": "https://github.com/manikantbindass/DSA-Preparation-FAANG/blob/70e302e33b9633a58c870fa8d7fdb21e098047d9/README.md"
       },
       {
         "path": "api/leetcode-stats.json",
-        "url": "https://github.com/manikantbindass/DSA-Preparation-FAANG/blob/046e32c21b2a46f0789fada368277eb46c250169/api/leetcode-stats.json"
+        "url": "https://github.com/manikantbindass/DSA-Preparation-FAANG/blob/70e302e33b9633a58c870fa8d7fdb21e098047d9/api/leetcode-stats.json"
       }
     ],
-    "sourceCommit": "046e32c21b2a46f0789fada368277eb46c250169",
-    "verifiedAt": "2026-10-25T02:57:56.170153+00:00",
+    "sourceCommit": "70e302e33b9633a58c870fa8d7fdb21e098047d9",
+    "verifiedAt": "2026-10-25T10:05:44.605701+00:00",
     "architectureReference": "flowchart LR\n    A[\"O(1)<br/>constant\"] --> B[\"O(log n)<br/>binary search\"]\n    B --> C[\"O(n)<br/>single pass\"]\n    C --> D[\"O(n log n)<br/>efficient sorting\"]\n    D --> E[\"O(n^2)<br/>nested loops\"]\n    E --> F[\"O(n^3)<br/>triple loops / Floyd-Warshall\"]\n    F --> G[\"O(2^n)<br/>subsets / bitmask DP\"]\n    G --> H[\"O(n!)<br/>permutations\"]",
     "problem": "Repeated practice is less useful when solutions and patterns are scattered or difficult to revisit.",
     "solution": "Organize implementations by topic and maintain public progress snapshots through synchronization workflows.",
     "technicalDetails": [
       "Topic folders organize implementations and learning notes by recurring problem patterns, with separate contest practice.",
       "The repository contains dated statistics blocks. Historical solved totals and the current portfolio API are intentionally treated as different verification moments."
-    ]
+    ],
+    "caseStudy": {
+      "architectureSummary": "Algorithm solutions and notes are organized by topic and contest. A GitHub Actions workflow retrieves public LeetCode progress and writes a JSON snapshot alongside README statistics. This is a learning/code archive rather than a hosted application.",
+      "features": [
+        {
+          "title": "Multi-language solutions",
+          "description": "Java, Python, and Go implementations let readers compare recurring problem patterns across language idioms.",
+          "source": "README.md"
+        },
+        {
+          "title": "Pattern-based organization",
+          "description": "Topic folders group arrays, strings, graphs, dynamic programming, SQL, and other practice material for targeted revision.",
+          "source": "README.md"
+        },
+        {
+          "title": "Contest practice",
+          "description": "A dedicated contest area preserves contest-oriented solutions and notes alongside the topic archive.",
+          "source": "LeetCode-Contests/README.md"
+        },
+        {
+          "title": "Timestamped public progress",
+          "description": "The JSON artifact records solved totals, difficulty breakdown, contest information, a profile URL, and generation time.",
+          "source": "api/leetcode-stats.json"
+        }
+      ],
+      "technologies": [
+        {
+          "name": "Java",
+          "description": "Supplies algorithm implementations and object-oriented practice solutions.",
+          "stage": "source",
+          "source": "README.md"
+        },
+        {
+          "name": "Python",
+          "description": "Supplies concise solutions and the public statistics-fetching runtime.",
+          "stage": "source",
+          "source": "README.md"
+        },
+        {
+          "name": "Go",
+          "description": "Provides additional typed implementations of common patterns.",
+          "stage": "source",
+          "source": "README.md"
+        },
+        {
+          "name": "GitHub Actions",
+          "description": "Runs the profile synchronization workflow.",
+          "stage": "source",
+          "source": "README.md"
+        },
+        {
+          "name": "JSON",
+          "description": "Publishes a reusable progress snapshot without an application server.",
+          "stage": "source",
+          "source": "README.md"
+        }
+      ],
+      "decisions": [
+        {
+          "title": "Keep progress separate from solution code",
+          "description": "Topic solutions stay stable while profile statistics are generated independently.",
+          "tradeoff": "Historical README sections can represent older sync dates; timestamps must accompany counts.",
+          "source": "api/leetcode-stats.json"
+        },
+        {
+          "title": "Use scheduled automation",
+          "description": "GitHub Actions maintains an infrequently changing public profile artifact.",
+          "tradeoff": "Counts reflect workflow execution time rather than every accepted submission immediately.",
+          "source": ".github/workflows/leetcode.yml"
+        }
+      ],
+      "outcomes": [
+        {
+          "title": "Published deliverable",
+          "description": "A topic-organized multi-language practice archive, contest records, notes, and progress automation.",
+          "source": "README.md"
+        },
+        {
+          "title": "Verification artifact",
+          "description": "The profile JSON records its retrieval time; the portfolio separately queries current counts instead of interpreting old badges as live.",
+          "source": "api/leetcode-stats.json"
+        }
+      ],
+      "workflow": [
+        "Choose a topic or contest.",
+        "Read the implementation and pattern notes.",
+        "Run the selected file with its language toolchain.",
+        "Inspect timestamped profile progress independently of solution correctness."
+      ],
+      "commands": [],
+      "setup": "Use Java, Python, or Go for the selected solution. There is no universal application build/test runner for every archived problem; use README.md as the topic map."
+    },
+    "contentStage": "source"
   },
   {
     "id": "tracehunt",
@@ -170,7 +493,14 @@
       "Backend / Cloud / DevOps",
       "Full Stack"
     ],
-    "tags": ["Next.js", "FastAPI", "PostgreSQL", "Redis", "OpenAI"],
+    "tags": [
+      "Next.js",
+      "FastAPI",
+      "SQLAlchemy",
+      "PostgreSQL",
+      "Redis",
+      "OpenAI"
+    ],
     "github": "https://github.com/manikantbindass/Tracehunt",
     "live": null,
     "featured": true,
@@ -178,9 +508,10 @@
     "updatedAt": "2026-10-24T09:52:23Z",
     "users": "Developers investigating service failures and correlating incident evidence.",
     "features": [
-      "HTTP monitor lifecycle and check history",
-      "Structured log ingestion and incident timelines",
-      "Local heuristic analysis with optional OpenAI enrichment"
+      "HTTP monitor lifecycle",
+      "Structured log ingestion",
+      "Incident evidence and transitions",
+      "Optional model analysis"
     ],
     "architecture": [
       "Next.js console",
@@ -210,27 +541,138 @@
     ],
     "evidence": [
       {
+        "path": "README.md",
+        "url": "https://github.com/manikantbindass/Tracehunt/blob/3f64e4ad7bc834740fc87cfde52ae80cdca48655/README.md"
+      },
+      {
         "path": "apps/api/app/main.py",
         "url": "https://github.com/manikantbindass/Tracehunt/blob/3f64e4ad7bc834740fc87cfde52ae80cdca48655/apps/api/app/main.py"
       },
       {
-        "path": "apps/web/package.json",
-        "url": "https://github.com/manikantbindass/Tracehunt/blob/3f64e4ad7bc834740fc87cfde52ae80cdca48655/apps/web/package.json"
+        "path": "apps/api/app/security.py",
+        "url": "https://github.com/manikantbindass/Tracehunt/blob/3f64e4ad7bc834740fc87cfde52ae80cdca48655/apps/api/app/security.py"
       },
       {
-        "path": "README.md",
-        "url": "https://github.com/manikantbindass/Tracehunt/blob/3f64e4ad7bc834740fc87cfde52ae80cdca48655/README.md"
+        "path": "apps/api/app/services.py",
+        "url": "https://github.com/manikantbindass/Tracehunt/blob/3f64e4ad7bc834740fc87cfde52ae80cdca48655/apps/api/app/services.py"
+      },
+      {
+        "path": "apps/api/tests/test_security.py",
+        "url": "https://github.com/manikantbindass/Tracehunt/blob/3f64e4ad7bc834740fc87cfde52ae80cdca48655/apps/api/tests/test_security.py"
+      },
+      {
+        "path": "apps/web/package.json",
+        "url": "https://github.com/manikantbindass/Tracehunt/blob/3f64e4ad7bc834740fc87cfde52ae80cdca48655/apps/web/package.json"
       }
     ],
     "sourceCommit": "3f64e4ad7bc834740fc87cfde52ae80cdca48655",
-    "verifiedAt": "2026-10-25T02:57:52.307035+00:00",
+    "verifiedAt": "2026-10-25T10:05:44.612136+00:00",
     "architectureReference": "flowchart LR\n    Engineer[Engineering team] --> Web[Next.js dashboard]\n    Web -->|same-origin API proxy| API[FastAPI]\n    App[Applications / log shippers] -->|structured logs| API\n    API --> SQL[(PostgreSQL\\ntelemetry + incidents + outbox)]\n    Worker[Background worker] --> SQL\n    Worker -->|validated HTTP checks| Targets[Monitored endpoints]\n    Worker --> Redis[(Redis\\nevent notifications)]\n    Worker -->|optional| Webhook[Alert webhook]\n    API --> Analysis[Incident analysis]\n    Analysis --> Local[Local evidence heuristics]\n    Analysis -->|optional| OpenAI[OpenAI Responses API]",
     "problem": "Endpoint failures, logs, and releases are difficult to reason about when evidence lives in separate tools.",
     "solution": "Bring monitors, incident timelines, and reviewable hypotheses into a single-workspace console.",
     "technicalDetails": [
       "Monitor configuration, structured events, and incident transitions are persisted through the FastAPI/SQL layer rather than represented only as dashboard state.",
       "A SQL outbox and background worker separate event handling from HTTP requests. Local heuristic investigations remain available when optional model integration is absent."
-    ]
+    ],
+    "caseStudy": {
+      "architectureSummary": "A Next.js operations console calls FastAPI for monitors, logs, incidents, releases, and investigations. SQL storage retains operational records and outbox events; background processing and Redis notifications sit outside request handling. Investigations use local heuristics or optional OpenAI enrichment.",
+      "features": [
+        {
+          "title": "HTTP monitor lifecycle",
+          "description": "Create and manage monitors with expected-status and latency limits. Stored checks provide historical health evidence rather than only a transient ping result.",
+          "source": "apps/api/app/services.py"
+        },
+        {
+          "title": "Structured log ingestion",
+          "description": "Single/batch log intake preserves service, severity, timestamps, and metadata for filtered investigation. Redaction helpers remove recognizable secret fields.",
+          "source": "apps/api/app/security.py"
+        },
+        {
+          "title": "Incident evidence and transitions",
+          "description": "Deduplicated anomaly rules open incidents with timeline records and correlated evidence; service functions support investigation and resolution flows.",
+          "source": "apps/api/app/services.py"
+        },
+        {
+          "title": "Optional model analysis",
+          "description": "Incident hypotheses can come from local evidence-based heuristics or a configured model adapter. The analysis source matters when interpreting a suggested root cause.",
+          "source": "apps/api/app/services.py"
+        }
+      ],
+      "technologies": [
+        {
+          "name": "Next.js",
+          "description": "Serves the operations workspace and its monitor/log/incident views.",
+          "stage": "source",
+          "version": "16.4.2",
+          "source": "apps/web/package.json"
+        },
+        {
+          "name": "FastAPI",
+          "description": "Exposes operational HTTP endpoints, health checks, and metrics.",
+          "stage": "source",
+          "source": "README.md"
+        },
+        {
+          "name": "SQLAlchemy",
+          "description": "Maps monitors, checks, incidents, logs, events, and deployments to SQL records.",
+          "stage": "source",
+          "source": "README.md"
+        },
+        {
+          "name": "PostgreSQL",
+          "description": "Stores the Compose deployment data; SQLite supports local development.",
+          "stage": "source",
+          "source": "README.md"
+        },
+        {
+          "name": "Redis",
+          "description": "Provides the optional notification component in the Compose stack.",
+          "stage": "source",
+          "source": "README.md"
+        },
+        {
+          "name": "OpenAI",
+          "description": "Enriches investigations when configured; local analysis works without a model key.",
+          "stage": "source",
+          "source": "README.md"
+        }
+      ],
+      "decisions": [
+        {
+          "title": "Validate user-supplied monitoring targets",
+          "description": "Target-validation/request helpers control which endpoints a monitor can contact.",
+          "tradeoff": "DNS resolution, private-address handling, redirects, and request timeouts are essential boundaries around an endpoint-check service.",
+          "source": "apps/api/app/security.py"
+        },
+        {
+          "title": "Keep hypotheses reviewable",
+          "description": "Persist incident events and assemble analysis from correlated evidence.",
+          "tradeoff": "A reviewable hypothesis is assistance, not guaranteed root cause or automatic remediation.",
+          "source": "apps/api/app/services.py"
+        }
+      ],
+      "outcomes": [
+        {
+          "title": "Published deliverable",
+          "description": "A persistent single-workspace console with API, worker, migrations, CI, and genuine application captures.",
+          "source": "README.md"
+        },
+        {
+          "title": "Verification assets",
+          "description": "API, worker, migration, and security tests accompany the source; this portfolio update did not independently deploy its external services.",
+          "source": "apps/api/tests/test_security.py"
+        }
+      ],
+      "workflow": [
+        "Configure monitors or ingest service events.",
+        "Persist checks/logs and evaluate incident rules.",
+        "Inspect an incident timeline and correlated releases.",
+        "Run local/model analysis and review its evidence and suggestions."
+      ],
+      "commands": ["docker compose up --build -d --wait"],
+      "setup": "Use Docker with Linux containers and Compose for the full stack. Seeded records are synthetic. SSO, multi-tenancy, distributed tracing, and automatic remediation are outside this release."
+    },
+    "contentStage": "source"
   },
   {
     "id": "finovaiq",
@@ -249,7 +691,8 @@
       "Prisma",
       "PostgreSQL",
       "TypeScript",
-      "FastAPI"
+      "FastAPI",
+      "Recharts"
     ],
     "github": "https://github.com/manikantbindass/FinovaIQ-AI-Personal-Finance-Investment-Dashboard",
     "live": "https://finovaiq.vercel.app",
@@ -258,9 +701,10 @@
     "updatedAt": "2026-10-24T09:27:34Z",
     "users": "People exploring manual personal-finance tracking using fictional demonstration records.",
     "features": [
-      "Income, expense and transfer workflows",
-      "Budget and investment calculations",
-      "Persisted dashboard and optional AI adapter"
+      "Accounts and transaction management",
+      "Precise monetary calculations",
+      "Budgets, goals, and dashboards",
+      "Identity and configurable assistance"
     ],
     "architecture": [
       "Next.js workspace",
@@ -284,26 +728,166 @@
     ],
     "evidence": [
       {
-        "path": "apps/api/src/finance.ts",
-        "url": "https://github.com/manikantbindass/FinovaIQ-AI-Personal-Finance-Investment-Dashboard/blob/ae0525678069246f109e2b373c395919e064c919/apps/api/src/finance.ts"
+        "path": "README.md",
+        "url": "https://github.com/manikantbindass/FinovaIQ-AI-Personal-Finance-Investment-Dashboard/blob/ae0525678069246f109e2b373c395919e064c919/README.md"
+      },
+      {
+        "path": "apps/ai/requirements.txt",
+        "url": "https://github.com/manikantbindass/FinovaIQ-AI-Personal-Finance-Investment-Dashboard/blob/ae0525678069246f109e2b373c395919e064c919/apps/ai/requirements.txt"
+      },
+      {
+        "path": "apps/api/package.json",
+        "url": "https://github.com/manikantbindass/FinovaIQ-AI-Personal-Finance-Investment-Dashboard/blob/ae0525678069246f109e2b373c395919e064c919/apps/api/package.json"
+      },
+      {
+        "path": "apps/api/src/auth.ts",
+        "url": "https://github.com/manikantbindass/FinovaIQ-AI-Personal-Finance-Investment-Dashboard/blob/ae0525678069246f109e2b373c395919e064c919/apps/api/src/auth.ts"
       },
       {
         "path": "apps/api/src/finance.service.ts",
         "url": "https://github.com/manikantbindass/FinovaIQ-AI-Personal-Finance-Investment-Dashboard/blob/ae0525678069246f109e2b373c395919e064c919/apps/api/src/finance.service.ts"
       },
       {
+        "path": "apps/api/src/finance.test.ts",
+        "url": "https://github.com/manikantbindass/FinovaIQ-AI-Personal-Finance-Investment-Dashboard/blob/ae0525678069246f109e2b373c395919e064c919/apps/api/src/finance.test.ts"
+      },
+      {
+        "path": "apps/api/src/finance.ts",
+        "url": "https://github.com/manikantbindass/FinovaIQ-AI-Personal-Finance-Investment-Dashboard/blob/ae0525678069246f109e2b373c395919e064c919/apps/api/src/finance.ts"
+      },
+      {
         "path": "apps/web/package.json",
         "url": "https://github.com/manikantbindass/FinovaIQ-AI-Personal-Finance-Investment-Dashboard/blob/ae0525678069246f109e2b373c395919e064c919/apps/web/package.json"
+      },
+      {
+        "path": "package.json",
+        "url": "https://github.com/manikantbindass/FinovaIQ-AI-Personal-Finance-Investment-Dashboard/blob/ae0525678069246f109e2b373c395919e064c919/package.json"
       }
     ],
     "sourceCommit": "ae0525678069246f109e2b373c395919e064c919",
-    "verifiedAt": "2026-10-25T02:57:59.083178+00:00",
+    "verifiedAt": "2026-10-25T10:05:44.613232+00:00",
     "problem": "Manual income, expenses, budgets, and investments need consistent accounting across views.",
     "solution": "Use a persistent API and precise monetary calculations behind a responsive finance workspace.",
     "technicalDetails": [
       "The finance layer converts monetary strings into minor-unit BigInt values; Prisma Decimal is configured for higher-precision calculations.",
       "The web workspace calls a NestJS API backed by Prisma/PostgreSQL. The deterministic demo copilot and optional FastAPI/OpenAI adapter have explicitly different behavior."
-    ]
+    ],
+    "caseStudy": {
+      "architectureSummary": "The Next.js workspace calls a NestJS API backed by Prisma/PostgreSQL. A finance layer handles exact monetary arithmetic, transfers, budgets, and positions. A separately configured FastAPI AI service complements the deterministic demo copilot.",
+      "features": [
+        {
+          "title": "Accounts and transaction management",
+          "description": "Manual INR accounts support income/expense records, editing/deletion, filtering, pagination, and CSV import/export with duplicate prevention.",
+          "source": "apps/api/src/finance.service.ts"
+        },
+        {
+          "title": "Precise monetary calculations",
+          "description": "BigInt minor units and Decimal arithmetic separate persisted amounts from chart approximations and support transfers and investment calculations.",
+          "source": "apps/api/src/finance.ts"
+        },
+        {
+          "title": "Budgets, goals, and dashboards",
+          "description": "Monthly views, budget comparisons, goals, and portfolio summaries use persisted records instead of invented dashboard totals.",
+          "source": "apps/api/src/finance.service.ts"
+        },
+        {
+          "title": "Identity and configurable assistance",
+          "description": "The auth module supplies expiring sessions and email/reset flows. The deterministic copilot and optional model path remain separate from accounting.",
+          "source": "apps/api/src/auth.ts"
+        }
+      ],
+      "technologies": [
+        {
+          "name": "Next.js",
+          "description": "Serves the financial workspace and dashboard views.",
+          "stage": "source",
+          "version": "16.4.3",
+          "source": "apps/web/package.json"
+        },
+        {
+          "name": "NestJS",
+          "description": "Organizes authenticated controllers and business services.",
+          "stage": "source",
+          "version": "^11.1.0",
+          "source": "apps/api/package.json"
+        },
+        {
+          "name": "Prisma",
+          "description": "Maps relational models and persistence operations.",
+          "stage": "source",
+          "version": "6.19.0",
+          "source": "apps/api/package.json"
+        },
+        {
+          "name": "PostgreSQL",
+          "description": "Stores identity, accounts, records, budgets, goals, and positions.",
+          "stage": "source",
+          "source": "README.md"
+        },
+        {
+          "name": "TypeScript",
+          "description": "Types UI, API validation, and finance operations.",
+          "stage": "source",
+          "version": "^5.9.0",
+          "source": "package.json"
+        },
+        {
+          "name": "FastAPI",
+          "description": "Hosts the optional model-backed assistance service.",
+          "stage": "source",
+          "version": ">=0.115,<1",
+          "source": "apps/ai/requirements.txt"
+        },
+        {
+          "name": "Recharts",
+          "description": "Visualizes numeric approximations of financial summaries.",
+          "stage": "source",
+          "version": "^3.4.0",
+          "source": "apps/web/package.json"
+        }
+      ],
+      "decisions": [
+        {
+          "title": "Exact arithmetic in authoritative records",
+          "description": "Convert inputs to minor-unit BigInt and use high-precision Decimal operations for investment accounting.",
+          "tradeoff": "Chart approximations must not become the authoritative monetary ledger.",
+          "source": "apps/api/src/finance.ts"
+        },
+        {
+          "title": "Keep the ledger independent of a paid model",
+          "description": "Core finance operations work while the demo copilot is deterministic.",
+          "tradeoff": "The demonstration does not imply live bank feeds, market prices, or personalized financial advice.",
+          "source": "README.md"
+        }
+      ],
+      "outcomes": [
+        {
+          "title": "Published deliverable",
+          "description": "A PostgreSQL-backed development milestone, hosted fictional-data demo, and optional AI adapter.",
+          "source": "README.md"
+        },
+        {
+          "title": "Verification assets",
+          "description": "Finance tests, integration checks, and browser journeys are supplied. No real bank integration or measured scale guarantee is claimed.",
+          "source": "apps/api/src/finance.test.ts"
+        }
+      ],
+      "workflow": [
+        "Select a manual account.",
+        "Record transactions or import CSV data.",
+        "Review balances, budgets, goals, and positions.",
+        "Use the explicitly selected copilot mode for assistance."
+      ],
+      "commands": [
+        "pnpm install --frozen-lockfile",
+        "pnpm db:generate",
+        "pnpm db:migrate",
+        "pnpm db:seed",
+        "pnpm dev"
+      ],
+      "setup": "Use Node.js 24+, the repository pnpm version, and PostgreSQL/local fallback. Configure the environment and start the database using SETUP.md before migrations. Hosted records are fictional."
+    },
+    "contentStage": "source"
   },
   {
     "id": "flowpilot",
@@ -312,7 +896,7 @@
     "subtitle": "Interactive SaaS product experience",
     "description": "A responsive SaaS demonstration with a workflow sandbox, seat-based pricing calculator, and a trial configuration modal.",
     "categories": ["Full Stack"],
-    "tags": ["React", "TypeScript", "Tailwind CSS", "Vite", "Recharts"],
+    "tags": ["React", "TypeScript", "Vite", "Recharts", "Vitest"],
     "github": "https://github.com/manikantbindass/SaaS-Product-Landing-Page-with-Interactive-Pricing-Demo",
     "live": "https://manikantbindass.github.io/SaaS-Product-Landing-Page-with-Interactive-Pricing-Demo/",
     "featured": true,
@@ -320,9 +904,10 @@
     "updatedAt": "2026-10-23T09:33:55Z",
     "users": "Teams evaluating an illustrative workflow product and developers studying interactive product UI.",
     "features": [
-      "Workflow toggles and task filtering",
-      "Monthly/annual pricing with a seat slider",
-      "Validated local trial configuration"
+      "Workflow sandbox",
+      "Seat-aware pricing",
+      "Configuration-preserving trial",
+      "Keyboard-friendly product UI"
     ],
     "architecture": [
       "React components",
@@ -335,26 +920,135 @@
     "screenshots": [],
     "evidence": [
       {
+        "path": "README.md",
+        "url": "https://github.com/manikantbindass/SaaS-Product-Landing-Page-with-Interactive-Pricing-Demo/blob/651835e939b763ecfe919081fe8c1946f2480414/README.md"
+      },
+      {
+        "path": "package.json",
+        "url": "https://github.com/manikantbindass/SaaS-Product-Landing-Page-with-Interactive-Pricing-Demo/blob/651835e939b763ecfe919081fe8c1946f2480414/package.json"
+      },
+      {
         "path": "src/components/InteractiveDemo.tsx",
         "url": "https://github.com/manikantbindass/SaaS-Product-Landing-Page-with-Interactive-Pricing-Demo/blob/651835e939b763ecfe919081fe8c1946f2480414/src/components/InteractiveDemo.tsx"
       },
       {
-        "path": "src/lib/pricing.ts",
-        "url": "https://github.com/manikantbindass/SaaS-Product-Landing-Page-with-Interactive-Pricing-Demo/blob/651835e939b763ecfe919081fe8c1946f2480414/src/lib/pricing.ts"
-      },
-      {
         "path": "src/components/SignupModal.tsx",
         "url": "https://github.com/manikantbindass/SaaS-Product-Landing-Page-with-Interactive-Pricing-Demo/blob/651835e939b763ecfe919081fe8c1946f2480414/src/components/SignupModal.tsx"
+      },
+      {
+        "path": "src/lib/pricing.test.ts",
+        "url": "https://github.com/manikantbindass/SaaS-Product-Landing-Page-with-Interactive-Pricing-Demo/blob/651835e939b763ecfe919081fe8c1946f2480414/src/lib/pricing.test.ts"
+      },
+      {
+        "path": "src/lib/pricing.ts",
+        "url": "https://github.com/manikantbindass/SaaS-Product-Landing-Page-with-Interactive-Pricing-Demo/blob/651835e939b763ecfe919081fe8c1946f2480414/src/lib/pricing.ts"
       }
     ],
     "sourceCommit": "651835e939b763ecfe919081fe8c1946f2480414",
-    "verifiedAt": "2026-10-25T02:58:07.405163+00:00",
+    "verifiedAt": "2026-10-25T10:05:44.618004+00:00",
     "problem": "A product landing page needs to explain pricing and interaction before a visitor commits.",
     "solution": "Offer a local workflow sandbox and a calculator that preserves plan, billing cycle, and seat selections.",
     "technicalDetails": [
       "Pricing calculations are separated from presentation components and compute monthly/annual totals, effective seats, and annual savings.",
       "InteractiveDemo, PricingSection, and SignupModal coordinate through browser state. The repository documents that no connected SaaS backend or real signup service is included."
-    ]
+    ],
+    "caseStudy": {
+      "architectureSummary": "A Vite/React frontend coordinates a local workflow sandbox, shared pricing calculations, and a trial-selection modal. All product runs/analytics/signup feedback use browser state and sample data rather than a connected SaaS backend.",
+      "features": [
+        {
+          "title": "Workflow sandbox",
+          "description": "Toggle sample workflows, simulate runs, and filter tasks by text/status/priority while keeping activity local to the demonstration.",
+          "source": "src/components/InteractiveDemo.tsx"
+        },
+        {
+          "title": "Seat-aware pricing",
+          "description": "A shared calculator derives effective seats, per-seat prices, monthly/annual totals, and savings from the selected cycle and plan.",
+          "source": "src/lib/pricing.ts"
+        },
+        {
+          "title": "Configuration-preserving trial",
+          "description": "The modal receives the selected plan, cycle, and seats and validates visitor input without silently resetting that configuration.",
+          "source": "src/components/SignupModal.tsx"
+        },
+        {
+          "title": "Keyboard-friendly product UI",
+          "description": "The modal includes focus containment/restoration and Escape behavior; the surrounding frontend provides responsive sections and persistent themes.",
+          "source": "src/components/SignupModal.tsx"
+        }
+      ],
+      "technologies": [
+        {
+          "name": "React",
+          "description": "Coordinates sandbox actions, pricing choices, and the trial interface.",
+          "stage": "source",
+          "version": "^18.3.1",
+          "source": "package.json"
+        },
+        {
+          "name": "TypeScript",
+          "description": "Types plan IDs, billing cycles, prices, and modal-selection contracts.",
+          "stage": "source",
+          "version": "^5.6.3",
+          "source": "package.json"
+        },
+        {
+          "name": "Vite",
+          "description": "Builds the frontend with the repository GitHub Pages base path.",
+          "stage": "source",
+          "version": "^5.4.10",
+          "source": "package.json"
+        },
+        {
+          "name": "Recharts",
+          "description": "Displays illustrative product analytics.",
+          "stage": "source",
+          "version": "^2.13.3",
+          "source": "package.json"
+        },
+        {
+          "name": "Vitest",
+          "description": "Tests pricing calculations independently of the browser UI.",
+          "stage": "source",
+          "version": "^2.1.4",
+          "source": "package.json"
+        }
+      ],
+      "decisions": [
+        {
+          "title": "Keep arithmetic outside presentation",
+          "description": "One utility supplies pricing values to the UI.",
+          "tradeoff": "It makes billing/seat behavior testable without rendering; the product remains an illustrative local demo.",
+          "source": "src/lib/pricing.ts"
+        },
+        {
+          "title": "Carry configuration into conversion",
+          "description": "A typed selection flows into the modal rather than a new default plan.",
+          "tradeoff": "The visitor sees consistent details, but no real account is created or backend signup submitted.",
+          "source": "src/components/SignupModal.tsx"
+        }
+      ],
+      "outcomes": [
+        {
+          "title": "Published deliverable",
+          "description": "A hosted interactive product demo with sandbox controls, pricing, a validated local trial form, and themes.",
+          "source": "README.md"
+        },
+        {
+          "title": "Verification assets",
+          "description": "Pricing tests and a Pages build/deploy workflow accompany the source; analytics/workflow runs remain sample browser state.",
+          "source": "src/lib/pricing.test.ts"
+        }
+      ],
+      "workflow": [
+        "Explore sample workflows and tasks.",
+        "Adjust team size and billing cycle.",
+        "Carry the selected configuration into the trial modal.",
+        "Inspect the locally validated demo confirmation."
+      ],
+      "commands": ["npm ci", "npm run dev"],
+      "setup": "Use Node.js/npm. npm test checks pricing; npm run build produces the Pages frontend. Local demo interactions need no API keys or backend."
+    },
+    "contentStage": "source"
   },
   {
     "id": "chainpass",
@@ -373,7 +1067,8 @@
       "Fastify",
       "PostgreSQL",
       "SQLite",
-      "Solidity"
+      "Solidity",
+      "Ethers.js"
     ],
     "github": "https://github.com/manikantbindass/Blockchain-Based-Smart-Ticket-System-Concert-railway-public-and-Private-Transport-",
     "live": null,
@@ -382,9 +1077,10 @@
     "updatedAt": "2026-10-20T18:39:10Z",
     "users": "Customers and organizers exploring events, transport, bookings, and admission.",
     "features": [
-      "Transactional bookings with idempotency keys",
-      "Signed QR credentials and organizer check-in",
-      "Optional Firebase, Razorpay and durable blockchain outbox"
+      "Transactional ticket booking",
+      "Signed QR wallet and admission",
+      "Optional authentication and payments",
+      "Recoverable blockchain anchoring"
     ],
     "architecture": [
       "React web",
@@ -420,6 +1116,14 @@
     ],
     "evidence": [
       {
+        "path": "README.md",
+        "url": "https://github.com/manikantbindass/Blockchain-Based-Smart-Ticket-System-Concert-railway-public-and-Private-Transport-/blob/0fd1c0da7d2e26e54bea2249b406b4214b065711/README.md"
+      },
+      {
+        "path": "apps/api/package.json",
+        "url": "https://github.com/manikantbindass/Blockchain-Based-Smart-Ticket-System-Concert-railway-public-and-Private-Transport-/blob/0fd1c0da7d2e26e54bea2249b406b4214b065711/apps/api/package.json"
+      },
+      {
         "path": "apps/api/src/app.ts",
         "url": "https://github.com/manikantbindass/Blockchain-Based-Smart-Ticket-System-Concert-railway-public-and-Private-Transport-/blob/0fd1c0da7d2e26e54bea2249b406b4214b065711/apps/api/src/app.ts"
       },
@@ -428,19 +1132,142 @@
         "url": "https://github.com/manikantbindass/Blockchain-Based-Smart-Ticket-System-Concert-railway-public-and-Private-Transport-/blob/0fd1c0da7d2e26e54bea2249b406b4214b065711/apps/api/src/outbox.ts"
       },
       {
+        "path": "apps/api/src/security.ts",
+        "url": "https://github.com/manikantbindass/Blockchain-Based-Smart-Ticket-System-Concert-railway-public-and-Private-Transport-/blob/0fd1c0da7d2e26e54bea2249b406b4214b065711/apps/api/src/security.ts"
+      },
+      {
+        "path": "apps/web/package.json",
+        "url": "https://github.com/manikantbindass/Blockchain-Based-Smart-Ticket-System-Concert-railway-public-and-Private-Transport-/blob/0fd1c0da7d2e26e54bea2249b406b4214b065711/apps/web/package.json"
+      },
+      {
+        "path": "docs/TESTING.md",
+        "url": "https://github.com/manikantbindass/Blockchain-Based-Smart-Ticket-System-Concert-railway-public-and-Private-Transport-/blob/0fd1c0da7d2e26e54bea2249b406b4214b065711/docs/TESTING.md"
+      },
+      {
+        "path": "package.json",
+        "url": "https://github.com/manikantbindass/Blockchain-Based-Smart-Ticket-System-Concert-railway-public-and-Private-Transport-/blob/0fd1c0da7d2e26e54bea2249b406b4214b065711/package.json"
+      },
+      {
         "path": "packages/contracts/src/TicketRegistry.sol",
         "url": "https://github.com/manikantbindass/Blockchain-Based-Smart-Ticket-System-Concert-railway-public-and-Private-Transport-/blob/0fd1c0da7d2e26e54bea2249b406b4214b065711/packages/contracts/src/TicketRegistry.sol"
       }
     ],
     "sourceCommit": "0fd1c0da7d2e26e54bea2249b406b4214b065711",
-    "verifiedAt": "2026-10-25T02:58:04.839302+00:00",
+    "verifiedAt": "2026-10-25T10:05:44.618726+00:00",
     "architectureReference": "flowchart LR\n  B[React browser] -->|same origin /api| A[Fastify API replicas]\n  A -->|transaction| P[(PostgreSQL)]\n  A -->|same transaction| O[(Outbox records)]\n  W[Anchoring worker] --> O\n  W -->|idempotent commitment batch| E[EVM registry]\n  A --> S[Static frontend assets]\n  B --> F[Firebase Authentication]\n  B --> R[Razorpay hosted checkout]\n  A -->|verify identity| F\n  R -->|signed webhook| A",
     "problem": "Ticketing must handle limited inventory, repeated checkout requests, and one-time admission without leaking private credentials.",
     "solution": "Use transactional booking, idempotency, signed QR admission, and optional asynchronous blockchain anchoring.",
     "technicalDetails": [
       "Bookings and outbox writes share database transactions; conditional updates and idempotency prevent duplicate issuance and inventory overselling.",
       "The worker leases outbox rows, renews ownership, and confirms anchoring through an adapter. SQLite supports local use while PostgreSQL provides the intended multi-replica database path."
-    ]
+    ],
+    "caseStudy": {
+      "architectureSummary": "React calls Fastify for catalog, identity, booking, wallet, and admission workflows. SQLite enables local operation and PostgreSQL supplies the intended durable multi-replica data path. A transactional outbox lets a separate worker anchor private ticket commitments through an optional EVM registry.",
+      "features": [
+        {
+          "title": "Transactional ticket booking",
+          "description": "Search catalog entries and book with idempotency keys and conditional inventory updates that guard against duplicate issuance and overselling.",
+          "source": "apps/api/src/app.ts"
+        },
+        {
+          "title": "Signed QR wallet and admission",
+          "description": "Ticket credentials use signed QR data; check-in validates admission while public verification avoids exposing private customer credentials.",
+          "source": "apps/api/src/security.ts"
+        },
+        {
+          "title": "Optional authentication and payments",
+          "description": "Firebase verification and Razorpay checkout/webhook modules require explicit provider configuration; the free local workflow remains separately available.",
+          "source": "README.md"
+        },
+        {
+          "title": "Recoverable blockchain anchoring",
+          "description": "The worker leases outbox work, renews ownership, submits commitments, and confirms anchoring through a chain adapter.",
+          "source": "apps/api/src/outbox.ts"
+        }
+      ],
+      "technologies": [
+        {
+          "name": "React",
+          "description": "Builds customer, checkout, wallet, railway, and organizer views.",
+          "stage": "source",
+          "version": "^18.3.1",
+          "source": "apps/web/package.json"
+        },
+        {
+          "name": "TypeScript",
+          "description": "Types shared models, request validation, persistence adapters, and UI state.",
+          "stage": "source",
+          "version": "^5.9.3",
+          "source": "package.json"
+        },
+        {
+          "name": "Fastify",
+          "description": "Serves catalog/booking/identity HTTP routes and request protections.",
+          "stage": "source",
+          "source": "README.md"
+        },
+        {
+          "name": "PostgreSQL",
+          "description": "Provides transactional persistence for the intended multi-replica path.",
+          "stage": "source",
+          "source": "README.md"
+        },
+        {
+          "name": "SQLite",
+          "description": "Supplies the local development database without a separate service.",
+          "stage": "source",
+          "source": "README.md"
+        },
+        {
+          "name": "Solidity",
+          "description": "Implements the optional EVM ticket commitment registry.",
+          "stage": "source",
+          "source": "README.md"
+        },
+        {
+          "name": "Ethers.js",
+          "description": "Connects the outbox worker to the configured EVM contract.",
+          "stage": "source",
+          "version": "^6.15.0",
+          "source": "apps/api/package.json"
+        }
+      ],
+      "decisions": [
+        {
+          "title": "Inventory and issuance share a transaction",
+          "description": "Update stock, create the ticket, and insert outbox work atomically.",
+          "tradeoff": "Payments and chain confirmation still need asynchronous recovery outside the database transaction.",
+          "source": "apps/api/src/app.ts"
+        },
+        {
+          "title": "Anchor commitments instead of personal data",
+          "description": "The contract records proof of issuance while database state governs cancellation/admission.",
+          "tradeoff": "A commitment proves issuance, not every subsequent status transition; private QR material stays off-chain.",
+          "source": "apps/api/src/security.ts"
+        }
+      ],
+      "outcomes": [
+        {
+          "title": "Published deliverable",
+          "description": "A runnable ticketing platform with wallet, organizer operations, optional auth/payments, and durable proof processing.",
+          "source": "README.md"
+        },
+        {
+          "title": "Verification assets",
+          "description": "API/payment/rail/auth checks, real-EVM contract tests, and browser journeys are published. Railway identity/payment flows remain simulations.",
+          "source": "docs/TESTING.md"
+        }
+      ],
+      "workflow": [
+        "Choose event/transport inventory.",
+        "Authenticate and book through a transactional API request.",
+        "View the private ticket and signed QR.",
+        "Optionally anchor issuance, then verify or check in through organizer operations."
+      ],
+      "commands": ["npm ci", "npm run dev"],
+      "setup": "Use Node.js 24.x/npm 11.x for local SQLite. Docker, a wallet, and provider credentials are optional for the free demo. Follow provider/chain guides before enabling real integrations."
+    },
+    "contentStage": "source"
   },
   {
     "id": "leetcode-sync",
@@ -449,7 +1276,14 @@
     "subtitle": "From accepted submission to repository",
     "description": "A Chrome extension for detecting accepted LeetCode submissions, generating optional language variants, and pushing code through a retryable GitHub workflow.",
     "categories": ["Developer Tools", "AI / Machine Learning"],
-    "tags": ["TypeScript", "React", "Chrome Extensions", "GitHub API"],
+    "tags": [
+      "TypeScript",
+      "React",
+      "Chrome Extensions",
+      "GitHub API",
+      "IndexedDB",
+      "Zustand"
+    ],
     "github": "https://github.com/manikantbindass/Leetcode-GitPush-extension",
     "live": null,
     "featured": false,
@@ -457,9 +1291,10 @@
     "updatedAt": "2026-08-16T19:53:24Z",
     "users": "Developers maintaining a searchable archive of their algorithm practice.",
     "features": [
-      "Network, DOM and polling submission detection",
-      "GitHub repository and folder selection",
-      "Provider adapters and a retry queue"
+      "Multiple acceptance signals",
+      "Durable synchronization queue",
+      "Repository-aware file paths",
+      "Provider choice and dry run"
     ],
     "architecture": [
       "LeetCode content script",
@@ -473,27 +1308,141 @@
     "screenshots": [],
     "evidence": [
       {
+        "path": "README.md",
+        "url": "https://github.com/manikantbindass/Leetcode-GitPush-extension/blob/85b4bf980ccf764eba4981af31699c92e13da335/README.md"
+      },
+      {
+        "path": "extension/package.json",
+        "url": "https://github.com/manikantbindass/Leetcode-GitPush-extension/blob/85b4bf980ccf764eba4981af31699c92e13da335/extension/package.json"
+      },
+      {
+        "path": "extension/public/manifest.json",
+        "url": "https://github.com/manikantbindass/Leetcode-GitPush-extension/blob/85b4bf980ccf764eba4981af31699c92e13da335/extension/public/manifest.json"
+      },
+      {
+        "path": "extension/src/background/github.ts",
+        "url": "https://github.com/manikantbindass/Leetcode-GitPush-extension/blob/85b4bf980ccf764eba4981af31699c92e13da335/extension/src/background/github.ts"
+      },
+      {
         "path": "extension/src/background/index.ts",
         "url": "https://github.com/manikantbindass/Leetcode-GitPush-extension/blob/85b4bf980ccf764eba4981af31699c92e13da335/extension/src/background/index.ts"
       },
       {
         "path": "extension/src/background/queue.ts",
         "url": "https://github.com/manikantbindass/Leetcode-GitPush-extension/blob/85b4bf980ccf764eba4981af31699c92e13da335/extension/src/background/queue.ts"
-      },
-      {
-        "path": "extension/public/manifest.json",
-        "url": "https://github.com/manikantbindass/Leetcode-GitPush-extension/blob/85b4bf980ccf764eba4981af31699c92e13da335/extension/public/manifest.json"
       }
     ],
     "sourceCommit": "85b4bf980ccf764eba4981af31699c92e13da335",
-    "verifiedAt": "2026-10-25T02:58:00.966100+00:00",
+    "verifiedAt": "2026-10-25T10:05:44.622435+00:00",
     "architectureReference": "┌─────────────────────────────────────────────┐\n│  Extensions                  Developer mode ●│\n└─────────────────────────────────────────────┘",
     "problem": "Manually filing accepted submissions can interrupt practice and leave repository history incomplete.",
     "solution": "Detect submissions through multiple signals, queue work durably, and push reviewed outputs through GitHub adapters.",
     "technicalDetails": [
       "The background queue uses IndexedDB, with queue records mirrored into extension storage for the interface.",
       "Content scripts and the background worker separate browser detection from asynchronous provider and GitHub operations. Failed work can remain visible for retry."
-    ]
+    ],
+    "caseStudy": {
+      "architectureSummary": "LeetCode content scripts detect accepted submissions and message a Manifest V3 background worker. An IndexedDB queue coordinates provider generation, repository-tree/folder selection, GitHub commits, retries, and popup status.",
+      "features": [
+        {
+          "title": "Multiple acceptance signals",
+          "description": "The extension combines network interception, page observation, and recent-acceptance polling rather than relying on one UI selector.",
+          "source": "extension/src/background/index.ts"
+        },
+        {
+          "title": "Durable synchronization queue",
+          "description": "Queued work lives in IndexedDB and is mirrored into extension storage for the interface; statuses preserve failed work for inspection/retry.",
+          "source": "extension/src/background/queue.ts"
+        },
+        {
+          "title": "Repository-aware file paths",
+          "description": "Tree/folder helpers use the selected repository and optional AI folder choice to place output in the intended topic structure.",
+          "source": "extension/src/background/index.ts"
+        },
+        {
+          "title": "Provider choice and dry run",
+          "description": "Provider adapters generate optional language variants. GitHub synchronization supports dry-run output before making repository writes.",
+          "source": "extension/src/background/github.ts"
+        }
+      ],
+      "technologies": [
+        {
+          "name": "TypeScript",
+          "description": "Types submission, queue, provider, and GitHub message contracts.",
+          "stage": "source",
+          "version": "^5.5.3",
+          "source": "extension/package.json"
+        },
+        {
+          "name": "React",
+          "description": "Builds popup/options views for identity, settings, queue, and status.",
+          "stage": "source",
+          "version": "^18.3.1",
+          "source": "extension/package.json"
+        },
+        {
+          "name": "Chrome Extensions",
+          "description": "Runs page scripts and the Manifest V3 service worker.",
+          "stage": "source",
+          "source": "README.md"
+        },
+        {
+          "name": "GitHub API",
+          "description": "Reads repository structure and writes selected files/commits.",
+          "stage": "source",
+          "source": "README.md"
+        },
+        {
+          "name": "IndexedDB",
+          "description": "Persists queued work across worker restarts through the idb wrapper.",
+          "stage": "source",
+          "version": "^8.0.0",
+          "source": "extension/package.json"
+        },
+        {
+          "name": "Zustand",
+          "description": "Manages popup presentation state.",
+          "stage": "source",
+          "version": "^4.5.4",
+          "source": "extension/package.json"
+        }
+      ],
+      "decisions": [
+        {
+          "title": "Queue before external side effects",
+          "description": "Persist work before provider calls and GitHub operations.",
+          "tradeoff": "Durability improves recovery, but duplicate detection and visible retry errors are still necessary.",
+          "source": "extension/src/background/queue.ts"
+        },
+        {
+          "title": "Separate generation from acceptance",
+          "description": "Generated variants pass through a provider boundary distinct from detected submissions.",
+          "tradeoff": "A generated solution is not automatically an accepted solution and needs review; permissions and credential scope need explicit configuration.",
+          "source": "extension/src/background/index.ts"
+        }
+      ],
+      "outcomes": [
+        {
+          "title": "Published deliverable",
+          "description": "An unpacked extension project with detection, queues, provider adapters, settings, and repository synchronization.",
+          "source": "extension/public/manifest.json"
+        },
+        {
+          "title": "Distribution scope",
+          "description": "The README explains loading the built dist folder. No Chrome Web Store publication or generated-solution correctness rate is claimed.",
+          "source": "README.md"
+        }
+      ],
+      "workflow": [
+        "Configure the destination repository and provider.",
+        "Detect an accepted submission.",
+        "Persist work and determine output paths.",
+        "Review/generate outputs, commit through GitHub, and inspect status/retries."
+      ],
+      "commands": ["npm install", "npm run build"],
+      "setup": "Use Node.js/npm and Chrome developer mode; load extension/dist. Review permissions, provider credentials, destination branch, and dry-run behavior before enabling automatic writes."
+    },
+    "contentStage": "source"
   },
   {
     "id": "enterprise-rag",
@@ -506,7 +1455,7 @@
       "Full Stack",
       "Backend / Cloud / DevOps"
     ],
-    "tags": ["Next.js", "TypeScript", "FastAPI", "PostgreSQL", "BM25"],
+    "tags": ["Next.js", "TypeScript", "BM25", "FastAPI", "PostgreSQL", "React"],
     "github": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant",
     "live": null,
     "featured": false,
@@ -514,9 +1463,10 @@
     "updatedAt": "2026-06-13T11:42:15Z",
     "users": "Teams exploring document retrieval and source-linked answers.",
     "features": [
-      "Text extraction and document chunking",
-      "BM25 search with cited excerpts",
-      "Persistent browser conversations and settings"
+      "Document intake and chunking",
+      "Cited lexical retrieval",
+      "Persistent conversation state",
+      "Optional service integration"
     ],
     "architecture": [
       "Next.js documents / chat",
@@ -529,8 +1479,12 @@
     "screenshots": [],
     "evidence": [
       {
-        "path": "frontend/src/lib/store.tsx",
-        "url": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant/blob/d42c64fbfa4d18c3d15d394aa27d579538997028/frontend/src/lib/store.tsx"
+        "path": "README.md",
+        "url": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant/blob/d42c64fbfa4d18c3d15d394aa27d579538997028/README.md"
+      },
+      {
+        "path": "backend/api_gateway/requirements.txt",
+        "url": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant/blob/d42c64fbfa4d18c3d15d394aa27d579538997028/backend/api_gateway/requirements.txt"
       },
       {
         "path": "backend/chat_service/main.py",
@@ -539,17 +1493,127 @@
       {
         "path": "frontend/package.json",
         "url": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant/blob/d42c64fbfa4d18c3d15d394aa27d579538997028/frontend/package.json"
+      },
+      {
+        "path": "frontend/src/lib/store.tsx",
+        "url": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant/blob/d42c64fbfa4d18c3d15d394aa27d579538997028/frontend/src/lib/store.tsx"
+      },
+      {
+        "path": "tests/unit/test_rag_pipeline.py",
+        "url": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant/blob/d42c64fbfa4d18c3d15d394aa27d579538997028/tests/unit/test_rag_pipeline.py"
       }
     ],
     "sourceCommit": "d42c64fbfa4d18c3d15d394aa27d579538997028",
-    "verifiedAt": "2026-10-25T02:58:03.139226+00:00",
+    "verifiedAt": "2026-10-25T10:05:44.624627+00:00",
     "architectureReference": "┌─────────────────────────────────────────────────────────────────┐\n│                     Browser (Next.js 15)                        │\n│                                                                 │\n│  ┌──────────────┐  ┌──────────────┐  ┌──────────────────────┐  │\n│  │  Documents   │  │     Chat     │  │  Dashboard / Admin   │  │\n│  │   Page       │  │    Page      │  │      / Settings      │  │\n│  └──────┬───────┘  └──────┬───────┘  └──────────┬───────────┘  │\n│         │                 │                      │              │\n│  ┌──────▼─────────────────▼──────────────────────▼───────────┐  │\n│  │               AppStore (useReducer + localStorage)        │  │\n│  │   documents[] · conversations[] · queryLogs[] · settings  │  │\n│  └──────────────────────────┬───────────────────────────────┘   │\n│                             │                                   │\n│  ┌──────────────────────────▼───────────────────────────────┐   │\n│  │              RAG Engine (client-side)                    │   │\n│  │   buildChunks() · ragSearch() BM25 · formatAnswer()      │   │\n│  └──────────────────────────────────────────────────────────┘   │\n└──────────────────────────────┬──────────────────────────────────┘\n                               │ (optional)\n┌──────────────────────────────▼──────────────────────────────────┐\n│                Python Backend (FastAPI)                         │\n│   PDF/DOCX parsing · OpenAI embeddings · pgvector search       │\n│   LangGraph agents · SSO · Multi-tenancy · Audit logs          │\n└─────────────────────────────────────────────────────────────────┘",
     "problem": "A collection of documents is not useful if readers cannot find the passages relevant to a question.",
     "solution": "Chunk text, retrieve relevant excerpts, and provide cited answers in a browser-native workspace, with optional backend services.",
     "technicalDetails": [
       "The frontend AppStore models documents, chunks, conversations, query logs, users, and retrieval settings, persisting browser state locally.",
       "The default retrieval engine uses BM25 over text chunks. FastAPI services provide a separate optional path for binary parsing, embeddings, and other server integrations."
-    ]
+    ],
+    "caseStudy": {
+      "architectureSummary": "The default Next.js workspace stores documents, chunks, settings, conversations, and query logs in a browser AppStore. BM25 ranks local text chunks and answer formatting includes cited excerpts. Separate FastAPI gateway, document, embedding, vector, identity, and chat services provide an optional server path.",
+      "features": [
+        {
+          "title": "Document intake and chunking",
+          "description": "Text-based files are extracted into content/chunks with processing state and department metadata for a searchable local workspace.",
+          "source": "frontend/src/lib/store.tsx"
+        },
+        {
+          "title": "Cited lexical retrieval",
+          "description": "ragSearch returns relevant chunks with source identifiers and scores; formatAnswer constructs a source-linked answer from those excerpts.",
+          "source": "frontend/src/lib/store.tsx"
+        },
+        {
+          "title": "Persistent conversation state",
+          "description": "Documents, conversations, query logs, settings, and user records are modeled in a reducer and persisted locally for the default experience.",
+          "source": "frontend/src/lib/store.tsx"
+        },
+        {
+          "title": "Optional service integration",
+          "description": "The FastAPI chat entry point registers routes, telemetry, and optional reranker initialization, creating a separate server integration path.",
+          "source": "backend/chat_service/main.py"
+        }
+      ],
+      "technologies": [
+        {
+          "name": "Next.js",
+          "description": "Hosts documents, chat, dashboard, settings, and admin views.",
+          "stage": "source",
+          "version": "15.0.0",
+          "source": "frontend/package.json"
+        },
+        {
+          "name": "TypeScript",
+          "description": "Defines document, chunk, source, conversation, and settings contracts.",
+          "stage": "source",
+          "version": "^5",
+          "source": "frontend/package.json"
+        },
+        {
+          "name": "BM25",
+          "description": "Scores local chunks with lexical relevance in the browser retrieval path.",
+          "stage": "source",
+          "source": "README.md"
+        },
+        {
+          "name": "FastAPI",
+          "description": "Organizes optional gateway and backend service APIs.",
+          "stage": "source",
+          "version": "==0.115.5",
+          "source": "backend/api_gateway/requirements.txt"
+        },
+        {
+          "name": "PostgreSQL",
+          "description": "Belongs to the optional server persistence/vector architecture, not browser-only storage.",
+          "stage": "source",
+          "source": "README.md"
+        },
+        {
+          "name": "React",
+          "description": "Connects workspace views through a shared reducer/context store.",
+          "stage": "source",
+          "version": "^19.0.0",
+          "source": "frontend/package.json"
+        }
+      ],
+      "decisions": [
+        {
+          "title": "Useful search without a paid model",
+          "description": "The browser searches real text and formats retrieved excerpts without requiring a model key.",
+          "tradeoff": "Lexical ranking does not provide semantic embeddings or arbitrary generative reasoning; a model selector alone is not a provider connection.",
+          "source": "frontend/src/lib/store.tsx"
+        },
+        {
+          "title": "Separate local state from enterprise identity",
+          "description": "Optional services extend beyond browser-local records.",
+          "tradeoff": "localStorage user/settings records do not demonstrate tenant isolation, SSO, or production authorization.",
+          "source": "README.md"
+        }
+      ],
+      "outcomes": [
+        {
+          "title": "Published deliverable",
+          "description": "A text-retrieval workspace with document/chunk state, BM25 search, cited excerpts, conversation history, and optional backend modules.",
+          "source": "frontend/src/lib/store.tsx"
+        },
+        {
+          "title": "Verification assets",
+          "description": "Server unit-test files cover retrieval, auth, embeddings, chunking, and vector search. Configured full-stack integration needs its own validation.",
+          "source": "tests/unit/test_rag_pipeline.py"
+        }
+      ],
+      "workflow": [
+        "Upload a supported text document.",
+        "Extract and chunk text in the workspace store.",
+        "Submit a query and rank matching passages.",
+        "Read the answer and inspect cited source excerpts."
+      ],
+      "commands": ["cd frontend", "npm install", "npm run dev"],
+      "setup": "Browser mode needs Node.js/npm and supported text files. PDF/DOCX parsing, embeddings, and live model calls require the separately configured backend services described in the README."
+    },
+    "contentStage": "source"
   },
   {
     "id": "remoteshield",
@@ -563,8 +1627,9 @@
       "React",
       "TypeScript",
       "Express",
+      "PostgreSQL",
       "WireGuard",
-      "PostgreSQL"
+      "Socket.io"
     ],
     "github": "https://github.com/manikantbindass/RdPBrowser",
     "live": null,
@@ -573,9 +1638,10 @@
     "updatedAt": "2026-04-29T23:59:02+05:30",
     "users": "Teams investigating controlled remote browsing and central network egress.",
     "features": [
-      "Desktop tabs and navigation",
-      "VPN guard and gateway middleware",
-      "Administrative session routes"
+      "Tabbed desktop workspace",
+      "VPN state and retry UI",
+      "Session and URL administration",
+      "Gateway subnet policy"
     ],
     "architecture": [
       "Tauri desktop",
@@ -589,27 +1655,160 @@
     "screenshots": [],
     "evidence": [
       {
-        "path": "desktop/src/components/VpnGuard.tsx",
-        "url": "https://github.com/manikantbindass/RdPBrowser/blob/0aa4b400aeb87c248632f7760db1be30ba4bac88/desktop/src/components/VpnGuard.tsx"
+        "path": "README.md",
+        "url": "https://github.com/manikantbindass/RdPBrowser/blob/0aa4b400aeb87c248632f7760db1be30ba4bac88/README.md"
+      },
+      {
+        "path": "backend/package.json",
+        "url": "https://github.com/manikantbindass/RdPBrowser/blob/0aa4b400aeb87c248632f7760db1be30ba4bac88/backend/package.json"
+      },
+      {
+        "path": "backend/src/__tests__/app.test.js",
+        "url": "https://github.com/manikantbindass/RdPBrowser/blob/0aa4b400aeb87c248632f7760db1be30ba4bac88/backend/src/__tests__/app.test.js"
+      },
+      {
+        "path": "backend/src/index.js",
+        "url": "https://github.com/manikantbindass/RdPBrowser/blob/0aa4b400aeb87c248632f7760db1be30ba4bac88/backend/src/index.js"
       },
       {
         "path": "backend/src/middleware/vpnCheck.js",
         "url": "https://github.com/manikantbindass/RdPBrowser/blob/0aa4b400aeb87c248632f7760db1be30ba4bac88/backend/src/middleware/vpnCheck.js"
       },
       {
-        "path": "backend/src/index.js",
-        "url": "https://github.com/manikantbindass/RdPBrowser/blob/0aa4b400aeb87c248632f7760db1be30ba4bac88/backend/src/index.js"
+        "path": "backend/src/routes/admin.js",
+        "url": "https://github.com/manikantbindass/RdPBrowser/blob/0aa4b400aeb87c248632f7760db1be30ba4bac88/backend/src/routes/admin.js"
+      },
+      {
+        "path": "desktop/package.json",
+        "url": "https://github.com/manikantbindass/RdPBrowser/blob/0aa4b400aeb87c248632f7760db1be30ba4bac88/desktop/package.json"
+      },
+      {
+        "path": "desktop/src/components/Browser.tsx",
+        "url": "https://github.com/manikantbindass/RdPBrowser/blob/0aa4b400aeb87c248632f7760db1be30ba4bac88/desktop/src/components/Browser.tsx"
+      },
+      {
+        "path": "desktop/src/components/VpnGuard.tsx",
+        "url": "https://github.com/manikantbindass/RdPBrowser/blob/0aa4b400aeb87c248632f7760db1be30ba4bac88/desktop/src/components/VpnGuard.tsx"
       }
     ],
     "sourceCommit": "0aa4b400aeb87c248632f7760db1be30ba4bac88",
-    "verifiedAt": "2026-10-25T02:57:51.123238+00:00",
+    "verifiedAt": "2026-10-25T10:05:44.630328+00:00",
     "architectureReference": "┌──────────────────────────────────────────────────────────────────┐\n│                        USER DEVICES                              │\n│  ┌────────────────┐  ┌──────────────────┐  ┌─────────────────┐  │\n│  │ Windows Desktop│  │  Linux Desktop   │  │  macOS Desktop  │  │\n│  │  (Tauri App)   │  │   (Tauri App)    │  │   (Tauri App)   │  │\n│  └───────┬────────┘  └────────┬─────────┘  └────────┬────────┘  │\n│          │                   │                       │           │\n│          └───────────────────┼───────────────────────┘           │\n│                              │ WireGuard Encrypted Tunnel        │\n│  ┌───────────────────────────┼───────────────────────────────┐   │\n│  │          Android Device   │                               │   │\n│  │          (Flutter App)    │                               │   │\n│  └───────────────────────────┘                               │   │\n└──────────────────────────────┬───────────────────────────────────┘\n                               │\n                    ┌──────────▼──────────────┐\n                    │   VPS (Static IP)        │\n                    │  ┌────────────────────┐  │\n                    │  │   WireGuard VPN    │  │\n                    │  │   Kill-Switch ON   │  │\n                    │  └────────┬───────────┘  │\n                    │           │              │\n                    │  ┌────────▼───────────┐  │\n                    │  │   Nginx (SSL/TLS)  │  │\n                    │  └────────┬───────────┘  │\n                    │           │              │\n                    │  ┌────────▼───────────┐  │\n                    │  │  Node.js Backend   │  │\n                    │  │  Express + JWT     │  │\n                    │  │  Socket.io         │  │\n                    │  └────────┬───────────┘  │\n                    │           │              │\n                    │  ┌────────▼───────────┐  │\n                    │  │    PostgreSQL DB    │  │\n                    │  └────────────────────┘  │\n                    └──────────┬───────────────┘\n                               │\n                    ┌──────────▼──────────────┐\n                    │       INTERNET           │\n                    └─────────────────────────┘",
     "problem": "Remote browsing policies depend on device, gateway, and network behavior working together.",
     "solution": "Combine a Tauri browser, VPN checks, and a central gateway for experiments with controlled browsing.",
     "technicalDetails": [
       "The desktop source separates browser tabs, navigation, login, and VPN guards. The Node gateway separates authentication, admin, and proxy routes.",
       "Networking and operating-system restrictions are deployment concerns in addition to application code. Their effectiveness must be tested on each supported platform."
-    ]
+    ],
+    "caseStudy": {
+      "architectureSummary": "RemoteShield separates a Tauri/React desktop client, an Express gateway, PostgreSQL-backed session data, admin controls, and WireGuard/Nginx deployment configuration. A Flutter project provides a separate Android path.",
+      "features": [
+        {
+          "title": "Tabbed desktop workspace",
+          "description": "Browser, tab bar, sidebar, command UI, and login views are split into independent React components within the Tauri application.",
+          "source": "desktop/src/components/Browser.tsx"
+        },
+        {
+          "title": "VPN state and retry UI",
+          "description": "VpnGuard explains the tunnel requirement and provides retry behavior when the application determines access is blocked.",
+          "source": "desktop/src/components/VpnGuard.tsx"
+        },
+        {
+          "title": "Session and URL administration",
+          "description": "Role-guarded routes inspect sessions, force logout, query IP logs, and manage blocked URLs; selected actions notify clients through Socket.io.",
+          "source": "backend/src/routes/admin.js"
+        },
+        {
+          "title": "Gateway subnet policy",
+          "description": "Outside configured development/test bypass modes, VPN middleware checks the request address against VPN_SUBNET.",
+          "source": "backend/src/middleware/vpnCheck.js"
+        }
+      ],
+      "technologies": [
+        {
+          "name": "Tauri",
+          "description": "Wraps the desktop UI with native Rust integration.",
+          "stage": "source",
+          "version": "^2.10.1",
+          "source": "desktop/package.json"
+        },
+        {
+          "name": "React",
+          "description": "Builds browser navigation, login, and dashboard views.",
+          "stage": "source",
+          "version": "^18.2.0",
+          "source": "desktop/package.json"
+        },
+        {
+          "name": "TypeScript",
+          "description": "Types desktop state and component interfaces.",
+          "stage": "source",
+          "version": "^5.2.2",
+          "source": "desktop/package.json"
+        },
+        {
+          "name": "Express",
+          "description": "Routes identity, proxy, and administration operations.",
+          "stage": "source",
+          "version": "^4.18.2",
+          "source": "backend/package.json"
+        },
+        {
+          "name": "PostgreSQL",
+          "description": "Stores gateway identity and session records.",
+          "stage": "source",
+          "source": "README.md"
+        },
+        {
+          "name": "WireGuard",
+          "description": "Provides the intended deployment tunnel.",
+          "stage": "source",
+          "source": "README.md"
+        },
+        {
+          "name": "Socket.io",
+          "description": "Carries selected session and URL-policy updates.",
+          "stage": "source",
+          "version": "^4.8.3",
+          "source": "backend/package.json"
+        }
+      ],
+      "decisions": [
+        {
+          "title": "Separate UI guards from network policy",
+          "description": "The desktop reports tunnel state while gateway middleware checks the source subnet.",
+          "tradeoff": "A UI guard alone is not OS-level enforcement; trusted forwarding and tunnel-drop behavior need deployment-specific validation.",
+          "source": "backend/src/middleware/vpnCheck.js"
+        },
+        {
+          "title": "Centralize session administration",
+          "description": "Session and policy changes are protected behind administrative role checks.",
+          "tradeoff": "Remote controls require correct authorization, logging, and a deployment threat review.",
+          "source": "backend/src/routes/admin.js"
+        }
+      ],
+      "outcomes": [
+        {
+          "title": "Published deliverable",
+          "description": "Desktop browser source, gateway/admin routes, Android project files, and infrastructure configuration.",
+          "source": "README.md"
+        },
+        {
+          "title": "Verification assets",
+          "description": "The backend includes an application test file; OS-specific VPN behavior and security effectiveness need independent execution tests.",
+          "source": "backend/src/__tests__/app.test.js"
+        }
+      ],
+      "workflow": [
+        "Sign in through the desktop client.",
+        "Establish/check the configured VPN tunnel.",
+        "Route permitted requests through the gateway.",
+        "Inspect sessions and apply administrator policy changes."
+      ],
+      "commands": ["cd backend", "npm install", "npm run dev"],
+      "setup": "Use PostgreSQL for gateway persistence. Desktop builds require Rust/Tauri OS prerequisites; real tunnel enforcement requires WireGuard/Nginx configuration. Development mode deliberately bypasses subnet checks."
+    },
+    "contentStage": "source"
   },
   {
     "id": "intramind",
@@ -618,7 +1817,14 @@
     "subtitle": "Knowledge retrieval exploration",
     "description": "An early knowledge-platform scaffold exploring a Next.js interface and a FastAPI document-questioning architecture.",
     "categories": ["AI / Machine Learning", "Backend / Cloud / DevOps"],
-    "tags": ["Next.js", "TypeScript", "FastAPI", "Python"],
+    "tags": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "FastAPI",
+      "Python"
+    ],
     "github": "https://github.com/manikantbindass/Intramind.ai",
     "live": null,
     "featured": false,
@@ -626,9 +1832,10 @@
     "updatedAt": "2026-04-27T11:58:32+05:30",
     "users": "Teams exploring how to make internal knowledge searchable.",
     "features": [
-      "Landing and login page scaffolds",
-      "FastAPI application entry point",
-      "Chat route scaffold"
+      "Knowledge-platform landing page",
+      "Authentication page scaffold",
+      "API and chat entry points",
+      "RAG extension point"
     ],
     "architecture": [
       "Next.js interface",
@@ -641,6 +1848,10 @@
     "screenshots": [],
     "evidence": [
       {
+        "path": "README.md",
+        "url": "https://github.com/manikantbindass/Intramind.ai/blob/93d86127223a824a4216d92f554c30f3816659fc/README.md"
+      },
+      {
         "path": "backend/ai/rag_pipeline.py",
         "url": "https://github.com/manikantbindass/Intramind.ai/blob/93d86127223a824a4216d92f554c30f3816659fc/backend/ai/rag_pipeline.py"
       },
@@ -649,18 +1860,131 @@
         "url": "https://github.com/manikantbindass/Intramind.ai/blob/93d86127223a824a4216d92f554c30f3816659fc/backend/api/routes/chat.py"
       },
       {
+        "path": "frontend/app/(auth)/login/page.tsx",
+        "url": "https://github.com/manikantbindass/Intramind.ai/blob/93d86127223a824a4216d92f554c30f3816659fc/frontend/app/(auth)/login/page.tsx"
+      },
+      {
         "path": "knowflow-ai/backend/main.py",
         "url": "https://github.com/manikantbindass/Intramind.ai/blob/93d86127223a824a4216d92f554c30f3816659fc/knowflow-ai/backend/main.py"
+      },
+      {
+        "path": "knowflow-ai/frontend/package.json",
+        "url": "https://github.com/manikantbindass/Intramind.ai/blob/93d86127223a824a4216d92f554c30f3816659fc/knowflow-ai/frontend/package.json"
+      },
+      {
+        "path": "knowflow-ai/frontend/src/app/page.tsx",
+        "url": "https://github.com/manikantbindass/Intramind.ai/blob/93d86127223a824a4216d92f554c30f3816659fc/knowflow-ai/frontend/src/app/page.tsx"
       }
     ],
     "sourceCommit": "93d86127223a824a4216d92f554c30f3816659fc",
-    "verifiedAt": "2026-10-25T02:57:49.881690+00:00",
+    "verifiedAt": "2026-10-25T10:05:44.636157+00:00",
     "problem": "Internal knowledge is spread across documents rather than a single searchable interface.",
     "solution": "Explore a document-to-answer architecture; the published implementation currently stops at scaffolds and a placeholder pipeline.",
     "technicalDetails": [
       "The FastAPI entry point registers an API router, while a separate chat scaffold exposes a basic service response.",
       "RAGPipeline.run currently returns a fixed placeholder response. The richer retrieval and security descriptions in the README remain unverified implementation goals."
-    ]
+    ],
+    "caseStudy": {
+      "architectureSummary": "The published tree contains a Next.js landing scaffold, login-page scaffold, FastAPI entry point, a minimal chat router, and a RAGPipeline interface. The README outlines the intended document-to-answer architecture beyond those initial modules.",
+      "features": [
+        {
+          "title": "Knowledge-platform landing page",
+          "description": "The current Next.js entry page presents KnowFlow AI and its knowledge-management direction using a styled React layout.",
+          "source": "knowflow-ai/frontend/src/app/page.tsx"
+        },
+        {
+          "title": "Authentication page scaffold",
+          "description": "A login-page source file establishes a UI entry point for an intended workspace; it does not demonstrate a complete identity lifecycle.",
+          "source": "frontend/app/(auth)/login/page.tsx"
+        },
+        {
+          "title": "API and chat entry points",
+          "description": "The FastAPI application registers an API router, while a separate chat scaffold returns a basic service response.",
+          "source": "backend/api/routes/chat.py"
+        },
+        {
+          "title": "RAG extension point",
+          "description": "RAGPipeline exposes async run(query), currently returning a fixed response. Extraction, embeddings, retrieval, and citations described in the README remain design targets.",
+          "source": "backend/ai/rag_pipeline.py"
+        }
+      ],
+      "technologies": [
+        {
+          "name": "Next.js",
+          "description": "Hosts the published knowledge-management landing scaffold.",
+          "stage": "source",
+          "version": "14.x",
+          "source": "knowflow-ai/frontend/package.json"
+        },
+        {
+          "name": "React",
+          "description": "Renders the current page-level interface.",
+          "stage": "source",
+          "version": "^18",
+          "source": "knowflow-ai/frontend/package.json"
+        },
+        {
+          "name": "TypeScript",
+          "description": "Types the landing and login components.",
+          "stage": "source",
+          "version": "^5",
+          "source": "knowflow-ai/frontend/package.json"
+        },
+        {
+          "name": "Tailwind CSS",
+          "description": "Supplies the utility classes used by the landing layout.",
+          "stage": "source",
+          "version": "^3.3.0",
+          "source": "knowflow-ai/frontend/package.json"
+        },
+        {
+          "name": "FastAPI",
+          "description": "Defines the API application and chat-router scaffolds.",
+          "stage": "source",
+          "source": "README.md"
+        },
+        {
+          "name": "Python",
+          "description": "Defines the current pipeline interface and API modules.",
+          "stage": "source",
+          "source": "README.md"
+        }
+      ],
+      "decisions": [
+        {
+          "title": "Establish extension points first",
+          "description": "The repository separates interface, routing, and a pipeline class.",
+          "tradeoff": "Those boundaries are useful starting points but do not yet connect document ingestion to generated answers.",
+          "source": "backend/ai/rag_pipeline.py"
+        },
+        {
+          "title": "Distinguish the target architecture",
+          "description": "The README documents a richer ingestion/vector-store/security direction.",
+          "tradeoff": "FAISS/Pinecone, RBAC, and a complete retrieval pipeline must be verified in connected code before being presented as working capabilities.",
+          "source": "README.md"
+        }
+      ],
+      "outcomes": [
+        {
+          "title": "Current deliverable",
+          "description": "A small knowledge-platform frontend/API scaffold and documented RAG system direction.",
+          "source": "knowflow-ai/frontend/src/app/page.tsx"
+        },
+        {
+          "title": "Next milestone",
+          "description": "Replace the fixed pipeline response with document indexing and retrieval, then connect the chat UI and evaluate cited answers.",
+          "source": "backend/ai/rag_pipeline.py"
+        }
+      ],
+      "workflow": [
+        "Open the landing scaffold.",
+        "Inspect the API/chat entry points.",
+        "Extend the pipeline with a document index and query retrieval."
+      ],
+      "commands": ["cd knowflow-ai/frontend", "npm install", "npm run dev"],
+      "setup": "The frontend scaffold can be inspected with Node.js/npm. Several backend imports refer to modules absent from the same partial directory layout, so no complete backend startup is asserted."
+    },
+    "contentStage": "source"
   },
   {
     "id": "metarole",
@@ -669,7 +1993,7 @@
     "subtitle": "AI career co-pilot",
     "description": "Resume analysis, skill graphs, career suggestions, and tailored document generation in a terminal-inspired workspace.",
     "categories": ["AI / Machine Learning", "Full Stack"],
-    "tags": ["Next.js", "TypeScript", "OpenAI", "D3.js", "Python"],
+    "tags": ["Next.js", "TypeScript", "OpenAI", "D3.js", "PDF.js"],
     "github": "https://github.com/manikantbindass/MetaRole.ai",
     "live": "https://meta-role-ai.vercel.app",
     "featured": false,
@@ -677,9 +2001,10 @@
     "updatedAt": "2026-04-07T15:11:42+05:30",
     "users": "Job seekers comparing their skills with target roles.",
     "features": [
-      "Resume upload and PDF parsing",
-      "Skill graph generation",
-      "Career prediction and document-generation routes"
+      "Resume ingestion",
+      "Skill relationship graph",
+      "Career and generation tools",
+      "Configurable model/demo mode"
     ],
     "architecture": [
       "Next.js upload UI",
@@ -693,12 +2018,20 @@
     "screenshots": [],
     "evidence": [
       {
-        "path": "frontend/app/api/analyze-skills/route.ts",
-        "url": "https://github.com/manikantbindass/MetaRole.ai/blob/a3fc6ace14d5baa5903de6ba5a8bd758b0ffaf99/frontend/app/api/analyze-skills/route.ts"
+        "path": "README.md",
+        "url": "https://github.com/manikantbindass/MetaRole.ai/blob/a3fc6ace14d5baa5903de6ba5a8bd758b0ffaf99/README.md"
       },
       {
         "path": "frontend/app/api/_lib/session.ts",
         "url": "https://github.com/manikantbindass/MetaRole.ai/blob/a3fc6ace14d5baa5903de6ba5a8bd758b0ffaf99/frontend/app/api/_lib/session.ts"
+      },
+      {
+        "path": "frontend/app/api/analyze-skills/route.ts",
+        "url": "https://github.com/manikantbindass/MetaRole.ai/blob/a3fc6ace14d5baa5903de6ba5a8bd758b0ffaf99/frontend/app/api/analyze-skills/route.ts"
+      },
+      {
+        "path": "frontend/app/api/upload-resume/route.ts",
+        "url": "https://github.com/manikantbindass/MetaRole.ai/blob/a3fc6ace14d5baa5903de6ba5a8bd758b0ffaf99/frontend/app/api/upload-resume/route.ts"
       },
       {
         "path": "frontend/package.json",
@@ -706,14 +2039,110 @@
       }
     ],
     "sourceCommit": "a3fc6ace14d5baa5903de6ba5a8bd758b0ffaf99",
-    "verifiedAt": "2026-10-25T02:57:46.456191+00:00",
+    "verifiedAt": "2026-10-25T10:05:44.637064+00:00",
     "architectureReference": "┌──────────────────────────────────────┐\n                    │         METAROLE AI SYSTEM           │\n                    └──────────────────────────────────────┘\n                                      │\n              ┌───────────────────────┼───────────────────────┐\n              ▼                       ▼                       ▼\n   ┌─────────────────┐    ┌─────────────────────┐   ┌──────────────────┐\n   │   FRONTEND      │    │     BACKEND (API)    │   │   AI ENGINE      │\n   │  Next.js 14     │◄──►│    FastAPI (Python)  │◄─►│  Python + GPT-4  │\n   │  App Router     │    │    REST Endpoints    │   │  LangChain       │\n   │  Tailwind CSS   │    │    JWT Auth          │   │  FAISS VectorDB  │\n   │  Framer Motion  │    │    PostgreSQL ORM    │   │  resume_parser   │\n   │  shadcn/ui      │    │    Redis Cache       │   │  skill_gap       │\n   └─────────────────┘    └─────────────────────┘   │  career_predict  │\n            │                       │                │  resume_gen      │\n            │                       │                └──────────────────┘\n            ▼                       ▼\n   ┌─────────────────┐    ┌──────────────────────┐\n   │    Vercel CDN   │    │   PostgreSQL 16       │\n   │    (Frontend)   │    │   + FAISS Vector DB   │\n   └─────────────────┘    └──────────────────────┘",
     "problem": "A resume lists skills, but does not directly explain how they fit a target role.",
     "solution": "Turn uploaded resume text into a skill graph and route the resulting context through analysis and generation endpoints.",
     "technicalDetails": [
       "The upload flow parses PDF content before requesting analysis. The skill-analysis route returns graph nodes and edges for the interface.",
       "Generation and prediction are separate routes sharing session context. Process-local session state makes persistence and deployment lifetime explicit trade-offs."
-    ]
+    ],
+    "caseStudy": {
+      "architectureSummary": "The Next.js workspace contains its own analysis API routes. Uploaded resume text is stored under an analysis identifier and reused by skill-graph, career, job-match, and document-generation requests. A shared helper selects OpenAI or static demo responses.",
+      "features": [
+        {
+          "title": "Resume ingestion",
+          "description": "The upload endpoint accepts multipart or JSON content and creates a reusable analysis session. Its server PDF branch asks for extracted or pasted text; PDF.js is declared for the client extraction path.",
+          "source": "frontend/app/api/upload-resume/route.ts"
+        },
+        {
+          "title": "Skill relationship graph",
+          "description": "The skill-analysis handler requests JSON containing extracted skills, graph nodes, and edges, creating a visual relationship model rather than only a keyword list.",
+          "source": "frontend/app/api/analyze-skills/route.ts"
+        },
+        {
+          "title": "Career and generation tools",
+          "description": "Dedicated routes cover career prediction, resume generation, portfolio generation, and job matching, reusing stored analysis context.",
+          "source": "frontend/app/api/_lib/session.ts"
+        },
+        {
+          "title": "Configurable model/demo mode",
+          "description": "OPENAI_API_KEY and OPENAI_MODEL control model requests. MOCK_AI or a missing key selects static examples; the helper can also fall back after a provider failure.",
+          "source": "frontend/app/api/_lib/session.ts"
+        }
+      ],
+      "technologies": [
+        {
+          "name": "Next.js",
+          "description": "Hosts the workspace and same-origin App Router analysis endpoints.",
+          "stage": "source",
+          "version": "14.2.5",
+          "source": "frontend/package.json"
+        },
+        {
+          "name": "TypeScript",
+          "description": "Types shared analysis sessions and route/UI data contracts.",
+          "stage": "source",
+          "version": "^5",
+          "source": "frontend/package.json"
+        },
+        {
+          "name": "OpenAI",
+          "description": "Supplies optional JSON-oriented analysis and text generation through a shared HTTP helper.",
+          "stage": "source",
+          "source": "README.md"
+        },
+        {
+          "name": "D3.js",
+          "description": "Provides graph primitives for the skill relationship visualization.",
+          "stage": "source",
+          "version": "^7.9.0",
+          "source": "frontend/package.json"
+        },
+        {
+          "name": "PDF.js",
+          "description": "Supports extracting PDF text before sending it to the analysis routes.",
+          "stage": "source",
+          "version": "^3.11.174",
+          "source": "frontend/package.json"
+        }
+      ],
+      "decisions": [
+        {
+          "title": "Reuse analysis context",
+          "description": "A module-level Map stores resume text and intermediate results by analysis identifier.",
+          "tradeoff": "Simple reuse avoids another service, but cold starts and separate function instances can lose or split session state.",
+          "source": "frontend/app/api/_lib/session.ts"
+        },
+        {
+          "title": "Keep a development fallback",
+          "description": "The provider helper includes a static response path so the UI remains explorable without credentials.",
+          "tradeoff": "Example predictions and job matches are demo outputs, not verified personalized recommendations.",
+          "source": "frontend/app/api/_lib/session.ts"
+        }
+      ],
+      "outcomes": [
+        {
+          "title": "Published deliverable",
+          "description": "A terminal-inspired career workspace with analysis, graph, prediction, and generation route modules.",
+          "source": "frontend/package.json"
+        },
+        {
+          "title": "Deployment considerations",
+          "description": "Real model results require server configuration; durable analysis history requires storage beyond the process-local session Map.",
+          "source": "frontend/app/api/_lib/session.ts"
+        }
+      ],
+      "workflow": [
+        "Extract or paste resume text.",
+        "Create an analysis session.",
+        "Analyze skills and display graph nodes/edges.",
+        "Request role suggestions or generated material with that session."
+      ],
+      "commands": ["cd frontend", "npm install", "npm run dev"],
+      "setup": "Use Node.js/npm. Optional OpenAI credentials enable model output; read setup.md before configuring the separate backend and AI-engine directories."
+    },
+    "contentStage": "source"
   },
   {
     "id": "securerx",
@@ -722,7 +2151,7 @@
     "subtitle": "Pharmaceutical traceability",
     "description": "A drug-batch tracking prototype combining role-based dashboards, QR verification, and wallet-signed registry interactions.",
     "categories": ["Blockchain / Web3", "Full Stack"],
-    "tags": ["React", "Express", "MongoDB", "Solidity", "Ethers.js"],
+    "tags": ["React", "Express", "MongoDB", "Solidity", "Ethers.js", "Flask"],
     "github": "https://github.com/manikantbindass/SecureRxChain-Blockchain-Based-Drug-Supply-Chain-Counterfeit-Medicine-Prevention-System",
     "live": "https://securerxchain.vercel.app",
     "featured": false,
@@ -730,9 +2159,10 @@
     "updatedAt": "2026-04-06T02:19:03+05:30",
     "users": "Manufacturers, distributors, pharmacies, and consumers exploring batch provenance.",
     "features": [
-      "Manufacturer and distributor dashboards",
-      "MetaMask connection and signing",
-      "Drug registry contract and QR scanner"
+      "Wallet-signed batch operations",
+      "Lifecycle and ownership tracking",
+      "Batch metadata and QR verification",
+      "Risk indicator service"
     ],
     "architecture": [
       "React dashboards",
@@ -745,8 +2175,20 @@
     "screenshots": [],
     "evidence": [
       {
-        "path": "frontend/src/context/Web3Context.jsx",
-        "url": "https://github.com/manikantbindass/SecureRxChain-Blockchain-Based-Drug-Supply-Chain-Counterfeit-Medicine-Prevention-System/blob/c5c0260fe1ee1196a4e8a4c499eb55f2d8610c9b/frontend/src/context/Web3Context.jsx"
+        "path": "README.md",
+        "url": "https://github.com/manikantbindass/SecureRxChain-Blockchain-Based-Drug-Supply-Chain-Counterfeit-Medicine-Prevention-System/blob/c5c0260fe1ee1196a4e8a4c499eb55f2d8610c9b/README.md"
+      },
+      {
+        "path": "ai/app.py",
+        "url": "https://github.com/manikantbindass/SecureRxChain-Blockchain-Based-Drug-Supply-Chain-Counterfeit-Medicine-Prevention-System/blob/c5c0260fe1ee1196a4e8a4c499eb55f2d8610c9b/ai/app.py"
+      },
+      {
+        "path": "ai/requirements.txt",
+        "url": "https://github.com/manikantbindass/SecureRxChain-Blockchain-Based-Drug-Supply-Chain-Counterfeit-Medicine-Prevention-System/blob/c5c0260fe1ee1196a4e8a4c499eb55f2d8610c9b/ai/requirements.txt"
+      },
+      {
+        "path": "backend/package.json",
+        "url": "https://github.com/manikantbindass/SecureRxChain-Blockchain-Based-Drug-Supply-Chain-Counterfeit-Medicine-Prevention-System/blob/c5c0260fe1ee1196a4e8a4c499eb55f2d8610c9b/backend/package.json"
       },
       {
         "path": "backend/routes/drugs.js",
@@ -755,16 +2197,131 @@
       {
         "path": "blockchain/contracts/DrugRegistry.sol",
         "url": "https://github.com/manikantbindass/SecureRxChain-Blockchain-Based-Drug-Supply-Chain-Counterfeit-Medicine-Prevention-System/blob/c5c0260fe1ee1196a4e8a4c499eb55f2d8610c9b/blockchain/contracts/DrugRegistry.sol"
+      },
+      {
+        "path": "blockchain/test/DrugRegistry.test.js",
+        "url": "https://github.com/manikantbindass/SecureRxChain-Blockchain-Based-Drug-Supply-Chain-Counterfeit-Medicine-Prevention-System/blob/c5c0260fe1ee1196a4e8a4c499eb55f2d8610c9b/blockchain/test/DrugRegistry.test.js"
+      },
+      {
+        "path": "frontend/package.json",
+        "url": "https://github.com/manikantbindass/SecureRxChain-Blockchain-Based-Drug-Supply-Chain-Counterfeit-Medicine-Prevention-System/blob/c5c0260fe1ee1196a4e8a4c499eb55f2d8610c9b/frontend/package.json"
+      },
+      {
+        "path": "frontend/src/context/Web3Context.jsx",
+        "url": "https://github.com/manikantbindass/SecureRxChain-Blockchain-Based-Drug-Supply-Chain-Counterfeit-Medicine-Prevention-System/blob/c5c0260fe1ee1196a4e8a4c499eb55f2d8610c9b/frontend/src/context/Web3Context.jsx"
       }
     ],
     "sourceCommit": "c5c0260fe1ee1196a4e8a4c499eb55f2d8610c9b",
-    "verifiedAt": "2026-10-25T02:57:48.016797+00:00",
+    "verifiedAt": "2026-10-25T10:05:44.641063+00:00",
     "problem": "Drug batches move between several actors, making provenance and ownership difficult to inspect in one place.",
     "solution": "Separate role-specific batch workflows from wallet-signed registry interactions and metadata storage.",
     "technicalDetails": [
       "Web3Context constructs an Ethers BrowserProvider, obtains a signer, and connects it to the DrugRegistry ABI.",
       "The application separates user/metadata routes from the Solidity registry. A local/default contract address must be replaced for another deployment."
-    ]
+    ],
+    "caseStudy": {
+      "architectureSummary": "The React role dashboards request wallet signatures through Ethers.js. Express persists off-chain batch/user metadata in MongoDB while DrugRegistry records lifecycle and ownership on an EVM network. A separate Flask service computes illustrative metadata-risk scores.",
+      "features": [
+        {
+          "title": "Wallet-signed batch operations",
+          "description": "Web3Context connects MetaMask, obtains an Ethers signer, and instantiates DrugRegistry from its ABI. Writes originate in the connected wallet.",
+          "source": "frontend/src/context/Web3Context.jsx"
+        },
+        {
+          "title": "Lifecycle and ownership tracking",
+          "description": "The Solidity registry models Manufactured, InTransit, Distributed, Retailed, Sold, and Quarantined states with role checks and ownership history.",
+          "source": "blockchain/contracts/DrugRegistry.sol"
+        },
+        {
+          "title": "Batch metadata and QR verification",
+          "description": "Express stores descriptions and transaction references, generates QR verification data, and exposes a batch provenance lookup.",
+          "source": "backend/routes/drugs.js"
+        },
+        {
+          "title": "Risk indicator service",
+          "description": "The Flask risk endpoint evaluates quarantine state and transit timing using explicit rules. It is not a demonstrated trained counterfeit-detection model.",
+          "source": "ai/app.py"
+        }
+      ],
+      "technologies": [
+        {
+          "name": "React",
+          "description": "Builds manufacturer, distributor, pharmacy, and consumer dashboards.",
+          "stage": "source",
+          "version": "^19.2.4",
+          "source": "frontend/package.json"
+        },
+        {
+          "name": "Express",
+          "description": "Handles metadata, identity, and application-role protected HTTP routes.",
+          "stage": "source",
+          "version": "^4.18.2",
+          "source": "backend/package.json"
+        },
+        {
+          "name": "MongoDB",
+          "description": "Stores off-chain user and descriptive batch documents through Mongoose.",
+          "stage": "source",
+          "version": "^8.1.0",
+          "source": "backend/package.json"
+        },
+        {
+          "name": "Solidity",
+          "description": "Defines the EVM batch registry and contract-level access control.",
+          "stage": "source",
+          "source": "README.md"
+        },
+        {
+          "name": "Ethers.js",
+          "description": "Connects browser wallets and signs registry operations.",
+          "stage": "source",
+          "version": "^6.10.0",
+          "source": "backend/package.json"
+        },
+        {
+          "name": "Flask",
+          "description": "Exposes the separate rule-based metadata risk endpoint.",
+          "stage": "source",
+          "version": "==3.0.0",
+          "source": "ai/requirements.txt"
+        }
+      ],
+      "decisions": [
+        {
+          "title": "Split provenance from descriptions",
+          "description": "Keep lifecycle/ownership in the contract and descriptive material in MongoDB.",
+          "tradeoff": "Identifiers and transaction references need consistent validation across chain and API.",
+          "source": "backend/routes/drugs.js"
+        },
+        {
+          "title": "Use direct wallet signing",
+          "description": "MetaMask supplies a signer rather than requiring the API to hold the user signing key.",
+          "tradeoff": "The flow depends on the right network, deployed registry, and contract address.",
+          "source": "frontend/src/context/Web3Context.jsx"
+        }
+      ],
+      "outcomes": [
+        {
+          "title": "Published deliverable",
+          "description": "Role dashboards, wallet integration, batch metadata routes, a Solidity registry, QR support, and contract tests.",
+          "source": "blockchain/test/DrugRegistry.test.js"
+        },
+        {
+          "title": "Operating scope",
+          "description": "The risk service uses rules; no medical deployment, detection accuracy, or production compliance certification is claimed.",
+          "source": "ai/app.py"
+        }
+      ],
+      "workflow": [
+        "Authenticate into an application role.",
+        "Connect a wallet to the configured registry.",
+        "Register or transfer a batch through a signed transaction.",
+        "Inspect metadata and provenance through the batch verification link."
+      ],
+      "commands": ["cd frontend", "npm install", "npm run dev"],
+      "setup": "Configure MongoDB, the Express service, and a deployed EVM registry separately. Python is needed for the optional Flask service. The root scripts reference older client/server folder names; follow the actual frontend/backend directories."
+    },
+    "contentStage": "source"
   },
   {
     "id": "solguard",
@@ -785,9 +2342,10 @@
     "updatedAt": "2026-04-05T20:34:48+05:30",
     "users": "Smart-contract developers reviewing candidate vulnerabilities and remediation suggestions.",
     "features": [
-      "Agent orchestration and phase selection",
-      "Static findings with risk classification",
-      "Reasoning and patch-generation modules"
+      "Phased audit orchestration",
+      "Risk scoring with provenance",
+      "Candidate remediation",
+      "Audit/report UI"
     ],
     "architecture": [
       "Solidity input",
@@ -802,6 +2360,10 @@
     "screenshots": [],
     "evidence": [
       {
+        "path": "README.md",
+        "url": "https://github.com/manikantbindass/SolGuardAI-An-AI-Powered-Blockchain-Smart-Contract-/blob/f36d6b650efacdd08910bb189f7be0cb98ff8577/README.md"
+      },
+      {
         "path": "agents/orchestrator.py",
         "url": "https://github.com/manikantbindass/SolGuardAI-An-AI-Powered-Blockchain-Smart-Contract-/blob/f36d6b650efacdd08910bb189f7be0cb98ff8577/agents/orchestrator.py"
       },
@@ -812,17 +2374,118 @@
       {
         "path": "agents/phase4_patching/patch_agent.py",
         "url": "https://github.com/manikantbindass/SolGuardAI-An-AI-Powered-Blockchain-Smart-Contract-/blob/f36d6b650efacdd08910bb189f7be0cb98ff8577/agents/phase4_patching/patch_agent.py"
+      },
+      {
+        "path": "frontend/package.json",
+        "url": "https://github.com/manikantbindass/SolGuardAI-An-AI-Powered-Blockchain-Smart-Contract-/blob/f36d6b650efacdd08910bb189f7be0cb98ff8577/frontend/package.json"
+      },
+      {
+        "path": "frontend/src/App.jsx",
+        "url": "https://github.com/manikantbindass/SolGuardAI-An-AI-Powered-Blockchain-Smart-Contract-/blob/f36d6b650efacdd08910bb189f7be0cb98ff8577/frontend/src/App.jsx"
       }
     ],
     "sourceCommit": "f36d6b650efacdd08910bb189f7be0cb98ff8577",
-    "verifiedAt": "2026-10-25T02:57:53.513611+00:00",
+    "verifiedAt": "2026-10-25T10:05:44.644841+00:00",
     "architectureReference": "┌─────────────────────────────────────────────────────────────────┐\n│                        SolGuard AI Platform                     │\n│                                                                 │\n│  Phase 1        Phase 2        Phase 3        Phase 4           │\n│  Lexical    →   Neural    →   Semantic   →   Patching   →  XAI │\n│  Observer       Auditor       Architect      Agent        UI    │\n│                                                                 │\n│  AST/CFG        GNN/BERT      LLM CoT        OpenZeppelin       │\n│  Slither        SmartBugs     GPT-4/Claude   Foundry/HH         │\n└─────────────────────────────────────────────────────────────────┘",
     "problem": "Contract vulnerabilities need more context than a single lint warning provides.",
     "solution": "Coordinate static findings, risk scoring, reasoning, and proposed patches as inspectable stages.",
     "technicalDetails": [
       "The orchestrator loads agents independently and records which phases complete. Static analysis results feed risk classification and subsequent reasoning.",
       "The classifier explicitly records codebert or rule_based as its model source. Optional dependency availability and model quality are separate from simply displaying a confidence score."
-    ]
+    ],
+    "caseStudy": {
+      "architectureSummary": "Python agents stage Solidity parsing, static findings, risk scoring, optional reasoning, and candidate patches. A separate React interface presents audit input, reports, and history; the published tree does not establish a fully connected browser-to-agent service.",
+      "features": [
+        {
+          "title": "Phased audit orchestration",
+          "description": "The CLI coordinator loads available parser, static, classifier, reasoner, and patcher agents and separates their outputs by phase.",
+          "source": "agents/orchestrator.py"
+        },
+        {
+          "title": "Risk scoring with provenance",
+          "description": "Findings receive risk labels and remediation priorities. The output records codebert or rule_based as the scoring source.",
+          "source": "agents/phase2_neural/risk_classifier.py"
+        },
+        {
+          "title": "Candidate remediation",
+          "description": "Patch templates cover examples such as tx.origin replacement and reentrancy guards, creating proposed source changes for independent review.",
+          "source": "agents/phase4_patching/patch_agent.py"
+        },
+        {
+          "title": "Audit/report UI",
+          "description": "React switches between input, a completed report, and an in-session history/dashboard. These UI components can be inspected separately from the agent CLI.",
+          "source": "frontend/src/App.jsx"
+        }
+      ],
+      "technologies": [
+        {
+          "name": "Python",
+          "description": "Coordinates analysis phases and writes structured findings/reports.",
+          "stage": "source",
+          "source": "README.md"
+        },
+        {
+          "name": "Solidity",
+          "description": "Provides the contract input language and included vulnerable example.",
+          "stage": "source",
+          "source": "README.md"
+        },
+        {
+          "name": "React",
+          "description": "Builds audit input, report, and history views.",
+          "stage": "source",
+          "version": "^18.2.0",
+          "source": "frontend/package.json"
+        },
+        {
+          "name": "Slither",
+          "description": "Is an optional static-analysis integration for Solidity findings.",
+          "stage": "source",
+          "source": "README.md"
+        },
+        {
+          "name": "Transformers",
+          "description": "Loads an optional classifier; rules handle unavailable model dependencies.",
+          "stage": "source",
+          "source": "README.md"
+        }
+      ],
+      "decisions": [
+        {
+          "title": "Degrade explicitly across optional agents",
+          "description": "The orchestrator loads tools independently and records completed phase results.",
+          "tradeoff": "A missing or failed phase must not be interpreted as a clean audit.",
+          "source": "agents/orchestrator.py"
+        },
+        {
+          "title": "Separate a risk score from a guarantee",
+          "description": "Keep scoring provenance and proposed patches visible.",
+          "tradeoff": "A base model or rule score does not establish calibrated accuracy; patches require compilation, tests, and independent security review.",
+          "source": "agents/phase2_neural/risk_classifier.py"
+        }
+      ],
+      "outcomes": [
+        {
+          "title": "Published deliverable",
+          "description": "A staged Python audit prototype, example contract, and separate React reporting interface.",
+          "source": "agents/orchestrator.py"
+        },
+        {
+          "title": "Operating scope",
+          "description": "No security certification, exploit-prevention rate, or complete deployed audit service is asserted. Optional tools require explicit setup.",
+          "source": "README.md"
+        }
+      ],
+      "workflow": [
+        "Provide Solidity source.",
+        "Collect parser/static findings and classify risks.",
+        "Request optional reasoning and candidate patches.",
+        "Inspect phase reports and independently validate each proposed change."
+      ],
+      "commands": ["cd frontend", "npm install", "npm run dev"],
+      "setup": "The frontend uses Node.js/npm. Python phases require their selected Solidity/static/model tools; the repository has no complete root bootstrap manifest for every agent dependency."
+    },
+    "contentStage": "source"
   },
   {
     "id": "autoledger",
@@ -831,7 +2494,7 @@
     "subtitle": "Adaptive blockchain research",
     "description": "A blockchain and reinforcement-learning exploration with a React dashboard and a simulated FastAPI network-state feed.",
     "categories": ["Blockchain / Web3", "AI / Machine Learning"],
-    "tags": ["Python", "PyTorch", "FastAPI", "React"],
+    "tags": ["Python", "FastAPI", "React", "PyTorch", "Gymnasium"],
     "github": "https://github.com/manikantbindass/AutoLedgerAI-Self-healing-blockchain-network-using-reinforcement-learning",
     "live": null,
     "featured": false,
@@ -839,9 +2502,10 @@
     "updatedAt": "2026-03-31T18:13:01+05:30",
     "users": "Developers exploring validator trust and adaptive network behavior.",
     "features": [
-      "Simulated node trust updates over WebSockets",
-      "Transaction and consensus endpoints",
-      "PPO actor-critic model module"
+      "Changing network-state feed",
+      "Transaction experiment endpoint",
+      "Bounded trust primitives",
+      "Actor-critic model"
     ],
     "architecture": [
       "React dashboard",
@@ -854,27 +2518,142 @@
     "screenshots": [],
     "evidence": [
       {
+        "path": "README.md",
+        "url": "https://github.com/manikantbindass/AutoLedgerAI-Self-healing-blockchain-network-using-reinforcement-learning/blob/f8812bf84c8a6f86447b19b1ab71db6b8b7974a6/README.md"
+      },
+      {
         "path": "backend/main.py",
         "url": "https://github.com/manikantbindass/AutoLedgerAI-Self-healing-blockchain-network-using-reinforcement-learning/blob/f8812bf84c8a6f86447b19b1ab71db6b8b7974a6/backend/main.py"
+      },
+      {
+        "path": "blockchain/core/ledger.py",
+        "url": "https://github.com/manikantbindass/AutoLedgerAI-Self-healing-blockchain-network-using-reinforcement-learning/blob/f8812bf84c8a6f86447b19b1ab71db6b8b7974a6/blockchain/core/ledger.py"
+      },
+      {
+        "path": "frontend/package.json",
+        "url": "https://github.com/manikantbindass/AutoLedgerAI-Self-healing-blockchain-network-using-reinforcement-learning/blob/f8812bf84c8a6f86447b19b1ab71db6b8b7974a6/frontend/package.json"
+      },
+      {
+        "path": "requirements.txt",
+        "url": "https://github.com/manikantbindass/AutoLedgerAI-Self-healing-blockchain-network-using-reinforcement-learning/blob/f8812bf84c8a6f86447b19b1ab71db6b8b7974a6/requirements.txt"
       },
       {
         "path": "rl-agent/models/ppo_agent.py",
         "url": "https://github.com/manikantbindass/AutoLedgerAI-Self-healing-blockchain-network-using-reinforcement-learning/blob/f8812bf84c8a6f86447b19b1ab71db6b8b7974a6/rl-agent/models/ppo_agent.py"
       },
       {
-        "path": "blockchain/core/ledger.py",
-        "url": "https://github.com/manikantbindass/AutoLedgerAI-Self-healing-blockchain-network-using-reinforcement-learning/blob/f8812bf84c8a6f86447b19b1ab71db6b8b7974a6/blockchain/core/ledger.py"
+        "path": "trust-system/trust_manager.py",
+        "url": "https://github.com/manikantbindass/AutoLedgerAI-Self-healing-blockchain-network-using-reinforcement-learning/blob/f8812bf84c8a6f86447b19b1ab71db6b8b7974a6/trust-system/trust_manager.py"
       }
     ],
     "sourceCommit": "f8812bf84c8a6f86447b19b1ab71db6b8b7974a6",
-    "verifiedAt": "2026-10-25T02:57:54.823466+00:00",
+    "verifiedAt": "2026-10-25T10:05:44.645535+00:00",
     "architectureReference": "┌─────────────────────────────────────────────────────────────────────┐\n│                         AutoLedgerAI System                          │\n└─────────────────────────────────────────────────────────────────────┘\n\n      ┌──────────────┐         ┌──────────────┐\n      │  React.js    │◄────────┤  FastAPI     │\n      │  Dashboard   │         │  Backend     │\n      └──────────────┘         └──────┬───────┘\n             ▲                        │\n             │                        │\n             │                ┌───────▼────────┐\n             │                │  Blockchain    │\n             │                │  Core (PBFT)   │\n             │                └───────┬────────┘\n             │                        │\n      ┌──────┴──────┐         ┌───────▼────────┐\n      │  Grafana    │         │  RL Agent      │\n      │  Monitoring │◄────────┤  (DQN/PPO)     │\n      └─────────────┘         └───────┬────────┘\n                                      │\n           ┌──────────────────────────┼──────────────────────────┐\n           │                          │                          │\n      ┌────▼────┐              ┌──────▼──────┐          ┌────────▼────┐\n      │ Trust   │              │  Detection  │          │   Kafka     │\n      │ System  │              │  Engine     │          │   Stream    │\n      └─────────┘              └─────────────┘          └─────────────┘\n                                      │\n                               ┌──────▼──────┐\n                               │  MongoDB    │\n                               │  Database   │\n                               └─────────────┘",
     "problem": "Validator behavior and trust changes are difficult to understand without a visible feedback loop.",
     "solution": "Explore trust scoring, consensus, and reinforcement-learning modules alongside a clearly simulated network dashboard.",
     "technicalDetails": [
       "The FastAPI dashboard serves mock_network_state and changes node trust values on a WebSocket interval. It is a simulation rather than a production consensus feed.",
       "A separate PyTorch actor-critic module samples actions and estimates values. Its presence does not establish that dashboard decisions are driven by a trained policy."
-    ]
+    ],
+    "caseStudy": {
+      "architectureSummary": "The project separates blockchain/validator modules, trust/anomaly helpers, and a PPO actor-critic model. FastAPI publishes a simulated in-memory network feed to the React dashboard; that feed does not show a trained policy controlling real consensus.",
+      "features": [
+        {
+          "title": "Changing network-state feed",
+          "description": "A WebSocket loop updates simulated trust values and isolates nodes below a threshold, exposing the current state to the dashboard.",
+          "source": "backend/main.py"
+        },
+        {
+          "title": "Transaction experiment endpoint",
+          "description": "A typed POST route accepts sender, receiver, and amount and appends the payload to simulation state.",
+          "source": "backend/main.py"
+        },
+        {
+          "title": "Bounded trust primitives",
+          "description": "TrustManager implements reward, penalty, clamped updates, and threshold checks as reusable methods.",
+          "source": "trust-system/trust_manager.py"
+        },
+        {
+          "title": "Actor-critic model",
+          "description": "A PyTorch actor samples a discrete action while a critic estimates state value, supplying model primitives for separate learning experiments.",
+          "source": "rl-agent/models/ppo_agent.py"
+        }
+      ],
+      "technologies": [
+        {
+          "name": "Python",
+          "description": "Implements API, trust, ledger, consensus, and learning experiments.",
+          "stage": "source",
+          "source": "README.md"
+        },
+        {
+          "name": "FastAPI",
+          "description": "Exposes node, transaction, consensus, and WebSocket operations.",
+          "stage": "source",
+          "version": "==0.104.1",
+          "source": "requirements.txt"
+        },
+        {
+          "name": "React",
+          "description": "Visualizes the network state and trust changes.",
+          "stage": "source",
+          "version": "^19.2.4",
+          "source": "frontend/package.json"
+        },
+        {
+          "name": "PyTorch",
+          "description": "Defines actor/critic networks and learning primitives.",
+          "stage": "source",
+          "version": "==2.1.0",
+          "source": "requirements.txt"
+        },
+        {
+          "name": "Gymnasium",
+          "description": "Is declared for the reinforcement-learning environment/training path.",
+          "stage": "source",
+          "version": "==0.29.1",
+          "source": "requirements.txt"
+        }
+      ],
+      "decisions": [
+        {
+          "title": "Separate simulation from learning experiments",
+          "description": "The dashboard can visualize state without a trained policy.",
+          "tradeoff": "Random trust updates demonstrate interaction, but cannot substantiate autonomous consensus recovery.",
+          "source": "backend/main.py"
+        },
+        {
+          "title": "Make trust rules inspectable",
+          "description": "Trust updates are bounded and isolation is expressed as a threshold.",
+          "tradeoff": "A production reputation system needs adversarial evaluation and durable history beyond these primitives.",
+          "source": "trust-system/trust_manager.py"
+        }
+      ],
+      "outcomes": [
+        {
+          "title": "Published deliverable",
+          "description": "A dashboard simulation plus separate ledger, trust, validator-selection, and learning modules.",
+          "source": "README.md"
+        },
+        {
+          "title": "Operating scope",
+          "description": "No integrated trained-policy performance, public blockchain deployment, or availability improvement is established by the simulated feed.",
+          "source": "backend/main.py"
+        }
+      ],
+      "workflow": [
+        "Inspect node and consensus state.",
+        "Observe trust updates through the WebSocket.",
+        "Experiment separately with trust and validator weighting.",
+        "Train/evaluate a policy before connecting it to a real control loop."
+      ],
+      "commands": [
+        "python -m pip install -r backend/requirements.txt",
+        "python -m uvicorn backend.main:app --reload"
+      ],
+      "setup": "Run the Vite frontend separately. Training requires PyTorch/environment dependencies and reconciliation of trainer import paths with the hyphenated source directories."
+    },
+    "contentStage": "source"
   },
   {
     "id": "linux-scheduler",
@@ -883,7 +2662,7 @@
     "subtitle": "Workload scheduling visualization",
     "description": "A full-stack simulation of process metrics and rule-based priority adjustments, visualized through a responsive monitoring dashboard.",
     "categories": ["Backend / Cloud / DevOps", "Developer Tools"],
-    "tags": ["React", "Vite", "Express", "Recharts"],
+    "tags": ["React", "Vite", "Express", "Recharts", "Framer Motion"],
     "github": "https://github.com/manikantbindass/AI-adaptive-LINUX-Schedular-Dashboard-for-workload-optimization",
     "live": null,
     "featured": false,
@@ -891,9 +2670,10 @@
     "updatedAt": "2026-03-28T12:00:55+05:30",
     "users": "Learners exploring CPU pressure, process priorities, and scheduler trade-offs.",
     "features": [
-      "Simulated process and CPU metrics",
-      "Priority adjustments above a load threshold",
-      "Historical charts and optimization logs"
+      "Process metric feed",
+      "Threshold-based throttling",
+      "Bounded history and logs",
+      "Inspectable REST outputs"
     ],
     "architecture": [
       "React / Recharts",
@@ -906,6 +2686,14 @@
     "screenshots": [],
     "evidence": [
       {
+        "path": "README.md",
+        "url": "https://github.com/manikantbindass/AI-adaptive-LINUX-Schedular-Dashboard-for-workload-optimization/blob/d117af44dd2d390e703f18e1abbb3ae407124bdc/README.md"
+      },
+      {
+        "path": "backend/package.json",
+        "url": "https://github.com/manikantbindass/AI-adaptive-LINUX-Schedular-Dashboard-for-workload-optimization/blob/d117af44dd2d390e703f18e1abbb3ae407124bdc/backend/package.json"
+      },
+      {
         "path": "backend/server.js",
         "url": "https://github.com/manikantbindass/AI-adaptive-LINUX-Schedular-Dashboard-for-workload-optimization/blob/d117af44dd2d390e703f18e1abbb3ae407124bdc/backend/server.js"
       },
@@ -915,13 +2703,110 @@
       }
     ],
     "sourceCommit": "d117af44dd2d390e703f18e1abbb3ae407124bdc",
-    "verifiedAt": "2026-10-25T02:58:06.206035+00:00",
+    "verifiedAt": "2026-10-25T10:05:44.647176+00:00",
     "architectureReference": "graph TD;\n    A[React/Vite Frontend] -->|REST API Calls| B[Node.js Backend]\n    B -->|Generates| C[Process Metrics]\n    B -->|Evaluates Load| D[AI Optimizer Module]\n    D -->|Throttles| C\n    C -->|Sends JSON| A",
     "problem": "CPU pressure and priority adjustments are easier to study when process behavior is visible.",
     "solution": "Simulate process metrics and threshold-driven throttling through an Express API and charting interface.",
     "technicalDetails": [
       "The Express service keeps process and metric history in memory and periodically generates workload fluctuations.",
       "Above an aggregate CPU threshold, selected non-root simulated processes have CPU values reduced and nice values raised. This is rule-based simulation rather than a kernel scheduler integration."
-    ]
+    ],
+    "caseStudy": {
+      "architectureSummary": "Express keeps simulated process records and bounded CPU/memory history in memory, updates them on an interval, applies a high-load rule, and exposes JSON endpoints. React/Recharts displays the process and optimization behavior.",
+      "features": [
+        {
+          "title": "Process metric feed",
+          "description": "/api/processes exposes simulated process IDs, owners, CPU, memory, priority, and status for dashboard inspection.",
+          "source": "backend/server.js"
+        },
+        {
+          "title": "Threshold-based throttling",
+          "description": "Above aggregate CPU load 85, up to three eligible heavy non-root records have simulated CPU usage reduced and nice values increased.",
+          "source": "backend/server.js"
+        },
+        {
+          "title": "Bounded history and logs",
+          "description": "The server retains a recent window of samples and optimization records instead of accumulating unbounded history.",
+          "source": "backend/server.js"
+        },
+        {
+          "title": "Inspectable REST outputs",
+          "description": "/api/metrics and /api/logs let the interface explain recent trends and which rule caused a priority change.",
+          "source": "backend/server.js"
+        }
+      ],
+      "technologies": [
+        {
+          "name": "React",
+          "description": "Builds the monitoring dashboard and process views.",
+          "stage": "source",
+          "version": "^19.2.4",
+          "source": "frontend/package.json"
+        },
+        {
+          "name": "Vite",
+          "description": "Serves and builds the frontend.",
+          "stage": "source",
+          "version": "^8.0.1",
+          "source": "frontend/package.json"
+        },
+        {
+          "name": "Express",
+          "description": "Exposes process, metric-history, and optimization-log endpoints.",
+          "stage": "source",
+          "version": "^4.19.2",
+          "source": "backend/package.json"
+        },
+        {
+          "name": "Recharts",
+          "description": "Plots the rolling CPU/memory samples.",
+          "stage": "source",
+          "version": "^3.8.1",
+          "source": "frontend/package.json"
+        },
+        {
+          "name": "Framer Motion",
+          "description": "Animates feedback and dashboard transitions.",
+          "stage": "source",
+          "version": "^12.38.0",
+          "source": "frontend/package.json"
+        }
+      ],
+      "decisions": [
+        {
+          "title": "Keep the rule explainable",
+          "description": "Use a clear load threshold and bounded number of eligible processes.",
+          "tradeoff": "The demonstration changes in-memory values rather than Linux kernel priorities or a trained model policy.",
+          "source": "backend/server.js"
+        },
+        {
+          "title": "Bound history in memory",
+          "description": "Keep recent samples/logs without introducing a database.",
+          "tradeoff": "The demo stays lightweight, but restarting the service loses its history.",
+          "source": "backend/server.js"
+        }
+      ],
+      "outcomes": [
+        {
+          "title": "Published deliverable",
+          "description": "A React dashboard and REST process simulator illustrating workload scheduling and priority trade-offs.",
+          "source": "README.md"
+        },
+        {
+          "title": "Operating scope",
+          "description": "No kernel integration, trained optimizer, or measured real-machine performance improvement is asserted.",
+          "source": "backend/server.js"
+        }
+      ],
+      "workflow": [
+        "Generate process metrics on the server interval.",
+        "Fetch process records and rolling history.",
+        "Apply the high-load rule to eligible records.",
+        "Inspect adjusted priorities and optimization logs."
+      ],
+      "commands": ["cd backend", "npm install", "npm run dev"],
+      "setup": "Use Node.js/npm and start the frontend Vite app separately. The backend listens on port 5000; all process actions affect simulation records only."
+    },
+    "contentStage": "source"
   }
 ]

@@ -17,8 +17,19 @@ function getResponse(text: string, lc: LCStats, gh: GHStats): string {
   const project = projects.find(
     (p) => q.includes(p.title.toLowerCase()) || q.includes(p.slug),
   );
-  if (project)
-    return `**${project.title}**\n${project.description}\n\nStatus: ${project.status}\nArchitecture: ${project.architecture.join(" → ")}\n\n${project.challenges.join(" ")}\n[Explore case study](/projects/${project.slug})`;
+  if (project) {
+    const detail = /architect|system|design/.test(q)
+      ? project.caseStudy.architectureSummary
+      : /stack|technolog|framework/.test(q)
+        ? project.caseStudy.technologies
+            .map((t) => `${t.name}: ${t.description}`)
+            .join("\n\n")
+        : project.caseStudy.features
+            .slice(0, 3)
+            .map((f) => `**${f.title}**\n${f.description}`)
+            .join("\n\n");
+    return `**${project.title}**\n${project.description}\n\n${detail}\n\nStatus: ${project.status}${project.contentStage === "concept" ? " · Architecture and technology choices are proposed." : ""}\n[Explore full case study](/projects/${project.slug})`;
+  }
   if (/leetcode|dsa|algorithm|solved|rating/.test(q))
     return `**LeetCode**\n${lc.total} solved: ${lc.easy} Easy, ${lc.medium} Medium, ${lc.hard} Hard.${lc.rating ? ` Contest rating: ${lc.rating.toFixed(1)}.` : ""}\n${lc.provider} · ${lc.source}\nLast verified: ${lc.verifiedAt.slice(0, 16).replace("T", " ")} UTC.\n[View profile](${personal.links.leetcode})`;
   if (/github|repo|commit|star|followers/.test(q))

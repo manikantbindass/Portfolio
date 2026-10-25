@@ -61,3 +61,12 @@ Live site: https://portfolio-ten-omega-4ibkho6f7u.vercel.app/
 - Credential URLs have not been supplied for certifications.
 - Contribution-chart availability belongs to the external chart provider.
 - No paid AI service, new backend mail service, or secrets are introduced.
+
+
+## Detailed case-study content refresh
+
+All 16 public repository default branches were fetched again on 25 October 2026. FlowNovaAI still had only a two-line README and one public branch (main); DSA Preparation had a newer statistics commit. Each case study now supplies its own feature explanations, technology responsibilities and declared dependency ranges where found, architecture summary, user workflow, engineering decisions/trade-offs, deliverables, and local setup guidance. Generic repeated feature/technology filler was removed. FlowNovaAI has an explicitly proposed workflow/stack design; its proposed choices are not presented as published dependencies.
+
+Source links on every feature, decision, and outcome are pinned to the reviewed commit. The source audit records detailed content counts and current commits. The shared guide also uses the expanded project content. Genuine screenshot galleries are retained; source explorers explain projects without committed application screenshots.
+
+Eight regression tests cover statistics validation, case-study content coverage, source references, placeholder removal, and separation of FlowNovaAI's proposed stack from source-confirmed technologies. Current browser control is disabled in Work settings, so this refresh has no new interactive browser QA claim. TypeScript, lint, the production build, and HTTP route/PDF/API checks are used for this update.
