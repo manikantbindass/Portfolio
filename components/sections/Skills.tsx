@@ -103,6 +103,7 @@ export default function Skills() {
           {CATS.map((c) => (
             <button
               key={c.key}
+              aria-pressed={active === c.key}
               onClick={() => setActive(c.key)}
               data-magnetic
               className={`px-5 py-2.5 rounded-2xl text-sm font-semibold transition-all duration-200 border ${
@@ -113,8 +114,9 @@ export default function Skills() {
               style={
                 active === c.key
                   ? {
-                      background: `linear-gradient(135deg,${c.color}cc,${c.color}88)`,
-                      boxShadow: `0 4px 16px ${c.color}40`,
+                      background: `color-mix(in srgb, ${c.color} 14%, var(--surface))`,
+                      borderColor: `${c.color}70`,
+                      boxShadow: "inset 0 1px 0 var(--glass-highlight)",
                     }
                   : {}
               }
@@ -139,7 +141,7 @@ export default function Skills() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: i * 0.06, duration: 0.4 }}
-                whileHover={{ y: -6, scale: 1.03 }}
+                whileHover={{ y: -3, scale: 1.01 }}
                 className="glass rounded-2xl p-5 border border-white/7 flex flex-col gap-3 items-center text-center group cursor-default"
                 style={{ borderColor: `${cat.color}20` }}
               >

@@ -1,12 +1,13 @@
 "use client";
 import { motion } from "framer-motion";
 import { personal } from "@/lib/data";
+import { ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer
-      className="relative border-t border-white/6 py-10"
+      className="portfolio-footer relative border-t border-white/6 py-10"
       style={{ background: "var(--bg)" }}
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -41,7 +42,7 @@ export default function Footer() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="flex items-center gap-2 text-xs text-[var(--muted)]"
+          className="footer-tools flex flex-wrap items-center justify-center gap-2 text-xs text-[var(--muted)]"
         >
           <span>Powered by</span>
           {["Next.js", "Framer Motion", "TailwindCSS"].map((t) => (
@@ -53,6 +54,7 @@ export default function Footer() {
               {t}
             </span>
           ))}
+          <a className="back-to-top" href="#hero">Back to top <ArrowUpRight size={14} aria-hidden /></a>
         </motion.div>
       </div>
       <p className="text-center text-xs text-[var(--muted)] mt-6">

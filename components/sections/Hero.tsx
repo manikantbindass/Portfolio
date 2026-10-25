@@ -4,7 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import styles from "./Hero.module.css";
 import { usePortfolioStats } from "@/components/StatsProvider";
-import { Download, ArrowRight, Sparkles } from "lucide-react";
+import { Download, ArrowRight, Sparkles, Braces, Network } from "lucide-react";
 
 const ROLES = [
   "AI Augmented Full Stack Developer",
@@ -95,7 +95,7 @@ export default function Hero() {
         >
           {/* Badge */}
           <motion.div variants={fadeUp}>
-            <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-xs font-semibold text-[var(--muted)]">
+            <div className={`${styles.availability} inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-xs font-semibold text-[var(--muted)]`}>
               <span className="w-2 h-2 rounded-full bg-[#2DD4BF] animate-pulse-soft" />
               Available for freelance &amp; full-time
             </div>
@@ -130,6 +130,12 @@ export default function Hero() {
             useful web experiences. Explore the code, architecture, and
             decisions behind my work.
           </motion.p>
+
+          <motion.ul variants={fadeUp} className={styles.focusAreas} aria-label="Engineering focus">
+            <li><Sparkles size={14} aria-hidden /> Applied AI</li>
+            <li><Braces size={14} aria-hidden /> Full Stack</li>
+            <li><Network size={14} aria-hidden /> Web3</li>
+          </motion.ul>
 
           {/* CTAs */}
           <motion.div variants={fadeUp} className="flex flex-wrap gap-3">
@@ -174,17 +180,15 @@ export default function Hero() {
             </motion.a>
           </motion.div>
 
-          <a href="#stats" className="text-[10px] text-[var(--muted)]">{lc.source} · Data sources &amp; verification →</a>
-
           {/* Quick stats */}
           <motion.div
             variants={fadeUp}
-            className="grid grid-cols-2 sm:grid-cols-3 gap-3 w-full max-w-lg"
+            className={styles.quickStats}
           >
             {quickStats.map((s) => (
               <div
                 key={s.label}
-                className="glass rounded-2xl p-3 flex flex-col gap-1"
+                className={styles.quickStat}
               >
                 <span
                   className="font-bold text-xl text-[var(--fg)]"
@@ -198,6 +202,7 @@ export default function Hero() {
               </div>
             ))}
           </motion.div>
+          <a href="#stats" className={styles.statsSource}>{lc.source} · Data sources &amp; verification <ArrowRight size={11} aria-hidden /></a>
           <motion.button
             variants={fadeUp}
             onClick={() => window.dispatchEvent(new CustomEvent("openChatbot"))}

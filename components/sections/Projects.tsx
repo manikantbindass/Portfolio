@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import ProjectVisual from "@/components/ProjectVisual";
 import { projects, projectCategories } from "@/lib/projects";
+import { ArrowUpRight, Search, SlidersHorizontal, X } from "lucide-react";
 export default function Projects() {
   const [category, setCategory] = useState("All Projects");
   const [query, setQuery] = useState("");
@@ -36,6 +37,7 @@ export default function Projects() {
             role="group"
             aria-label="Filter projects"
           >
+            <span className="filter-label"><SlidersHorizontal size={14} aria-hidden /> Browse</span>
             {projectCategories.map((c) => (
               <button
                 aria-pressed={c === category}
@@ -46,15 +48,20 @@ export default function Projects() {
               </button>
             ))}
           </div>
-          <label className="project-search">
-            <span className="sr-only">Search projects</span>
+          <div className="project-search">
+            <Search size={16} aria-hidden />
+            <label className="sr-only" htmlFor="project-search-field">Search projects</label>
             <input
+              id="project-search-field"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search projects or technologies…"
               type="search"
             />
-          </label>
+            {query && (
+              <button type="button" onClick={() => setQuery("")} aria-label="Clear project search"><X size={14} aria-hidden /></button>
+            )}
+          </div>
         </div>
         <p className="results-count" aria-live="polite">
           {filtered.length} {filtered.length === 1 ? "project" : "projects"} ·
@@ -74,10 +81,13 @@ export default function Projects() {
               key={p.id}
             >
               <Link
+                className="work-preview"
                 href={`/projects/${p.slug}`}
                 aria-label={`Explore ${p.title} case study`}
               >
                 <ProjectVisual project={p} />
+                <span className="work-number" aria-hidden>{String(projects.indexOf(p) + 1).padStart(2, "0")}</span>
+                <span className="work-preview-action" aria-hidden><ArrowUpRight size={18} /></span>
               </Link>
               <div className="project-card-body">
                 <div className="eyebrow-row">
@@ -122,6 +132,7 @@ export default function Projects() {
         {!filtered.length && (
           <p className="empty-state">
             No matching projects. Try another technology or clear the filter.
+            <button className="button" type="button" onClick={() => { setCategory("All Projects"); setQuery(""); }}>Show all projects <ArrowUpRight size={14} aria-hidden /></button>
           </p>
         )}
       </div>
