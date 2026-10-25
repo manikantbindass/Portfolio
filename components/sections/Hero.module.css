@@ -1,0 +1,57 @@
+.hero:global(#hero) {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: block;
+  min-height: max(900px, 100svh);
+  padding: 150px 0 100px;
+  background: var(--bg);
+}
+.portrait {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 70%;
+  max-width: 1400px;
+  pointer-events: none;
+}
+.portraitImage {
+  object-fit: cover;
+  object-position: center top;
+  mask-image: linear-gradient(180deg, #000 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, #000 70%, transparent 100%);
+}
+.scrim {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, var(--bg) 0%, color-mix(in srgb, var(--bg) 96%, transparent) 32%, color-mix(in srgb, var(--bg) 72%, transparent) 44%, transparent 70%);
+}
+.layout { position: relative; z-index: 1; width: 100%; max-width: 1280px; margin-inline: auto; padding-inline: 32px; }
+.copy { width: 52%; max-width: 600px; }
+.name { font-size: clamp(4rem, 6.6vw, 6.5rem); line-height: 1.03; }
+.name > span { display: block; }
+.role { min-height: 48px; }
+.assistant { display: inline-flex; align-items: center; gap: 10px; padding: 12px 16px; border-radius: 14px; color: var(--fg); font-size: 12px; font-weight: 600; cursor: pointer; }
+.assistant svg { color: var(--accent2); }
+@media (max-width: 1100px) and (min-width: 901px) {
+  .copy { width: 55%; }
+  .portrait { width: 66%; }
+  .name { font-size: 4.8rem; }
+}
+@media (max-width: 900px) {
+  .hero:global(#hero) { min-height: auto; padding: 92px 0 110px; }
+  .portrait { top: 72px; bottom: auto; width: 100%; max-width: none; height: 610px; }
+  .portraitImage { object-fit: contain; object-position: center top; mask-image: linear-gradient(180deg, #000 55%, transparent 100%); -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent 100%); }
+  .scrim { background: none; }
+  .layout { padding-inline: 24px; }
+  .copy { width: 100%; max-width: 600px; margin-inline: auto; padding-top: 460px; }
+  .name { font-size: clamp(4rem, 9vw, 5.5rem); }
+}
+@media (max-width: 600px) {
+  .hero:global(#hero) h1 { font-size: clamp(3.2rem, 13vw, 4.5rem) !important; }
+  .layout { padding-inline: 22px; }
+}

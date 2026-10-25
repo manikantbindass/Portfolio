@@ -1,6 +1,6 @@
 .messageCard {
   --citrus: #456706;
-  --field-bg: rgba(248, 255, 244, 0.84);
+  --field-bg: rgba(248, 255, 244, 0.8);
   --field-border: rgba(71, 103, 38, 0.3);
   --field-text: #152f29;
   --field-placeholder: #49695e;
@@ -15,7 +15,7 @@
 }
 :global(.dark) .messageCard {
   --citrus: #d5f579;
-  --field-bg: rgba(5, 28, 32, 0.74);
+  --field-bg: rgba(5, 28, 32, 0.72);
   --field-border: rgba(215, 239, 151, 0.3);
   --field-text: #f1faef;
   --field-placeholder: #c0d7cc;
@@ -29,23 +29,19 @@
 .messageCard label { color: var(--field-text); }
 .messageCard .content p { color: var(--field-text); }
 .titleIcon { color: var(--citrus); flex-shrink: 0; }
-.aquarium { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; border-radius: inherit; opacity: 0.88; }
+.aquarium { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; border-radius: inherit; background: url("/contact/aquarium-poster.webp") center / cover no-repeat; }
 .aquarium::after { content: ""; position: absolute; inset: 0; background: linear-gradient(130deg, var(--aquarium-wash), transparent 65%), linear-gradient(0deg, var(--aquarium-wash), transparent 70%); }
-.frame {
+.video {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: max(100%, 640px);
-  aspect-ratio: 1;
-  transform: translate(-50%, -50%);
-  background: url("/contact/aquarium.webp") 0 0 / 400% 200% no-repeat;
-  animation: aquarium-frames 4s steps(1, end) infinite;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: opacity .6s ease;
 }
-.nextFrame { animation: aquarium-next 4s steps(1, end) infinite, aquarium-dissolve .5s linear infinite; }
-.rays { position: absolute; inset: -30%; background: repeating-linear-gradient(115deg, transparent 0 18%, rgba(239,255,169,.12) 22%, transparent 29%); opacity: .35; animation: aquarium-rays 16s ease-in-out infinite alternate; }
-.bubbles { position: absolute; inset: 0; }
-.bubbles span { position: absolute; bottom: -15px; border: 1px solid rgba(235,255,220,.7); border-radius: 50%; background: rgba(220,255,195,.1); animation: aquarium-bubble 12s linear infinite; }
-.aquarium[data-paused="true"] .frame, .aquarium[data-paused="true"] .rays, .aquarium[data-paused="true"] .bubbles span { animation-play-state: paused; }
+.video[data-ready="true"] { opacity: 1; }
 .toggle { position: absolute; top: 28px; right: 24px; z-index: 2; display: flex; align-items: center; gap: 6px; padding: 8px 10px; border-radius: 999px; border: 1px solid var(--field-border); background: var(--field-bg); color: var(--field-text); font-size: 10px; cursor: pointer; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
 .field {
   width: 100%;
@@ -57,36 +53,13 @@
   font-size: 14px;
   line-height: 1.6;
   box-shadow: inset 0 1px 0 rgba(255,255,255,.13), 0 5px 18px rgba(10,40,30,.04);
-  backdrop-filter: blur(12px) saturate(120%);
-  -webkit-backdrop-filter: blur(12px) saturate(120%);
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
   transition: border-color .2s, box-shadow .2s;
 }
 .field::placeholder { color: var(--field-placeholder); opacity: 1; }
 .field:focus-visible { outline: 2px solid var(--citrus); outline-offset: 3px; border-color: var(--citrus); box-shadow: 0 0 0 4px color-mix(in srgb, var(--citrus) 15%, transparent); }
 .submit { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 14px; border: 1px solid rgba(244,255,187,.5); border-radius: 18px; background: linear-gradient(115deg, #d9f56c, #ffcf63 75%, #ffb956); color: #203410; font-size: 14px; font-weight: 750; box-shadow: inset 0 1px 0 rgba(255,255,255,.6), 0 8px 22px rgba(130,170,45,.14); cursor: pointer; }
-@keyframes aquarium-frames {
-  0%, 100% { background-position: 0 0; }
-  12.5% { background-position: 33.3333% 0; }
-  25% { background-position: 66.6667% 0; }
-  37.5% { background-position: 100% 0; }
-  50% { background-position: 0 100%; }
-  62.5% { background-position: 33.3333% 100%; }
-  75% { background-position: 66.6667% 100%; }
-  87.5% { background-position: 100% 100%; }
-}
-@keyframes aquarium-next {
-  0%, 100% { background-position: 33.3333% 0; }
-  12.5% { background-position: 66.6667% 0; }
-  25% { background-position: 100% 0; }
-  37.5% { background-position: 0 100%; }
-  50% { background-position: 33.3333% 100%; }
-  62.5% { background-position: 66.6667% 100%; }
-  75% { background-position: 100% 100%; }
-  87.5% { background-position: 0 0; }
-}
-@keyframes aquarium-dissolve { 0%, 55% { opacity: 0; } 100% { opacity: 1; } }
-@keyframes aquarium-bubble { 0% { opacity: 0; transform: translate(0, 0); } 10%, 80% { opacity: .5; } 100% { opacity: 0; transform: translate(18px, -700px); } }
-@keyframes aquarium-rays { to { transform: translateX(5%) rotate(3deg); } }
 @media (max-width: 640px) {
   .messageCard { padding: 24px; }
   .messageCard h3 { padding-right: 38px; }
@@ -94,8 +67,7 @@
   .toggle span { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .frame, .nextFrame, .rays, .bubbles span { animation: none; }
-  .nextFrame, .toggle { display: none; }
+  .video, .toggle { display: none; }
 }
 @media (prefers-reduced-transparency: reduce) {
   .field, .toggle { background: var(--bg); backdrop-filter: none; -webkit-backdrop-filter: none; }

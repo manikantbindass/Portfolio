@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
+import styles from "./Hero.module.css";
 import { usePortfolioStats } from "@/components/StatsProvider";
 import { Download, ArrowRight, Sparkles } from "lucide-react";
 
@@ -64,51 +65,33 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-16 pb-28"
-      style={{ background: "var(--bg)" }}
+      className={styles.hero}
     >
-      {/* ── Aurora background blobs ── */}
-      <div
-        className="absolute inset-0 overflow-hidden pointer-events-none"
-        aria-hidden
+      <motion.div
+        className={styles.portrait}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <div
-          className="aurora-blob w-[700px] h-[700px] bg-[#6366F1] opacity-[0.12]"
-          style={{ top: "10%", left: "-10%" }}
+        <Image
+          src="/profile-hero-cutout.webp"
+          alt="Manikant Kumar"
+          fill
+          loading="eager"
+          fetchPriority="high"
+          className={styles.portraitImage}
+          sizes="(max-width: 900px) 100vw, 70vw"
         />
-        <div
-          className="aurora-blob w-[600px] h-[600px] bg-[#A78BFA] opacity-[0.09]"
-          style={{ bottom: "5%", right: "-8%", animationDelay: "4s" }}
-        />
-        <div
-          className="aurora-blob w-[400px] h-[400px] bg-[#2DD4BF] opacity-[0.06]"
-          style={{ top: "40%", left: "50%", animationDelay: "8s" }}
-        />
-        {/* Star field */}
-        {Array.from({ length: 60 }).map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full bg-white animate-pulse-soft"
-            style={{
-              width: (i % 3) + 1,
-              height: (i % 3) + 1,
-              top: `${(i * 37 + 11) % 100}%`,
-              left: `${(i * 61 + 7) % 100}%`,
-              opacity: (i % 5) * 0.08 + 0.1,
-              animationDelay: `${i % 4}s`,
-              animationDuration: `${2 + (i % 3)}s`,
-            }}
-          />
-        ))}
-      </div>
+      </motion.div>
+      <div className={styles.scrim} aria-hidden="true" />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-2 gap-12 items-center">
+      <div className={styles.layout}>
         {/* ── LEFT: Text ── */}
         <motion.div
           variants={stagger}
           initial="hidden"
           animate="show"
-          className="flex flex-col items-start gap-6"
+          className={`${styles.copy} flex flex-col items-start gap-5`}
         >
           {/* Badge */}
           <motion.div variants={fadeUp}>
@@ -123,15 +106,14 @@ export default function Hero() {
             <p className="section-label mb-2">Hello, I&apos;m</p>
             <h1
               id="hero-heading"
-              className="font-bold leading-none tracking-tight text-[var(--fg)]"
-              style={{ fontSize: "clamp(2.8rem, 7vw, 5rem)" }}
+              className={`${styles.name} font-bold leading-none tracking-tight text-[var(--fg)]`}
             >
               Manikant <span className="gradient-text">Kumar</span>
             </h1>
           </motion.div>
 
           {/* Typewriter role */}
-          <motion.div variants={fadeUp} className="h-8 flex items-center">
+          <motion.div variants={fadeUp} className={`${styles.role} flex items-center`}>
             <span className="font-mono text-base sm:text-lg font-semibold text-[var(--accent2)]">
               {role}
               <span className="inline-block w-0.5 h-5 bg-[#A78BFA] ml-1 animate-blink align-middle" />
@@ -216,133 +198,20 @@ export default function Hero() {
               </div>
             ))}
           </motion.div>
-        </motion.div>
-
-        {/* ── RIGHT: Photo + orbit + AI button ── */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.4, duration: 0.9, ease: "easeOut" as const }}
-          className="relative flex flex-col items-center justify-center gap-6 "
-        >
-          {/* Photo + orbits container */}
-          <div className="relative flex items-center justify-center">
-            {/* Glow behind photo */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div
-                className="w-80 h-80 rounded-full opacity-30"
-                style={{
-                  background:
-                    "radial-gradient(circle, #6366F1 0%, transparent 70%)",
-                  filter: "blur(60px)",
-                }}
-              />
-            </div>
-
-            {/* Orbit ring 1 */}
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
-              className="absolute rounded-full border border-[#6366F1]/20"
-              style={{ width: 320, height: 320 }}
-            >
-              <div
-                className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-[#6366F1]"
-                style={{ boxShadow: "0 0 14px #6366F1" }}
-              />
-            </motion.div>
-
-            {/* Orbit ring 2 — dashed */}
-            <motion.div
-              animate={{ rotate: -360 }}
-              transition={{ duration: 34, repeat: Infinity, ease: "linear" }}
-              className="absolute rounded-full border-dashed border border-[#2DD4BF]/15"
-              style={{ width: 400, height: 400 }}
-            >
-              <div
-                className="absolute bottom-6 right-8 w-2 h-2 rounded-full bg-[#2DD4BF]"
-                style={{ boxShadow: "0 0 10px #2DD4BF" }}
-              />
-            </motion.div>
-
-            {/* Floating tech pills */}
-            {[
-              { label: "Next.js", top: "8%", left: "0%", color: "#6366F1" },
-              { label: "Solidity", top: "20%", right: "-4%", color: "#A78BFA" },
-              { label: "AI/ML", bottom: "18%", left: "-4%", color: "#2DD4BF" },
-              { label: "Web3", bottom: "8%", right: "5%", color: "#F59E0B" },
-            ].map((p) => (
-              <motion.div
-                key={p.label}
-                className="absolute glass px-3 py-1.5 rounded-xl text-xs font-semibold text-[var(--fg)] border border-white/10 z-10"
-                style={{ ...p, color: p.color, borderColor: `${p.color}25` }}
-                animate={{ y: [0, -8, 0] }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              >
-                {p.label}
-              </motion.div>
-            ))}
-
-            {/* Profile image */}
-            <div className="relative w-56 h-64 sm:w-64 sm:h-72 z-10">
-              <div
-                className="absolute inset-0 rounded-3xl"
-                style={{
-                  background:
-                    "linear-gradient(135deg,rgba(99,102,241,0.3),rgba(167,139,250,0.2))",
-                  filter: "blur(1px)",
-                }}
-              />
-              <Image
-                src="/profile.jpg"
-                alt="Manikant Kumar — AI Developer"
-                fill
-                priority
-                className="object-cover object-top mask-bottom"
-                style={{ borderRadius: "1.5rem" }}
-                sizes="(min-width: 1024px) 288px, 224px"
-              />
-            </div>
-          </div>
-
-          {/* ── AI Chat button — visibly below photo ── */}
           <motion.button
+            variants={fadeUp}
             onClick={() => window.dispatchEvent(new CustomEvent("openChatbot"))}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.3, duration: 0.5 }}
-            whileHover={{ scale: 1.06, y: -3 }}
-            whileTap={{ scale: 0.96 }}
-            className="relative z-20 flex items-center gap-2.5 px-5 py-3 rounded-2xl text-sm font-semibold group"
-            style={{
-              background:
-                "linear-gradient(135deg,rgba(99,102,241,0.18),rgba(167,139,250,0.12))",
-              border: "1px solid rgba(99,102,241,0.4)",
-              boxShadow:
-                "0 0 24px rgba(99,102,241,0.25), inset 0 1px 0 rgba(255,255,255,0.06)",
-              backdropFilter: "blur(10px)",
-            }}
+            className={`${styles.assistant} glass`}
+            whileHover={{ y: -2 }}
+            whileTap={{ scale: 0.98 }}
           >
-            {/* Live pulse dot */}
-            <span className="relative flex h-2.5 w-2.5 flex-shrink-0">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2DD4BF] opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#2DD4BF]" />
-            </span>
-            <Sparkles size={15} className="text-[var(--accent2)]" />
-            <span className="text-[var(--fg)] group-hover:text-[var(--fg)] transition-colors">
-              Ask my{" "}
-              <span className="text-[var(--accent2)] font-bold">assistant</span>
-            </span>
-            {/* Arrow hint */}
-            <span className="text-[var(--accent)] text-xs opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all">
-              →
-            </span>
+            <Sparkles size={15} aria-hidden />
+            Ask my assistant
+            <ArrowRight size={14} aria-hidden />
           </motion.button>
+
         </motion.div>
+
       </div>
 
       {/* Scroll hint */}
