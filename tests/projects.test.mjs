@@ -5,7 +5,7 @@ const projects = JSON.parse(
   fs.readFileSync(new URL("../lib/projects.json", import.meta.url), "utf8"),
 );
 test("every project has substantive case-study sections with pinned source references", () => {
-  assert.equal(projects.length, 16);
+  assert.equal(projects.length, 15);
   for (const p of projects) {
     const s = p.caseStudy;
     const sources = new Set(p.evidence.map((e) => e.path));

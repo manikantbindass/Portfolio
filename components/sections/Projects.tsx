@@ -5,6 +5,7 @@ import Link from "next/link";
 import ProjectVisual from "@/components/ProjectVisual";
 import { projects, projectCategories } from "@/lib/projects";
 import { ArrowUpRight, Search, SlidersHorizontal, X } from "lucide-react";
+
 export default function Projects() {
   const [category, setCategory] = useState("All Projects");
   const [query, setQuery] = useState("");
@@ -26,7 +27,7 @@ export default function Projects() {
             </h2>
           </div>
           <p>
-            16 repositories. Six recent highlights.
+            {projects.length} repositories. Six recent highlights.
             <br />
             Explore the decisions behind the code.
           </p>
