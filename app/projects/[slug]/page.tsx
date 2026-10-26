@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import ProjectDetails from "@/components/ProjectDetails";
 import ThemeHeader from "@/components/layout/ThemeHeader";
+import RagGlassHero from "@/components/RagGlassHero";
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
 }
@@ -34,17 +35,12 @@ export default async function ProjectPage({
   const { slug } = await params;
   const p = projects.find((p) => p.slug === slug);
   if (!p) notFound();
-  return (
+  const introduction = (
     <>
-      <ThemeHeader />
-      <main className="content-width case-page">
-        <Link href="/#projects" className="back-link">
-          ← Back to projects
-        </Link>
         <p className="section-label">
           Engineering case study · {p.categories.join(" / ")}
         </p>
-        <h1 className="case-title">{p.title}</h1>
+        <h1 id={slug === "enterprise-rag" ? "rag-project-heading" : undefined} className="case-title">{p.title}</h1>
         <p className="case-subtitle">{p.subtitle}</p>
         <p className="section-intro">{p.description}</p>
         <div className="case-meta">
@@ -71,6 +67,16 @@ export default async function ProjectPage({
             </a>
           )}
         </div>
+    </>
+  );
+  return (
+    <>
+      <ThemeHeader />
+      <main className="content-width case-page">
+        <Link href="/#projects" className="back-link">
+          ← Back to projects
+        </Link>
+        {slug === "enterprise-rag" ? <RagGlassHero>{introduction}</RagGlassHero> : introduction}
         <ProjectDetails project={p} />
         <Link href="/#projects" className="back-link">
           ← Explore all {projects.length} projects
