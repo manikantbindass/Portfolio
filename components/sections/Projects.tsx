@@ -5,6 +5,8 @@ import Link from "next/link";
 import ProjectVisual from "@/components/ProjectVisual";
 import { projects, projectCategories } from "@/lib/projects";
 import { ArrowUpRight, Search, SlidersHorizontal, X } from "lucide-react";
+import DsaChaseScene from "@/components/DsaChaseScene";
+import dsaStyles from "@/components/DsaChaseScene.module.css";
 
 export default function Projects() {
   const [category, setCategory] = useState("All Projects");
@@ -78,9 +80,10 @@ export default function Projects() {
                 duration: 0.4,
                 delay: Math.min((i % 3) * 0.06, 0.12),
               }}
-              className="project-card glass card-hover"
+              className={`project-card glass card-hover${p.slug === "dsa" ? ` ${dsaStyles.card}` : ""}`}
               key={p.id}
             >
+              {p.slug === "dsa" && <DsaChaseScene />}
               <Link
                 className="work-preview"
                 href={`/projects/${p.slug}`}

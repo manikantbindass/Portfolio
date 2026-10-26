@@ -14,6 +14,7 @@ export default function ProjectVisual({
 }) {
   const image = project.screenshots[0];
   const showCat = priority && project.slug === "dsa";
+  const showChase = !priority && project.slug === "dsa";
   return image ? (
     <div className="project-image">
       <Image
@@ -28,11 +29,11 @@ export default function ProjectVisual({
   ) : (
     <div
       className={`project-diagram${showCat ? ` ${styles.diagram}` : ""}`}
-      aria-label={`${project.title} source structure visualization`}
+      aria-label={showChase ? `${project.title} decorative animal scene` : `${project.title} source structure visualization`}
     >
       {showCat && <DsaCatScene />}
       <span className="diagram-label">
-        {project.contentStage === "concept"
+        {showChase ? "STUDY BREAK / IN MOTION" : project.contentStage === "concept"
           ? "PROPOSED WORKFLOW DESIGN"
           : "SYSTEM ARCHITECTURE"}
       </span>
