@@ -9,8 +9,9 @@
   <style>
     .signal{stroke-dasharray:18 1190;animation:flow 14s linear infinite}.second{animation-delay:-7s}
     .pulse{animation:breathe 6s ease-in-out infinite}
+    .node{animation:breathe 7s ease-in-out infinite}.node.second{animation-delay:-3.5s}
     @keyframes flow{to{stroke-dashoffset:-1208}}@keyframes breathe{50%{opacity:.4}}
-    @media(prefers-reduced-motion:reduce){.signal,.pulse{animation:none}}
+    @media(prefers-reduced-motion:reduce){.signal,.pulse,.node{animation:none}}
   </style>
   <g clip-path="url(#bounds)">
     <rect x="1" y="1" width="1398" height="218" rx="26" fill="url(#bg)" stroke="#2b3453"/>
@@ -18,6 +19,9 @@
     <path d="M-80 177C240 52 430 286 710 185S1130 90 1480 179" fill="none" stroke="url(#flow)" stroke-opacity=".12"/>
     <path class="signal" d="M-80 155C240 30 430 264 710 163S1130 68 1480 157" fill="none" stroke="url(#flow)" stroke-width="2"/>
     <path class="signal second" d="M-80 177C240 52 430 286 710 185S1130 90 1480 179" fill="none" stroke="url(#flow)" stroke-width="2"/>
+    <g fill="none" stroke="#a5adff" stroke-opacity=".25"><path d="M114 108h70m-70 0v40h70M1216 108h70m-70 0v40h70"/></g>
+    <g class="node" fill="#182238" stroke="#a5adff" stroke-opacity=".4"><rect x="86" y="94" width="28" height="28" rx="9"/><rect x="184" y="94" width="28" height="28" rx="9"/><rect x="184" y="134" width="28" height="28" rx="9"/></g>
+    <g class="node second" fill="#182238" stroke="#68dacb" stroke-opacity=".4"><rect x="1188" y="94" width="28" height="28" rx="9"/><rect x="1286" y="94" width="28" height="28" rx="9"/><rect x="1286" y="134" width="28" height="28" rx="9"/></g>
     <g text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">
       <text x="700" y="56" fill="#a5adcf" font-size="10" letter-spacing="3.5">FROM AN IDEA TO SOMETHING USEFUL</text>
       <text x="700" y="108" fill="#eef1fc" font-size="37" font-weight="500" letter-spacing="-1">Let's build what's next.</text>

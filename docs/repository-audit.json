@@ -348,21 +348,36 @@
     "contentStage": "source"
   },
   {
-    "project": "FlowNovaAI",
+    "project": "FlowNova AI",
     "repo": "FlowNovaAI",
-    "commit": "ea03cfe58b1b150640410891d474486abf019eb5",
-    "readmeCharacters": 50,
+    "commit": "5c29831e6dbfb02506bcbe768dc87ef7e39ade2a",
+    "readmeCharacters": 9576,
     "sourceFiles": [
-      "README.md"
+      "README.md",
+      "apps/web/package.json",
+      "apps/api/pom.xml",
+      "apps/web/src/components/editor.tsx",
+      "apps/web/src/lib/server/graph.ts",
+      "apps/web/src/lib/server/hosted-api.ts",
+      "apps/web/src/lib/server/store.ts",
+      "apps/web/src/workflows/execute.ts",
+      "apps/web/src/workflows/steps.ts",
+      "docs/ARCHITECTURE.md",
+      "docs/TESTING.md",
+      "docs/DEPLOYMENT.md",
+      "docs/decisions/0002-vercel-hosted-runtime.md",
+      "docs/DESKTOP.md",
+      "docs/assets/README.md",
+      "apps/desktop/package.json"
     ],
-    "screenshots": 0,
-    "demo": null,
-    "limitations": "The public branch contains README.md only; the case study explicitly labels its architecture and stack as a proposed design.",
-    "reviewedAt": "2026-10-25T10:05:44.605518+00:00",
-    "detailedFeatures": 3,
-    "technologyRoles": 4,
-    "engineeringDecisions": 2,
-    "contentStage": "concept",
+    "screenshots": 9,
+    "demo": "https://flownova-ai.vercel.app",
+    "limitations": "The hosted app is a bounded, browser-scoped evaluation workspace with public demo credentials. Cookie retention controls access to its private records; it is not verified organizational identity or an enterprise production release. Hosted limits include 25 workflows, 20 versions per workflow, 50 runs, two active runs, and 2 MB workspace data. Provider limits also apply. External connectors, browser OIDC onboarding, retrieval, billing, and advanced agents remain planned. OpenAI nodes require server configuration and can incur provider charges. Live model calls and performance targets remain unverified; external effects are not guaranteed exactly once.",
+    "reviewedAt": "2026-10-26T22:12:51Z",
+    "detailedFeatures": 6,
+    "technologyRoles": 10,
+    "engineeringDecisions": 3,
+    "contentStage": "source",
     "publicBranches": [
       "main"
     ]

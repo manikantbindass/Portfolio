@@ -1,5 +1,366 @@
 [
   {
+    "id": "flownova",
+    "slug": "flownova",
+    "title": "FlowNova AI",
+    "subtitle": "Visual workflows · publish once, inspect every step",
+    "description": "A live visual workflow workbench for building graphs, publishing immutable versions, executing real nodes, and inspecting saved results, with a Vercel-native demo and a Spring Boot runtime.",
+    "categories": [
+      "AI / Machine Learning",
+      "Developer Tools",
+      "Full Stack",
+      "Backend / Cloud / DevOps"
+    ],
+    "tags": [
+      "Next.js",
+      "TypeScript",
+      "React Flow",
+      "Vercel Workflows",
+      "Vercel Blob",
+      "Spring Boot",
+      "Java",
+      "PostgreSQL",
+      "Electron"
+    ],
+    "github": "https://github.com/manikantbindass/FlowNovaAI",
+    "live": "https://flownova-ai.vercel.app",
+    "featured": true,
+    "status": "Live hosted workflow demo · relational runtime available",
+    "updatedAt": "2026-10-26T21:45:11Z",
+    "users": "Builders exploring visual automation, versioned execution, and inspectable workflow results.",
+    "features": [
+      "Visual graph editor",
+      "Immutable publishing",
+      "Durable hosted execution",
+      "Private persisted workspaces",
+      "Bounded processing nodes",
+      "Windows desktop client"
+    ],
+    "architecture": [
+      "Next.js + React Flow editor",
+      "Session-protected hosted API",
+      "Private Blob + conditional writes",
+      "Vercel Workflows + node checkpoints",
+      "Optional Spring Boot / SQL runtime"
+    ],
+    "challenges": [
+      "The hosted app is a bounded, browser-scoped evaluation workspace with public demo credentials. Cookie retention controls access to its private records; it is not verified organizational identity or an enterprise production release.",
+      "Hosted limits include 25 workflows, 20 versions per workflow, 50 runs, two active runs, and 2 MB workspace data. Provider limits also apply. External connectors, browser OIDC onboarding, retrieval, billing, and advanced agents remain planned.",
+      "OpenAI nodes require server configuration and can incur provider charges. Live model calls and performance targets remain unverified; external effects are not guaranteed exactly once."
+    ],
+    "screenshots": [
+      {
+        "src": "/projects/flownova/editor.png",
+        "caption": "Visual workflow editor — real hosted graph with configurable nodes, connections, draft saving, and publishing.",
+        "source": "https://github.com/manikantbindass/FlowNovaAI/blob/5c29831e6dbfb02506bcbe768dc87ef7e39ade2a/docs/assets/screenshots/editor.png"
+      },
+      {
+        "src": "/projects/flownova/landing.png",
+        "caption": "FlowNova AI landing page — hosted workflow workbench and available runtime choices.",
+        "source": "https://github.com/manikantbindass/FlowNovaAI/blob/5c29831e6dbfb02506bcbe768dc87ef7e39ade2a/docs/assets/screenshots/landing.png"
+      },
+      {
+        "src": "/projects/flownova/overview.png",
+        "caption": "Workspace overview — actual recorded workflow and execution metrics in a documentation workspace.",
+        "source": "https://github.com/manikantbindass/FlowNovaAI/blob/5c29831e6dbfb02506bcbe768dc87ef7e39ade2a/docs/assets/screenshots/overview.png"
+      },
+      {
+        "src": "/projects/flownova/published.png",
+        "caption": "Published workflow — immutable workflow snapshot captured from the real hosted application.",
+        "source": "https://github.com/manikantbindass/FlowNovaAI/blob/5c29831e6dbfb02506bcbe768dc87ef7e39ade2a/docs/assets/screenshots/published.png"
+      },
+      {
+        "src": "/projects/flownova/run-input.png",
+        "caption": "Run configuration — JSON execution input for a published workflow.",
+        "source": "https://github.com/manikantbindass/FlowNovaAI/blob/5c29831e6dbfb02506bcbe768dc87ef7e39ade2a/docs/assets/screenshots/run-input.png"
+      },
+      {
+        "src": "/projects/flownova/execution.png",
+        "caption": "Completed execution — recorded node results and event timeline from a real hosted workflow.",
+        "source": "https://github.com/manikantbindass/FlowNovaAI/blob/5c29831e6dbfb02506bcbe768dc87ef7e39ade2a/docs/assets/screenshots/execution.png"
+      },
+      {
+        "src": "/projects/flownova/history.png",
+        "caption": "Execution history — persisted runs and their recorded statuses in the documentation workspace.",
+        "source": "https://github.com/manikantbindass/FlowNovaAI/blob/5c29831e6dbfb02506bcbe768dc87ef7e39ade2a/docs/assets/screenshots/history.png"
+      },
+      {
+        "src": "/projects/flownova/analytics.png",
+        "caption": "Workspace analytics — actual stored documentation-workspace records, not production-scale metrics.",
+        "source": "https://github.com/manikantbindass/FlowNovaAI/blob/5c29831e6dbfb02506bcbe768dc87ef7e39ade2a/docs/assets/screenshots/analytics.png"
+      },
+      {
+        "src": "/projects/flownova/mobile.png",
+        "caption": "FlowNova phone layout — real 390-pixel responsive hosted application capture.",
+        "source": "https://github.com/manikantbindass/FlowNovaAI/blob/5c29831e6dbfb02506bcbe768dc87ef7e39ade2a/docs/assets/screenshots/mobile.png"
+      }
+    ],
+    "evidence": [
+      {
+        "path": "README.md",
+        "url": "https://github.com/manikantbindass/FlowNovaAI/blob/5c29831e6dbfb02506bcbe768dc87ef7e39ade2a/README.md"
+      },
+      {
+        "path": "apps/web/package.json",
+        "url": "https://github.com/manikantbindass/FlowNovaAI/blob/5c29831e6dbfb02506bcbe768dc87ef7e39ade2a/apps/web/package.json"
+      },
+      {
+        "path": "apps/api/pom.xml",
+        "url": "https://github.com/manikantbindass/FlowNovaAI/blob/5c29831e6dbfb02506bcbe768dc87ef7e39ade2a/apps/api/pom.xml"
+      },
+      {
+        "path": "apps/web/src/components/editor.tsx",
+        "url": "https://github.com/manikantbindass/FlowNovaAI/blob/5c29831e6dbfb02506bcbe768dc87ef7e39ade2a/apps/web/src/components/editor.tsx"
+      },
+      {
+        "path": "apps/web/src/lib/server/graph.ts",
+        "url": "https://github.com/manikantbindass/FlowNovaAI/blob/5c29831e6dbfb02506bcbe768dc87ef7e39ade2a/apps/web/src/lib/server/graph.ts"
+      },
+      {
+        "path": "apps/web/src/lib/server/hosted-api.ts",
+        "url": "https://github.com/manikantbindass/FlowNovaAI/blob/5c29831e6dbfb02506bcbe768dc87ef7e39ade2a/apps/web/src/lib/server/hosted-api.ts"
+      },
+      {
+        "path": "apps/web/src/lib/server/store.ts",
+        "url": "https://github.com/manikantbindass/FlowNovaAI/blob/5c29831e6dbfb02506bcbe768dc87ef7e39ade2a/apps/web/src/lib/server/store.ts"
+      },
+      {
+        "path": "apps/web/src/workflows/execute.ts",
+        "url": "https://github.com/manikantbindass/FlowNovaAI/blob/5c29831e6dbfb02506bcbe768dc87ef7e39ade2a/apps/web/src/workflows/execute.ts"
+      },
+      {
+        "path": "apps/web/src/workflows/steps.ts",
+        "url": "https://github.com/manikantbindass/FlowNovaAI/blob/5c29831e6dbfb02506bcbe768dc87ef7e39ade2a/apps/web/src/workflows/steps.ts"
+      },
+      {
+        "path": "docs/ARCHITECTURE.md",
+        "url": "https://github.com/manikantbindass/FlowNovaAI/blob/5c29831e6dbfb02506bcbe768dc87ef7e39ade2a/docs/ARCHITECTURE.md"
+      },
+      {
+        "path": "docs/TESTING.md",
+        "url": "https://github.com/manikantbindass/FlowNovaAI/blob/5c29831e6dbfb02506bcbe768dc87ef7e39ade2a/docs/TESTING.md"
+      },
+      {
+        "path": "docs/DEPLOYMENT.md",
+        "url": "https://github.com/manikantbindass/FlowNovaAI/blob/5c29831e6dbfb02506bcbe768dc87ef7e39ade2a/docs/DEPLOYMENT.md"
+      },
+      {
+        "path": "docs/decisions/0002-vercel-hosted-runtime.md",
+        "url": "https://github.com/manikantbindass/FlowNovaAI/blob/5c29831e6dbfb02506bcbe768dc87ef7e39ade2a/docs/decisions/0002-vercel-hosted-runtime.md"
+      },
+      {
+        "path": "docs/DESKTOP.md",
+        "url": "https://github.com/manikantbindass/FlowNovaAI/blob/5c29831e6dbfb02506bcbe768dc87ef7e39ade2a/docs/DESKTOP.md"
+      },
+      {
+        "path": "docs/assets/README.md",
+        "url": "https://github.com/manikantbindass/FlowNovaAI/blob/5c29831e6dbfb02506bcbe768dc87ef7e39ade2a/docs/assets/README.md"
+      },
+      {
+        "path": "apps/desktop/package.json",
+        "url": "https://github.com/manikantbindass/FlowNovaAI/blob/5c29831e6dbfb02506bcbe768dc87ef7e39ade2a/apps/desktop/package.json"
+      }
+    ],
+    "sourceCommit": "5c29831e6dbfb02506bcbe768dc87ef7e39ade2a",
+    "verifiedAt": "2026-10-26T22:12:51Z",
+    "problem": "Visual automation needs clear graph semantics, safe publishing, and inspectable results so that changing a draft does not silently change an execution already in progress.",
+    "solution": "Author and validate node graphs, publish immutable versions, execute the chosen snapshot, and persist step outputs and events in an accessible workflow workbench.",
+    "technicalDetails": [
+      "The React Flow editor supports node configuration, connections, zoom/pan, minimap, layout, undo/redo, copy/paste, JSON import/export, and explicit revision-aware draft saving.",
+      "Hosted mode combines sealed HttpOnly sessions, private browser-scoped Blob workspace records, ETag conditional writes, and Vercel Workflows. Checkpointed steps record results, skip unmatched branches, apply bounds, and persist completion or failure.",
+      "A separate Spring Boot runtime uses Flyway/JDBC, H2 or PostgreSQL, a SQL execution queue, leases, recovery bounds, and node checkpoints. The Windows Electron client opens the hosted app and requires internet access."
+    ],
+    "caseStudy": {
+      "architectureSummary": "A Next.js and React Flow workbench shares its editor contracts across two explicit execution modes. Hosted Vercel mode uses sealed session cookies, private browser-scoped Blob documents with optimistic conditional writes, and Vercel Workflows for durable execution. The alternative Spring Boot mode uses a relational database and leased SQL queue. Both preserve immutable published snapshots, recorded node outputs, execution events, and bounded processing; the desktop client connects to the hosted UI.",
+      "features": [
+        {
+          "title": "Visual graph authoring",
+          "description": "Create and connect typed nodes, configure JSON, inspect validation issues, save drafts explicitly, and use undo/redo, copy/paste, automatic layout, minimap, and graph import/export.",
+          "source": "apps/web/src/components/editor.tsx"
+        },
+        {
+          "title": "Revision-aware immutable publishing",
+          "description": "The hosted API detects stale draft revisions, validates supported graph structure, and publishes a new immutable version. Runs reference that version even when later draft edits change the canvas.",
+          "source": "apps/web/src/lib/server/hosted-api.ts"
+        },
+        {
+          "title": "Durable hosted execution",
+          "description": "Vercel Workflows traverses the published graph, handles condition branches and bounded delays, resumes recorded node checkpoints, and writes completion, failure, cancellation, and timeout states.",
+          "source": "apps/web/src/workflows/execute.ts"
+        },
+        {
+          "title": "Private persisted workspaces",
+          "description": "Workspace documents retain workflows, versions, runs, events, and audit records in private Blob storage. Version-keyed reads and ETag conditional writes detect concurrent changes instead of silently overwriting them.",
+          "source": "apps/web/src/lib/server/store.ts"
+        },
+        {
+          "title": "Bounded processing and optional AI",
+          "description": "Manual input, JSON mapping, conditions, bounded delays, collection operations, and assertions form the deterministic core. Optional OpenAI steps require server credentials and fail clearly when unconfigured.",
+          "source": "apps/web/src/workflows/steps.ts"
+        },
+        {
+          "title": "Portable Windows client",
+          "description": "An Electron client opens the live hosted workbench with a separate session profile. It requires internet access and provides an online desktop entry point rather than bundling an offline execution backend.",
+          "source": "docs/DESKTOP.md"
+        }
+      ],
+      "technologies": [
+        {
+          "name": "Next.js",
+          "description": "Hosts the workbench, same-origin API routes, login, and runtime setup pages.",
+          "stage": "source",
+          "version": "16.4.3",
+          "source": "apps/web/package.json"
+        },
+        {
+          "name": "TypeScript",
+          "description": "Defines graph contracts, hosted validation, storage records, and durable step behavior.",
+          "stage": "source",
+          "version": "6.0.3",
+          "source": "apps/web/package.json"
+        },
+        {
+          "name": "React",
+          "description": "Coordinates editor interactions, workflow pages, execution views, and responsive navigation.",
+          "stage": "source",
+          "version": "19.3.1",
+          "source": "apps/web/package.json"
+        },
+        {
+          "name": "React Flow",
+          "description": "Supplies node editing, handles, graph connections, viewport controls, and the minimap.",
+          "stage": "source",
+          "version": "12.12.0",
+          "source": "apps/web/package.json"
+        },
+        {
+          "name": "Vercel Workflows",
+          "description": "Runs durable hosted orchestration and delays with replayable checkpoint-writing steps.",
+          "stage": "source",
+          "version": "5.2.3",
+          "source": "apps/web/package.json"
+        },
+        {
+          "name": "Vercel Blob",
+          "description": "Persists private demo workspaces using metadata ETags and conditional writes.",
+          "stage": "source",
+          "version": "2.8.2",
+          "source": "apps/web/package.json"
+        },
+        {
+          "name": "Spring Boot",
+          "description": "Provides the alternative Java API, authorization, relational workflow service, and worker runtime.",
+          "stage": "source",
+          "version": "4.0.8",
+          "source": "apps/api/pom.xml"
+        },
+        {
+          "name": "Java",
+          "description": "Implements relational execution, queue leasing, recovery, and backend validation.",
+          "stage": "source",
+          "version": "21+",
+          "source": "apps/api/pom.xml"
+        },
+        {
+          "name": "PostgreSQL",
+          "description": "Supports the relational runtime; local development defaults to file-backed H2.",
+          "stage": "source",
+          "source": "docs/ARCHITECTURE.md"
+        },
+        {
+          "name": "Electron",
+          "description": "Packages an online Windows x64 desktop client for the same hosted application.",
+          "stage": "source",
+          "version": "45.0.0",
+          "source": "apps/desktop/package.json"
+        }
+      ],
+      "decisions": [
+        {
+          "title": "Support a working Vercel-native demo",
+          "description": "Use Next.js Functions, private Blob storage, and durable Workflows so visitors can author and execute without deploying a Java server.",
+          "tradeoff": "TypeScript hosted steps coexist with Java execution semantics and need contract alignment. Blob documents and demo quotas are not a scalable relational replacement.",
+          "source": "docs/decisions/0002-vercel-hosted-runtime.md"
+        },
+        {
+          "title": "Publish snapshots rather than mutable drafts",
+          "description": "Separate revision-aware authoring from published versions and execution records.",
+          "tradeoff": "Changing the canvas requires another explicit publish before runs can use it, but active runs retain a stable graph and an inspectable version.",
+          "source": "apps/web/src/lib/server/hosted-api.ts"
+        },
+        {
+          "title": "Bound execution before broadening integrations",
+          "description": "Validate node kinds, branch handles, graph size, input/output limits, and deadlines; record checkpoint and terminal states.",
+          "tradeoff": "The system excludes arbitrary code and external app connectors. Provider effects may repeat after retries and no exactly-once or throughput guarantee is claimed.",
+          "source": "apps/web/src/lib/server/graph.ts"
+        }
+      ],
+      "outcomes": [
+        {
+          "title": "Live authoring-to-execution journey",
+          "description": "The hosted app supports sign-in, graph editing, draft saving, publication, real deterministic execution, stored outputs, and history. Documentation captures show actual records from a dedicated workflow workspace.",
+          "source": "README.md"
+        },
+        {
+          "title": "Repository verification evidence",
+          "description": "The project reports 20 Java tests, 19 frontend/runtime tests, four live browser tests, and hosted HTTP smoke checks. These are repository-reported checks, not portfolio-run load tests or a production-readiness claim.",
+          "source": "docs/TESTING.md"
+        },
+        {
+          "title": "Application and documentation deliverables",
+          "description": "Nine original screenshots, a capture-based animated journey, a project PDF, an editable PowerPoint, and an online Windows desktop client accompany the web and relational runtime source.",
+          "source": "README.md"
+        }
+      ],
+      "workflow": [
+        "Build and configure a node graph.",
+        "Save, validate, and publish an immutable version.",
+        "Supply JSON input and execute the published workflow.",
+        "Inspect persisted node outputs, events, and execution history."
+      ],
+      "commands": [
+        "npm ci",
+        "# API terminal: JDK 21+; set SERVER_PORT=8181",
+        "cd apps/api",
+        "./mvnw spring-boot:run",
+        "# Separate web terminal, from repository root:",
+        "# Set API_ORIGIN=http://127.0.0.1:8181",
+        "npm run dev --workspace apps/web -- --port 3210"
+      ],
+      "setup": "Open the hosted app and use the documented demo/demo evaluation login; visitors need no Java or database setup. Local relational mode requires Node.js 22+ and JDK 21+, with separate API and web terminals. The Maven wrapper is mvnw.cmd on Windows. Consult the repository setup guide for environment variables. OpenAI nodes require an owner-configured server key; browser demo workspaces and desktop sessions retain separate data."
+    },
+    "contentStage": "source",
+    "walkthrough": {
+      "src": "/projects/flownova/workflow-demo.gif",
+      "poster": "/projects/flownova/editor.png",
+      "caption": "Build → publish → enter input → execute → inspect results. An animated sequence of real hosted captures; frame timing is illustrative, not a continuous recording or benchmark.",
+      "source": "https://github.com/manikantbindass/FlowNovaAI/blob/5c29831e6dbfb02506bcbe768dc87ef7e39ade2a/docs/assets/workflow-demo.gif"
+    },
+    "resources": [
+      {
+        "label": "Project guide · PDF",
+        "url": "https://github.com/manikantbindass/FlowNovaAI/blob/5c29831e6dbfb02506bcbe768dc87ef7e39ade2a/docs/guides/FlowNova-AI-Project-Guide.pdf",
+        "description": "Detailed 21-page project explanation with real application screens."
+      },
+      {
+        "label": "Project overview · PowerPoint",
+        "url": "https://github.com/manikantbindass/FlowNovaAI/blob/5c29831e6dbfb02506bcbe768dc87ef7e39ade2a/docs/guides/FlowNova-AI-Project-Overview.pptx",
+        "description": "Editable 23-slide overview of the product, architecture, and workflow journey."
+      },
+      {
+        "label": "Windows desktop download",
+        "url": "https://github.com/manikantbindass/FlowNovaAI/releases/latest",
+        "description": "Portable x64 online client. The executable is unsigned; release documentation includes checksum instructions."
+      },
+      {
+        "label": "Runtime architecture",
+        "url": "https://github.com/manikantbindass/FlowNovaAI/blob/5c29831e6dbfb02506bcbe768dc87ef7e39ade2a/architecture.md",
+        "description": "Hosted Vercel and Java relational execution paths, boundaries, and trade-offs."
+      }
+    ],
+    "architectureReference": "flowchart LR\n  Editor[Next.js + React Flow] --> API[Same-origin session API]\n  API --> Hosted[Hosted TypeScript adapter]\n  Hosted --> Blob[(Private Blob + ETag writes)]\n  Hosted --> Durable[Vercel Workflows]\n  Durable --> Nodes[Deterministic steps / configured AI]\n  Nodes --> Blob\n  API -->|optional API_ORIGIN| Java[Spring Boot API + SQL queue]\n  Java --> SQL[(H2 local / PostgreSQL)]\n  Worker[Leased Java worker] --> SQL\n  Desktop[Windows Electron client] --> Editor"
+  },
+  {
     "id": "enterprise-rag",
     "slug": "enterprise-rag",
     "title": "Enterprise RAG Knowledge Assistant",
@@ -493,126 +854,6 @@
       "setup": "Use Docker with Linux containers and Compose for the full stack. The public demo has no cluster/model attached. Follow setup guidance for local identity, optional monitoring, and real namespace credentials."
     },
     "contentStage": "source"
-  },
-  {
-    "id": "flownova",
-    "slug": "flownova",
-    "title": "FlowNovaAI",
-    "subtitle": "Agent workflow automation concept",
-    "description": "An AI agent workflow automation builder concept, with a proposed editor, execution lifecycle, and run-history design.",
-    "categories": ["AI / Machine Learning", "Developer Tools"],
-    "tags": [],
-    "github": "https://github.com/manikantbindass/FlowNovaAI",
-    "live": null,
-    "featured": true,
-    "status": "Agent workflow project brief",
-    "updatedAt": "2026-10-25T00:57:32Z",
-    "users": "Intended direction: a builder for agent automation workflows.",
-    "features": [
-      "Agent workflow builder",
-      "Execution lifecycle",
-      "Inspectable results"
-    ],
-    "architecture": [
-      "Workflow canvas",
-      "Execution coordinator",
-      "Agent tasks",
-      "Run history"
-    ],
-    "challenges": [
-      "The public repository supplies a project brief. The architecture, technology choices, and milestones on this page are explicitly proposed design work."
-    ],
-    "screenshots": [],
-    "evidence": [
-      {
-        "path": "README.md",
-        "url": "https://github.com/manikantbindass/FlowNovaAI/blob/ea03cfe58b1b150640410891d474486abf019eb5/README.md"
-      }
-    ],
-    "sourceCommit": "ea03cfe58b1b150640410891d474486abf019eb5",
-    "verifiedAt": "2026-10-25T10:05:44.605518+00:00",
-    "problem": "The README identifies agent workflow automation as the intended problem area.",
-    "solution": "A workflow builder is the stated direction; no implementation or concrete solution architecture has been published.",
-    "technicalDetails": [
-      "The inspected repository contains README.md only. No dependency manifest, application source, or screenshot assets were present."
-    ],
-    "caseStudy": {
-      "architectureSummary": "FlowNovaAI is currently an AI agent workflow automation project brief. The canvas, execution coordinator, agent steps, and run-history flow shown here is an explicitly proposed implementation plan, not a diagram of existing application code.",
-      "features": [
-        {
-          "title": "Agent workflow builder",
-          "description": "The README establishes the builder direction. A proposed first milestone is a typed workflow definition and an editor for agent tasks and dependencies.",
-          "source": "README.md"
-        },
-        {
-          "title": "Execution lifecycle",
-          "description": "A proposed run model would track queued, running, succeeded, and failed tasks so the interface can report actual execution state.",
-          "source": "README.md"
-        },
-        {
-          "title": "Inspectable results",
-          "description": "Proposed step-level inputs, outputs, and failure records would support deliberate retries and debugging before external integrations are enabled.",
-          "source": "README.md"
-        }
-      ],
-      "technologies": [
-        {
-          "name": "TypeScript",
-          "description": "Proposed for shared editor/API workflow contracts. No language manifest has been published.",
-          "stage": "proposed"
-        },
-        {
-          "name": "React",
-          "description": "Proposed for a component-based workflow canvas; it is not an existing dependency.",
-          "stage": "proposed"
-        },
-        {
-          "name": "FastAPI",
-          "description": "Proposed option for a Python execution API and model-provider adapters; this is not a confirmed framework choice.",
-          "stage": "proposed"
-        },
-        {
-          "name": "PostgreSQL",
-          "description": "Proposed option for durable workflow/run history; no database code is published.",
-          "stage": "proposed"
-        }
-      ],
-      "decisions": [
-        {
-          "title": "Define semantics before integrations",
-          "description": "Begin with task inputs, dependency ordering, and a durable run model.",
-          "tradeoff": "This is a design recommendation. Retries, idempotency, provider permissions, and tests still need implementation.",
-          "source": "README.md"
-        },
-        {
-          "title": "Distinguish the brief from the build plan",
-          "description": "Keep the published goal separate from proposed implementation choices.",
-          "tradeoff": "A detailed plan is useful but must not be represented as an already deployed workflow engine.",
-          "source": "README.md"
-        }
-      ],
-      "outcomes": [
-        {
-          "title": "Published artifact",
-          "description": "README.md contains the name FlowNovaAI and the description AI Agent Workflow Automation Builder. The main branch is the only public branch at this review.",
-          "source": "README.md"
-        },
-        {
-          "title": "Proposed first deliverable",
-          "description": "A minimal editor, validated workflow definition, and local step runner would turn the brief into a runnable prototype.",
-          "source": "README.md"
-        }
-      ],
-      "workflow": [
-        "Proposed: define tasks and dependencies.",
-        "Proposed: validate the workflow and create a run.",
-        "Proposed: execute tasks and record outputs/errors.",
-        "Proposed: inspect run history before enabling external side effects."
-      ],
-      "commands": [],
-      "setup": "The public branch has no dependency manifest or executable setup. This page supplies the available brief and a clearly labeled design proposal, without claiming the proposed stack exists."
-    },
-    "contentStage": "concept"
   },
   {
     "id": "dsa",

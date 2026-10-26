@@ -49,7 +49,7 @@ The original cosmic identity lives on: **rolling technology marquees, a scroll-d
 | ⌨️ **Typewriter Hero** | Rotating Full Stack, Blockchain, and Backend/DevSecOps roles beside the existing profile photograph |
 | 🚀 **15 Project Case Studies** | Six recent highlights, multiple categories, technology badges, search, repository links, and verified demo URLs |
 | 🗂️ **Detailed Project Tabs** | Overview, Architecture, Features, Technology Stack, Gallery, Engineering Challenges, and Results and Links |
-| 🖼️ **Genuine Project Galleries** | 17 repository captures across five projects; labeled source diagrams where screenshots are unavailable |
+| 🖼️ **Genuine Project Galleries** | 26 repository captures across six projects; labeled source diagrams where screenshots are unavailable |
 | 📄 **Three Resume Perspectives** | Full Stack, DevOps, and AI/ML PDFs with independent previews, downloads, and new-tab actions |
 | 📊 **Verified Statistics** | Official LeetCode GraphQL and GitHub REST APIs, six-hour caching, verification timestamps, and honest snapshot fallbacks |
 | 🤖 **Portfolio Guide** | Cost-free curated answers from shared project, resume, skills, experience, and statistics data |
@@ -103,16 +103,16 @@ The existing assistant keeps its **zero LLM API cost** architecture. It answers 
 
 ## 🚀 Project Showcase
 
-**15 real repositories** with their own technical case-study routes. **⭐ marks the six recent highlights**, ordered using recorded public GitHub push timestamps. Lumina’s repository and deployment were refreshed on 26 October 2026.
+**15 real repositories** with their own technical case-study routes. **⭐ marks the six recent highlights**, ordered using recorded public GitHub push timestamps. Lumina was refreshed on 26 October 2026 and FlowNova AI on 27 October 2026.
 
 | Project / Case Study | Description | Technologies | GitHub |
 |---|---|---|---|
+| 🌱 [FlowNova AI](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/flownova) ⭐ | A [live visual workflow workbench](https://flownova-ai.vercel.app) with graph editing, immutable publishing, durable execution, and persisted node results. | Next.js · React Flow · Vercel Workflows · Spring Boot | [Source](https://github.com/manikantbindass/FlowNovaAI) |
 | 🧠 [Enterprise RAG Knowledge Assistant · Lumina](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/enterprise-rag) ⭐ | Authenticated document ingestion, tenant-scoped BM25, cited streaming conversations, and a [live product tour](https://enterprise-rag-knowledge-assistant-three.vercel.app). | Next.js · TypeScript · FastAPI · SQLite · BM25 | [Source](https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant) |
 | ☁️ [AutoHealOps](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/autohealops) ⭐ | An operations console for workload telemetry, explainable fault detection, and bounded recovery workflows, with an isolated public browser simulation. | React · FastAPI · Python · Kubernetes | [Source](https://github.com/manikantbindass/AutoHealOps-Self-Healing-Kubernetes-Cluster-with-AI-Fault-Detection) |
-| 🌱 [FlowNovaAI](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/flownova) ⭐ | A newly created repository describing an AI agent workflow automation builder. | Not published yet | [Source](https://github.com/manikantbindass/FlowNovaAI) |
 | 📚 [DSA Preparation](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/dsa) ⭐ | A structured collection of algorithm solutions, pattern notes, contest work, and synchronized LeetCode progress. | Java · Python · Go · Algorithms | [Source](https://github.com/manikantbindass/DSA-Preparation-FAANG) |
 | 🔍 [TraceHunt AI](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/tracehunt) ⭐ | An observability workspace bringing endpoint checks, structured logs, anomaly rules, and incident evidence into one place. | Next.js · FastAPI · PostgreSQL · Redis | [Source](https://github.com/manikantbindass/Tracehunt) |
-| 📊 [FinovaIQ](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/finovaiq) ⭐ | A finance dashboard with manual accounts, precise transaction accounting, budgets, portfolios, and an explicitly labeled demo copilot. | Next.js · NestJS · Prisma · PostgreSQL | [Source](https://github.com/manikantbindass/FinovaIQ-AI-Personal-Finance-Investment-Dashboard) |
+| 📊 [FinovaIQ](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/finovaiq) | A finance dashboard with manual accounts, precise transaction accounting, budgets, portfolios, and an explicitly labeled demo copilot. | Next.js · NestJS · Prisma · PostgreSQL | [Source](https://github.com/manikantbindass/FinovaIQ-AI-Personal-Finance-Investment-Dashboard) |
 | ⚡ [FlowPilot — SaaS Landing Page](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/flowpilot) | A responsive SaaS demonstration with a workflow sandbox, seat-based pricing calculator, and a trial configuration modal. | React · TypeScript · Tailwind CSS · Vite | [Source](https://github.com/manikantbindass/SaaS-Product-Landing-Page-with-Interactive-Pricing-Demo) |
 | 🎟️ [ChainPass](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/chainpass) | A ticketing application with transactional inventory, private wallets, signed QR admission, and optional on-chain issuance proofs. | React · TypeScript · Fastify · PostgreSQL | [Source](https://github.com/manikantbindass/Blockchain-Based-Smart-Ticket-System-Concert-railway-public-and-Private-Transport-) |
 | 🛡️ [RemoteShield X](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/remoteshield) | A desktop browser and administration toolkit with Tauri, a Node gateway, VPN checks, and mobile project assets. | Tauri · React · TypeScript · Express | [Source](https://github.com/manikantbindass/RdPBrowser) |
@@ -123,9 +123,21 @@ The existing assistant keeps its **zero LLM API cost** architecture. It answers 
 | 🔗 [AutoLedger AI](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/autoledger) | A blockchain and reinforcement-learning exploration with a React dashboard and a simulated FastAPI network-state feed. | Python · PyTorch · FastAPI · React | [Source](https://github.com/manikantbindass/AutoLedgerAI-Self-healing-blockchain-network-using-reinforcement-learning) |
 | 🐧 [AI-Adaptive Linux Scheduler](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/linux-scheduler) | A full-stack simulation of process metrics and rule-based priority adjustments, visualized through a responsive monitoring dashboard. | React · Vite · Express · Recharts | [Source](https://github.com/manikantbindass/AI-adaptive-LINUX-Schedular-Dashboard-for-workload-optimization) |
 
-Each case study explains scope, architecture, implementation details, evidence, and trade-offs. **FlowNovaAI is currently README-only**; **Intramind.AI contains a placeholder RAG pipeline**. AutoLedger's dashboard and Linux Scheduler are simulations; AutoHealOps separates its public browser simulation from optional local integrations. These boundaries are stated explicitly on the project pages.
+Each case study explains scope, architecture, implementation details, evidence, and trade-offs. **Intramind.AI contains a placeholder RAG pipeline**. AutoLedger's dashboard and Linux Scheduler are simulations; AutoHealOps separates its public browser simulation from optional local integrations. These boundaries are stated explicitly on the project pages.
 
-**Screenshot coverage:** Lumina / Enterprise RAG (4), TraceHunt AI (3), AutoHealOps (4), FinovaIQ (2), and ChainPass (4). Other entries use labeled source visualizations, never fabricated application screens. See the [repository audit](docs/repository-audit.json) for pinned source evidence.
+**Screenshot coverage:** FlowNova AI (9), Lumina / Enterprise RAG (4), TraceHunt AI (3), AutoHealOps (4), FinovaIQ (2), and ChainPass (4). Other entries use labeled source visualizations, never fabricated application screens. See the [repository audit](docs/repository-audit.json) for pinned source evidence.
+
+### FlowNova AI · from a canvas to a real execution
+
+[Explore the case study](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/flownova) · [Open the hosted app](https://flownova-ai.vercel.app) · [Windows desktop release](https://github.com/manikantbindass/FlowNovaAI/releases/latest)
+
+![Real FlowNova authoring, publication, execution, and result states](public/projects/flownova/workflow-demo.gif)
+
+The animation sequences actual hosted application captures; its timing is illustrative. The portfolio includes all nine screenshots, a playable walkthrough, source-confirmed technology cards, architecture, engineering decisions, setup guidance, and results. The rounded glass title panel has its own pausable workflow constellation animation.
+
+Hosted mode uses private browser-scoped demo workspaces, conditional Blob writes, and Vercel Workflows. Spring Boot with H2/PostgreSQL is a separate runtime. Public demo credentials are for evaluation; optional model calls need server configuration.
+
+[21-page project PDF](https://github.com/manikantbindass/FlowNovaAI/blob/5c29831e6dbfb02506bcbe768dc87ef7e39ade2a/docs/guides/FlowNova-AI-Project-Guide.pdf) · [23-slide PowerPoint](https://github.com/manikantbindass/FlowNovaAI/blob/5c29831e6dbfb02506bcbe768dc87ef7e39ade2a/docs/guides/FlowNova-AI-Project-Overview.pptx) · [Architecture](https://github.com/manikantbindass/FlowNovaAI/blob/5c29831e6dbfb02506bcbe768dc87ef7e39ade2a/architecture.md)
 
 ### Lumina · from documents to evidence
 

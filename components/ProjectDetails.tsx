@@ -4,6 +4,7 @@ import Image from "next/image";
 import ProjectTechnologyStack from "@/components/ProjectTechnologyStack";
 import type { Project } from "@/lib/projects";
 import ProjectVisual from "@/components/ProjectVisual";
+import ProjectWalkthrough from "@/components/ProjectWalkthrough";
 const tabs = [
   "Overview",
   "Architecture",
@@ -229,6 +230,7 @@ export default function ProjectDetails({ project: p }: { project: Project }) {
                   Application captures committed in the repository. Captions
                   identify demo data where shown.
                 </p>
+                {p.walkthrough && <ProjectWalkthrough capture={p.walkthrough} />}
                 <div className="gallery-grid">
                   {p.screenshots.map((shot, i) => (
                     <figure key={shot.src}>
@@ -348,6 +350,16 @@ export default function ProjectDetails({ project: p }: { project: Project }) {
                 </a>
               )}
             </div>
+            {p.resources && (
+              <div className="gallery-source-grid" aria-label="Project downloads and guides">
+                {p.resources.map(resource => (
+                  <article className="glass" key={resource.url}>
+                    <h3><a href={resource.url} target="_blank" rel="noopener noreferrer">{resource.label} ↗</a></h3>
+                    <p>{resource.description}</p>
+                  </article>
+                ))}
+              </div>
+            )}
             <p className="source-note">
               Source snapshot{" "}
               <a

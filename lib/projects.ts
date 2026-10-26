@@ -43,6 +43,8 @@ export interface Project {
   architectureReference?: string;
   challenges: string[];
   screenshots: { src: string; caption: string; source: string }[];
+  walkthrough?: { src: string; poster: string; caption: string; source: string };
+  resources?: { label: string; url: string; description: string }[];
   evidence: { path: string; url: string }[];
   sourceCommit: string;
   verifiedAt: string;

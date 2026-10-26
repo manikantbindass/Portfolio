@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import ProjectDetails from "@/components/ProjectDetails";
 import ThemeHeader from "@/components/layout/ThemeHeader";
 import RagGlassHero from "@/components/RagGlassHero";
+import FlowNovaGlassHero from "@/components/FlowNovaGlassHero";
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
 }
@@ -40,7 +41,7 @@ export default async function ProjectPage({
         <p className="section-label">
           Engineering case study · {p.categories.join(" / ")}
         </p>
-        <h1 id={slug === "enterprise-rag" ? "rag-project-heading" : undefined} className="case-title">{p.title}</h1>
+        <h1 id={slug === "enterprise-rag" ? "rag-project-heading" : slug === "flownova" ? "flownova-project-heading" : undefined} className="case-title">{p.title}</h1>
         <p className="case-subtitle">{p.subtitle}</p>
         <p className="section-intro">{p.description}</p>
         <div className="case-meta">
@@ -76,7 +77,7 @@ export default async function ProjectPage({
         <Link href="/#projects" className="back-link">
           ← Back to projects
         </Link>
-        {slug === "enterprise-rag" ? <RagGlassHero>{introduction}</RagGlassHero> : introduction}
+        {slug === "enterprise-rag" ? <RagGlassHero>{introduction}</RagGlassHero> : slug === "flownova" ? <FlowNovaGlassHero>{introduction}</FlowNovaGlassHero> : introduction}
         <ProjectDetails project={p} />
         <Link href="/#projects" className="back-link">
           ← Explore all {projects.length} projects

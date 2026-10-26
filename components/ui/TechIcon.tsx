@@ -1,6 +1,7 @@
 import type { IconType } from "react-icons";
 import {
   SiCrewai,
+  SiElectron,
   SiD3,
   SiFastify,
   SiFlask,
@@ -54,6 +55,10 @@ import {
 import { FaJava, FaAws } from "react-icons/fa";
 const icons: Record<string, IconType> = {
   "Next.js": SiNextdotjs,
+  "React Flow": SiReact,
+  "Vercel Workflows": SiVercel,
+  "Vercel Blob": SiVercel,
+  Electron: SiElectron,
   "D3.js": SiD3,
   Fastify: SiFastify,
   Flask: SiFlask,

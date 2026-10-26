@@ -56,13 +56,18 @@ test("project-specific explanations are not shared placeholder paragraphs", () =
   ])
     assert(!renderer.includes(filler));
 });
-test("FlowNova proposed design remains separate from source-confirmed technology", () => {
+test("FlowNova describes its hosted implementation with real captures and runtime boundaries", () => {
   const p = projects.find((p) => p.id === "flownova");
-  assert.equal(p.contentStage, "concept");
-  assert.equal(p.tags.length, 0);
-  assert(
-    p.caseStudy.technologies.every((t) => t.stage === "proposed" && !t.version),
-  );
-  assert(p.caseStudy.architectureSummary.includes("proposed"));
-  assert(!p.architecture.some((n) => /not.*published/i.test(n)));
+  assert.equal(p.contentStage, "source");
+  assert.equal(p.live, "https://flownova-ai.vercel.app");
+  assert.equal(p.screenshots.length, 9);
+  assert(p.caseStudy.technologies.every(t => t.stage === "source" && t.source));
+  for (const capture of [...p.screenshots, p.walkthrough]) {
+    assert(fs.existsSync(new URL("../public" + capture.src, import.meta.url)));
+    assert(capture.source.includes("/blob/" + p.sourceCommit + "/"));
+  }
+  assert(p.challenges.some(text => text.includes("browser-scoped")));
+  assert(p.challenges.some(text => text.includes("server configuration")));
+  assert(p.resources.some(link => link.label.includes("PDF")));
+  assert(p.resources.some(link => link.url.endsWith("/releases/latest")));
 });

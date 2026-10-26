@@ -1,0 +1,14 @@
+.scene { opacity: .75; }
+.rings { stroke: var(--accent2); stroke-opacity: .1; transform-origin: 310px 310px; animation: orbit 70s linear infinite; }
+.tracks { stroke: var(--accent2); stroke-opacity: .28; stroke-width: 1.5; }
+.packets { stroke: var(--teal); stroke-width: 2.5; stroke-dasharray: 10 320; animation: travel 6s linear infinite; }
+.packets path:nth-child(3) { stroke: var(--accent2); }
+.node { animation: breathe 8s ease-in-out infinite; }
+.result { animation: result 8s ease-in-out infinite; }
+@keyframes orbit { to { transform: rotate(360deg); } }
+@keyframes travel { to { stroke-dashoffset: -330; } }
+@keyframes breathe { 50% { opacity: .6; } }
+@keyframes result { 50% { opacity: .45; transform: translateY(-5px); } }
+@media (max-width: 900px) { .scene { opacity: .35; } }
+@media (max-width: 600px) { .scene { opacity: .22; } }
+@media (prefers-reduced-motion: reduce) { .scene * { animation: none !important; } }
