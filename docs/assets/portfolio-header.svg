@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="440" viewBox="0 0 1400 440" role="img" aria-labelledby="title desc">
+  <title id="title">Manikant Kumar — AI-Augmented Full Stack Developer</title>
+  <desc id="desc">A softly animated glass workspace in midnight blue, lavender, and teal. Floating panels and moving connections represent AI, full stack engineering, and Web3.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0b1120"/><stop offset="1" stop-color="#10162a"/></linearGradient>
+    <linearGradient id="accent"><stop stop-color="#a5adff"/><stop offset=".55" stop-color="#b4a1f5"/><stop offset="1" stop-color="#68dacb"/></linearGradient>
+    <linearGradient id="glass" x2=".7" y2="1"><stop stop-color="#d5dfff" stop-opacity=".13"/><stop offset="1" stop-color="#d5dfff" stop-opacity=".025"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#818cf8" stop-opacity=".2"/><stop offset="1" stop-color="#818cf8" stop-opacity="0"/></radialGradient>
+    <clipPath id="bounds"><rect x="1" y="1" width="1398" height="438" rx="30"/></clipPath>
+  </defs>
+  <style>
+    .orbit{transform-origin:1110px 210px;animation:orbit 42s linear infinite}
+    .float{animation:float 9s ease-in-out infinite}.reverse{animation-delay:-4.5s}
+    .signal{stroke-dasharray:12 700;animation:signal 10s linear infinite}
+    .pulse{animation:pulse 5s ease-in-out infinite}
+    @keyframes orbit{to{transform:rotate(360deg)}}@keyframes float{50%{transform:translateY(-9px)}}
+    @keyframes signal{to{stroke-dashoffset:-712}}@keyframes pulse{50%{opacity:.35}}
+    @media(prefers-reduced-motion:reduce){.orbit,.float,.signal,.pulse{animation:none}}
+  </style>
+  <g clip-path="url(#bounds)">
+    <rect x="1" y="1" width="1398" height="438" rx="30" fill="url(#bg)" stroke="#2b3453"/>
+    <ellipse cx="1100" cy="180" rx="440" ry="320" fill="url(#glow)"/>
+    <path d="M0 380C350 300 580 470 920 346S1230 312 1400 345" fill="none" stroke="#8c9ad0" stroke-opacity=".1"/>
+    <path d="M0 395C350 315 580 485 920 361S1230 327 1400 360" fill="none" stroke="#b4a1f5" stroke-opacity=".07"/>
+    <g font-family="Segoe UI,Arial,sans-serif">
+      <rect x="64" y="49" width="54" height="54" rx="17" fill="url(#glass)" stroke="#a5adff" stroke-opacity=".3"/>
+      <text x="91" y="84" text-anchor="middle" fill="#e8eaff" font-size="23" font-weight="700">MK</text>
+      <text x="135" y="72" fill="#c1cae1" font-size="11" letter-spacing="3">ENGINEER &amp; BUILDER</text>
+      <text x="135" y="94" fill="#7c8ca8" font-size="11" letter-spacing="1.6">IDEAS INTO WORKING SYSTEMS</text>
+      <text x="60" y="209" fill="#f3f5ff" font-size="74" font-weight="600" letter-spacing="-3">Manikant Kumar.</text>
+      <text x="65" y="264" fill="url(#accent)" font-size="30" letter-spacing="-.6">AI-Augmented Full Stack Developer</text>
+      <text x="66" y="308" fill="#a4afc3" font-size="18">Thoughtful interfaces. Useful intelligence. Systems that connect.</text>
+      <g font-size="11" letter-spacing="1.8" fill="#aab7d3">
+        <circle class="pulse" cx="70" cy="376" r="4" fill="#4bd8c1"/>
+        <text x="86" y="380">APPLIED AI</text><text x="245" y="380">FULL STACK</text><text x="415" y="380">WEB3</text>
+      </g>
+    </g>
+    <g class="orbit" fill="none" stroke="#a5adff" stroke-opacity=".18">
+      <ellipse cx="1110" cy="210" rx="209" ry="145" transform="rotate(-32 1110 210)"/>
+      <ellipse cx="1110" cy="210" rx="209" ry="145" transform="rotate(38 1110 210)"/>
+      <circle cx="925" cy="284" r="5" fill="#b4a1f5" stroke="none"/>
+      <circle cx="1270" cy="93" r="4" fill="#4bd8c1" stroke="none"/>
+    </g>
+    <path d="M890 294H982Q1002 294 1002 274V148Q1002 128 1022 128H1292" fill="none" stroke="#8d9ade" stroke-opacity=".22"/>
+    <path class="signal" d="M890 294H982Q1002 294 1002 274V148Q1002 128 1022 128H1292" fill="none" stroke="#93cfcf" stroke-width="2"/>
+    <g class="float">
+      <rect x="1028" y="100" width="238" height="168" rx="23" fill="url(#glass)" stroke="#aab9ef" stroke-opacity=".27"/>
+      <path d="M1029 139H1265" stroke="#adbbef" stroke-opacity=".16"/>
+      <g fill="#a5adff"><circle cx="1049" cy="120" r="3"/><circle cx="1062" cy="120" r="3" opacity=".55"/><circle cx="1075" cy="120" r="3" opacity=".3"/></g>
+      <g fill="none" stroke="url(#accent)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m1090 180-15 14 15 14m62-28 15 14-15 14m-29-42-9 62"/></g>
+      <path d="M1192 179H1241M1192 194H1228M1192 209H1238M1051 244H1130" stroke="#adbbef" stroke-width="3" stroke-linecap="round" stroke-opacity=".25"/>
+    </g>
+    <g class="float reverse">
+      <rect x="934" y="258" width="188" height="102" rx="21" fill="#182238" fill-opacity=".88" stroke="#9eb1db" stroke-opacity=".3"/>
+      <g transform="translate(963 281)" fill="none" stroke="#a8e4d9" stroke-width="2" stroke-linejoin="round"><path d="m0 14 22-11 22 11-22 11Z"/><path d="m0 25 22 11 22-11M0 36l22 11 22-11"/></g>
+      <path d="M1026 292H1096M1026 308H1082M1026 324H1092" stroke="#b4c4e3" stroke-opacity=".3" stroke-width="3" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>

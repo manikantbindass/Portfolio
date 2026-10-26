@@ -254,23 +254,30 @@
   {
     "project": "Enterprise RAG Knowledge Assistant",
     "repo": "Enterprise-RAG-Knowledge-Assistant",
-    "commit": "d42c64fbfa4d18c3d15d394aa27d579538997028",
-    "readmeCharacters": 8647,
+    "commit": "6fe0e600db542a05bf224e557b0f23590bf85c02",
+    "readmeCharacters": 16156,
     "sourceFiles": [
       "README.md",
-      "backend/api_gateway/requirements.txt",
-      "backend/chat_service/main.py",
       "frontend/package.json",
-      "frontend/src/lib/store.tsx",
-      "tests/unit/test_rag_pipeline.py"
+      "backend/runtime/requirements.txt",
+      "backend/runtime/main.py",
+      "backend/runtime/ingestion.py",
+      "backend/runtime/retrieval.py",
+      "backend/runtime/providers.py",
+      "backend/runtime/database.py",
+      "backend/runtime/tests/test_runtime.py",
+      "frontend/src/lib/runtime.ts",
+      "frontend/src/components/workspace/Workspace.tsx",
+      "frontend/src/components/showcase/Showcase.tsx",
+      "docs/engineering/PROGRESS.md"
     ],
-    "screenshots": 0,
-    "demo": null,
-    "limitations": "The default browser mode performs lexical retrieval and formatted answers. Selecting a model in settings does not establish a live LLM connection or enterprise SSO enforcement.",
-    "reviewedAt": "2026-10-25T10:05:44.624627+00:00",
-    "detailedFeatures": 4,
-    "technologyRoles": 6,
-    "engineeringDecisions": 2,
+    "screenshots": 4,
+    "demo": "https://enterprise-rag-knowledge-assistant-three.vercel.app",
+    "limitations": "The public Vercel deployment is a visual product tour with actual local application screenshots. Authentication, uploads, retrieval, and chat require the separately started local frontend and API. The supported runtime uses lexical BM25 and SQLite. OpenAI or Ollama generation needs server configuration; dense/hybrid retrieval, enterprise SSO, and distributed production infrastructure remain roadmap work.",
+    "reviewedAt": "2026-10-26T06:57:45Z",
+    "detailedFeatures": 6,
+    "technologyRoles": 9,
+    "engineeringDecisions": 3,
     "contentStage": "source"
   },
   {
@@ -345,7 +352,9 @@
     "repo": "FlowNovaAI",
     "commit": "ea03cfe58b1b150640410891d474486abf019eb5",
     "readmeCharacters": 50,
-    "sourceFiles": ["README.md"],
+    "sourceFiles": [
+      "README.md"
+    ],
     "screenshots": 0,
     "demo": null,
     "limitations": "The public branch contains README.md only; the case study explicitly labels its architecture and stack as a proposed design.",
@@ -354,6 +363,8 @@
     "technologyRoles": 4,
     "engineeringDecisions": 2,
     "contentStage": "concept",
-    "publicBranches": ["main"]
+    "publicBranches": [
+      "main"
+    ]
   }
 ]

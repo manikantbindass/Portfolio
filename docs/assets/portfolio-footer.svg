@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="220" viewBox="0 0 1400 220" role="img" aria-labelledby="title desc">
+  <title id="title">Let's build what's next — Manikant Kumar</title>
+  <desc id="desc">A calm glass footer with gently moving lavender and teal connection lines and an invitation to collaborate.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#10162a"/><stop offset="1" stop-color="#0b1120"/></linearGradient>
+    <linearGradient id="flow"><stop stop-color="#818cf8" stop-opacity="0"/><stop offset=".3" stop-color="#a79be6"/><stop offset=".7" stop-color="#6ccbbf"/><stop offset="1" stop-color="#4bd8c1" stop-opacity="0"/></linearGradient>
+    <clipPath id="bounds"><rect x="1" y="1" width="1398" height="218" rx="26"/></clipPath>
+  </defs>
+  <style>
+    .signal{stroke-dasharray:18 1190;animation:flow 14s linear infinite}.second{animation-delay:-7s}
+    .pulse{animation:breathe 6s ease-in-out infinite}
+    @keyframes flow{to{stroke-dashoffset:-1208}}@keyframes breathe{50%{opacity:.4}}
+    @media(prefers-reduced-motion:reduce){.signal,.pulse{animation:none}}
+  </style>
+  <g clip-path="url(#bounds)">
+    <rect x="1" y="1" width="1398" height="218" rx="26" fill="url(#bg)" stroke="#2b3453"/>
+    <path d="M-80 155C240 30 430 264 710 163S1130 68 1480 157" fill="none" stroke="url(#flow)" stroke-opacity=".16"/>
+    <path d="M-80 177C240 52 430 286 710 185S1130 90 1480 179" fill="none" stroke="url(#flow)" stroke-opacity=".12"/>
+    <path class="signal" d="M-80 155C240 30 430 264 710 163S1130 68 1480 157" fill="none" stroke="url(#flow)" stroke-width="2"/>
+    <path class="signal second" d="M-80 177C240 52 430 286 710 185S1130 90 1480 179" fill="none" stroke="url(#flow)" stroke-width="2"/>
+    <g text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">
+      <text x="700" y="56" fill="#a5adcf" font-size="10" letter-spacing="3.5">FROM AN IDEA TO SOMETHING USEFUL</text>
+      <text x="700" y="108" fill="#eef1fc" font-size="37" font-weight="500" letter-spacing="-1">Let's build what's next.</text>
+      <text x="700" y="144" fill="#a4afc3" font-size="15">AI · Full stack engineering · Blockchain</text>
+      <circle class="pulse" cx="551" cy="186" r="3" fill="#4bd8c1"/>
+      <text x="711" y="190" fill="#9ec9c6" font-size="10" letter-spacing="2">OPEN TO FREELANCE &amp; FULL-TIME</text>
+    </g>
+  </g>
+</svg>

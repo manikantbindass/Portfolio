@@ -1,5 +1,286 @@
 [
   {
+    "id": "enterprise-rag",
+    "slug": "enterprise-rag",
+    "title": "Enterprise RAG Knowledge Assistant",
+    "subtitle": "Lumina · documents, questions, and source-backed understanding",
+    "description": "A document intelligence workspace with authenticated file ingestion, tenant-scoped BM25 retrieval, cited conversations, and a live Lumina product showcase.",
+    "categories": [
+      "AI / Machine Learning",
+      "Full Stack",
+      "Backend / Cloud / DevOps"
+    ],
+    "tags": [
+      "Next.js",
+      "TypeScript",
+      "FastAPI",
+      "SQLite",
+      "BM25",
+      "React",
+      "Python"
+    ],
+    "github": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant",
+    "live": "https://enterprise-rag-knowledge-assistant-three.vercel.app",
+    "featured": true,
+    "status": "Live product showcase · working local application",
+    "updatedAt": "2026-10-26T06:50:20Z",
+    "users": "Teams exploring searchable document knowledge, cited answers, and an organization-scoped workspace.",
+    "features": [
+      "Real document ingestion",
+      "Tenant-scoped retrieval",
+      "Cited streaming conversations",
+      "Authenticated workspace",
+      "Optional model adapters",
+      "Live Lumina product tour"
+    ],
+    "architecture": [
+      "Next.js workspace / public showcase",
+      "FastAPI authenticated API",
+      "Extract → chunk → index",
+      "SQLite + tenant-scoped BM25",
+      "SSE answers / optional model provider"
+    ],
+    "challenges": [
+      "The public Vercel deployment is a visual product tour with actual local application screenshots. Authentication, uploads, retrieval, and chat require the separately started local frontend and API.",
+      "The supported runtime uses lexical BM25 and SQLite. OpenAI or Ollama generation needs server configuration; dense/hybrid retrieval, enterprise SSO, and distributed production infrastructure remain roadmap work."
+    ],
+    "screenshots": [
+      {
+        "src": "/projects/enterprise-rag/dashboard.png",
+        "caption": "Lumina dashboard — indexed documents, query activity, and workspace health; actual local app capture with fictional demo data.",
+        "source": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant/blob/6fe0e600db542a05bf224e557b0f23590bf85c02/docs/assets/screenshots/dashboard.png"
+      },
+      {
+        "src": "/projects/enterprise-rag/documents.png",
+        "caption": "Lumina document library — HR, Engineering, and IT sample documents with real indexing states; fictional demo knowledge.",
+        "source": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant/blob/6fe0e600db542a05bf224e557b0f23590bf85c02/docs/assets/screenshots/documents.png"
+      },
+      {
+        "src": "/projects/enterprise-rag/chat.png",
+        "caption": "Lumina cited conversation — retrieved annual-leave passages and clickable source evidence from fictional sample documents.",
+        "source": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant/blob/6fe0e600db542a05bf224e557b0f23590bf85c02/docs/assets/screenshots/chat.png"
+      },
+      {
+        "src": "/projects/enterprise-rag/mobile.png",
+        "caption": "Lumina mobile workspace — responsive light-theme chat and conversation navigation; actual local app capture with fictional demo data.",
+        "source": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant/blob/6fe0e600db542a05bf224e557b0f23590bf85c02/docs/assets/screenshots/mobile.png"
+      }
+    ],
+    "evidence": [
+      {
+        "path": "README.md",
+        "url": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant/blob/6fe0e600db542a05bf224e557b0f23590bf85c02/README.md"
+      },
+      {
+        "path": "frontend/package.json",
+        "url": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant/blob/6fe0e600db542a05bf224e557b0f23590bf85c02/frontend/package.json"
+      },
+      {
+        "path": "backend/runtime/requirements.txt",
+        "url": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant/blob/6fe0e600db542a05bf224e557b0f23590bf85c02/backend/runtime/requirements.txt"
+      },
+      {
+        "path": "backend/runtime/main.py",
+        "url": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant/blob/6fe0e600db542a05bf224e557b0f23590bf85c02/backend/runtime/main.py"
+      },
+      {
+        "path": "backend/runtime/ingestion.py",
+        "url": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant/blob/6fe0e600db542a05bf224e557b0f23590bf85c02/backend/runtime/ingestion.py"
+      },
+      {
+        "path": "backend/runtime/retrieval.py",
+        "url": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant/blob/6fe0e600db542a05bf224e557b0f23590bf85c02/backend/runtime/retrieval.py"
+      },
+      {
+        "path": "backend/runtime/providers.py",
+        "url": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant/blob/6fe0e600db542a05bf224e557b0f23590bf85c02/backend/runtime/providers.py"
+      },
+      {
+        "path": "backend/runtime/database.py",
+        "url": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant/blob/6fe0e600db542a05bf224e557b0f23590bf85c02/backend/runtime/database.py"
+      },
+      {
+        "path": "backend/runtime/tests/test_runtime.py",
+        "url": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant/blob/6fe0e600db542a05bf224e557b0f23590bf85c02/backend/runtime/tests/test_runtime.py"
+      },
+      {
+        "path": "frontend/src/lib/runtime.ts",
+        "url": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant/blob/6fe0e600db542a05bf224e557b0f23590bf85c02/frontend/src/lib/runtime.ts"
+      },
+      {
+        "path": "frontend/src/components/workspace/Workspace.tsx",
+        "url": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant/blob/6fe0e600db542a05bf224e557b0f23590bf85c02/frontend/src/components/workspace/Workspace.tsx"
+      },
+      {
+        "path": "frontend/src/components/showcase/Showcase.tsx",
+        "url": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant/blob/6fe0e600db542a05bf224e557b0f23590bf85c02/frontend/src/components/showcase/Showcase.tsx"
+      },
+      {
+        "path": "docs/engineering/PROGRESS.md",
+        "url": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant/blob/6fe0e600db542a05bf224e557b0f23590bf85c02/docs/engineering/PROGRESS.md"
+      }
+    ],
+    "sourceCommit": "6fe0e600db542a05bf224e557b0f23590bf85c02",
+    "verifiedAt": "2026-10-26T06:57:45Z",
+    "architectureReference": "flowchart LR\n  Visitor[Public visitor] --> Showcase[Vercel product tour + real captures]\n  Workspace[Local Next.js workspace] --> API[FastAPI authenticated API]\n  API --> Auth[Revocable sessions + organization scope]\n  API --> Files[Validated PDF / DOCX / XLSX / text]\n  Files --> Ingest[Extract + overlapping chunks]\n  Ingest --> Store[(SQLite + original files)]\n  API --> Search[Tenant-scoped BM25]\n  Search --> Store\n  Search --> Answer[Extractive SSE / configured OpenAI or Ollama]\n  Answer --> Citations[Sources + saved conversation]",
+    "problem": "Organizational documents become difficult to use when their knowledge is scattered and answers cannot be traced back to the original evidence.",
+    "solution": "Bring files into an authenticated workspace, index their passages, retrieve organization-scoped evidence, and keep source citations attached to saved conversations.",
+    "technicalDetails": [
+      "The supported FastAPI runtime validates uploads, extracts PDF/DOCX/XLSX/text content, builds overlapping chunks, and persists documents, sessions, conversations, and analytics in SQLite. Original uploads remain in local storage.",
+      "Tenant-filtered BM25 ranks actual source passages. Backend SSE carries response metadata, source excerpts, answer content, and completion status. Extractive mode works without a paid model; server-configured OpenAI or Ollama adapters enable generation.",
+      "The public Vercel product tour exposes four real application screens with fictional sample knowledge. It is deliberately separate from the authenticated local runtime and does not provide hosted upload or chat services."
+    ],
+    "caseStudy": {
+      "architectureSummary": "Lumina separates a publicly hosted Next.js product tour from its working local application. The local Next.js workspace calls a modular FastAPI runtime with revocable sessions and organization-scoped records. A single-process ingestion worker extracts validated files into overlapping chunks, SQLite persists workspace data, and BM25 retrieves tenant-filtered evidence for cited SSE responses. Server-configured OpenAI or Ollama can replace extractive answers with streamed generation.",
+      "features": [
+        {
+          "title": "Real document ingestion",
+          "description": "Validate and parse PDF, DOCX, XLSX, and UTF-8 text, retain PDF page references, and create bounded overlapping chunks. Durable queued/extracting/chunking/indexed states support restart recovery and reindexing.",
+          "source": "backend/runtime/ingestion.py"
+        },
+        {
+          "title": "Tenant-scoped retrieval",
+          "description": "BM25 ranks indexed passages using term frequency and document length, filtering both documents and chunks by the authenticated organization. Results carry document identity, page, excerpt, and relevance score.",
+          "source": "backend/runtime/retrieval.py"
+        },
+        {
+          "title": "Cited streaming conversations",
+          "description": "The API streams metadata, sources, response content, and completion events while persisting messages and citation records. Conversations support rename/delete, and failures or cancellation retain explicit response status.",
+          "source": "backend/runtime/main.py"
+        },
+        {
+          "title": "Authenticated organization workspace",
+          "description": "Server-verified credentials, revocable sessions, organization-scoped records, administrator member controls, and audit entries replace the previous browser-only identity model.",
+          "source": "backend/runtime/main.py"
+        },
+        {
+          "title": "Configurable AI generation",
+          "description": "Start with explicitly labeled retrieved excerpts, then configure OpenAI or Ollama on the API server for evidence-grounded generation. Provider streams validate completion and surface errors instead of inventing a successful answer.",
+          "source": "backend/runtime/providers.py"
+        },
+        {
+          "title": "Live Lumina product tour",
+          "description": "A public Vercel showcase lets visitors switch among real dashboard, library, chat, and mobile captures. It explains the local setup and clearly identifies the fictional sample documents and separate backend.",
+          "source": "frontend/src/components/showcase/Showcase.tsx"
+        }
+      ],
+      "technologies": [
+        {
+          "name": "Next.js",
+          "description": "Hosts the responsive authenticated workspace and separate public product tour.",
+          "stage": "source",
+          "version": "^15.5.28",
+          "source": "frontend/package.json"
+        },
+        {
+          "name": "TypeScript",
+          "description": "Defines workspace, source citation, API response, and streaming-client contracts.",
+          "stage": "source",
+          "version": "^5",
+          "source": "frontend/package.json"
+        },
+        {
+          "name": "React",
+          "description": "Connects document, conversation, administration, theme, and product-tour interactions.",
+          "stage": "source",
+          "version": "^19.0.0",
+          "source": "frontend/package.json"
+        },
+        {
+          "name": "FastAPI",
+          "description": "Serves authenticated organization APIs, file operations, analytics, and SSE conversations.",
+          "stage": "source",
+          "version": "==0.162.0",
+          "source": "backend/runtime/requirements.txt"
+        },
+        {
+          "name": "Python",
+          "description": "Implements validated parsing, ingestion recovery, retrieval, and model-provider adapters.",
+          "stage": "source",
+          "source": "backend/runtime/ingestion.py"
+        },
+        {
+          "name": "SQLite",
+          "description": "Persists organizations, sessions, documents, chunks, messages, queries, and audit records locally.",
+          "stage": "source",
+          "source": "backend/runtime/database.py"
+        },
+        {
+          "name": "SQLAlchemy",
+          "description": "Models organization-scoped records and provides asynchronous database sessions and queries.",
+          "stage": "source",
+          "version": "==2.1.6",
+          "source": "backend/runtime/requirements.txt"
+        },
+        {
+          "name": "BM25",
+          "description": "Ranks actual document passages with lexical relevance and tenant filtering.",
+          "stage": "source",
+          "source": "backend/runtime/retrieval.py"
+        },
+        {
+          "name": "OpenAI",
+          "description": "An optional server-configured generation adapter; Ollama is also supported and extractive mode is the default.",
+          "stage": "source",
+          "source": "backend/runtime/providers.py"
+        }
+      ],
+      "decisions": [
+        {
+          "title": "Keep the public preview easy to explore",
+          "description": "Deploy a polished product tour and real captures on Vercel, while keeping authenticated operations in the separately started local runtime.",
+          "tradeoff": "Visitors can inspect the product immediately, but the public site does not run hosted file ingestion or chat.",
+          "source": "frontend/src/components/showcase/Showcase.tsx"
+        },
+        {
+          "title": "Ground answers before adding generation",
+          "description": "Tenant-filtered BM25 produces inspectable passages and extractive responses without requiring a model key.",
+          "tradeoff": "Lexical retrieval is transparent and locally usable; dense/hybrid search remains planned, and optional LLM generation requires a configured provider.",
+          "source": "backend/runtime/retrieval.py"
+        },
+        {
+          "title": "Persist a focused local foundation",
+          "description": "Use SQLite and a durable single-process ingestion loop to preserve document and conversation state across restarts.",
+          "tradeoff": "This keeps local setup manageable; horizontal scaling needs a distributed queue, different persistence, and additional operational work.",
+          "source": "backend/runtime/ingestion.py"
+        }
+      ],
+      "outcomes": [
+        {
+          "title": "Live visual showcase",
+          "description": "The published Lumina product tour includes four real local application captures, responsive screen tabs, and direct setup guidance. The public deployment is available without signing in.",
+          "source": "frontend/src/components/showcase/Showcase.tsx"
+        },
+        {
+          "title": "Working local document workspace",
+          "description": "The supported runtime connects real accounts, validated document ingestion, organization-scoped retrieval, persisted citations, analytics, and member administration.",
+          "source": "backend/runtime/main.py"
+        },
+        {
+          "title": "Repository verification coverage",
+          "description": "The project records 13 backend tests, three stream-parser tests, and browser workflows for the supported local foundation. These are repository-reported results; legacy microservice and production rollout limitations remain documented.",
+          "source": "docs/engineering/PROGRESS.md"
+        }
+      ],
+      "workflow": [
+        "Upload a supported document in the local workspace.",
+        "Validate, extract, and persist indexed passages.",
+        "Rank organization-scoped evidence for the question.",
+        "Read a streamed response and inspect saved source citations."
+      ],
+      "commands": [
+        "python -m pip install -r backend/runtime/requirements-dev.txt",
+        "cd frontend",
+        "npm ci",
+        "npm run build",
+        "cd ..",
+        "powershell -ExecutionPolicy Bypass -File scripts/start-local.ps1 -FrontendPort 3100"
+      ],
+      "setup": "Open the live Vercel product tour to inspect the design without an account. For functional uploads and chat, use Python 3.12 and Node.js 22 or 24, install the runtime and frontend dependencies, and follow the README local launcher. Optional OpenAI/Ollama generation is configured only on the API server; extractive mode needs no model key."
+    },
+    "contentStage": "source"
+  },
+  {
     "id": "autohealops",
     "slug": "autohealops",
     "title": "AutoHealOps",
@@ -899,7 +1180,7 @@
     "tags": ["React", "TypeScript", "Vite", "Recharts", "Vitest"],
     "github": "https://github.com/manikantbindass/SaaS-Product-Landing-Page-with-Interactive-Pricing-Demo",
     "live": "https://manikantbindass.github.io/SaaS-Product-Landing-Page-with-Interactive-Pricing-Demo/",
-    "featured": true,
+    "featured": false,
     "status": "Frontend demonstration",
     "updatedAt": "2026-10-23T09:33:55Z",
     "users": "Teams evaluating an illustrative workflow product and developers studying interactive product UI.",
@@ -1266,177 +1547,6 @@
       ],
       "commands": ["npm ci", "npm run dev"],
       "setup": "Use Node.js 24.x/npm 11.x for local SQLite. Docker, a wallet, and provider credentials are optional for the free demo. Follow provider/chain guides before enabling real integrations."
-    },
-    "contentStage": "source"
-  },
-  {
-    "id": "enterprise-rag",
-    "slug": "enterprise-rag",
-    "title": "Enterprise RAG Knowledge Assistant",
-    "subtitle": "Searchable organizational knowledge",
-    "description": "A document workspace with browser-native chunking and BM25 retrieval, plus a separately configurable FastAPI service architecture.",
-    "categories": [
-      "AI / Machine Learning",
-      "Full Stack",
-      "Backend / Cloud / DevOps"
-    ],
-    "tags": ["Next.js", "TypeScript", "BM25", "FastAPI", "PostgreSQL", "React"],
-    "github": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant",
-    "live": null,
-    "featured": false,
-    "status": "Browser-native retrieval + optional services",
-    "updatedAt": "2026-06-13T11:42:15Z",
-    "users": "Teams exploring document retrieval and source-linked answers.",
-    "features": [
-      "Document intake and chunking",
-      "Cited lexical retrieval",
-      "Persistent conversation state",
-      "Optional service integration"
-    ],
-    "architecture": [
-      "Next.js documents / chat",
-      "AppStore / localStorage",
-      "BM25 retrieval; optional FastAPI services"
-    ],
-    "challenges": [
-      "The default browser mode performs lexical retrieval and formatted answers. Selecting a model in settings does not establish a live LLM connection or enterprise SSO enforcement."
-    ],
-    "screenshots": [],
-    "evidence": [
-      {
-        "path": "README.md",
-        "url": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant/blob/d42c64fbfa4d18c3d15d394aa27d579538997028/README.md"
-      },
-      {
-        "path": "backend/api_gateway/requirements.txt",
-        "url": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant/blob/d42c64fbfa4d18c3d15d394aa27d579538997028/backend/api_gateway/requirements.txt"
-      },
-      {
-        "path": "backend/chat_service/main.py",
-        "url": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant/blob/d42c64fbfa4d18c3d15d394aa27d579538997028/backend/chat_service/main.py"
-      },
-      {
-        "path": "frontend/package.json",
-        "url": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant/blob/d42c64fbfa4d18c3d15d394aa27d579538997028/frontend/package.json"
-      },
-      {
-        "path": "frontend/src/lib/store.tsx",
-        "url": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant/blob/d42c64fbfa4d18c3d15d394aa27d579538997028/frontend/src/lib/store.tsx"
-      },
-      {
-        "path": "tests/unit/test_rag_pipeline.py",
-        "url": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant/blob/d42c64fbfa4d18c3d15d394aa27d579538997028/tests/unit/test_rag_pipeline.py"
-      }
-    ],
-    "sourceCommit": "d42c64fbfa4d18c3d15d394aa27d579538997028",
-    "verifiedAt": "2026-10-25T10:05:44.624627+00:00",
-    "architectureReference": "┌─────────────────────────────────────────────────────────────────┐\n│                     Browser (Next.js 15)                        │\n│                                                                 │\n│  ┌──────────────┐  ┌──────────────┐  ┌──────────────────────┐  │\n│  │  Documents   │  │     Chat     │  │  Dashboard / Admin   │  │\n│  │   Page       │  │    Page      │  │      / Settings      │  │\n│  └──────┬───────┘  └──────┬───────┘  └──────────┬───────────┘  │\n│         │                 │                      │              │\n│  ┌──────▼─────────────────▼──────────────────────▼───────────┐  │\n│  │               AppStore (useReducer + localStorage)        │  │\n│  │   documents[] · conversations[] · queryLogs[] · settings  │  │\n│  └──────────────────────────┬───────────────────────────────┘   │\n│                             │                                   │\n│  ┌──────────────────────────▼───────────────────────────────┐   │\n│  │              RAG Engine (client-side)                    │   │\n│  │   buildChunks() · ragSearch() BM25 · formatAnswer()      │   │\n│  └──────────────────────────────────────────────────────────┘   │\n└──────────────────────────────┬──────────────────────────────────┘\n                               │ (optional)\n┌──────────────────────────────▼──────────────────────────────────┐\n│                Python Backend (FastAPI)                         │\n│   PDF/DOCX parsing · OpenAI embeddings · pgvector search       │\n│   LangGraph agents · SSO · Multi-tenancy · Audit logs          │\n└─────────────────────────────────────────────────────────────────┘",
-    "problem": "A collection of documents is not useful if readers cannot find the passages relevant to a question.",
-    "solution": "Chunk text, retrieve relevant excerpts, and provide cited answers in a browser-native workspace, with optional backend services.",
-    "technicalDetails": [
-      "The frontend AppStore models documents, chunks, conversations, query logs, users, and retrieval settings, persisting browser state locally.",
-      "The default retrieval engine uses BM25 over text chunks. FastAPI services provide a separate optional path for binary parsing, embeddings, and other server integrations."
-    ],
-    "caseStudy": {
-      "architectureSummary": "The default Next.js workspace stores documents, chunks, settings, conversations, and query logs in a browser AppStore. BM25 ranks local text chunks and answer formatting includes cited excerpts. Separate FastAPI gateway, document, embedding, vector, identity, and chat services provide an optional server path.",
-      "features": [
-        {
-          "title": "Document intake and chunking",
-          "description": "Text-based files are extracted into content/chunks with processing state and department metadata for a searchable local workspace.",
-          "source": "frontend/src/lib/store.tsx"
-        },
-        {
-          "title": "Cited lexical retrieval",
-          "description": "ragSearch returns relevant chunks with source identifiers and scores; formatAnswer constructs a source-linked answer from those excerpts.",
-          "source": "frontend/src/lib/store.tsx"
-        },
-        {
-          "title": "Persistent conversation state",
-          "description": "Documents, conversations, query logs, settings, and user records are modeled in a reducer and persisted locally for the default experience.",
-          "source": "frontend/src/lib/store.tsx"
-        },
-        {
-          "title": "Optional service integration",
-          "description": "The FastAPI chat entry point registers routes, telemetry, and optional reranker initialization, creating a separate server integration path.",
-          "source": "backend/chat_service/main.py"
-        }
-      ],
-      "technologies": [
-        {
-          "name": "Next.js",
-          "description": "Hosts documents, chat, dashboard, settings, and admin views.",
-          "stage": "source",
-          "version": "15.0.0",
-          "source": "frontend/package.json"
-        },
-        {
-          "name": "TypeScript",
-          "description": "Defines document, chunk, source, conversation, and settings contracts.",
-          "stage": "source",
-          "version": "^5",
-          "source": "frontend/package.json"
-        },
-        {
-          "name": "BM25",
-          "description": "Scores local chunks with lexical relevance in the browser retrieval path.",
-          "stage": "source",
-          "source": "README.md"
-        },
-        {
-          "name": "FastAPI",
-          "description": "Organizes optional gateway and backend service APIs.",
-          "stage": "source",
-          "version": "==0.115.5",
-          "source": "backend/api_gateway/requirements.txt"
-        },
-        {
-          "name": "PostgreSQL",
-          "description": "Belongs to the optional server persistence/vector architecture, not browser-only storage.",
-          "stage": "source",
-          "source": "README.md"
-        },
-        {
-          "name": "React",
-          "description": "Connects workspace views through a shared reducer/context store.",
-          "stage": "source",
-          "version": "^19.0.0",
-          "source": "frontend/package.json"
-        }
-      ],
-      "decisions": [
-        {
-          "title": "Useful search without a paid model",
-          "description": "The browser searches real text and formats retrieved excerpts without requiring a model key.",
-          "tradeoff": "Lexical ranking does not provide semantic embeddings or arbitrary generative reasoning; a model selector alone is not a provider connection.",
-          "source": "frontend/src/lib/store.tsx"
-        },
-        {
-          "title": "Separate local state from enterprise identity",
-          "description": "Optional services extend beyond browser-local records.",
-          "tradeoff": "localStorage user/settings records do not demonstrate tenant isolation, SSO, or production authorization.",
-          "source": "README.md"
-        }
-      ],
-      "outcomes": [
-        {
-          "title": "Published deliverable",
-          "description": "A text-retrieval workspace with document/chunk state, BM25 search, cited excerpts, conversation history, and optional backend modules.",
-          "source": "frontend/src/lib/store.tsx"
-        },
-        {
-          "title": "Verification assets",
-          "description": "Server unit-test files cover retrieval, auth, embeddings, chunking, and vector search. Configured full-stack integration needs its own validation.",
-          "source": "tests/unit/test_rag_pipeline.py"
-        }
-      ],
-      "workflow": [
-        "Upload a supported text document.",
-        "Extract and chunk text in the workspace store.",
-        "Submit a query and rank matching passages.",
-        "Read the answer and inspect cited source excerpts."
-      ],
-      "commands": ["cd frontend", "npm install", "npm run dev"],
-      "setup": "Browser mode needs Node.js/npm and supported text files. PDF/DOCX parsing, embeddings, and live model calls require the separately configured backend services described in the README."
     },
     "contentStage": "source"
   },

@@ -7,7 +7,7 @@ import { projects } from "@/lib/projects";
 import styles from "./BuildStudio.module.css";
 
 const tracks = [
-  { slug: "enterprise-rag", label: "Document intelligence", Icon: FileSearch, featureByStep: [0, 0, 1, 1] },
+  { slug: "enterprise-rag", label: "Document intelligence", Icon: FileSearch, featureByStep: [0, 0, 1, 2] },
   { slug: "tracehunt", label: "Service observability", Icon: Braces, featureByStep: [0, 1, 2, 3] },
   { slug: "chainpass", label: "Web3 ticketing", Icon: Network, featureByStep: [0, 0, 1, 3] },
 ] as const;

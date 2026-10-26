@@ -73,7 +73,7 @@ export default async function ProjectPage({
         </div>
         <ProjectDetails project={p} />
         <Link href="/#projects" className="back-link">
-          ← Explore all 16 projects
+          ← Explore all {projects.length} projects
         </Link>
       </main>
     </>

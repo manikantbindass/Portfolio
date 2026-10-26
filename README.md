@@ -1,9 +1,7 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:6366F1,50:A78BFA,100:2DD4BF&height=220&section=header&text=Manikant%20Kumar%20—%20Portfolio&fontSize=42&fontAlignY=42&animation=fadeIn&fontColor=ffffff" />
-
 <a href="https://portfolio-ten-omega-4ibkho6f7u.vercel.app">
-  <img src="https://readme-typing-svg.demolab.com?font=Plus+Jakarta+Sans&weight=800&size=22&pause=900&color=A78BFA&center=true&vCenter=true&width=700&lines=AI-Augmented+Full+Stack+Developer;Blockchain+Smart+Contract+Developer;System+Design+Engineer;Agentic+AI+Builder;Web3+Innovator" alt="Typing SVG" />
+  <img src="docs/assets/portfolio-header.svg" width="100%" alt="Manikant Kumar — AI-Augmented Full Stack Developer. Animated glass panels and connected systems in navy, lavender, and teal." />
 </a>
 
 <br/>
@@ -37,7 +35,7 @@ A **responsive engineering portfolio** built with Next.js 16, React, TypeScript,
 
 The original cosmic identity lives on: **rolling technology marquees, a scroll-driven moon, starfield and aurora lighting, typewriter roles, interactive cursor, floating navigation, and animated counters**. Refined glass surfaces support both dark and light themes.
 
-> 🔗 **Live:** [Explore the portfolio](https://portfolio-ten-omega-4ibkho6f7u.vercel.app) · **16 project case studies** · **6 recent highlights** · **3 professional resumes**
+> 🔗 **Live:** [Explore the portfolio](https://portfolio-ten-omega-4ibkho6f7u.vercel.app) · **15 project case studies** · **6 recent highlights** · **3 professional resumes**
 
 ---
 
@@ -49,13 +47,14 @@ The original cosmic identity lives on: **rolling technology marquees, a scroll-d
 | 🔄 **Signature Technology Marquees** | Seamless forward/reverse rolling technology rows with recognizable logos and pause-on-hover |
 | 🌙 **Scroll-Driven Moon Arc** | Moon travels along the page's scroll arc using animation-frame scheduling and transforms |
 | ⌨️ **Typewriter Hero** | Rotating Full Stack, Blockchain, and Backend/DevSecOps roles beside the existing profile photograph |
-| 🚀 **16 Project Case Studies** | Six recent highlights, multiple categories, technology badges, search, repository links, and verified demo URLs |
+| 🚀 **15 Project Case Studies** | Six recent highlights, multiple categories, technology badges, search, repository links, and verified demo URLs |
 | 🗂️ **Detailed Project Tabs** | Overview, Architecture, Features, Technology Stack, Gallery, Engineering Challenges, and Results and Links |
-| 🖼️ **Genuine Project Galleries** | 13 repository captures across four projects; labeled source diagrams where screenshots are unavailable |
+| 🖼️ **Genuine Project Galleries** | 17 repository captures across five projects; labeled source diagrams where screenshots are unavailable |
 | 📄 **Three Resume Perspectives** | Full Stack, DevOps, and AI/ML PDFs with independent previews, downloads, and new-tab actions |
 | 📊 **Verified Statistics** | Official LeetCode GraphQL and GitHub REST APIs, six-hour caching, verification timestamps, and honest snapshot fallbacks |
 | 🤖 **Portfolio Guide** | Cost-free curated answers from shared project, resume, skills, experience, and statistics data |
 | 🌗 **Persistent Themes** | System preference detection, saved theme selection, and desktop/mobile toggle |
+| 🫧 **Animated Repository Artwork** | Self-contained SVG header and footer with floating glass layers, moving connections, static fallbacks, and reduced-motion support |
 | 🎭 **Motion & Interaction** | Framer Motion reveals, floating elements, hover feedback, animated counters, and reduced-motion support |
 | 📱 **Responsive Navigation** | Sticky glass header, mobile menu, active-section highlighting, floating dock, and social rail |
 | ⌨️ **Keyboard Access** | Visible focus, skip link, arrow-key tabs, and fullscreen gallery with Escape handling |
@@ -104,19 +103,18 @@ The existing assistant keeps its **zero LLM API cost** architecture. It answers 
 
 ## 🚀 Project Showcase
 
-**16 real repositories** with their own technical case-study routes. **⭐ marks the six recent highlights**, selected using public GitHub push timestamps captured on 25 October 2026.
+**15 real repositories** with their own technical case-study routes. **⭐ marks the six recent highlights**, ordered using recorded public GitHub push timestamps. Lumina’s repository and deployment were refreshed on 26 October 2026.
 
 | Project / Case Study | Description | Technologies | GitHub |
 |---|---|---|---|
+| 🧠 [Enterprise RAG Knowledge Assistant · Lumina](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/enterprise-rag) ⭐ | Authenticated document ingestion, tenant-scoped BM25, cited streaming conversations, and a [live product tour](https://enterprise-rag-knowledge-assistant-three.vercel.app). | Next.js · TypeScript · FastAPI · SQLite · BM25 | [Source](https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant) |
 | ☁️ [AutoHealOps](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/autohealops) ⭐ | An operations console for workload telemetry, explainable fault detection, and bounded recovery workflows, with an isolated public browser simulation. | React · FastAPI · Python · Kubernetes | [Source](https://github.com/manikantbindass/AutoHealOps-Self-Healing-Kubernetes-Cluster-with-AI-Fault-Detection) |
 | 🌱 [FlowNovaAI](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/flownova) ⭐ | A newly created repository describing an AI agent workflow automation builder. | Not published yet | [Source](https://github.com/manikantbindass/FlowNovaAI) |
 | 📚 [DSA Preparation](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/dsa) ⭐ | A structured collection of algorithm solutions, pattern notes, contest work, and synchronized LeetCode progress. | Java · Python · Go · Algorithms | [Source](https://github.com/manikantbindass/DSA-Preparation-FAANG) |
 | 🔍 [TraceHunt AI](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/tracehunt) ⭐ | An observability workspace bringing endpoint checks, structured logs, anomaly rules, and incident evidence into one place. | Next.js · FastAPI · PostgreSQL · Redis | [Source](https://github.com/manikantbindass/Tracehunt) |
 | 📊 [FinovaIQ](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/finovaiq) ⭐ | A finance dashboard with manual accounts, precise transaction accounting, budgets, portfolios, and an explicitly labeled demo copilot. | Next.js · NestJS · Prisma · PostgreSQL | [Source](https://github.com/manikantbindass/FinovaIQ-AI-Personal-Finance-Investment-Dashboard) |
-| ⚡ [FlowPilot](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/flowpilot) ⭐ | A responsive SaaS demonstration with a workflow sandbox, seat-based pricing calculator, and a trial configuration modal. | React · TypeScript · Tailwind CSS · Vite | [Source](https://github.com/manikantbindass/SaaS-Product-Landing-Page-with-Interactive-Pricing-Demo) |
+| ⚡ [FlowPilot — SaaS Landing Page](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/flowpilot) | A responsive SaaS demonstration with a workflow sandbox, seat-based pricing calculator, and a trial configuration modal. | React · TypeScript · Tailwind CSS · Vite | [Source](https://github.com/manikantbindass/SaaS-Product-Landing-Page-with-Interactive-Pricing-Demo) |
 | 🎟️ [ChainPass](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/chainpass) | A ticketing application with transactional inventory, private wallets, signed QR admission, and optional on-chain issuance proofs. | React · TypeScript · Fastify · PostgreSQL | [Source](https://github.com/manikantbindass/Blockchain-Based-Smart-Ticket-System-Concert-railway-public-and-Private-Transport-) |
-| 🔁 [LeetCode AI Sync](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/leetcode-sync) | A Chrome extension for detecting accepted LeetCode submissions, generating optional language variants, and pushing code through a retryable GitHub workflow. | TypeScript · React · Chrome Extensions · GitHub API | [Source](https://github.com/manikantbindass/Leetcode-GitPush-extension) |
-| 🧠 [Enterprise RAG Knowledge Assistant](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/enterprise-rag) | A document workspace with browser-native chunking and BM25 retrieval, plus a separately configurable FastAPI service architecture. | Next.js · TypeScript · FastAPI · PostgreSQL | [Source](https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant) |
 | 🛡️ [RemoteShield X](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/remoteshield) | A desktop browser and administration toolkit with Tauri, a Node gateway, VPN checks, and mobile project assets. | Tauri · React · TypeScript · Express | [Source](https://github.com/manikantbindass/RdPBrowser) |
 | 🧩 [Intramind.AI](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/intramind) | An early knowledge-platform scaffold exploring a Next.js interface and a FastAPI document-questioning architecture. | Next.js · TypeScript · FastAPI · Python | [Source](https://github.com/manikantbindass/Intramind.ai) |
 | 🤖 [MetaRole.AI](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/metarole) | Resume analysis, skill graphs, career suggestions, and tailored document generation in a terminal-inspired workspace. | Next.js · TypeScript · OpenAI · D3.js | [Source](https://github.com/manikantbindass/MetaRole.ai) |
@@ -127,7 +125,18 @@ The existing assistant keeps its **zero LLM API cost** architecture. It answers 
 
 Each case study explains scope, architecture, implementation details, evidence, and trade-offs. **FlowNovaAI is currently README-only**; **Intramind.AI contains a placeholder RAG pipeline**. AutoLedger's dashboard and Linux Scheduler are simulations; AutoHealOps separates its public browser simulation from optional local integrations. These boundaries are stated explicitly on the project pages.
 
-**Screenshot coverage:** TraceHunt AI (3), AutoHealOps (4), FinovaIQ (2), and ChainPass (4). Other entries use labeled source visualizations, never fabricated application screens. See the [repository audit](docs/repository-audit.json) for pinned source evidence.
+**Screenshot coverage:** Lumina / Enterprise RAG (4), TraceHunt AI (3), AutoHealOps (4), FinovaIQ (2), and ChainPass (4). Other entries use labeled source visualizations, never fabricated application screens. See the [repository audit](docs/repository-audit.json) for pinned source evidence.
+
+### Lumina · from documents to evidence
+
+[Explore the portfolio case study](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/enterprise-rag) · [Open the live showcase](https://enterprise-rag-knowledge-assistant-three.vercel.app) · [View the repository](https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant)
+
+| Knowledge workspace | Cited conversations |
+|---|---|
+| ![Lumina dashboard with indexed documents and query activity — actual local app capture with fictional demo data](public/projects/enterprise-rag/dashboard.png) | ![Lumina chat with retrieved passages and clickable citations — actual local app capture with fictional demo knowledge](public/projects/enterprise-rag/chat.png) |
+
+The case study includes all four original captures: dashboard, document library, chat, and mobile. Its architecture, technology cards, engineering decisions, results, setup, and source references follow the existing portfolio format. The live Vercel site is a public visual tour; authenticated uploads, retrieval, and chat run in the separately started local app. Optional OpenAI/Ollama generation requires server configuration.
+
 
 ---
 
@@ -318,5 +327,5 @@ The website refreshes successful API reads through a **six-hour server cache**, 
     <a href="https://linktr.ee/manikantbindass">Linktree</a>
   </p>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:2DD4BF,50:6366F1,100:A78BFA&height=100&section=footer" />
+<a href="mailto:manikant.dev.ai@gmail.com"><img src="docs/assets/portfolio-footer.svg" width="100%" alt="Let’s build what’s next. Open to freelance and full-time opportunities." /></a>
 </div>
