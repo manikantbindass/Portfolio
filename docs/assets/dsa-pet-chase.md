@@ -12,4 +12,21 @@ Prompt: Create an exact 4 × 2 grid of eight equal square animation frames, with
 
 Framing revision: Preserve identities, realism, transparency, eight gait poses and the grid. Keep each group centered within its own cell, with clear padding around paws, tails and ears, and remove stray opaque marks outside the silhouettes.
 
-The CSS animates frames with a short dissolve, subtle horizontal movement, a soft floor/reflection, and matching glass ambience. One pause control stops the scene. Reduced-motion preferences show a static frame; the card description and links sit above a frosted readable layer. The compact source-workflow labels remain available on the detail page while the homepage visual gives the animals room.
+The first version used a grouped eight-frame sheet, short dissolves, and minimal horizontal drift. It has been superseded because it looked like blended poses in place. The original asset remains for provenance and is no longer referenced by the scene.
+
+## Independent running cycles
+
+The current scene uses four individual 16-frame sheets in a four-column by four-row arrangement. Each animal has distinct gathered, extended, ground-contact, and airborne running poses. The CSS plays the unblended cycles at different stride timings and moves the animals across the card on staggered tracks, with soft contact shadows. No duplicated silhouettes or oscillating-in-place group are used. This remains generated animation, not recorded real-world footage.
+
+| Workspace asset | Generated source filename |
+| --- | --- |
+| `public/projects/dsa/husky-run.webp` | `exec-fe193856-4a4e-4170-95b1-39c91b5d9095.png` |
+| `public/projects/dsa/retriever-run.webp` | `exec-f65ebfc2-de8b-449a-961c-0edbf3ab873c.png` |
+| `public/projects/dsa/black-cat-run.webp` | `exec-fa4c9221-d419-47dd-80b9-6179cfd0935c.png` |
+| `public/projects/dsa/persian-cat-run.webp` | `exec-2e53c317-13cf-4269-809d-a1fa6824f0c8.png` |
+
+Source folder: `C:/Users/manik/.codex/generated_images/01a1739d-b3a7-7890-9874-05e9a555e39f/`. All four assets were generated with the built-in image-generation tool and converted to WebP preserving alpha.
+
+Prompt set: one sheet each for a gray-and-white blue-eyed husky, golden retriever, sleek black cat, and white Persian cat. Four columns by four rows of sixteen successive side-profile right-facing running-gallop poses; the same full-body animal and scale per frame; full suspension, forward extension, gathered spine-flexed poses, paw touchdown and push-off, and natural ears/tail/fur movement. Fine photographic fur and anatomy, natural daylight with subtle cool rim lighting, true transparent background, clear framing, and no props, ghosted limbs, text, watermark, or cartoon styling. The frames loop in order while the animal travels across the screen.
+
+One pause control stops both travel and gait. Reduced-motion preferences show the four animals in fixed readable positions; the card description and links remain on the frosted layer. The new scene is still confined to the homepage DSA card.

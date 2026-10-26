@@ -4,19 +4,24 @@ import { useState } from "react";
 import { Pause, Play } from "lucide-react";
 import styles from "./DsaChaseScene.module.css";
 
+const animals = ["husky", "retriever", "blackCat", "persianCat"] as const;
+
 export default function DsaChaseScene() {
   const [paused, setPaused] = useState(false);
   return (
     <>
-      <div className={styles.scene} data-paused={paused} aria-hidden="true">
+      <div className={styles.scene} data-paused={paused} data-gait-frames="16" aria-hidden="true">
         <div className={styles.ambience} />
         <div className={styles.stage}>
           <div className={styles.floor} />
-          <div className={styles.chase}>
-            <div className={styles.sprite} />
-            <div className={`${styles.sprite} ${styles.next}`} />
-          </div>
-          <div className={styles.reflection} />
+          {animals.map(animal => (
+            <div className={`${styles.runner} ${styles[animal]}`} key={animal} data-animal={animal}>
+              <div className={styles.animal}>
+                <div className={styles.shadow} />
+                <div className={styles.sprite} />
+              </div>
+            </div>
+          ))}
         </div>
         <div className={styles.mist} />
       </div>
