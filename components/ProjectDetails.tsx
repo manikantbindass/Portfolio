@@ -219,7 +219,7 @@ export default function ProjectDetails({ project: p }: { project: Project }) {
             <p className="section-label">05 / Gallery</p>
             <h2>
               {count
-                ? "Inside the application"
+                ? p.visualKind === "illustration" ? "Mathematics, visualized" : "Inside the application"
                 : concept
                   ? "Workflow design study"
                   : "Architecture & source explorer"}
@@ -227,8 +227,9 @@ export default function ProjectDetails({ project: p }: { project: Project }) {
             {count ? (
               <>
                 <p>
-                  Application captures committed in the repository. Captions
-                  identify demo data where shown.
+                  {p.visualKind === "illustration"
+                    ? "Source-based explanatory artwork. These illustrations describe the implemented methods; open the live app to explore the actual workspace."
+                    : "Application captures committed in the repository. Captions identify demo data where shown."}
                 </p>
                 {p.walkthrough && <ProjectWalkthrough capture={p.walkthrough} />}
                 <div className="gallery-grid">
@@ -257,7 +258,7 @@ export default function ProjectDetails({ project: p }: { project: Project }) {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          Original capture ↗
+                          {p.visualKind === "illustration" ? "Method source" : "Original capture"} ↗
                         </a>
                       </figcaption>
                     </figure>
@@ -398,7 +399,7 @@ export default function ProjectDetails({ project: p }: { project: Project }) {
           if (e.key === "ArrowRight") setImage((i) => (i + 1) % count);
           if (e.key === "ArrowLeft") setImage((i) => (i + count - 1) % count);
         }}
-        aria-label={`${p.title} screenshot gallery`}
+        aria-label={`${p.title} ${p.visualKind === "illustration" ? "illustration" : "screenshot"} gallery`}
       >
         {count > 0 && (
           <>

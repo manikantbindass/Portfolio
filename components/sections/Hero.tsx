@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import styles from "./Hero.module.css";
 import { usePortfolioStats } from "@/components/StatsProvider";
+import { projects } from "@/lib/projects";
 import { Download, ArrowRight, Sparkles, Braces, Network } from "lucide-react";
 
 const ROLES = [
@@ -57,7 +58,7 @@ export default function Hero() {
   const role = useTypewriter(ROLES);
   const { lc } = usePortfolioStats();
   const quickStats = [
-    { label: "Projects showcased", value: "16", color: "var(--accent)" },
+    { label: "Projects showcased", value: String(projects.length), color: "var(--accent)" },
     { label: "LeetCode solved", value: lc.total, color: "var(--accent2)" },
     { label: "Public repositories", value: "30+", color: "var(--teal)" },
   ];

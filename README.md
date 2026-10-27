@@ -35,7 +35,7 @@ A **responsive engineering portfolio** built with Next.js 16, React, TypeScript,
 
 The original cosmic identity lives on: **rolling technology marquees, a scroll-driven moon, starfield and aurora lighting, typewriter roles, interactive cursor, floating navigation, and animated counters**. Refined glass surfaces support both dark and light themes.
 
-> 🔗 **Live:** [Explore the portfolio](https://portfolio-ten-omega-4ibkho6f7u.vercel.app) · **16 project case studies** · **6 recent highlights** · **3 professional resumes**
+> 🔗 **Live:** [Explore the portfolio](https://portfolio-ten-omega-4ibkho6f7u.vercel.app) · **17 project case studies** · **6 recent highlights** · **3 professional resumes**
 
 ---
 
@@ -47,7 +47,7 @@ The original cosmic identity lives on: **rolling technology marquees, a scroll-d
 | 🔄 **Signature Technology Marquees** | Seamless forward/reverse rolling technology rows with recognizable logos and pause-on-hover |
 | 🌙 **Scroll-Driven Moon Arc** | Moon travels along the page's scroll arc using animation-frame scheduling and transforms |
 | ⌨️ **Typewriter Hero** | Rotating Full Stack, Blockchain, and Backend/DevSecOps roles beside the existing profile photograph |
-| 🚀 **16 Project Case Studies** | Six recent highlights, multiple categories, technology badges, search, repository links, and verified demo URLs |
+| 🚀 **17 Project Case Studies** | Six recent highlights, multiple categories, technology badges, search, repository links, and verified demo URLs |
 | 🗂️ **Detailed Project Tabs** | Overview, Architecture, Features, Technology Stack, Gallery, Engineering Challenges, and Results and Links |
 | 🖼️ **Genuine Project Galleries** | 31 repository captures across seven projects; labeled source diagrams where screenshots are unavailable |
 | 📄 **Three Resume Perspectives** | Full Stack, DevOps, and AI/ML PDFs with independent previews, downloads, and new-tab actions |
@@ -103,16 +103,17 @@ The existing assistant keeps its **zero LLM API cost** architecture. It answers 
 
 ## 🚀 Project Showcase
 
-**16 real repositories** with their own technical case-study routes. **⭐ marks the six recent highlights**, ordered using recorded public GitHub push timestamps. Lumina was refreshed on 26 October 2026; FlowNova AI and NeuroMap AI were reviewed on 27 October 2026.
+**17 real repositories** with their own technical case-study routes. **⭐ marks the six recent highlights**, ordered using recorded public GitHub push timestamps. Lumina was refreshed on 26 October 2026; FlowNova AI and NeuroMap AI were reviewed on 27 October 2026; MathLens was reviewed on 28 October 2026.
 
 | Project / Case Study | Description | Technologies | GitHub |
 |---|---|---|---|
+| ∑ [MathLens](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/mathlens) ⭐ | A [live mathematical workbench](https://mathlens-wine.vercel.app) with numerical tools, model analysis, learning, and [experimental native releases](https://github.com/manikantbindass/mathlens/releases/tag/v0.2.0-alpha.1). | JavaScript · Node.js · SVG · Electron · Java | [Source](https://github.com/manikantbindass/mathlens) |
 | 🧬 [NeuroMap AI](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/neuromap) ⭐ | Private NIfTI inspection and reproducible synthetic ML experiments with traceable reports. [Windows / Android releases](https://github.com/manikantbindass/NeuroMap.AI/releases/tag/v0.1.1); no hosted demo. | React · Three.js · FastAPI · scikit-learn · SQLite | [Source](https://github.com/manikantbindass/NeuroMap.AI) |
 | 🌱 [FlowNova AI](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/flownova) ⭐ | A [live visual workflow workbench](https://flownova-ai.vercel.app) with graph editing, immutable publishing, durable execution, and persisted node results. | Next.js · React Flow · Vercel Workflows · Spring Boot | [Source](https://github.com/manikantbindass/FlowNovaAI) |
 | 🧠 [Enterprise RAG Knowledge Assistant · Lumina](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/enterprise-rag) ⭐ | Authenticated document ingestion, tenant-scoped BM25, cited streaming conversations, and a [live product tour](https://enterprise-rag-knowledge-assistant-three.vercel.app). | Next.js · TypeScript · FastAPI · SQLite · BM25 | [Source](https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant) |
 | ☁️ [AutoHealOps](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/autohealops) ⭐ | An operations console for workload telemetry, explainable fault detection, and bounded recovery workflows, with an isolated public browser simulation. | React · FastAPI · Python · Kubernetes | [Source](https://github.com/manikantbindass/AutoHealOps-Self-Healing-Kubernetes-Cluster-with-AI-Fault-Detection) |
 | 📚 [DSA Preparation](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/dsa) ⭐ | A structured collection of algorithm solutions, pattern notes, contest work, and synchronized LeetCode progress. | Java · Python · Go · Algorithms | [Source](https://github.com/manikantbindass/DSA-Preparation-FAANG) |
-| 🔍 [TraceHunt AI](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/tracehunt) ⭐ | An observability workspace bringing endpoint checks, structured logs, anomaly rules, and incident evidence into one place. | Next.js · FastAPI · PostgreSQL · Redis | [Source](https://github.com/manikantbindass/Tracehunt) |
+| 🔍 [TraceHunt AI](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/tracehunt) | An observability workspace bringing endpoint checks, structured logs, anomaly rules, and incident evidence into one place. | Next.js · FastAPI · PostgreSQL · Redis | [Source](https://github.com/manikantbindass/Tracehunt) |
 | 📊 [FinovaIQ](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/finovaiq) | A finance dashboard with manual accounts, precise transaction accounting, budgets, portfolios, and an explicitly labeled demo copilot. | Next.js · NestJS · Prisma · PostgreSQL | [Source](https://github.com/manikantbindass/FinovaIQ-AI-Personal-Finance-Investment-Dashboard) |
 | ⚡ [FlowPilot — SaaS Landing Page](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/flowpilot) | A responsive SaaS demonstration with a workflow sandbox, seat-based pricing calculator, and a trial configuration modal. | React · TypeScript · Tailwind CSS · Vite | [Source](https://github.com/manikantbindass/SaaS-Product-Landing-Page-with-Interactive-Pricing-Demo) |
 | 🎟️ [ChainPass](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/chainpass) | A ticketing application with transactional inventory, private wallets, signed QR admission, and optional on-chain issuance proofs. | React · TypeScript · Fastify · PostgreSQL | [Source](https://github.com/manikantbindass/Blockchain-Based-Smart-Ticket-System-Concert-railway-public-and-Private-Transport-) |
@@ -126,7 +127,19 @@ The existing assistant keeps its **zero LLM API cost** architecture. It answers 
 
 Each case study explains scope, architecture, implementation details, evidence, and trade-offs. **Intramind.AI contains a placeholder RAG pipeline**. AutoLedger's dashboard and Linux Scheduler are simulations; AutoHealOps separates its public browser simulation from optional local integrations. These boundaries are stated explicitly on the project pages.
 
-**Screenshot coverage:** NeuroMap AI (5), FlowNova AI (9), Lumina / Enterprise RAG (4), TraceHunt AI (3), AutoHealOps (4), FinovaIQ (2), and ChainPass (4). Other entries use labeled source visualizations, never fabricated application screens. See the [repository audit](docs/repository-audit.json) for pinned source evidence.
+**Screenshot coverage:** NeuroMap AI (5), FlowNova AI (9), Lumina / Enterprise RAG (4), TraceHunt AI (3), AutoHealOps (4), FinovaIQ (2), and ChainPass (4). MathLens adds two labeled mathematical illustrations, not application screenshots. Other entries use labeled source visualizations, never fabricated application screens. See the [repository audit](docs/repository-audit.json) for pinned source evidence.
+
+### MathLens · make the method visible
+
+[Explore the case study](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/mathlens) · [Open the live alpha](https://mathlens-wine.vercel.app) · [Release v0.2.0-alpha.1](https://github.com/manikantbindass/mathlens/releases/tag/v0.2.0-alpha.1)
+
+![MathLens mathematical project illustration — not an application screenshot](public/projects/mathlens/overview.svg)
+
+A dependency-free browser/Node.js workbench connects Householder QR regression, binary logistic classification, K-means/PCA, bounded numerical tools, gradient descent, nine lessons, ten puzzle categories, and a live arXiv feed. The case-study hero and homepage card use a rounded glass composition with a moving optimization point, independent pause controls, and reduced-motion support.
+
+[Project PDF](https://github.com/manikantbindass/mathlens/releases/download/v0.2.0-alpha.1/MathLens-Project-Overview.pdf) · [Editable PowerPoint](https://github.com/manikantbindass/mathlens/releases/download/v0.2.0-alpha.1/MathLens-Project-Overview.pptx) · [Windows / Linux / Android downloads and checksums](https://github.com/manikantbindass/mathlens/releases/tag/v0.2.0-alpha.1)
+
+The published prerelease contains experimental **online clients**. Windows is unsigned; Android is debug-signed for testing; no iOS package or offline computation is provided. Optional Supabase accounts require owner configuration, and learning progress stays browser-local. The repository reports 49 numerical/API tests and successful native CI checks; expanded rendered UI checks remain pending. [Source and artwork provenance](docs/assets/mathlens-showcase.md).
 
 ### NeuroMap AI · research with a traceable result
 
@@ -203,7 +216,7 @@ Portfolio/
 ├── app/
 │   ├── api/github/route.ts       # Cached verified GitHub statistics
 │   ├── api/leetcode/route.ts     # Validated official LeetCode query
-│   ├── projects/[slug]/page.tsx # 16 static case-study pages
+│   ├── projects/[slug]/page.tsx # 17 static case-study pages
 │   ├── resumes/[slug]/page.tsx  # Three independent resume viewers
 │   ├── globals.css              # Shared tokens, glass, cosmic effects
 │   ├── layout.tsx               # Theme initialization, providers, SEO
@@ -220,7 +233,7 @@ Portfolio/
 ├── lib/
 │   ├── data.ts                  # Public profile, skills, experience, certifications
 │   ├── projects.ts              # Typed project interface
-│   ├── projects.json            # 16 case studies and screenshot provenance
+│   ├── projects.json            # 17 case studies and screenshot provenance
 │   ├── resumes.ts               # Three resume descriptors and stable PDF paths
 │   ├── leetcode.ts              # Payload validation
 │   └── stats-snapshot.json      # Dated, verified fallback data
@@ -285,7 +298,7 @@ Set `PORTFOLIO_TEST_URL` for another host or port. No new environment variables 
 
 The existing **Vercel project and domain are preserved**. [PR #1](https://github.com/manikantbindass/Portfolio/pull/1) was merged into `main` on 25 October 2026 with the owner's authorization, and Vercel deployed the update successfully through its GitHub integration. Future pushes to `main` follow that same deployment workflow.
 
-**Verified:** production build, TypeScript, five statistics tests, all 16 case-study routes, three resume routes/downloads, metadata endpoints, and statistics APIs. ESLint passed with zero errors and five warnings; the compatible dependency updates resolved the advisories reported during the audit.
+**Validation for the MathLens update:** production build, TypeScript, ESLint, and ten tests covering statistics and project metadata. Seventeen case-study pages are generated; MathLens adds a verified live web link, alpha-release resources, and labeled mathematical artwork. Browser capture timed out, so no fresh rendered interaction result is claimed.
 
 See the [delivery report](docs/DELIVERY.md) for validation details and browser/service limitations. No Lighthouse score or real-device Safari result is claimed.
 
@@ -327,7 +340,7 @@ The website refreshes successful API reads through a **six-hour server cache**, 
 - 🎓 **B.Tech CSE (Blockchain Technology)** — Parul Institute of Engineering and Technology, Vadodara (**2023–2027**)
 - 📍 **Vadodara, Gujarat, India**
 - 📘 **CGPA: 7.49** **(till 6Th Sem)**
-- 🛠️ **16 showcased repositories**, including six recent highlights
+- 🛠️ **17 showcased repositories**, including six recent highlights
 - 💼 **Lab Tech Support**, CV Raman Center, Parul University — February–March 2026
 - 🖥️ **IT Intern, System Support Cell**, Parul University — September 2025–February 2026
 - 🌐 **Open to opportunities** across Full Stack, AI/ML, Backend, DevOps, and Blockchain

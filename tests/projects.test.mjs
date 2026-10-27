@@ -5,7 +5,7 @@ const projects = JSON.parse(
   fs.readFileSync(new URL("../lib/projects.json", import.meta.url), "utf8"),
 );
 test("every project has substantive case-study sections with pinned source references", () => {
-  assert.equal(projects.length, 16);
+  assert.equal(projects.length, 17);
   for (const p of projects) {
     const s = p.caseStudy;
     const sources = new Set(p.evidence.map((e) => e.path));
@@ -57,6 +57,27 @@ test("NeuroMap release links and captures preserve its local research scope", ()
   assert(!p.resources.some(r => r.url.endsWith(".ipa")));
   assert(p.challenges.some(text => text.includes("synthetic tabular")));
   assert(p.challenges.some(text => text.includes("No hosted public deployment")));
+});
+
+test("MathLens exposes its live alpha and real releases without mislabeling artwork as captures", () => {
+  const p = projects.find(p => p.slug === "mathlens");
+  assert(p);
+  assert.equal(p.live, "https://mathlens-wine.vercel.app");
+  assert.equal(p.release.version, "0.2.0-alpha.1");
+  assert.equal(p.visualKind, "illustration");
+  assert.equal(p.screenshots.length, 2);
+  for (const art of p.screenshots) {
+    assert(fs.existsSync(new URL("../public" + art.src, import.meta.url)));
+    assert(art.source.includes("/blob/" + p.sourceCommit + "/"));
+  }
+  for (const extension of [".exe", ".AppImage", ".apk", ".pdf", ".pptx"])
+    assert(p.resources.some(r => r.url.endsWith(extension)), extension);
+  assert(!p.resources.some(r => r.url.endsWith(".ipa")));
+  assert(p.challenges.some(t => t.includes("debug signing")));
+  assert(p.challenges.some(t => t.includes("Supabase") && t.includes("configuration")));
+  assert(p.caseStudy.technologies.every(t => t.stage === "source" && t.source));
+  assert.equal(projects.filter(p => p.featured).length, 6);
+  assert.equal(projects[0].slug, "mathlens");
 });
 test("project-specific explanations are not shared placeholder paragraphs", () => {
   const text = projects.flatMap((p) =>

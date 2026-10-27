@@ -2,19 +2,29 @@ import Image from "next/image";
 import type { Project } from "@/lib/projects";
 import DsaCatScene from "@/components/DsaCatScene";
 import styles from "./DsaCatScene.module.css";
+import { MathLensAnimation } from "./MathLensGlassHero";
+import mathStyles from "./MathLensGlassHero.module.css";
 export default function ProjectVisual({
   project,
   priority = false,
 }: {
   project: Pick<
     Project,
-    "slug" | "title" | "screenshots" | "architecture" | "contentStage"
+    "slug" | "title" | "screenshots" | "architecture" | "contentStage" | "visualKind"
   >;
   priority?: boolean;
 }) {
   const image = project.screenshots[0];
   const showCat = priority && project.slug === "dsa";
   const showChase = !priority && project.slug === "dsa";
+  if (project.slug === "mathlens" && !priority) return (
+    <div className={`project-diagram ${mathStyles.preview}`} aria-label="MathLens animated mathematical illustration">
+      <MathLensAnimation preview />
+      <span className="diagram-label">MATHEMATICS IN MOTION</span>
+      <span className={mathStyles.previewTitle}>A clearer<br />view of math.</span>
+      <span className={mathStyles.previewCaption}>COMPUTE · LEARN · DISCOVER</span>
+    </div>
+  );
   return image ? (
     <div className="project-image">
       <Image
@@ -24,7 +34,7 @@ export default function ProjectVisual({
         sizes="(max-width:640px) 100vw, (max-width:1000px) 50vw, 420px"
         priority={priority}
       />
-      <span className="capture-label">REPOSITORY CAPTURE</span>
+      <span className="capture-label">{project.visualKind === "illustration" ? "MATHEMATICAL ILLUSTRATION" : "REPOSITORY CAPTURE"}</span>
     </div>
   ) : (
     <div

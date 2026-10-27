@@ -4,13 +4,15 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import ProjectVisual from "@/components/ProjectVisual";
 import { projects, projectCategories } from "@/lib/projects";
-import { ArrowUpRight, Search, SlidersHorizontal, X } from "lucide-react";
+import { ArrowUpRight, Search, SlidersHorizontal, X, Pause, Play } from "lucide-react";
 import DsaChaseScene from "@/components/DsaChaseScene";
 import dsaStyles from "@/components/DsaChaseScene.module.css";
+import mathStyles from "@/components/MathLensGlassHero.module.css";
 
 export default function Projects() {
   const [category, setCategory] = useState("All Projects");
   const [query, setQuery] = useState("");
+  const [mathPaused, setMathPaused] = useState(false);
   const filtered = projects.filter(
     (p) =>
       (category === "All Projects" || p.categories.includes(category)) &&
@@ -80,7 +82,8 @@ export default function Projects() {
                 duration: 0.4,
                 delay: Math.min((i % 3) * 0.06, 0.12),
               }}
-              className={`project-card glass card-hover${p.slug === "dsa" ? ` ${dsaStyles.card}` : ""}`}
+              className={`project-card glass card-hover${p.slug === "dsa" ? ` ${dsaStyles.card}` : p.slug === "mathlens" ? ` ${mathStyles.card}` : ""}`}
+              data-paused={p.slug === "mathlens" ? mathPaused : undefined}
               key={p.id}
             >
               {p.slug === "dsa" && <DsaChaseScene />}
@@ -93,6 +96,7 @@ export default function Projects() {
                 <span className="work-number" aria-hidden>{String(projects.indexOf(p) + 1).padStart(2, "0")}</span>
                 <span className="work-preview-action" aria-hidden><ArrowUpRight size={18} /></span>
               </Link>
+              {p.slug === "mathlens" && <button type="button" className={mathStyles.cardControl} onClick={() => setMathPaused(value => !value)} aria-pressed={mathPaused} aria-label={mathPaused ? "Play MathLens card animation" : "Pause MathLens card animation"}>{mathPaused ? <Play size={12} aria-hidden /> : <Pause size={12} aria-hidden />}</button>}
               <div className="project-card-body">
                 <div className="eyebrow-row">
                   <span>{p.categories[0]}</span>

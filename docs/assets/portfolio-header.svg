@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1400" height="440" viewBox="0 0 1400 440" role="img" aria-labelledby="title desc">
   <title id="title">Manikant Kumar — AI-Augmented Full Stack Developer</title>
-  <desc id="desc">A softly animated glass workspace in midnight blue, lavender, and teal. Floating panels and moving connections represent AI, full stack engineering, and Web3.</desc>
+  <desc id="desc">A softly animated glass workspace in midnight blue, lavender, and teal. Floating panels, a descending mathematical point, and moving connections represent mathematics, AI, and full stack engineering.</desc>
   <defs>
     <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0b1120"/><stop offset="1" stop-color="#10162a"/></linearGradient>
     <linearGradient id="accent"><stop stop-color="#a5adff"/><stop offset=".55" stop-color="#b4a1f5"/><stop offset="1" stop-color="#68dacb"/></linearGradient>
@@ -14,11 +14,13 @@
     .signal{stroke-dasharray:12 700;animation:signal 10s linear infinite}
     .pulse{animation:pulse 5s ease-in-out infinite}
     .workflow-node{animation:workflow 8s ease-in-out infinite}.workflow-node.two{animation-delay:-2s}.workflow-node.three{animation-delay:-4s}
+    .math-dot{animation:descent 9s ease-in-out infinite}
+    @keyframes descent{0%,8%{transform:translate(47px,21.47px);opacity:1}30%{transform:translate(38px,35.44px)}50%{transform:translate(32px,40.25px)}70%,90%{transform:translate(28px,41.45px);opacity:1}100%{transform:translate(28px,41.45px);opacity:0}}
     .neuron{animation:pulse 4.6s ease-in-out infinite}.neuron.second{animation-delay:-2.3s}
     @keyframes orbit{to{transform:rotate(360deg)}}@keyframes float{50%{transform:translateY(-9px)}}
     @keyframes signal{to{stroke-dashoffset:-712}}@keyframes pulse{50%{opacity:.35}}
     @keyframes workflow{50%{opacity:.4;transform:translateY(-4px)}}
-    @media(prefers-reduced-motion:reduce){.orbit,.float,.signal,.pulse,.workflow-node,.neuron{animation:none}}
+    @media(prefers-reduced-motion:reduce){.orbit,.float,.signal,.pulse,.workflow-node,.neuron,.math-dot{animation:none}}
   </style>
   <g clip-path="url(#bounds)">
     <rect x="1" y="1" width="1398" height="438" rx="30" fill="url(#bg)" stroke="#2b3453"/>
@@ -56,7 +58,7 @@
     </g>
     <g class="float reverse">
       <rect x="934" y="258" width="188" height="102" rx="21" fill="#182238" fill-opacity=".88" stroke="#9eb1db" stroke-opacity=".3"/>
-      <g transform="translate(963 281)" fill="none" stroke="#a8e4d9" stroke-width="2" stroke-linejoin="round"><path d="m0 14 22-11 22 11-22 11Z"/><path d="m0 25 22 11 22-11M0 36l22 11 22-11"/></g>
+      <g transform="translate(956 277)"><path d="M0 5Q27 78 54 5M0 42h58" fill="none" stroke="#a8e4d9" stroke-opacity=".7" stroke-width="1.5"/><circle class="math-dot" r="3.5" fill="#68dacb"/></g>
       <path d="M1026 292H1096M1026 308H1082M1026 324H1092" stroke="#b4c4e3" stroke-opacity=".3" stroke-width="3" stroke-linecap="round"/>
     </g>
     <g fill="none" stroke="#a5adff" stroke-opacity=".25"><path d="M1169 310h34q10 0 10 10v35h45"/><path d="M1213 329v-38h45"/></g>

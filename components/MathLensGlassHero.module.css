@@ -1,0 +1,43 @@
+.scene { opacity: .85; }
+.card { position: relative; }
+.card[data-paused="true"] * { animation-play-state: paused; }
+.preview { position: relative; isolation: isolate; overflow: hidden; }
+.previewScene { position: absolute; width: 85%; right: -14%; top: 50%; transform: translateY(-50%); pointer-events: none; opacity: .75; mask-image: linear-gradient(90deg, transparent, #000 25%); }
+.previewScene svg { width: 100%; display: block; }
+.previewTitle { position: relative; z-index: 1; font-size: clamp(26px, 3vw, 38px); font-weight: 500; line-height: 1.15; letter-spacing: -.055em; color: var(--fg); margin-top: 30px; }
+.previewCaption { position: relative; z-index: 1; font: 8px monospace; letter-spacing: .12em; color: var(--teal); margin-top: 26px; }
+.cardControl { position: absolute; z-index: 2; top: 23px; right: 61px; display: grid; place-items: center; width: 30px; height: 30px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg2); color: var(--muted); cursor: pointer; }
+.cardControl:hover { color: var(--fg); border-color: var(--accent); }
+.orbit { transform-origin: 310px 310px; animation: orbit 80s linear infinite; }
+.formula { animation: float 11s ease-in-out infinite; }
+.matrix { animation: float 13s ease-in-out -5s infinite; }
+.pulse { animation: breathe 4s ease-in-out infinite; }
+.particle { transform: translate(454px, 235px); animation: descend 9s linear infinite; }
+@keyframes orbit { to { transform: rotate(360deg); } }
+@keyframes float { 50% { transform: translateY(-10px); } }
+@keyframes breathe { 50% { opacity: .3; } }
+/* θ starts at 4 and follows θ ← .8θ on L(θ)=θ². Briefly fade before restarting. */
+@keyframes descend {
+  0% { transform: translate(454px, 235px); opacity: 0; }
+  5% { transform: translate(454px, 235px); opacity: 1; }
+  12% { transform: translate(425.2px, 292.6px); }
+  19% { transform: translate(402.16px, 329.464px); }
+  26% { transform: translate(383.728px, 353.057px); }
+  33% { transform: translate(368.982px, 368.156px); }
+  40% { transform: translate(357.186px, 377.82px); }
+  47% { transform: translate(347.749px, 384.005px); }
+  54% { transform: translate(340.199px, 387.963px); }
+  61% { transform: translate(334.159px, 390.496px); }
+  68% { transform: translate(329.327px, 392.118px); }
+  75% { transform: translate(325.462px, 393.155px); }
+  82%, 92% { transform: translate(322.37px, 393.819px); opacity: 1; }
+  98%, 100% { transform: translate(322.37px, 393.819px); opacity: 0; }
+}
+@media (max-width: 900px) { .scene { opacity: .38; } }
+@media (max-width: 600px) { .scene { opacity: .25; } }
+@media (prefers-reduced-motion: reduce) {
+  .scene *, .previewScene * { animation: none !important; }
+  .particle { transform: translate(322.37px, 393.819px); }
+  .cardControl { display: none; }
+}
+@media (prefers-reduced-transparency: reduce) { .previewScene { display: none; } .preview { background: var(--bg2); } }

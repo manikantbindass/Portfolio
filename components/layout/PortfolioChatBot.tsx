@@ -37,7 +37,7 @@ function getResponse(text: string, lc: LCStats, gh: GHStats): string {
   if (/resume|cv|download/.test(q))
     return `Choose a resume:\n${resumes.map((r) => `[${r.title}](/resumes/${r.slug}) — ${r.description}`).join("\n\n")}`;
   if (/project|built|portfolio/.test(q))
-    return `**16 project repositories**\n${projects.map((p) => `[${p.title}](/projects/${p.slug}) — ${p.status}`).join("\n")}`;
+    return `**${projects.length} project repositories**\n${projects.map((p) => `[${p.title}](/projects/${p.slug}) — ${p.status}`).join("\n")}`;
   if (/education|study|college|university|cgpa/.test(q))
     return `${personal.degree}\n${personal.university}, Vadodara\n${personal.period} · CGPA: 7.49 (confirmed by Manikant).`;
   if (/experience|intern|career|work history/.test(q))
@@ -83,7 +83,7 @@ export default function PortfolioChatBot() {
   const [msgs, setMsgs] = useState<Msg[]>([
     {
       role: "bot",
-      text: "Hi! I’m Manikant’s portfolio guide.\n\nExplore 16 project repositories, three resumes, verified statistics, skills, and experience. My answers come from curated portfolio data.",
+      text: `Hi! I’m Manikant’s portfolio guide.\n\nExplore ${projects.length} project repositories, three resumes, verified statistics, skills, and experience. My answers come from curated portfolio data.`,
     },
   ]);
   const [input, setInput] = useState("");

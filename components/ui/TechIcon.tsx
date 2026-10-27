@@ -51,11 +51,15 @@ import {
   SiVercel,
   SiVite,
   SiVuedotjs,
+  SiJavascript,
+  SiSvg,
   SiWeb3Dotjs,
   SiWireguard,
 } from "react-icons/si";
 import { FaJava, FaAws } from "react-icons/fa";
 const icons: Record<string, IconType> = {
+  JavaScript: SiJavascript,
+  SVG: SiSvg,
   "Next.js": SiNextdotjs,
   "React Flow": SiReact,
   "Vercel Workflows": SiVercel,

@@ -1,5 +1,328 @@
 [
   {
+    "id": "mathlens",
+    "slug": "mathlens",
+    "title": "MathLens",
+    "subtitle": "From a question to understanding · mathematics made inspectable",
+    "description": "A live mathematics and model-analysis workbench with explainable numerical tools, interactive learning, a live arXiv feed, and experimental desktop and Android downloads.",
+    "categories": [
+      "AI / Machine Learning",
+      "Full Stack",
+      "Developer Tools"
+    ],
+    "tags": [
+      "JavaScript",
+      "Node.js",
+      "SVG",
+      "Vercel",
+      "Supabase",
+      "Electron",
+      "Java"
+    ],
+    "github": "https://github.com/manikantbindass/mathlens",
+    "live": "https://mathlens-wine.vercel.app",
+    "release": {
+      "version": "0.2.0-alpha.1",
+      "url": "https://github.com/manikantbindass/mathlens/releases/tag/v0.2.0-alpha.1"
+    },
+    "featured": true,
+    "status": "Live web alpha · v0.2.0-alpha.1 prerelease",
+    "updatedAt": "2026-10-27T20:14:55Z",
+    "users": "Students, educators, and developers exploring how mathematical methods produce results, model metrics, and visual explanations.",
+    "problem": "Mathematics and machine-learning demos often hide the calculation, data split, numerical limits, or assumptions behind a final number. Learners need to inspect both the result and how it was computed.",
+    "solution": "Connect bounded server-side numerical methods to an interactive workspace with plots, deterministic explanations, held-out model metrics, worked lessons, puzzles, exports, and source-linked research.",
+    "technicalDetails": [
+      "Native browser ES modules and SVG plots connect to a dependency-free Node.js HTTP core. The same request handler serves local development and a Vercel function; no React framework or external inference provider is required by the web core.",
+      "Householder QR least squares uses seeded splits and training-only scaling. Binary one-feature logistic regression, two-feature K-means and PCA expose computed metrics and explicit limits rather than general-purpose AutoML claims.",
+      "The allowlisted polynomial parser never evaluates arbitrary JavaScript. Bounded calculus, bisection, integration, matrix tools and statistics share request validation and finite numeric constraints.",
+      "Electron and Java WebView packages open the hosted workspace. They require internet, do not bundle offline computation, and keep local progress separate across clients."
+    ],
+    "features": [
+      "Explainable model analysis",
+      "Polynomial and numerical tools",
+      "Gradient-descent visualization",
+      "Nine lessons and ten puzzle categories",
+      "Live arXiv research feed",
+      "Windows, Linux and Android prerelease"
+    ],
+    "architecture": [
+      "Browser / online native client",
+      "Versioned Node.js JSON API",
+      "Bounded deterministic mathematics",
+      "SVG results + local learning state",
+      "Fixed-host arXiv / optional Supabase"
+    ],
+    "architectureReference": "flowchart LR\n  Browser[Browser ES modules / online clients] --> API[Node JSON API / Vercel function]\n  API --> Math[Bounded polynomial and numerical methods]\n  API --> Models[QR / logistic / K-means / PCA]\n  Math --> Plots[SVG plots and JSON exports]\n  Models --> Plots\n  Browser --> Local[(Browser-local learning records)]\n  API --> Research[Bounded arXiv retrieval and cache]\n  API --> Auth[Optional Supabase GoTrue adapter]",
+    "challenges": [
+      "This is a working alpha with a published prerelease. General symbolic algebra, multifeature model pipelines, SHAP, generative explanations, durable jobs, and account-synced progress are not implemented.",
+      "Optional Supabase authentication requires owner configuration. Learning progress, bookmarks, and experiment metadata remain browser-local; uploaded numeric data are not persisted as a server-side dataset library.",
+      "Native downloads are experimental online clients: Windows is unsigned, Android uses debug signing, and Linux distribution coverage is limited. Android exports and email callbacks use Open in browser. No offline engine, updater, store release, or iOS binary is provided.",
+      "The repository reports 49 mathematical/API tests and successful native CI smoke checks. Expanded layouts still need rendered interaction checks; process-local quotas are not distributed abuse protection."
+    ],
+    "visualKind": "illustration",
+    "screenshots": [
+      {
+        "src": "/projects/mathlens/overview.svg",
+        "caption": "MathLens mathematical artwork — a source-based illustration of model analysis, numerical tools, and learning; not an application screenshot.",
+        "source": "https://github.com/manikantbindass/mathlens/blob/d74730e1a552bcfa2a4b009342c991fded8bb05f/README.md"
+      },
+      {
+        "src": "/projects/mathlens/methods.svg",
+        "caption": "Method diagram — deterministic gradient descent on θ² with η = 0.1, plus the validated request-to-result pipeline. An explanatory illustration, not a measured benchmark.",
+        "source": "https://github.com/manikantbindass/mathlens/blob/d74730e1a552bcfa2a4b009342c991fded8bb05f/shared/math.mjs"
+      }
+    ],
+    "resources": [
+      {
+        "label": "Project overview · PDF",
+        "url": "https://github.com/manikantbindass/mathlens/releases/download/v0.2.0-alpha.1/MathLens-Project-Overview.pdf",
+        "description": "Published 20-slide overview covering capabilities, methods, architecture, setup, and remaining work."
+      },
+      {
+        "label": "Editable PowerPoint",
+        "url": "https://github.com/manikantbindass/mathlens/releases/download/v0.2.0-alpha.1/MathLens-Project-Overview.pptx",
+        "description": "The editable presentation supplied with the alpha release."
+      },
+      {
+        "label": "Windows x64 installer",
+        "url": "https://github.com/manikantbindass/mathlens/releases/download/v0.2.0-alpha.1/MathLens-0.2.0-alpha.1-windows-x64-unsigned.exe",
+        "description": "Unsigned NSIS installer for the experimental online Electron client; requires the hosted workspace."
+      },
+      {
+        "label": "Linux x86_64 AppImage",
+        "url": "https://github.com/manikantbindass/mathlens/releases/download/v0.2.0-alpha.1/MathLens-0.2.0-alpha.1-linux-x86_64.AppImage",
+        "description": "Online Electron client. AppImage/FUSE support and host libraries depend on the distribution."
+      },
+      {
+        "label": "Android 8+ test APK",
+        "url": "https://github.com/manikantbindass/mathlens/releases/download/v0.2.0-alpha.1/MathLens-0.2.0-alpha.1-android-debug.apk",
+        "description": "Debug-signed Java WebView client for testing with a current Android System WebView. Not a Play Store release."
+      },
+      {
+        "label": "Release checksums",
+        "url": "https://github.com/manikantbindass/mathlens/releases/download/v0.2.0-alpha.1/SHA256SUMS.txt",
+        "description": "Published SHA256 values for the actual native packages, documents, and Node runtime archive."
+      },
+      {
+        "label": "Distribution and installation",
+        "url": "https://github.com/manikantbindass/mathlens/blob/d74730e1a552bcfa2a4b009342c991fded8bb05f/DISTRIBUTION.md",
+        "description": "Supported platforms, build verification, online requirements, and client limitations."
+      }
+    ],
+    "evidence": [
+      {
+        "path": "README.md",
+        "url": "https://github.com/manikantbindass/mathlens/blob/d74730e1a552bcfa2a4b009342c991fded8bb05f/README.md"
+      },
+      {
+        "path": "REFINEMENT_AUDIT.md",
+        "url": "https://github.com/manikantbindass/mathlens/blob/d74730e1a552bcfa2a4b009342c991fded8bb05f/REFINEMENT_AUDIT.md"
+      },
+      {
+        "path": "API.md",
+        "url": "https://github.com/manikantbindass/mathlens/blob/d74730e1a552bcfa2a4b009342c991fded8bb05f/API.md"
+      },
+      {
+        "path": "DISTRIBUTION.md",
+        "url": "https://github.com/manikantbindass/mathlens/blob/d74730e1a552bcfa2a4b009342c991fded8bb05f/DISTRIBUTION.md"
+      },
+      {
+        "path": "TESTING.md",
+        "url": "https://github.com/manikantbindass/mathlens/blob/d74730e1a552bcfa2a4b009342c991fded8bb05f/TESTING.md"
+      },
+      {
+        "path": "package.json",
+        "url": "https://github.com/manikantbindass/mathlens/blob/d74730e1a552bcfa2a4b009342c991fded8bb05f/package.json"
+      },
+      {
+        "path": "public/app.mjs",
+        "url": "https://github.com/manikantbindass/mathlens/blob/d74730e1a552bcfa2a4b009342c991fded8bb05f/public/app.mjs"
+      },
+      {
+        "path": "public/advanced.mjs",
+        "url": "https://github.com/manikantbindass/mathlens/blob/d74730e1a552bcfa2a4b009342c991fded8bb05f/public/advanced.mjs"
+      },
+      {
+        "path": "public/research.mjs",
+        "url": "https://github.com/manikantbindass/mathlens/blob/d74730e1a552bcfa2a4b009342c991fded8bb05f/public/research.mjs"
+      },
+      {
+        "path": "shared/math.mjs",
+        "url": "https://github.com/manikantbindass/mathlens/blob/d74730e1a552bcfa2a4b009342c991fded8bb05f/shared/math.mjs"
+      },
+      {
+        "path": "shared/advanced.mjs",
+        "url": "https://github.com/manikantbindass/mathlens/blob/d74730e1a552bcfa2a4b009342c991fded8bb05f/shared/advanced.mjs"
+      },
+      {
+        "path": "shared/linear-algebra.mjs",
+        "url": "https://github.com/manikantbindass/mathlens/blob/d74730e1a552bcfa2a4b009342c991fded8bb05f/shared/linear-algebra.mjs"
+      },
+      {
+        "path": "server/index.mjs",
+        "url": "https://github.com/manikantbindass/mathlens/blob/d74730e1a552bcfa2a4b009342c991fded8bb05f/server/index.mjs"
+      },
+      {
+        "path": "server/auth.mjs",
+        "url": "https://github.com/manikantbindass/mathlens/blob/d74730e1a552bcfa2a4b009342c991fded8bb05f/server/auth.mjs"
+      },
+      {
+        "path": "server/research.mjs",
+        "url": "https://github.com/manikantbindass/mathlens/blob/d74730e1a552bcfa2a4b009342c991fded8bb05f/server/research.mjs"
+      },
+      {
+        "path": "apps/desktop/package.json",
+        "url": "https://github.com/manikantbindass/mathlens/blob/d74730e1a552bcfa2a4b009342c991fded8bb05f/apps/desktop/package.json"
+      },
+      {
+        "path": "apps/desktop/main.cjs",
+        "url": "https://github.com/manikantbindass/mathlens/blob/d74730e1a552bcfa2a4b009342c991fded8bb05f/apps/desktop/main.cjs"
+      },
+      {
+        "path": "apps/android/app/src/main/java/dev/mathlens/app/MainActivity.java",
+        "url": "https://github.com/manikantbindass/mathlens/blob/d74730e1a552bcfa2a4b009342c991fded8bb05f/apps/android/app/src/main/java/dev/mathlens/app/MainActivity.java"
+      }
+    ],
+    "sourceCommit": "d74730e1a552bcfa2a4b009342c991fded8bb05f",
+    "verifiedAt": "2026-10-28",
+    "contentStage": "source",
+    "caseStudy": {
+      "architectureSummary": "MathLens combines a modular browser workspace with a shared Node.js request handler, bounded mathematical functions, and deterministic SVG views. Local and Vercel runtimes use the same JSON API. Numeric uploads are processed per request, learning metadata stays in localStorage, research retrieval is constrained to arXiv, and optional identity is delegated to a server-only Supabase adapter.",
+      "features": [
+        {
+          "title": "Train, inspect, and compare",
+          "description": "Fit linear, quadratic, and cubic regression with Householder QR, or explore bounded binary logistic classification. Inspect coefficients, predictions, residuals, confusion and calibration metrics. Comparisons reuse the same seeded split and explicitly caution against selecting models from test scores.",
+          "source": "shared/advanced.mjs"
+        },
+        {
+          "title": "Explore geometry in the data",
+          "description": "Two-feature K-means runs five deterministic initializations and returns centroids, assignments, inertia, and silhouette. Two-feature PCA exposes covariance eigenvectors, explained variance, projected scores, and rank-one reconstruction. These are descriptive analyses rather than held-out accuracy claims.",
+          "source": "shared/advanced.mjs"
+        },
+        {
+          "title": "Calculate with visible boundaries",
+          "description": "An allowlisted polynomial grammar supports bounded differentiation, integration, simplification, and real linear/quadratic roots without eval. Additional tools provide bracketed bisection, definite integrals, matrices up to 6×6, sample statistics, and correlation with numerical explanations.",
+          "source": "shared/math.mjs"
+        },
+        {
+          "title": "Build intuition through practice",
+          "description": "Adjust gradient-descent learning rate, initial parameter, and iteration count, then inspect the complete loss trace. Nine worked lessons and ten puzzle categories add checked answers and hints. Progress, bookmarks, and up to 20 experiment metadata records stay local to the current browser.",
+          "source": "public/app.mjs"
+        },
+        {
+          "title": "Read research with provenance",
+          "description": "Browse curated institutional references alongside bounded live arXiv category feeds. The adapter uses fixed hosts, allowlisted categories, bounded response streaming, timeout, caching, and outage backoff; the interface provides source dates, bookmarks, and citation export.",
+          "source": "server/research.mjs"
+        },
+        {
+          "title": "Use the same workspace across platforms",
+          "description": "The published alpha includes a Windows installer, Linux AppImage, and Android test APK. Electron disables renderer Node integration and enables sandboxing. Native clients connect to the hosted service, while release notes state signing, callback, and export limitations.",
+          "source": "DISTRIBUTION.md"
+        }
+      ],
+      "technologies": [
+        {
+          "name": "JavaScript",
+          "version": "Native ES modules",
+          "stage": "source",
+          "source": "package.json",
+          "description": "Dependency-free browser modules and shared numerical functions; the web core has no transpiler or React runtime."
+        },
+        {
+          "name": "Node.js",
+          "version": ">=24 <27",
+          "stage": "source",
+          "source": "package.json",
+          "description": "Runs the bounded HTTP/JSON API, local server, numerical methods, and built-in test runner."
+        },
+        {
+          "name": "SVG",
+          "stage": "source",
+          "source": "public/app.mjs",
+          "description": "Draws sampled curves, model views, optimization traces, and mathematical illustrations in the browser."
+        },
+        {
+          "name": "Vercel",
+          "stage": "source",
+          "source": "server/index.mjs",
+          "description": "Hosts the public web workspace and the same request handler used by the local Node runtime."
+        },
+        {
+          "name": "Supabase",
+          "stage": "source",
+          "source": "server/auth.mjs",
+          "description": "Optional GoTrue email identity adapter with HttpOnly session cookies; requires owner provider configuration."
+        },
+        {
+          "name": "Electron",
+          "version": "45.0.0",
+          "stage": "source",
+          "source": "apps/desktop/package.json",
+          "description": "Packages online Windows and Linux clients with renderer isolation and explicit hosted-navigation boundaries."
+        },
+        {
+          "name": "Java",
+          "stage": "source",
+          "source": "apps/android/app/src/main/java/dev/mathlens/app/MainActivity.java",
+          "description": "Implements the experimental Android WebView client and native Open in browser menu."
+        }
+      ],
+      "decisions": [
+        {
+          "title": "Keep the numerical core inspectable",
+          "description": "Use small deterministic functions, bounded dimensions, explicit method notes, and shared browser/server modules. The polynomial parser accepts a restricted grammar rather than executing user expressions or connecting an external generative model.",
+          "source": "shared/math.mjs",
+          "tradeoff": "The result is straightforward to inspect and run, but it is not a general symbolic algebra engine or broad multifeature machine-learning platform."
+        },
+        {
+          "title": "Separate model fitting from evaluation",
+          "description": "Use a reproducible split and fit preprocessing only on training data. QR improves the regression solve; logistic classification uses stratification and reports a baseline alongside held-out metrics.",
+          "source": "shared/advanced.mjs",
+          "tradeoff": "A single teaching split is reproducible but cannot establish robust model selection, causal explanations, or generalization across arbitrary real-world datasets."
+        },
+        {
+          "title": "Reuse the hosted product in native clients",
+          "description": "Package the existing web workspace in Electron and a Java WebView, with platform-specific navigation and release checks. The native release pipeline publishes actual packages and checksums after required jobs succeed.",
+          "source": "DISTRIBUTION.md",
+          "tradeoff": "This avoids duplicating numerical behavior, while retaining an internet dependency and separate local progress per installation. Production signing and store distribution remain future work."
+        }
+      ],
+      "outcomes": [
+        {
+          "title": "A working public mathematics alpha",
+          "description": "The published web workspace exposes real server-side calculations and model methods, with explicit numeric bounds and JSON exports. The live calculation endpoint resolves x² − 4x + 3 to real roots 1 and 3; this is a functional check rather than a performance or accuracy benchmark.",
+          "source": "API.md"
+        },
+        {
+          "title": "Published packages and project documentation",
+          "description": "Release v0.2.0-alpha.1 supplies real Windows, Linux, and Android test packages, checksums, and matching PDF/PowerPoint guides. The native workflow reports successful platform smoke checks; those results do not imply broad device certification or stable production distribution.",
+          "source": "DISTRIBUTION.md"
+        },
+        {
+          "title": "Independent numerical fixtures in the source suite",
+          "description": "The refinement report records 49 passing tests for numerical identities, held-out data isolation, model metrics, parser bounds, API validation, and research retrieval behavior. These are repository-reported results; new rendered UI checks and a broader browser matrix remain separate work.",
+          "source": "TESTING.md"
+        }
+      ],
+      "workflow": [
+        "Start with a polynomial, bounded numeric dataset, or explicit synthetic teaching sample.",
+        "Choose a mathematical operation or model and inspect its validated input limits.",
+        "Run the shared numerical method through the versioned JSON API.",
+        "Inspect plots, method notes, metrics, and assumptions before exporting the result.",
+        "Continue with a worked lesson, a puzzle, or source-linked research; keep optional learning metadata locally."
+      ],
+      "commands": [
+        "npm start",
+        "npm run dev",
+        "npm test",
+        "npm run check",
+        "npm run build",
+        "node dist/server/index.mjs"
+      ],
+      "setup": "Clone the MathLens repository and use Node.js 24–26. The web core needs no npm dependencies or paid API key: npm start opens the local service on 127.0.0.1:4173. Configure Supabase only for optional email accounts. Desktop and Android packaging have their own tooling prerequisites; published native clients require internet and the hosted API."
+    }
+  },
+  {
     "id": "neuromap",
     "slug": "neuromap",
     "title": "NeuroMap AI",
@@ -1382,7 +1705,7 @@
     ],
     "github": "https://github.com/manikantbindass/Tracehunt",
     "live": null,
-    "featured": true,
+    "featured": false,
     "status": "Single-workspace development foundation",
     "updatedAt": "2026-10-24T09:52:23Z",
     "users": "Developers investigating service failures and correlating incident evidence.",

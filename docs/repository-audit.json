@@ -412,5 +412,40 @@
     "technologyRoles": 12,
     "engineeringDecisions": 3,
     "contentStage": "source"
+  },
+  {
+    "project": "MathLens",
+    "repo": "mathlens",
+    "commit": "d74730e1a552bcfa2a4b009342c991fded8bb05f",
+    "sourceFiles": [
+      "README.md",
+      "REFINEMENT_AUDIT.md",
+      "API.md",
+      "DISTRIBUTION.md",
+      "TESTING.md",
+      "package.json",
+      "public/app.mjs",
+      "public/advanced.mjs",
+      "public/research.mjs",
+      "shared/math.mjs",
+      "shared/advanced.mjs",
+      "shared/linear-algebra.mjs",
+      "server/index.mjs",
+      "server/auth.mjs",
+      "server/research.mjs",
+      "apps/desktop/package.json",
+      "apps/desktop/main.cjs",
+      "apps/android/app/src/main/java/dev/mathlens/app/MainActivity.java"
+    ],
+    "screenshots": 0,
+    "illustrations": 2,
+    "demo": "https://mathlens-wine.vercel.app",
+    "release": "https://github.com/manikantbindass/mathlens/releases/tag/v0.2.0-alpha.1",
+    "limitations": "This is a working alpha with a published prerelease. General symbolic algebra, multifeature model pipelines, SHAP, generative explanations, durable jobs, and account-synced progress are not implemented. Optional Supabase authentication requires owner configuration. Learning progress, bookmarks, and experiment metadata remain browser-local; uploaded numeric data are not persisted as a server-side dataset library. Native downloads are experimental online clients: Windows is unsigned, Android uses debug signing, and Linux distribution coverage is limited. Android exports and email callbacks use Open in browser. No offline engine, updater, store release, or iOS binary is provided. The repository reports 49 mathematical/API tests and successful native CI smoke checks. Expanded layouts still need rendered interaction checks; process-local quotas are not distributed abuse protection.",
+    "reviewedAt": "2026-10-28",
+    "detailedFeatures": 6,
+    "technologyRoles": 7,
+    "engineeringDecisions": 3,
+    "contentStage": "source"
   }
 ]
