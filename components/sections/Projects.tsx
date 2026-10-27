@@ -128,6 +128,9 @@ export default function Projects() {
                       Demo ↗
                     </a>
                   )}
+                  {p.release && (
+                    <a href={p.release.url} target="_blank" rel="noopener noreferrer">Downloads ↗</a>
+                  )}
                 </div>
               </div>
             </motion.article>

@@ -2,6 +2,8 @@ import type { IconType } from "react-icons";
 import {
   SiCrewai,
   SiElectron,
+  SiCapacitor,
+  SiNumpy,
   SiD3,
   SiFastify,
   SiFlask,
@@ -59,6 +61,8 @@ const icons: Record<string, IconType> = {
   "Vercel Workflows": SiVercel,
   "Vercel Blob": SiVercel,
   Electron: SiElectron,
+  Capacitor: SiCapacitor,
+  NiBabel: SiNumpy,
   "D3.js": SiD3,
   Fastify: SiFastify,
   Flask: SiFlask,

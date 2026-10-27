@@ -1,0 +1,14 @@
+.scene { opacity: .8; }
+.volume { transform-origin: 310px 300px; animation: turn 18s ease-in-out infinite; }
+.rings { transform-origin: 310px 295px; animation: orbit 80s linear infinite; }
+.point { animation: twinkle 5.2s ease-in-out infinite; }
+.signals path { stroke-dasharray: 11 450; animation: signal 6s linear infinite; }
+.scan { animation: scan 9s ease-in-out infinite; }
+@keyframes turn { 0%, 100% { transform: rotate(-3deg) scaleX(.94); } 50% { transform: rotate(3deg) scaleX(1.04); } }
+@keyframes orbit { to { transform: rotate(360deg); } }
+@keyframes twinkle { 0%, 100% { opacity: .35; } 50% { opacity: .9; } }
+@keyframes signal { to { stroke-dashoffset: -461; } }
+@keyframes scan { 0%, 100% { transform: translateY(0); opacity: 0; } 15%, 80% { opacity: .65; } 90% { transform: translateY(270px); opacity: 0; } }
+@media (max-width: 900px) { .scene { opacity: .36; } }
+@media (max-width: 600px) { .scene { opacity: .24; } }
+@media (prefers-reduced-motion: reduce) { .scene * { animation: none !important; } .scan { display: none; } }

@@ -381,5 +381,36 @@
     "publicBranches": [
       "main"
     ]
+  },
+  {
+    "project": "NeuroMap AI",
+    "repo": "NeuroMap.AI",
+    "commit": "f964386b79e4340c3b609d1ef41953152c8f9d06",
+    "readmeCharacters": 15746,
+    "sourceFiles": [
+      "README.md",
+      "frontend/package.json",
+      "frontend/src/BrainView.tsx",
+      "backend/requirements.txt",
+      "backend/app/main.py",
+      "backend/app/imaging.py",
+      "backend/app/db.py",
+      "ml/pipeline.py",
+      "docs/architecture/README.md",
+      "docs/INSTALLATION.md",
+      "docs/VERIFICATION.md",
+      "docs/SAFETY_AND_LIMITATIONS.md",
+      "desktop/package.json",
+      "mobile/package.json"
+    ],
+    "screenshots": 5,
+    "demo": null,
+    "release": "https://github.com/manikantbindass/NeuroMap.AI/releases/tag/v0.1.1",
+    "limitations": "Research and education only: the classifier uses synthetic tabular features and labels. Image inspection does not diagnose disease, estimate clinical risk, segment anatomy, or provide clinically validated quality control. No hosted public deployment is available. Windows and Android clients require a running server. The Windows publisher is unsigned; Android is release-signed, while device/emulator runtime testing and full installed Windows upgrade/uninstall testing remain pending. No iOS IPA is available. The supported runtime is a single-owner, single-process workspace with a bounded CPU queue. Distributed workers, multi-tenant identity, production-scale throughput, and clinical validation remain outside this release.",
+    "reviewedAt": "2026-10-27T07:27:01Z",
+    "detailedFeatures": 6,
+    "technologyRoles": 12,
+    "engineeringDecisions": 3,
+    "contentStage": "source"
   }
 ]

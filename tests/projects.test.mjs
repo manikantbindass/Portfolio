@@ -5,7 +5,7 @@ const projects = JSON.parse(
   fs.readFileSync(new URL("../lib/projects.json", import.meta.url), "utf8"),
 );
 test("every project has substantive case-study sections with pinned source references", () => {
-  assert.equal(projects.length, 15);
+  assert.equal(projects.length, 16);
   for (const p of projects) {
     const s = p.caseStudy;
     const sources = new Set(p.evidence.map((e) => e.path));
@@ -39,6 +39,24 @@ test("every project has substantive case-study sections with pinned source refer
         p.slug + " stale commit reference",
       );
   }
+});
+
+test("NeuroMap release links and captures preserve its local research scope", () => {
+  const p = projects.find(p => p.slug === "neuromap");
+  assert(p);
+  assert.equal(p.live, null);
+  assert.equal(p.release.version, "0.1.1");
+  assert.equal(p.release.url, "https://github.com/manikantbindass/NeuroMap.AI/releases/tag/v0.1.1");
+  assert.equal(p.screenshots.length, 5);
+  for (const capture of p.screenshots) {
+    assert(fs.existsSync(new URL("../public" + capture.src, import.meta.url)));
+    assert(capture.source.includes("/blob/" + p.sourceCommit + "/"));
+  }
+  assert(p.resources.some(r => r.url.endsWith(".apk")));
+  assert(p.resources.some(r => r.url.endsWith(".exe")));
+  assert(!p.resources.some(r => r.url.endsWith(".ipa")));
+  assert(p.challenges.some(text => text.includes("synthetic tabular")));
+  assert(p.challenges.some(text => text.includes("No hosted public deployment")));
 });
 test("project-specific explanations are not shared placeholder paragraphs", () => {
   const text = projects.flatMap((p) =>

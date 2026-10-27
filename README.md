@@ -35,7 +35,7 @@ A **responsive engineering portfolio** built with Next.js 16, React, TypeScript,
 
 The original cosmic identity lives on: **rolling technology marquees, a scroll-driven moon, starfield and aurora lighting, typewriter roles, interactive cursor, floating navigation, and animated counters**. Refined glass surfaces support both dark and light themes.
 
-> 🔗 **Live:** [Explore the portfolio](https://portfolio-ten-omega-4ibkho6f7u.vercel.app) · **15 project case studies** · **6 recent highlights** · **3 professional resumes**
+> 🔗 **Live:** [Explore the portfolio](https://portfolio-ten-omega-4ibkho6f7u.vercel.app) · **16 project case studies** · **6 recent highlights** · **3 professional resumes**
 
 ---
 
@@ -47,9 +47,9 @@ The original cosmic identity lives on: **rolling technology marquees, a scroll-d
 | 🔄 **Signature Technology Marquees** | Seamless forward/reverse rolling technology rows with recognizable logos and pause-on-hover |
 | 🌙 **Scroll-Driven Moon Arc** | Moon travels along the page's scroll arc using animation-frame scheduling and transforms |
 | ⌨️ **Typewriter Hero** | Rotating Full Stack, Blockchain, and Backend/DevSecOps roles beside the existing profile photograph |
-| 🚀 **15 Project Case Studies** | Six recent highlights, multiple categories, technology badges, search, repository links, and verified demo URLs |
+| 🚀 **16 Project Case Studies** | Six recent highlights, multiple categories, technology badges, search, repository links, and verified demo URLs |
 | 🗂️ **Detailed Project Tabs** | Overview, Architecture, Features, Technology Stack, Gallery, Engineering Challenges, and Results and Links |
-| 🖼️ **Genuine Project Galleries** | 26 repository captures across six projects; labeled source diagrams where screenshots are unavailable |
+| 🖼️ **Genuine Project Galleries** | 31 repository captures across seven projects; labeled source diagrams where screenshots are unavailable |
 | 📄 **Three Resume Perspectives** | Full Stack, DevOps, and AI/ML PDFs with independent previews, downloads, and new-tab actions |
 | 📊 **Verified Statistics** | Official LeetCode GraphQL and GitHub REST APIs, six-hour caching, verification timestamps, and honest snapshot fallbacks |
 | 🤖 **Portfolio Guide** | Cost-free curated answers from shared project, resume, skills, experience, and statistics data |
@@ -103,10 +103,11 @@ The existing assistant keeps its **zero LLM API cost** architecture. It answers 
 
 ## 🚀 Project Showcase
 
-**15 real repositories** with their own technical case-study routes. **⭐ marks the six recent highlights**, ordered using recorded public GitHub push timestamps. Lumina was refreshed on 26 October 2026 and FlowNova AI on 27 October 2026.
+**16 real repositories** with their own technical case-study routes. **⭐ marks the six recent highlights**, ordered using recorded public GitHub push timestamps. Lumina was refreshed on 26 October 2026; FlowNova AI and NeuroMap AI were reviewed on 27 October 2026.
 
 | Project / Case Study | Description | Technologies | GitHub |
 |---|---|---|---|
+| 🧬 [NeuroMap AI](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/neuromap) ⭐ | Private NIfTI inspection and reproducible synthetic ML experiments with traceable reports. [Windows / Android releases](https://github.com/manikantbindass/NeuroMap.AI/releases/tag/v0.1.1); no hosted demo. | React · Three.js · FastAPI · scikit-learn · SQLite | [Source](https://github.com/manikantbindass/NeuroMap.AI) |
 | 🌱 [FlowNova AI](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/flownova) ⭐ | A [live visual workflow workbench](https://flownova-ai.vercel.app) with graph editing, immutable publishing, durable execution, and persisted node results. | Next.js · React Flow · Vercel Workflows · Spring Boot | [Source](https://github.com/manikantbindass/FlowNovaAI) |
 | 🧠 [Enterprise RAG Knowledge Assistant · Lumina](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/enterprise-rag) ⭐ | Authenticated document ingestion, tenant-scoped BM25, cited streaming conversations, and a [live product tour](https://enterprise-rag-knowledge-assistant-three.vercel.app). | Next.js · TypeScript · FastAPI · SQLite · BM25 | [Source](https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant) |
 | ☁️ [AutoHealOps](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/autohealops) ⭐ | An operations console for workload telemetry, explainable fault detection, and bounded recovery workflows, with an isolated public browser simulation. | React · FastAPI · Python · Kubernetes | [Source](https://github.com/manikantbindass/AutoHealOps-Self-Healing-Kubernetes-Cluster-with-AI-Fault-Detection) |
@@ -125,7 +126,21 @@ The existing assistant keeps its **zero LLM API cost** architecture. It answers 
 
 Each case study explains scope, architecture, implementation details, evidence, and trade-offs. **Intramind.AI contains a placeholder RAG pipeline**. AutoLedger's dashboard and Linux Scheduler are simulations; AutoHealOps separates its public browser simulation from optional local integrations. These boundaries are stated explicitly on the project pages.
 
-**Screenshot coverage:** FlowNova AI (9), Lumina / Enterprise RAG (4), TraceHunt AI (3), AutoHealOps (4), FinovaIQ (2), and ChainPass (4). Other entries use labeled source visualizations, never fabricated application screens. See the [repository audit](docs/repository-audit.json) for pinned source evidence.
+**Screenshot coverage:** NeuroMap AI (5), FlowNova AI (9), Lumina / Enterprise RAG (4), TraceHunt AI (3), AutoHealOps (4), FinovaIQ (2), and ChainPass (4). Other entries use labeled source visualizations, never fabricated application screens. See the [repository audit](docs/repository-audit.json) for pinned source evidence.
+
+### NeuroMap AI · research with a traceable result
+
+[Explore the case study](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/neuromap) · [Release v0.1.1](https://github.com/manikantbindass/NeuroMap.AI/releases/tag/v0.1.1) · [Installation manual](https://github.com/manikantbindass/NeuroMap.AI/releases/download/v0.1.1/NeuroMap-AI-User-Manual-0.1.1.md)
+
+| Private research dashboard | Image geometry and slice inspection |
+|---|---|
+| ![NeuroMap dashboard — actual local application with synthetic datasets](public/projects/neuromap/dashboard.png) | ![NeuroMap image inspection — generated geometry phantom and grayscale slice, not clinical anatomy](public/projects/neuromap/brain-viewer.png) |
+
+The portfolio includes five real application captures, architecture, source-confirmed technologies, methodology, engineering decisions, setup, and release resources. Its rounded glass title panel has a pausable neural-map animation with moving signals and a scan plane. The README header/footer echo those neural connections in the existing navy, lavender, and teal palette.
+
+**No public deployment.** [Windows x64 EXE](https://github.com/manikantbindass/NeuroMap.AI/releases/download/v0.1.1/NeuroMap-AI-Setup-Windows-x64.exe) and [signed Android APK](https://github.com/manikantbindass/NeuroMap.AI/releases/download/v0.1.1/NeuroMap-AI-Android-universal.apk) require an available server. The Windows publisher is unsigned; no iOS IPA is available. [Verify checksums](https://github.com/manikantbindass/NeuroMap.AI/releases/download/v0.1.1/SHA256SUMS.txt).
+
+NeuroMap is a research/education foundation: the classifier uses artificial tabular features and labels. NIfTI geometry/intensity inspection and synthetic evaluation are separate paths. It does not diagnose disease or provide clinically validated patient-risk predictions.
 
 ### FlowNova AI · from a canvas to a real execution
 

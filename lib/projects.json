@@ -1,5 +1,362 @@
 [
   {
+    "id": "neuromap",
+    "slug": "neuromap",
+    "title": "NeuroMap AI",
+    "subtitle": "Research in focus · images, experiments, and traceable results",
+    "description": "A private research workspace for NIfTI image inspection, reproducible synthetic ML experiments, computed evaluation, and traceable reports, with Windows and Android release downloads.",
+    "categories": [
+      "AI / Machine Learning",
+      "Full Stack",
+      "Developer Tools"
+    ],
+    "tags": [
+      "React",
+      "TypeScript",
+      "Three.js",
+      "FastAPI",
+      "Python",
+      "scikit-learn",
+      "SQLite",
+      "Electron",
+      "Capacitor"
+    ],
+    "github": "https://github.com/manikantbindass/NeuroMap.AI",
+    "live": null,
+    "release": {
+      "version": "0.1.1",
+      "url": "https://github.com/manikantbindass/NeuroMap.AI/releases/tag/v0.1.1"
+    },
+    "featured": true,
+    "status": "Release v0.1.1 · local/server-backed research workspace",
+    "updatedAt": "2026-10-27T06:58:02Z",
+    "users": "Developers and researchers exploring bounded image inspection, synthetic ML methodology, and reproducible experiment records.",
+    "problem": "Research tooling needs to make image geometry, experimental assumptions, data partitions, and result provenance inspectable without conflating a synthetic demonstration with a clinical model.",
+    "solution": "Connect validated image and synthetic-table intake to an authenticated workspace, bounded CPU analysis, interactive inspection, computed evaluation, and downloadable reports with provenance.",
+    "technicalDetails": [
+      "The React/Vite workspace connects Three.js point-cloud and slice views to a FastAPI modular monolith. SQLAlchemy/Alembic and SQLite retain datasets, job states, checksums, reports, and audit records; private UUID-named payloads remain on the server.",
+      "The imaging path validates bounded single-file 3D NIfTI-1 volumes, checks spatial transforms and intensities, and exposes downsampled affine-positioned points and grayscale index slices. It does not perform segmentation or disease inference.",
+      "The synthetic classifier uses three artificial features, participant-grouped 60/20/20 splits, training-only scaling, validation-selected logistic regression, a dummy comparison, held-out metrics, and participant-cluster bootstrap intervals.",
+      "Windows and Android clients require an available frontend/API or configured HTTPS API. No public deployment, offline ML server, or iOS distribution installer is provided."
+    ],
+    "features": [
+      "Bounded NIfTI inspection",
+      "Interactive voxel and slice viewer",
+      "Reproducible synthetic classification",
+      "Persisted experiment reports",
+      "Authenticated private workspace",
+      "Windows and Android releases"
+    ],
+    "architecture": [
+      "React / Electron / Capacitor client",
+      "Private ingress + FastAPI",
+      "SQLite + private file storage",
+      "Bounded single CPU worker",
+      "NIfTI inspection / synthetic ML reports"
+    ],
+    "architectureReference": "flowchart LR\n  Clients[React / Electron / Capacitor] --> Proxy[Private ingress or Vite proxy]\n  Proxy --> API[FastAPI auth + validated intake]\n  API --> DB[(SQLite + Alembic)]\n  API --> Files[(Private UUID payloads)]\n  API --> Worker[Bounded single CPU worker]\n  Worker --> Images[NIfTI geometry + intensity inspection]\n  Worker --> ML[Synthetic logistic regression + evaluation]\n  Images --> DB\n  ML --> DB\n  DB --> Reports[Traceable JSON reports]",
+    "challenges": [
+      "Research and education only: the classifier uses synthetic tabular features and labels. Image inspection does not diagnose disease, estimate clinical risk, segment anatomy, or provide clinically validated quality control.",
+      "No hosted public deployment is available. Windows and Android clients require a running server. The Windows publisher is unsigned; Android is release-signed, while device/emulator runtime testing and full installed Windows upgrade/uninstall testing remain pending. No iOS IPA is available.",
+      "The supported runtime is a single-owner, single-process workspace with a bounded CPU queue. Distributed workers, multi-tenant identity, production-scale throughput, and clinical validation remain outside this release."
+    ],
+    "screenshots": [
+      {
+        "src": "/projects/neuromap/dashboard.png",
+        "caption": "NeuroMap research dashboard — actual local application with synthetic datasets, experiment records, and a generated geometry phantom.",
+        "source": "https://github.com/manikantbindass/NeuroMap.AI/blob/f964386b79e4340c3b609d1ef41953152c8f9d06/assets/screenshots/dashboard.png"
+      },
+      {
+        "src": "/projects/neuromap/brain-viewer.png",
+        "caption": "Image inspection — affine-positioned voxel points and grayscale slices from the synthetic geometry phantom; not a clinical anatomical reconstruction.",
+        "source": "https://github.com/manikantbindass/NeuroMap.AI/blob/f964386b79e4340c3b609d1ef41953152c8f9d06/assets/screenshots/brain-viewer.png"
+      },
+      {
+        "src": "/projects/neuromap/model-evaluation.png",
+        "caption": "Model evaluation — computed metrics and coefficient views for artificial tabular features, not disease or patient-risk predictions.",
+        "source": "https://github.com/manikantbindass/NeuroMap.AI/blob/f964386b79e4340c3b609d1ef41953152c8f9d06/assets/screenshots/model-evaluation.png"
+      },
+      {
+        "src": "/projects/neuromap/mobile-view.png",
+        "caption": "Responsive mobile web workspace — real application capture with synthetic research data; separate from Android device-runtime verification.",
+        "source": "https://github.com/manikantbindass/NeuroMap.AI/blob/f964386b79e4340c3b609d1ef41953152c8f9d06/assets/screenshots/mobile-view.png"
+      },
+      {
+        "src": "/projects/neuromap/windows-client.png",
+        "caption": "Packaged Windows client — real Electron application capture connected to a running local frontend/API.",
+        "source": "https://github.com/manikantbindass/NeuroMap.AI/blob/f964386b79e4340c3b609d1ef41953152c8f9d06/assets/screenshots/windows-client.png"
+      }
+    ],
+    "resources": [
+      {
+        "label": "Release v0.1.1",
+        "url": "https://github.com/manikantbindass/NeuroMap.AI/releases/tag/v0.1.1",
+        "description": "Published application assets, release notes, integrity manifest, and platform-specific verification details."
+      },
+      {
+        "label": "Windows x64 installer · EXE",
+        "url": "https://github.com/manikantbindass/NeuroMap.AI/releases/download/v0.1.1/NeuroMap-AI-Setup-Windows-x64.exe",
+        "description": "121.3 MB NSIS installer with an unsigned publisher. Requires a working frontend/API server; it does not bundle offline ML."
+      },
+      {
+        "label": "Android application · APK",
+        "url": "https://github.com/manikantbindass/NeuroMap.AI/releases/download/v0.1.1/NeuroMap-AI-Android-universal.apk",
+        "description": "3.6 MB release-signed Android 7.0+ APK. Configure your own HTTPS API under Server connection; device runtime testing remains pending."
+      },
+      {
+        "label": "Installation and user manual",
+        "url": "https://github.com/manikantbindass/NeuroMap.AI/releases/download/v0.1.1/NeuroMap-AI-User-Manual-0.1.1.md",
+        "description": "Windows and Android installation, server connection, local workflow, updates, and troubleshooting."
+      },
+      {
+        "label": "SHA-256 checksums",
+        "url": "https://github.com/manikantbindass/NeuroMap.AI/releases/download/v0.1.1/SHA256SUMS.txt",
+        "description": "Published hashes for verifying release artifacts against the accompanying release manifest."
+      },
+      {
+        "label": "Architecture and setup",
+        "url": "https://github.com/manikantbindass/NeuroMap.AI/blob/f964386b79e4340c3b609d1ef41953152c8f9d06/docs/architecture/README.md",
+        "description": "Private-workspace boundaries, request flow, bounded worker behavior, persistence, and failure handling."
+      }
+    ],
+    "evidence": [
+      {
+        "path": "README.md",
+        "url": "https://github.com/manikantbindass/NeuroMap.AI/blob/f964386b79e4340c3b609d1ef41953152c8f9d06/README.md"
+      },
+      {
+        "path": "frontend/package.json",
+        "url": "https://github.com/manikantbindass/NeuroMap.AI/blob/f964386b79e4340c3b609d1ef41953152c8f9d06/frontend/package.json"
+      },
+      {
+        "path": "frontend/src/BrainView.tsx",
+        "url": "https://github.com/manikantbindass/NeuroMap.AI/blob/f964386b79e4340c3b609d1ef41953152c8f9d06/frontend/src/BrainView.tsx"
+      },
+      {
+        "path": "backend/requirements.txt",
+        "url": "https://github.com/manikantbindass/NeuroMap.AI/blob/f964386b79e4340c3b609d1ef41953152c8f9d06/backend/requirements.txt"
+      },
+      {
+        "path": "backend/app/main.py",
+        "url": "https://github.com/manikantbindass/NeuroMap.AI/blob/f964386b79e4340c3b609d1ef41953152c8f9d06/backend/app/main.py"
+      },
+      {
+        "path": "backend/app/imaging.py",
+        "url": "https://github.com/manikantbindass/NeuroMap.AI/blob/f964386b79e4340c3b609d1ef41953152c8f9d06/backend/app/imaging.py"
+      },
+      {
+        "path": "backend/app/db.py",
+        "url": "https://github.com/manikantbindass/NeuroMap.AI/blob/f964386b79e4340c3b609d1ef41953152c8f9d06/backend/app/db.py"
+      },
+      {
+        "path": "ml/pipeline.py",
+        "url": "https://github.com/manikantbindass/NeuroMap.AI/blob/f964386b79e4340c3b609d1ef41953152c8f9d06/ml/pipeline.py"
+      },
+      {
+        "path": "docs/architecture/README.md",
+        "url": "https://github.com/manikantbindass/NeuroMap.AI/blob/f964386b79e4340c3b609d1ef41953152c8f9d06/docs/architecture/README.md"
+      },
+      {
+        "path": "docs/INSTALLATION.md",
+        "url": "https://github.com/manikantbindass/NeuroMap.AI/blob/f964386b79e4340c3b609d1ef41953152c8f9d06/docs/INSTALLATION.md"
+      },
+      {
+        "path": "docs/VERIFICATION.md",
+        "url": "https://github.com/manikantbindass/NeuroMap.AI/blob/f964386b79e4340c3b609d1ef41953152c8f9d06/docs/VERIFICATION.md"
+      },
+      {
+        "path": "docs/SAFETY_AND_LIMITATIONS.md",
+        "url": "https://github.com/manikantbindass/NeuroMap.AI/blob/f964386b79e4340c3b609d1ef41953152c8f9d06/docs/SAFETY_AND_LIMITATIONS.md"
+      },
+      {
+        "path": "desktop/package.json",
+        "url": "https://github.com/manikantbindass/NeuroMap.AI/blob/f964386b79e4340c3b609d1ef41953152c8f9d06/desktop/package.json"
+      },
+      {
+        "path": "mobile/package.json",
+        "url": "https://github.com/manikantbindass/NeuroMap.AI/blob/f964386b79e4340c3b609d1ef41953152c8f9d06/mobile/package.json"
+      }
+    ],
+    "sourceCommit": "f964386b79e4340c3b609d1ef41953152c8f9d06",
+    "verifiedAt": "2026-10-27T07:27:01Z",
+    "contentStage": "source",
+    "caseStudy": {
+      "architectureSummary": "NeuroMap is a CPU-only modular monolith with one private research workspace. React/TypeScript and Three.js provide the browser UI; Electron and Capacitor clients connect to the same server. FastAPI authenticates requests and validates consent, files, and resource bounds. SQLite and private payload storage preserve datasets and experiment results. A single bounded CPU worker performs NIfTI inspection or synthetic scikit-learn analysis, exposing computed evaluation and traceable JSON reports. There is no public hosted deployment.",
+      "features": [
+        {
+          "title": "Validated image intake",
+          "description": "Inspect bounded scalar 3D NIfTI-1 files after gzip, header, voxel-count, data-type, affine, and intensity checks. Reject unsupported dimensions and malformed payloads instead of treating arbitrary files as valid research volumes.",
+          "source": "backend/app/imaging.py"
+        },
+        {
+          "title": "Interactive image exploration",
+          "description": "Display affine-positioned intensity point clouds with orbit/zoom and threshold controls, plus grayscale index slices. The procedural fallback and generated phantom are explicitly synthetic rather than anatomical reconstructions.",
+          "source": "frontend/src/BrainView.tsx"
+        },
+        {
+          "title": "Reproducible synthetic experiments",
+          "description": "Train logistic regression on artificial features with participant-grouped splits, training-only standardization, validation-selected regularization, and a dummy baseline. Held-out metrics include ROC-AUC, average precision, confusion counts, and Brier scores.",
+          "source": "ml/pipeline.py"
+        },
+        {
+          "title": "Traceable report artifacts",
+          "description": "Export JSON with dataset/model checksums, split participant IDs, configuration, coefficients, bootstrap intervals, and package versions. These records support reproducibility of the synthetic protocol without claiming clinical meaning.",
+          "source": "ml/pipeline.py"
+        },
+        {
+          "title": "Bounded persisted job lifecycle",
+          "description": "Authenticated submission stores experiment jobs, applies queue limits and idempotency, supports queued cancellation, and records completed or failed results. Interrupted work is surfaced explicitly rather than silently retrained.",
+          "source": "backend/app/main.py"
+        },
+        {
+          "title": "Windows and Android delivery",
+          "description": "Release v0.1.1 provides a genuine Windows installer and signed Android APK, with manuals and integrity files. Both are clients for a running server; platform-specific testing and the lack of an iOS IPA remain explicit.",
+          "source": "README.md"
+        }
+      ],
+      "technologies": [
+        {
+          "name": "React",
+          "description": "Builds the research dashboard, dataset intake, experiment views, and user controls.",
+          "stage": "source",
+          "version": "^19.0.0",
+          "source": "frontend/package.json"
+        },
+        {
+          "name": "TypeScript",
+          "description": "Defines frontend API contracts, experiment displays, and Three.js viewer interactions.",
+          "stage": "source",
+          "version": "^5.7.0",
+          "source": "frontend/package.json"
+        },
+        {
+          "name": "Vite",
+          "description": "Builds the web client and provides the local development proxy to FastAPI.",
+          "stage": "source",
+          "version": "^7.0.0",
+          "source": "frontend/package.json"
+        },
+        {
+          "name": "Three.js",
+          "description": "Renders interactive intensity-thresholded voxel points and the synthetic procedural fallback.",
+          "stage": "source",
+          "version": "^0.180.0",
+          "source": "frontend/package.json"
+        },
+        {
+          "name": "FastAPI",
+          "description": "Serves authentication, validated intake, bounded jobs, image previews, and report downloads.",
+          "stage": "source",
+          "version": ">=0.115,<1",
+          "source": "backend/requirements.txt"
+        },
+        {
+          "name": "Python",
+          "description": "Implements NIfTI inspection, scientific calculations, and the CPU-only experiment pipeline.",
+          "stage": "source",
+          "source": "backend/app/imaging.py"
+        },
+        {
+          "name": "scikit-learn",
+          "description": "Provides logistic regression, training-only scaling, a dummy baseline, and evaluation metrics.",
+          "stage": "source",
+          "version": ">=1.6,<2",
+          "source": "backend/requirements.txt"
+        },
+        {
+          "name": "NiBabel",
+          "description": "Reads NIfTI-1 geometry and applies affine transforms for bounded image inspection.",
+          "stage": "source",
+          "version": ">=5.3,<6",
+          "source": "backend/requirements.txt"
+        },
+        {
+          "name": "SQLite",
+          "description": "Persists dataset metadata, jobs, result JSON, session digests, and audit entries locally.",
+          "stage": "source",
+          "source": "backend/app/db.py"
+        },
+        {
+          "name": "SQLAlchemy",
+          "description": "Models and queries persisted research records; Alembic manages schema migrations.",
+          "stage": "source",
+          "version": ">=2.0,<3",
+          "source": "backend/requirements.txt"
+        },
+        {
+          "name": "Electron",
+          "description": "Packages the Windows client that opens a trusted frontend and requires a running server.",
+          "stage": "source",
+          "version": "45.0.0",
+          "source": "desktop/package.json"
+        },
+        {
+          "name": "Capacitor",
+          "description": "Hosts the web client in genuine Android/iOS native projects; Android release assets are published.",
+          "stage": "source",
+          "version": "8.5.3",
+          "source": "mobile/package.json"
+        }
+      ],
+      "decisions": [
+        {
+          "title": "Separate inspection from clinical inference",
+          "description": "Expose actual image geometry and intensities while keeping the classifier restricted to artificial tabular features.",
+          "tradeoff": "The tools demonstrate reproducible engineering but do not constitute segmentation, disease detection, or patient-risk validation.",
+          "source": "docs/SAFETY_AND_LIMITATIONS.md"
+        },
+        {
+          "title": "Split participants before fitting models",
+          "description": "Group repeated observations by artificial participant, fit preprocessing on training data, and use validation to select model regularization.",
+          "tradeoff": "The protocol reduces leakage within the synthetic experiment, but artificial features and descriptive site metrics do not establish external clinical generalization.",
+          "source": "ml/pipeline.py"
+        },
+        {
+          "title": "Keep a transparent single-process foundation",
+          "description": "Use SQLite, private server payloads, and a bounded single CPU worker instead of adding distributed infrastructure prematurely.",
+          "tradeoff": "Queue and resource controls are process-local, interrupted jobs are marked failed, and horizontal scaling requires a new durable dispatch and isolation design.",
+          "source": "docs/architecture/README.md"
+        }
+      ],
+      "outcomes": [
+        {
+          "title": "Repository and application release",
+          "description": "Version 0.1.1 publishes Windows and Android downloads, source/web bundles, manuals, checksum files, and release evidence. No public demo is claimed and both native clients remain server-backed.",
+          "source": "README.md"
+        },
+        {
+          "title": "Synthetic research workflow",
+          "description": "The implemented upload-to-analysis-to-report path joins real file validation, bounded processing, persisted experiment records, image inspection, and computed synthetic model evaluation.",
+          "source": "backend/app/main.py"
+        },
+        {
+          "title": "Documented verification",
+          "description": "The repository records 22 backend/ML tests, five frontend unit tests, browser flows, Docker checks, and platform build/signature checks. Device runtime and full installed Windows lifecycle tests remain pending; these are repository-reported results.",
+          "source": "docs/VERIFICATION.md"
+        }
+      ],
+      "workflow": [
+        "Create synthetic data or upload a supported research file.",
+        "Validate and inspect image geometry or synthetic features.",
+        "Run a bounded CPU analysis and review computed results.",
+        "Download the report with configuration, partitions, and checksums."
+      ],
+      "commands": [
+        "py -3.12 -m venv .venv",
+        ".\\.venv\\Scripts\\python.exe -m pip install -r backend/requirements-lock.txt",
+        "$env:NEUROMAP_PASSWORD = Read-Host 'Choose a unique workspace password (12+ characters)'",
+        "New-Item -ItemType Directory -Force data",
+        ".\\.venv\\Scripts\\python.exe -m alembic upgrade head",
+        ".\\.venv\\Scripts\\python.exe -m uvicorn backend.app.main:create_app --factory --host 127.0.0.1 --port 8000 --no-access-log",
+        "# Second PowerShell terminal:",
+        "cd frontend",
+        "npm ci",
+        "npm run dev"
+      ],
+      "setup": "There is no hosted public deployment. Start the Python 3.12 API and React/Vite frontend locally with Node.js 24, or use the documented Docker setup. Set your own workspace password; no public demo account is bundled. Windows connects to an available trusted frontend, and Android requires a configured HTTPS API with its documented origin allowed. Download native clients and verify checksums from release v0.1.1."
+    }
+  },
+  {
     "id": "flownova",
     "slug": "flownova",
     "title": "FlowNova AI",
@@ -1218,7 +1575,7 @@
     ],
     "github": "https://github.com/manikantbindass/FinovaIQ-AI-Personal-Finance-Investment-Dashboard",
     "live": "https://finovaiq.vercel.app",
-    "featured": true,
+    "featured": false,
     "status": "Development milestone with hosted demo",
     "updatedAt": "2026-10-24T09:27:34Z",
     "users": "People exploring manual personal-finance tracking using fictional demonstration records.",

@@ -31,6 +31,7 @@ export interface Project {
   tags: string[];
   github: string;
   live: string | null;
+  release?: { version: string; url: string };
   featured: boolean;
   status: string;
   updatedAt: string;
