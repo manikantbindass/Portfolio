@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import ProjectVisual from "@/components/ProjectVisual";
 import { projects, projectCategories } from "@/lib/projects";
+import { isProjectPinned, pinnedProjectSlugs } from "@/lib/project-order";
 import { ArrowUpRight, Search, SlidersHorizontal, X, Pause, Play } from "lucide-react";
 import DsaChaseScene from "@/components/DsaChaseScene";
 import dsaStyles from "@/components/DsaChaseScene.module.css";
@@ -31,7 +32,7 @@ export default function Projects() {
             </h2>
           </div>
           <p>
-            {projects.length} repositories. Six recent highlights.
+            {projects.length} repositories. {pinnedProjectSlugs.length} pinned projects.
             <br />
             Explore the decisions behind the code.
           </p>
@@ -70,7 +71,7 @@ export default function Projects() {
         </div>
         <p className="results-count" aria-live="polite">
           {filtered.length} {filtered.length === 1 ? "project" : "projects"} ·
-          Recent highlights ordered by GitHub push date
+          Pinned projects first · More projects by latest update
         </p>
         <div className="project-grid">
           {filtered.map((p, i) => (
@@ -100,8 +101,8 @@ export default function Projects() {
               <div className="project-card-body">
                 <div className="eyebrow-row">
                   <span>{p.categories[0]}</span>
-                  {p.featured && (
-                    <span className="featured-label">RECENT HIGHLIGHT</span>
+                  {(isProjectPinned(p.slug) || p.featured) && (
+                    <span className="featured-label">{isProjectPinned(p.slug) ? "PINNED PROJECT" : "RECENT HIGHLIGHT"}</span>
                   )}
                 </div>
                 <h3>

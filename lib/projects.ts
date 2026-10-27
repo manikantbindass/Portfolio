@@ -1,4 +1,5 @@
 import data from "./projects.json";
+import { orderProjects } from "./project-order";
 export interface ProjectDetail {
   title: string;
   description: string;
@@ -53,7 +54,7 @@ export interface Project {
   contentStage: string;
   caseStudy: ProjectCaseStudy;
 }
-export const projects: Project[] = data;
+export const projects: Project[] = orderProjects(data);
 export const projectCategories = [
   "All Projects",
   "AI / Machine Learning",

@@ -1,9 +1,30 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
+import { isProjectPinned, orderProjects } from "../lib/project-order.ts";
 const projects = JSON.parse(
   fs.readFileSync(new URL("../lib/projects.json", import.meta.url), "utf8"),
 );
+
+test("pinned projects keep the owner's order without changing the source data", () => {
+  const originalOrder = projects.map(p => p.slug);
+  const ordered = orderProjects(projects);
+  assert.deepEqual(ordered.slice(0, 3).map(p => p.slug), ["dsa", "chainpass", "enterprise-rag"]);
+  assert.deepEqual(projects.map(p => p.slug), originalOrder);
+  assert.equal(ordered.length, projects.length);
+  assert.equal(new Set(ordered.map(p => p.slug)).size, projects.length);
+  assert.deepEqual(ordered.filter(p => isProjectPinned(p.slug)).map(p => p.slug), ["dsa", "chainpass", "enterprise-rag"]);
+});
+
+test("new projects, project updates, and filtered inputs cannot reorder the pins", () => {
+  const changed = projects.map(p => ({ ...p, updatedAt: p.slug === "enterprise-rag" || p.slug === "neuromap" ? "2099-02-01" : p.updatedAt }));
+  changed.unshift({ slug: "new-project", updatedAt: "2099-03-01" });
+  const ordered = orderProjects(changed.reverse());
+  assert.deepEqual(ordered.slice(0, 5).map(p => p.slug), ["dsa", "chainpass", "enterprise-rag", "new-project", "neuromap"]);
+  const filtered = ordered.filter(p => p.slug !== "dsa");
+  assert.deepEqual(filtered.slice(0, 2).map(p => p.slug), ["chainpass", "enterprise-rag"]);
+  assert.deepEqual(orderProjects(changed.filter(p => p.slug !== "dsa")).slice(0, 2).map(p => p.slug), ["chainpass", "enterprise-rag"]);
+});
 test("every project has substantive case-study sections with pinned source references", () => {
   assert.equal(projects.length, 17);
   for (const p of projects) {
