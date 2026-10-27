@@ -55,11 +55,11 @@ const fadeUp = {
 
 export default function Hero() {
   const role = useTypewriter(ROLES);
-  const { lc, gh } = usePortfolioStats();
+  const { lc } = usePortfolioStats();
   const quickStats = [
     { label: "Projects showcased", value: "16", color: "var(--accent)" },
     { label: "LeetCode solved", value: lc.total, color: "var(--accent2)" },
-    { label: "Public repositories", value: gh.repos, color: "var(--teal)" },
+    { label: "Public repositories", value: "30+", color: "var(--teal)" },
   ];
 
   return (
