@@ -219,7 +219,7 @@ export default function ProjectDetails({ project: p }: { project: Project }) {
             <p className="section-label">05 / Gallery</p>
             <h2>
               {count
-                ? p.visualKind === "illustration" ? "Mathematics, visualized" : "Inside the application"
+                ? p.visualKind === "illustration" ? "The system, illustrated" : "Inside the application"
                 : concept
                   ? "Workflow design study"
                   : "Architecture & source explorer"}
@@ -228,7 +228,7 @@ export default function ProjectDetails({ project: p }: { project: Project }) {
               <>
                 <p>
                   {p.visualKind === "illustration"
-                    ? "Source-based explanatory artwork. These illustrations describe the implemented methods; open the live app to explore the actual workspace."
+                    ? "Source-based explanatory artwork. These illustrations describe the implemented methods; the setup guide explains how to explore the actual workspace."
                     : "Application captures committed in the repository. Captions identify demo data where shown."}
                 </p>
                 {p.walkthrough && <ProjectWalkthrough capture={p.walkthrough} />}

@@ -10,9 +10,10 @@
     .signal{stroke-dasharray:18 1190;animation:flow 14s linear infinite}.second{animation-delay:-7s}
     .pulse{animation:breathe 6s ease-in-out infinite}
     .math-dot{animation:descent 10s ease-in-out infinite}@keyframes descent{0%,8%{transform:translate(93px,28.7px);opacity:1}30%{transform:translate(78px,48.15px)}50%{transform:translate(65px,57.51px)}75%,90%{transform:translate(57px,59.81px);opacity:1}100%{transform:translate(57px,59.81px);opacity:0}}
+    .shield-signal{stroke-dasharray:6 94;animation:shield-flow 7s linear infinite}@keyframes shield-flow{to{stroke-dashoffset:-100}}
     .node{animation:breathe 7s ease-in-out infinite}.node.second{animation-delay:-3.5s}
     @keyframes flow{to{stroke-dashoffset:-1208}}@keyframes breathe{50%{opacity:.4}}
-    @media(prefers-reduced-motion:reduce){.signal,.pulse,.node,.math-dot{animation:none}}
+    @media(prefers-reduced-motion:reduce){.signal,.pulse,.node,.math-dot,.shield-signal{animation:none}}
   </style>
   <g clip-path="url(#bounds)">
     <rect x="1" y="1" width="1398" height="218" rx="26" fill="url(#bg)" stroke="#2b3453"/>
@@ -22,7 +23,7 @@
     <path class="signal second" d="M-80 177C240 52 430 286 710 185S1130 90 1480 179" fill="none" stroke="url(#flow)" stroke-width="2"/>
     <g fill="none" stroke="#a5adff" stroke-opacity=".3"><path d="M100 108q49-40 98 0m-98 0q49 72 98 40m-98-40 98 20M1202 108q49-40 98 0m-98 0q49 72 98 40m-98-40 98 20"/></g>
     <g transform="translate(92 85)"><rect x="-16" y="-18" width="142" height="99" rx="23" fill="#182238" fill-opacity=".8" stroke="#a5adff" stroke-opacity=".3"/><path d="M0 0Q54 120 108 0M0 60h108" fill="none" stroke="#a5adff" stroke-opacity=".65" stroke-width="1.5"/><circle class="math-dot" r="4" fill="#68dacb"/></g>
-    <g class="node second" fill="#182238" stroke="#68dacb" stroke-opacity=".5"><circle cx="1202" cy="108" r="14"/><circle cx="1300" cy="108" r="10"/><circle cx="1300" cy="148" r="10"/><circle cx="1251" cy="88" r="5"/></g>
+    <g transform="translate(1251 113)"><path d="M0-40 29-28V-3C29 18 15 32 0 41-15 32-29 18-29-3v-25Z" fill="#182238" stroke="#68dacb" stroke-opacity=".55"/><path d="m-12 0 9 9 17-19" fill="none" stroke="#68dacb" stroke-width="2"/><g class="node second" fill="#b4a1f5"><circle cx="-52" cy="-5" r="4"/><circle cx="49" cy="-5" r="4"/><circle cx="49" cy="35" r="4"/></g><path class="shield-signal" pathLength="100" d="M-52-5H-29M29-5H49M29 15 49 35" fill="none" stroke="#68dacb" stroke-width="1.5"/></g>
     <g text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">
       <text x="700" y="56" fill="#a5adcf" font-size="10" letter-spacing="3.5">FROM AN IDEA TO SOMETHING USEFUL</text>
       <text x="700" y="108" fill="#eef1fc" font-size="37" font-weight="500" letter-spacing="-1">Let's build what's next.</text>

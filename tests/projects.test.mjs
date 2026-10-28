@@ -98,7 +98,28 @@ test("MathLens exposes its live alpha and real releases without mislabeling artw
   assert(p.challenges.some(t => t.includes("Supabase") && t.includes("configuration")));
   assert(p.caseStudy.technologies.every(t => t.stage === "source" && t.source));
   assert.equal(projects.filter(p => p.featured).length, 6);
-  assert.equal(projects[0].slug, "mathlens");
+  assert(orderProjects(projects).findIndex(p => p.slug === "mathlens") >= 3);
+});
+
+test("LedgerShield replaces its former AutoLedger entry with current local research scope", () => {
+  const p = projects.find(p => p.slug === "autoledger");
+  assert(p);
+  assert.equal(p.title, "LedgerShield");
+  assert.equal(p.github, "https://github.com/manikantbindass/ledgershield-ai");
+  assert.equal(p.live, null);
+  assert.equal(p.release, undefined);
+  assert.equal(projects.filter(p => p.github.includes("ledgershield-ai")).length, 1);
+  assert(!projects.some(p => p.github.includes("AutoLedgerAI-")));
+  assert.equal(p.visualKind, "illustration");
+  for (const art of p.screenshots) {
+    assert(fs.existsSync(new URL("../public" + art.src, import.meta.url)));
+    assert(art.source.includes("/blob/" + p.sourceCommit + "/"));
+  }
+  assert(p.resources.some(r => r.url.endsWith("resilience-comparison.json")));
+  assert(p.resources.some(r => r.url.endsWith("resilience-runs.csv")));
+  assert(p.challenges.some(t => t.includes("did not outperform")));
+  assert(p.challenges.some(t => t.includes("No public deployment or published GitHub release")));
+  assert.deepEqual(orderProjects(projects).slice(0, 4).map(p => p.slug), ["dsa", "chainpass", "enterprise-rag", "autoledger"]);
 });
 test("project-specific explanations are not shared placeholder paragraphs", () => {
   const text = projects.flatMap((p) =>

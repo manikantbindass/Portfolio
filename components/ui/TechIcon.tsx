@@ -67,6 +67,7 @@ const icons: Record<string, IconType> = {
   Electron: SiElectron,
   Capacitor: SiCapacitor,
   NiBabel: SiNumpy,
+  NumPy: SiNumpy,
   "D3.js": SiD3,
   Fastify: SiFastify,
   Flask: SiFlask,

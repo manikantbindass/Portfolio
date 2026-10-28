@@ -1,5 +1,355 @@
 [
   {
+    "id": "autoledger",
+    "slug": "autoledger",
+    "title": "LedgerShield",
+    "subtitle": "Observe. Verify. Recover. · an explainable resilience laboratory",
+    "description": "A blockchain resilience research platform combining signed transfers, seeded network faults, explainable detection and trust, guarded recovery, and reproducible policy experiments in a live local observatory.",
+    "categories": [
+      "Blockchain / Web3",
+      "AI / Machine Learning",
+      "Full Stack",
+      "Backend / Cloud / DevOps"
+    ],
+    "tags": [
+      "React",
+      "FastAPI",
+      "Python",
+      "NumPy",
+      "scikit-learn",
+      "PostgreSQL",
+      "Docker"
+    ],
+    "github": "https://github.com/manikantbindass/ledgershield-ai",
+    "live": null,
+    "featured": true,
+    "status": "Implemented local research platform · source available",
+    "updatedAt": "2026-10-28T16:23:57Z",
+    "users": "Developers and researchers examining signed ledger execution, consensus assumptions, evidence-backed recovery, and reproducible reinforcement-learning comparisons.",
+    "problem": "Linked hashes alone do not establish reliable ledger execution or safe recovery. A research platform must show how authentication, quorum, fault evidence, policy choices, and measured outcomes interact under explicit assumptions.",
+    "solution": "Follow a signed transfer through a seeded centralized consensus simulator, introduce bounded faults, inspect detection and trust provenance, approve a guarded recovery, and compare policies using recorded experiments.",
+    "technicalDetails": [
+      "Ed25519 identities sign canonical transfer payloads with chain IDs and nonces. The execution core checks replay, balance, and signature validity, stages block transactions atomically, and verifies hash-linked history and Merkle roots.",
+      "A fixed-membership centralized simulator collects signed prepare/commit votes using floor(2N/3)+1 quorum. Seeded latency, jitter, loss, timeouts, and partitions affect measured simulator progress without claiming real peer-to-peer or formal PBFT execution.",
+      "Rule indicators and an Isolation Forest baseline produce structured evidence. Bounded decaying trust advises a recovery orchestrator with observe-only defaults, human approval, quorum guards, cooldowns, idempotency, verification, and rollback.",
+      "React/Vite renders ten connected observatory pages over FastAPI REST and WebSockets. SQLAlchemy/Alembic retain public research records in PostgreSQL or SQLite; restart keeps archives but starts a fresh paused simulator.",
+      "Explicit offline Gymnasium/NumPy DQN training and matched policy evaluation retain seeds and checkpoint provenance. The live API uses a rule policy; learned policies are not deployed automatically."
+    ],
+    "features": [
+      "Signed atomic ledger execution",
+      "Seeded network fault simulation",
+      "Explainable detection and trust",
+      "Guarded reversible recovery",
+      "Ten-page live local observatory",
+      "Reproducible policy comparisons"
+    ],
+    "architecture": [
+      "React observatory + REST / WebSocket",
+      "FastAPI + local role authorization",
+      "Signed ledger + seeded network simulator",
+      "Evidence → trust → guarded recovery",
+      "SQL research archive + offline DQN"
+    ],
+    "architectureReference": "flowchart LR\n  UI[React observatory] <-->|REST / WebSocket| API[FastAPI]\n  API --> SIM[Seeded centralized simulator]\n  SIM --> Ledger[Signed transfers / atomic ledger]\n  SIM --> Telemetry[Measured simulator telemetry]\n  Telemetry --> Evidence[Rules / Isolation Forest / trust]\n  Evidence --> Guard[Mode / approval / quorum guards]\n  Guard --> Verify[Reversible action / verification / rollback]\n  Verify --> SIM\n  API --> Archive[(PostgreSQL or SQLite research archive)]\n  DQN[Explicit offline DQN training] --> Experiments[Matched policy experiments]\n  Experiments --> SIM",
+    "challenges": [
+      "A centralized educational research simulator, not a production financial network: no real peer-to-peer replicas, formally verified Byzantine safety, complete PBFT view changes, or durable live-consensus restart is implemented.",
+      "No public deployment or published GitHub release was available at review. Run the API and dashboard locally or use the documented Compose stack; no installer or hosted demo is claimed.",
+      "The live API uses a rule policy; DQN training and checkpoint evaluation are explicit offline work. The recorded learned policy did not outperform the no-healing baseline. Synthetic anomaly performance and simulator timing are not real-world security accuracy or hardware benchmarks.",
+      "Local operator/admin bearer tokens and process-local quotas do not provide deployment identity management or distributed abuse control. Research archives survive restarts, but active simulator state is volatile. Fresh rendered dashboard QA and independent security review remain outstanding."
+    ],
+    "visualKind": "illustration",
+    "screenshots": [
+      {
+        "src": "/projects/ledgershield/overview.svg",
+        "caption": "LedgerShield resilience illustration — a glass shield and validator constellation representing the implemented local research loop; not an application screenshot.",
+        "source": "https://github.com/manikantbindass/ledgershield-ai/blob/05775801307e8092ffcdb411cc021c36789ec959/docs/architecture.md"
+      },
+      {
+        "src": "/projects/ledgershield/recovery.svg",
+        "caption": "Guarded recovery diagram — evidence, approval, fixed-quorum checks, verification, and rollback from the reviewed implementation. Explanatory artwork, not live telemetry.",
+        "source": "https://github.com/manikantbindass/ledgershield-ai/blob/05775801307e8092ffcdb411cc021c36789ec959/ledgershield/recovery.py"
+      }
+    ],
+    "resources": [
+      {
+        "label": "Local setup guide",
+        "url": "https://github.com/manikantbindass/ledgershield-ai/blob/05775801307e8092ffcdb411cc021c36789ec959/docs/setup-guide.md",
+        "description": "Python 3.12 and Node 24 setup, local API/dashboard startup, migrations, and generated operator/admin tokens."
+      },
+      {
+        "label": "Architecture and assumptions",
+        "url": "https://github.com/manikantbindass/ledgershield-ai/blob/05775801307e8092ffcdb411cc021c36789ec959/docs/architecture.md",
+        "description": "Signed ledger, simulated consensus, evidence provenance, guarded recovery, learning, and operational boundaries."
+      },
+      {
+        "label": "Matched comparison · JSON",
+        "url": "https://github.com/manikantbindass/ledgershield-ai/blob/05775801307e8092ffcdb411cc021c36789ec959/docs/experiments/resilience-comparison.json",
+        "description": "Actual 36-run simulator comparison with matched seeds, raw metrics, policy fingerprints, and limitations."
+      },
+      {
+        "label": "Raw experiment rows · CSV",
+        "url": "https://github.com/manikantbindass/ledgershield-ai/blob/05775801307e8092ffcdb411cc021c36789ec959/docs/experiments/resilience-runs.csv",
+        "description": "The published raw samples behind the application-level comparison, using simulated time."
+      },
+      {
+        "label": "Validation report",
+        "url": "https://github.com/manikantbindass/ledgershield-ai/blob/05775801307e8092ffcdb411cc021c36789ec959/docs/VALIDATION.md",
+        "description": "Repository-reported 123 backend and 30 frontend tests, native application checks, and remaining verification gaps."
+      },
+      {
+        "label": "Verified source CI",
+        "url": "https://github.com/manikantbindass/ledgershield-ai/actions/runs/40725570353",
+        "description": "Successful Verify LedgerShield workflow for the reviewed source commit."
+      },
+      {
+        "label": "Container and monitoring setup",
+        "url": "https://github.com/manikantbindass/ledgershield-ai/blob/05775801307e8092ffcdb411cc021c36789ec959/docs/deployment.md",
+        "description": "Local Compose, PostgreSQL archives, optional Prometheus/Grafana, and single-worker lifecycle details."
+      }
+    ],
+    "evidence": [
+      {
+        "path": "README.md",
+        "url": "https://github.com/manikantbindass/ledgershield-ai/blob/05775801307e8092ffcdb411cc021c36789ec959/README.md"
+      },
+      {
+        "path": "requirements.txt",
+        "url": "https://github.com/manikantbindass/ledgershield-ai/blob/05775801307e8092ffcdb411cc021c36789ec959/requirements.txt"
+      },
+      {
+        "path": "frontend/package.json",
+        "url": "https://github.com/manikantbindass/ledgershield-ai/blob/05775801307e8092ffcdb411cc021c36789ec959/frontend/package.json"
+      },
+      {
+        "path": "frontend/src/App.jsx",
+        "url": "https://github.com/manikantbindass/ledgershield-ai/blob/05775801307e8092ffcdb411cc021c36789ec959/frontend/src/App.jsx"
+      },
+      {
+        "path": "frontend/src/LiveProvider.jsx",
+        "url": "https://github.com/manikantbindass/ledgershield-ai/blob/05775801307e8092ffcdb411cc021c36789ec959/frontend/src/LiveProvider.jsx"
+      },
+      {
+        "path": "ledgershield/core.py",
+        "url": "https://github.com/manikantbindass/ledgershield-ai/blob/05775801307e8092ffcdb411cc021c36789ec959/ledgershield/core.py"
+      },
+      {
+        "path": "ledgershield/network.py",
+        "url": "https://github.com/manikantbindass/ledgershield-ai/blob/05775801307e8092ffcdb411cc021c36789ec959/ledgershield/network.py"
+      },
+      {
+        "path": "ledgershield/evidence.py",
+        "url": "https://github.com/manikantbindass/ledgershield-ai/blob/05775801307e8092ffcdb411cc021c36789ec959/ledgershield/evidence.py"
+      },
+      {
+        "path": "ledgershield/recovery.py",
+        "url": "https://github.com/manikantbindass/ledgershield-ai/blob/05775801307e8092ffcdb411cc021c36789ec959/ledgershield/recovery.py"
+      },
+      {
+        "path": "ledgershield/learning.py",
+        "url": "https://github.com/manikantbindass/ledgershield-ai/blob/05775801307e8092ffcdb411cc021c36789ec959/ledgershield/learning.py"
+      },
+      {
+        "path": "ledgershield/experiments.py",
+        "url": "https://github.com/manikantbindass/ledgershield-ai/blob/05775801307e8092ffcdb411cc021c36789ec959/ledgershield/experiments.py"
+      },
+      {
+        "path": "backend/api.py",
+        "url": "https://github.com/manikantbindass/ledgershield-ai/blob/05775801307e8092ffcdb411cc021c36789ec959/backend/api.py"
+      },
+      {
+        "path": "backend/persistence.py",
+        "url": "https://github.com/manikantbindass/ledgershield-ai/blob/05775801307e8092ffcdb411cc021c36789ec959/backend/persistence.py"
+      },
+      {
+        "path": "docs/architecture.md",
+        "url": "https://github.com/manikantbindass/ledgershield-ai/blob/05775801307e8092ffcdb411cc021c36789ec959/docs/architecture.md"
+      },
+      {
+        "path": "docs/API.md",
+        "url": "https://github.com/manikantbindass/ledgershield-ai/blob/05775801307e8092ffcdb411cc021c36789ec959/docs/API.md"
+      },
+      {
+        "path": "docs/deployment.md",
+        "url": "https://github.com/manikantbindass/ledgershield-ai/blob/05775801307e8092ffcdb411cc021c36789ec959/docs/deployment.md"
+      },
+      {
+        "path": "docs/experiments.md",
+        "url": "https://github.com/manikantbindass/ledgershield-ai/blob/05775801307e8092ffcdb411cc021c36789ec959/docs/experiments.md"
+      },
+      {
+        "path": "docs/VALIDATION.md",
+        "url": "https://github.com/manikantbindass/ledgershield-ai/blob/05775801307e8092ffcdb411cc021c36789ec959/docs/VALIDATION.md"
+      },
+      {
+        "path": "docs/repository-migration.md",
+        "url": "https://github.com/manikantbindass/ledgershield-ai/blob/05775801307e8092ffcdb411cc021c36789ec959/docs/repository-migration.md"
+      },
+      {
+        "path": "docs/experiments/resilience-comparison.json",
+        "url": "https://github.com/manikantbindass/ledgershield-ai/blob/05775801307e8092ffcdb411cc021c36789ec959/docs/experiments/resilience-comparison.json"
+      }
+    ],
+    "sourceCommit": "05775801307e8092ffcdb411cc021c36789ec959",
+    "verifiedAt": "2026-10-28",
+    "contentStage": "source",
+    "caseStudy": {
+      "architectureSummary": "LedgerShield uses a React/Vite observatory and FastAPI service over one canonical signed ledger and seeded network simulator. Telemetry flows into rule/anomaly evidence, bounded trust, and mode-aware recovery guards. Reversible actions are verified against subsequent simulator progress and audited. Optional SQL archives preserve public research records, while explicit offline DQN experiments remain separate from the live rule-based control loop.",
+      "features": [
+        {
+          "title": "Authenticate intent before execution",
+          "description": "Ed25519 signatures bind integer transfers to public-key identities, chain IDs, and nonces. Replay, duplicate, signature, and balance checks precede ordered atomic execution. Blocks commit to parent hashes, ordered transactions, Merkle roots, and genesis configuration; integrity checks replay the ledger state.",
+          "source": "ledgershield/core.py"
+        },
+        {
+          "title": "Make network assumptions observable",
+          "description": "Fixed validator membership and signed prepare/commit certificates use a quorum that never shrinks for missing participants. Seeded delay, jitter, loss, partitions, wrong-hash votes, abstention, and bounded leader replacement produce inspectable stalls and counters inside a centralized simulator.",
+          "source": "ledgershield/network.py"
+        },
+        {
+          "title": "Explain evidence and trust changes",
+          "description": "Rule checks and a synthetic-data Isolation Forest baseline expose method, severity, confidence, features, and raw evidence. Trust scores are bounded, time-decayed, and deduplicated with before/after records. Anomaly indicators are not proof of intent and cannot independently authorize quarantine.",
+          "source": "ledgershield/evidence.py"
+        },
+        {
+          "title": "Recover through explicit safeguards",
+          "description": "Observe-only is the default. Approval-required and autonomous-simulation modes add expiring proposals, current-state guard rechecks, evidence requirements, fixed-quorum protection, cooldowns, retry budgets, and idempotent action keys. Disruptive actions verify progress and roll back a failed attempt.",
+          "source": "ledgershield/recovery.py"
+        },
+        {
+          "title": "Inspect a connected local observatory",
+          "description": "Ten pages connect overview, network, ledger, security, trust, healing, RL, simulation, reports, and audit settings to the real local API. A reconnecting stream detects silence, rejects malformed state, and prevents an older HTTP response from overwriting a newer snapshot.",
+          "source": "frontend/src/LiveProvider.jsx"
+        },
+        {
+          "title": "Compare policies without hiding outcomes",
+          "description": "Explicit offline NumPy DQN training uses replay and a target network in a seeded Gymnasium environment. Matched application experiments compare no-healing, rule, and trained-DQN policies with shared configuration, disjoint evaluation seeds, raw rows, conditional timing, and exploratory uncertainty.",
+          "source": "ledgershield/experiments.py"
+        },
+        {
+          "title": "Retain research evidence across restarts",
+          "description": "SQLAlchemy and Alembic preserve public blocks, transfers, alerts, trust updates, scenarios, audits, and completed experiments in PostgreSQL or SQLite. Transactional batches and complete pagination retain evidence, while archived snapshots remain historical records rather than resumable live consensus checkpoints.",
+          "source": "backend/persistence.py"
+        }
+      ],
+      "technologies": [
+        {
+          "name": "React",
+          "version": "^19.2.4",
+          "description": "Renders the ten-page observatory, role-aware controls, recovery journal, experiment reports, and live state.",
+          "stage": "source",
+          "source": "frontend/package.json"
+        },
+        {
+          "name": "Vite",
+          "version": "^8.0.1",
+          "description": "Builds the dashboard and proxies local REST/WebSocket traffic during development.",
+          "stage": "source",
+          "source": "frontend/package.json"
+        },
+        {
+          "name": "FastAPI",
+          "version": ">=0.115,<1",
+          "description": "Serves typed versioned APIs, bounded simulator operations, authorization checks, and read-only streams.",
+          "stage": "source",
+          "source": "requirements.txt"
+        },
+        {
+          "name": "NumPy",
+          "version": ">=2,<3",
+          "description": "Implements the explicit offline DQN, reproducible numerical experiments, and model-array operations.",
+          "stage": "source",
+          "source": "requirements.txt"
+        },
+        {
+          "name": "scikit-learn",
+          "version": ">=1.5,<2",
+          "description": "Supplies the Isolation Forest baseline fitted on normal synthetic training data.",
+          "stage": "source",
+          "source": "requirements.txt"
+        },
+        {
+          "name": "SQLAlchemy",
+          "version": ">=2.0,<3",
+          "description": "Stores transactional public research archives in PostgreSQL or optional native SQLite.",
+          "stage": "source",
+          "source": "requirements.txt"
+        },
+        {
+          "name": "Docker",
+          "description": "Runs the documented local stack with readiness-gated PostgreSQL, one API worker, and static frontend serving.",
+          "stage": "source",
+          "source": "docs/deployment.md"
+        },
+        {
+          "name": "Python",
+          "version": "3.12 documented runtime",
+          "description": "Hosts the signed execution core, seeded simulator, evidence and recovery services, and offline learning tools.",
+          "stage": "source",
+          "source": "README.md"
+        }
+      ],
+      "decisions": [
+        {
+          "title": "Prefer explicit simulator assumptions",
+          "description": "Keep one canonical execution model, fixed membership, verified signed votes, and seeded transport behavior so experiments expose exactly what is being measured. Quorum requirements remain unchanged when nodes fail or are quarantined.",
+          "source": "docs/architecture.md",
+          "tradeoff": "The system supports repeatable research but cannot establish the safety or throughput of independently running distributed replicas or a production Byzantine protocol."
+        },
+        {
+          "title": "Separate indicators from authority",
+          "description": "Retain evidence provenance and bounded advisory trust, then require mode, approval, quorum, reachability, and retry checks at action execution. Verify a new commit before reporting recovery and retain attempted outcomes when rollback is necessary.",
+          "source": "ledgershield/recovery.py",
+          "tradeoff": "Conservative guards can refuse an intervention or leave a fault unresolved; that outcome remains visible rather than weakening the simulator safety constraints to improve a recovery count."
+        },
+        {
+          "title": "Keep learning outside the live control path",
+          "description": "Use explicit offline DQN training with checkpoint provenance and matched seeded comparison. The API remains on a rule policy and does not automatically train, load, or deploy learned weights.",
+          "source": "ledgershield/learning.py",
+          "tradeoff": "Offline evaluation enables reproducibility but differs from the alert-driven application distribution. A learned model is not assumed to outperform a baseline or be safe for automatic deployment."
+        },
+        {
+          "title": "Archive evidence without claiming state recovery",
+          "description": "Persist public research records in SQL transactions while keeping the active simulator single-process and volatile. Database failure is visible and pauses the simulator instead of silently discarding research evidence.",
+          "source": "backend/persistence.py",
+          "tradeoff": "Completed records survive restarts, but the running ledger starts paused from fresh state. Resumable distributed consensus needs a different persistence and recovery design."
+        }
+      ],
+      "outcomes": [
+        {
+          "title": "A complete inspectable research loop",
+          "description": "The current source connects signed transfers, network faults, evidence, trust, guarded recovery, and ten observatory pages. It replaces the earlier AutoLedgerAI snapshot of a random-feed dashboard while preserving the existing portfolio case-study URL.",
+          "source": "README.md"
+        },
+        {
+          "title": "Reproducible evidence with honest policy results",
+          "description": "The published application comparison includes 36 actual simulator runs over three policies, four scenarios, and three matched seeds. Earlier held-out training results explicitly report that DQN did not outperform no healing. Timing and accuracy remain scoped to the constructed simulator and data.",
+          "source": "docs/experiments.md"
+        },
+        {
+          "title": "Recorded regression and container verification",
+          "description": "The repository reports 123 backend tests and 30 frontend tests, plus numerical, API, archive, subprocess, and safety checks. The reviewed commit has a successful CI workflow. These are source-project results, distinct from portfolio validation and fresh rendered dashboard checks.",
+          "source": "docs/VALIDATION.md"
+        }
+      ],
+      "workflow": [
+        "Start the local API and observatory with generated operator/admin tokens; simulation begins paused.",
+        "Submit a signed demonstration transfer and advance the configured consensus simulator.",
+        "Introduce a bounded scenario and inspect telemetry, evidence, and trust changes.",
+        "Review a proposed recovery against operating mode, approval, quorum, and reachability guards.",
+        "Verify progress or rollback, inspect audit records, and export matched experiment results."
+      ],
+      "commands": [
+        "python -m pip install -r requirements.lock -r requirements-dev.txt",
+        "python scripts/create_local_tokens.py",
+        "python -m uvicorn backend.main:app --host 127.0.0.1 --port 8000 --env-file .env",
+        "cd frontend && npm ci && npm run dev -- --port 5173 --strictPort",
+        "docker compose up --build",
+        "python -m ledgershield.learning --episodes 40 --output artifacts/experiment"
+      ],
+      "setup": "Use Python 3.12 and Node.js 24, install the locked Python requirements and frontend dependencies, and generate local tokens into an ignored .env. Start one FastAPI worker on loopback port 8000 and the Vite observatory on 5173. Native runs may use SQLite archives after Alembic migration; the documented Compose stack supplies PostgreSQL and static frontend serving. There is no public deployment or installer release to open."
+    }
+  },
+  {
     "id": "mathlens",
     "slug": "mathlens",
     "title": "MathLens",
@@ -1545,7 +1895,7 @@
     "tags": ["Java", "Python", "Go", "GitHub Actions", "JSON"],
     "github": "https://github.com/manikantbindass/DSA-Preparation-FAANG",
     "live": null,
-    "featured": true,
+    "featured": false,
     "status": "Active learning repository",
     "updatedAt": "2026-10-25T00:46:14Z",
     "users": "Interview preparation and deliberate algorithm practice.",
@@ -3340,174 +3690,6 @@
       ],
       "commands": ["cd frontend", "npm install", "npm run dev"],
       "setup": "The frontend uses Node.js/npm. Python phases require their selected Solidity/static/model tools; the repository has no complete root bootstrap manifest for every agent dependency."
-    },
-    "contentStage": "source"
-  },
-  {
-    "id": "autoledger",
-    "slug": "autoledger",
-    "title": "AutoLedger AI",
-    "subtitle": "Adaptive blockchain research",
-    "description": "A blockchain and reinforcement-learning exploration with a React dashboard and a simulated FastAPI network-state feed.",
-    "categories": ["Blockchain / Web3", "AI / Machine Learning"],
-    "tags": ["Python", "FastAPI", "React", "PyTorch", "Gymnasium"],
-    "github": "https://github.com/manikantbindass/AutoLedgerAI-Self-healing-blockchain-network-using-reinforcement-learning",
-    "live": null,
-    "featured": false,
-    "status": "Research prototype / simulated dashboard",
-    "updatedAt": "2026-03-31T18:13:01+05:30",
-    "users": "Developers exploring validator trust and adaptive network behavior.",
-    "features": [
-      "Changing network-state feed",
-      "Transaction experiment endpoint",
-      "Bounded trust primitives",
-      "Actor-critic model"
-    ],
-    "architecture": [
-      "React dashboard",
-      "FastAPI WebSocket",
-      "simulated node state; separate PPO and ledger modules"
-    ],
-    "challenges": [
-      "The dashboard backend uses mock network state and random score changes. An integrated trained self-healing consensus network is not demonstrated by that feed."
-    ],
-    "screenshots": [],
-    "evidence": [
-      {
-        "path": "README.md",
-        "url": "https://github.com/manikantbindass/AutoLedgerAI-Self-healing-blockchain-network-using-reinforcement-learning/blob/f8812bf84c8a6f86447b19b1ab71db6b8b7974a6/README.md"
-      },
-      {
-        "path": "backend/main.py",
-        "url": "https://github.com/manikantbindass/AutoLedgerAI-Self-healing-blockchain-network-using-reinforcement-learning/blob/f8812bf84c8a6f86447b19b1ab71db6b8b7974a6/backend/main.py"
-      },
-      {
-        "path": "blockchain/core/ledger.py",
-        "url": "https://github.com/manikantbindass/AutoLedgerAI-Self-healing-blockchain-network-using-reinforcement-learning/blob/f8812bf84c8a6f86447b19b1ab71db6b8b7974a6/blockchain/core/ledger.py"
-      },
-      {
-        "path": "frontend/package.json",
-        "url": "https://github.com/manikantbindass/AutoLedgerAI-Self-healing-blockchain-network-using-reinforcement-learning/blob/f8812bf84c8a6f86447b19b1ab71db6b8b7974a6/frontend/package.json"
-      },
-      {
-        "path": "requirements.txt",
-        "url": "https://github.com/manikantbindass/AutoLedgerAI-Self-healing-blockchain-network-using-reinforcement-learning/blob/f8812bf84c8a6f86447b19b1ab71db6b8b7974a6/requirements.txt"
-      },
-      {
-        "path": "rl-agent/models/ppo_agent.py",
-        "url": "https://github.com/manikantbindass/AutoLedgerAI-Self-healing-blockchain-network-using-reinforcement-learning/blob/f8812bf84c8a6f86447b19b1ab71db6b8b7974a6/rl-agent/models/ppo_agent.py"
-      },
-      {
-        "path": "trust-system/trust_manager.py",
-        "url": "https://github.com/manikantbindass/AutoLedgerAI-Self-healing-blockchain-network-using-reinforcement-learning/blob/f8812bf84c8a6f86447b19b1ab71db6b8b7974a6/trust-system/trust_manager.py"
-      }
-    ],
-    "sourceCommit": "f8812bf84c8a6f86447b19b1ab71db6b8b7974a6",
-    "verifiedAt": "2026-10-25T10:05:44.645535+00:00",
-    "architectureReference": "┌─────────────────────────────────────────────────────────────────────┐\n│                         AutoLedgerAI System                          │\n└─────────────────────────────────────────────────────────────────────┘\n\n      ┌──────────────┐         ┌──────────────┐\n      │  React.js    │◄────────┤  FastAPI     │\n      │  Dashboard   │         │  Backend     │\n      └──────────────┘         └──────┬───────┘\n             ▲                        │\n             │                        │\n             │                ┌───────▼────────┐\n             │                │  Blockchain    │\n             │                │  Core (PBFT)   │\n             │                └───────┬────────┘\n             │                        │\n      ┌──────┴──────┐         ┌───────▼────────┐\n      │  Grafana    │         │  RL Agent      │\n      │  Monitoring │◄────────┤  (DQN/PPO)     │\n      └─────────────┘         └───────┬────────┘\n                                      │\n           ┌──────────────────────────┼──────────────────────────┐\n           │                          │                          │\n      ┌────▼────┐              ┌──────▼──────┐          ┌────────▼────┐\n      │ Trust   │              │  Detection  │          │   Kafka     │\n      │ System  │              │  Engine     │          │   Stream    │\n      └─────────┘              └─────────────┘          └─────────────┘\n                                      │\n                               ┌──────▼──────┐\n                               │  MongoDB    │\n                               │  Database   │\n                               └─────────────┘",
-    "problem": "Validator behavior and trust changes are difficult to understand without a visible feedback loop.",
-    "solution": "Explore trust scoring, consensus, and reinforcement-learning modules alongside a clearly simulated network dashboard.",
-    "technicalDetails": [
-      "The FastAPI dashboard serves mock_network_state and changes node trust values on a WebSocket interval. It is a simulation rather than a production consensus feed.",
-      "A separate PyTorch actor-critic module samples actions and estimates values. Its presence does not establish that dashboard decisions are driven by a trained policy."
-    ],
-    "caseStudy": {
-      "architectureSummary": "The project separates blockchain/validator modules, trust/anomaly helpers, and a PPO actor-critic model. FastAPI publishes a simulated in-memory network feed to the React dashboard; that feed does not show a trained policy controlling real consensus.",
-      "features": [
-        {
-          "title": "Changing network-state feed",
-          "description": "A WebSocket loop updates simulated trust values and isolates nodes below a threshold, exposing the current state to the dashboard.",
-          "source": "backend/main.py"
-        },
-        {
-          "title": "Transaction experiment endpoint",
-          "description": "A typed POST route accepts sender, receiver, and amount and appends the payload to simulation state.",
-          "source": "backend/main.py"
-        },
-        {
-          "title": "Bounded trust primitives",
-          "description": "TrustManager implements reward, penalty, clamped updates, and threshold checks as reusable methods.",
-          "source": "trust-system/trust_manager.py"
-        },
-        {
-          "title": "Actor-critic model",
-          "description": "A PyTorch actor samples a discrete action while a critic estimates state value, supplying model primitives for separate learning experiments.",
-          "source": "rl-agent/models/ppo_agent.py"
-        }
-      ],
-      "technologies": [
-        {
-          "name": "Python",
-          "description": "Implements API, trust, ledger, consensus, and learning experiments.",
-          "stage": "source",
-          "source": "README.md"
-        },
-        {
-          "name": "FastAPI",
-          "description": "Exposes node, transaction, consensus, and WebSocket operations.",
-          "stage": "source",
-          "version": "==0.104.1",
-          "source": "requirements.txt"
-        },
-        {
-          "name": "React",
-          "description": "Visualizes the network state and trust changes.",
-          "stage": "source",
-          "version": "^19.2.4",
-          "source": "frontend/package.json"
-        },
-        {
-          "name": "PyTorch",
-          "description": "Defines actor/critic networks and learning primitives.",
-          "stage": "source",
-          "version": "==2.1.0",
-          "source": "requirements.txt"
-        },
-        {
-          "name": "Gymnasium",
-          "description": "Is declared for the reinforcement-learning environment/training path.",
-          "stage": "source",
-          "version": "==0.29.1",
-          "source": "requirements.txt"
-        }
-      ],
-      "decisions": [
-        {
-          "title": "Separate simulation from learning experiments",
-          "description": "The dashboard can visualize state without a trained policy.",
-          "tradeoff": "Random trust updates demonstrate interaction, but cannot substantiate autonomous consensus recovery.",
-          "source": "backend/main.py"
-        },
-        {
-          "title": "Make trust rules inspectable",
-          "description": "Trust updates are bounded and isolation is expressed as a threshold.",
-          "tradeoff": "A production reputation system needs adversarial evaluation and durable history beyond these primitives.",
-          "source": "trust-system/trust_manager.py"
-        }
-      ],
-      "outcomes": [
-        {
-          "title": "Published deliverable",
-          "description": "A dashboard simulation plus separate ledger, trust, validator-selection, and learning modules.",
-          "source": "README.md"
-        },
-        {
-          "title": "Operating scope",
-          "description": "No integrated trained-policy performance, public blockchain deployment, or availability improvement is established by the simulated feed.",
-          "source": "backend/main.py"
-        }
-      ],
-      "workflow": [
-        "Inspect node and consensus state.",
-        "Observe trust updates through the WebSocket.",
-        "Experiment separately with trust and validator weighting.",
-        "Train/evaluate a policy before connecting it to a real control loop."
-      ],
-      "commands": [
-        "python -m pip install -r backend/requirements.txt",
-        "python -m uvicorn backend.main:app --reload"
-      ],
-      "setup": "Run the Vite frontend separately. Training requires PyTorch/environment dependencies and reconciliation of trainer import paths with the hyphenated source directories."
     },
     "contentStage": "source"
   },

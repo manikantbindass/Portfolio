@@ -9,6 +9,8 @@
     <clipPath id="bounds"><rect x="1" y="1" width="1398" height="438" rx="30"/></clipPath>
   </defs>
   <style>
+    .shield-signal{stroke-dasharray:5 95;animation:shield-flow 6s linear infinite}@keyframes shield-flow{to{stroke-dashoffset:-100}}
+    .shield-pulse{animation:pulse 6s ease-in-out infinite}
     .orbit{transform-origin:1110px 210px;animation:orbit 42s linear infinite}
     .float{animation:float 9s ease-in-out infinite}.reverse{animation-delay:-4.5s}
     .signal{stroke-dasharray:12 700;animation:signal 10s linear infinite}
@@ -20,7 +22,7 @@
     @keyframes orbit{to{transform:rotate(360deg)}}@keyframes float{50%{transform:translateY(-9px)}}
     @keyframes signal{to{stroke-dashoffset:-712}}@keyframes pulse{50%{opacity:.35}}
     @keyframes workflow{50%{opacity:.4;transform:translateY(-4px)}}
-    @media(prefers-reduced-motion:reduce){.orbit,.float,.signal,.pulse,.workflow-node,.neuron,.math-dot{animation:none}}
+    @media(prefers-reduced-motion:reduce){.orbit,.float,.signal,.pulse,.workflow-node,.neuron,.math-dot,.shield-signal,.shield-pulse{animation:none}}
   </style>
   <g clip-path="url(#bounds)">
     <rect x="1" y="1" width="1398" height="438" rx="30" fill="url(#bg)" stroke="#2b3453"/>
@@ -61,10 +63,11 @@
       <g transform="translate(956 277)"><path d="M0 5Q27 78 54 5M0 42h58" fill="none" stroke="#a8e4d9" stroke-opacity=".7" stroke-width="1.5"/><circle class="math-dot" r="3.5" fill="#68dacb"/></g>
       <path d="M1026 292H1096M1026 308H1082M1026 324H1092" stroke="#b4c4e3" stroke-opacity=".3" stroke-width="3" stroke-linecap="round"/>
     </g>
+    <path class="shield-signal" pathLength="100" d="M1213 329v26h45" fill="none" stroke="#b4a1f5" stroke-width="2"/>
     <g fill="none" stroke="#a5adff" stroke-opacity=".25"><path d="M1169 310h34q10 0 10 10v35h45"/><path d="M1213 329v-38h45"/></g>
     <path class="signal" d="M1169 310h34q10 0 10 10v35h45" fill="none" stroke="#68dacb" stroke-width="2"/>
     <g transform="translate(1135 293)"><g class="workflow-node"><rect width="34" height="34" rx="11" fill="url(#glass)" stroke="#a5adff" stroke-opacity=".5"/><path d="m13 10 10 7-10 7Z" fill="none" stroke="#68dacb" stroke-width="1.5"/></g></g>
     <g transform="translate(1258 274)"><g class="workflow-node two"><rect width="34" height="34" rx="11" fill="url(#glass)" stroke="#a5adff" stroke-opacity=".5"/><path d="m12 11-5 6 5 6m10-12 5 6-5 6" fill="none" stroke="#b4a1f5" stroke-width="1.5"/></g></g>
-    <g transform="translate(1258 338)"><g class="workflow-node three"><rect width="34" height="34" rx="11" fill="url(#glass)" stroke="#a5adff" stroke-opacity=".5"/><path d="m10 18 5 5 10-12" fill="none" stroke="#68dacb" stroke-width="1.5"/></g></g>
+    <g transform="translate(1258 338)"><g class="shield-pulse"><rect width="34" height="34" rx="11" fill="url(#glass)" stroke="#a5adff" stroke-opacity=".5"/><path d="m17 7 9 4v8q0 6-9 10-9-4-9-10v-8Z" fill="none" stroke="#68dacb" stroke-width="1.2"/><path d="m12 17 4 4 6-8" fill="none" stroke="#68dacb" stroke-width="1.2"/></g></g>
   </g>
 </svg>

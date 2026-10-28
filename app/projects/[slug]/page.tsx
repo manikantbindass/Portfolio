@@ -8,6 +8,7 @@ import RagGlassHero from "@/components/RagGlassHero";
 import FlowNovaGlassHero from "@/components/FlowNovaGlassHero";
 import NeuroMapGlassHero from "@/components/NeuroMapGlassHero";
 import MathLensGlassHero from "@/components/MathLensGlassHero";
+import LedgerShieldGlassHero from "@/components/LedgerShieldGlassHero";
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
 }
@@ -38,7 +39,7 @@ export default async function ProjectPage({
   const { slug } = await params;
   const p = projects.find((p) => p.slug === slug);
   if (!p) notFound();
-  const headingId = slug === "enterprise-rag" ? "rag-project-heading" : slug === "flownova" ? "flownova-project-heading" : slug === "neuromap" ? "neuromap-project-heading" : slug === "mathlens" ? "mathlens-project-heading" : undefined;
+  const headingId = slug === "enterprise-rag" ? "rag-project-heading" : slug === "flownova" ? "flownova-project-heading" : slug === "neuromap" ? "neuromap-project-heading" : slug === "mathlens" ? "mathlens-project-heading" : slug === "autoledger" ? "ledgershield-project-heading" : undefined;
   const introduction = (
     <>
         <p className="section-label">
@@ -83,7 +84,7 @@ export default async function ProjectPage({
         <Link href="/#projects" className="back-link">
           ← Back to projects
         </Link>
-        {slug === "enterprise-rag" ? <RagGlassHero>{introduction}</RagGlassHero> : slug === "flownova" ? <FlowNovaGlassHero>{introduction}</FlowNovaGlassHero> : slug === "neuromap" ? <NeuroMapGlassHero>{introduction}</NeuroMapGlassHero> : slug === "mathlens" ? <MathLensGlassHero>{introduction}</MathLensGlassHero> : introduction}
+        {slug === "enterprise-rag" ? <RagGlassHero>{introduction}</RagGlassHero> : slug === "flownova" ? <FlowNovaGlassHero>{introduction}</FlowNovaGlassHero> : slug === "neuromap" ? <NeuroMapGlassHero>{introduction}</NeuroMapGlassHero> : slug === "mathlens" ? <MathLensGlassHero>{introduction}</MathLensGlassHero> : slug === "autoledger" ? <LedgerShieldGlassHero>{introduction}</LedgerShieldGlassHero> : introduction}
         <ProjectDetails project={p} />
         <Link href="/#projects" className="back-link">
           ← Explore all {projects.length} projects

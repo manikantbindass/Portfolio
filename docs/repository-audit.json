@@ -138,29 +138,6 @@
     "contentStage": "source"
   },
   {
-    "project": "AutoLedger AI",
-    "repo": "AutoLedgerAI-Self-healing-blockchain-network-using-reinforcement-learning",
-    "commit": "f8812bf84c8a6f86447b19b1ab71db6b8b7974a6",
-    "readmeCharacters": 10473,
-    "sourceFiles": [
-      "README.md",
-      "backend/main.py",
-      "blockchain/core/ledger.py",
-      "frontend/package.json",
-      "requirements.txt",
-      "rl-agent/models/ppo_agent.py",
-      "trust-system/trust_manager.py"
-    ],
-    "screenshots": 0,
-    "demo": null,
-    "limitations": "The dashboard backend uses mock network state and random score changes. An integrated trained self-healing consensus network is not demonstrated by that feed.",
-    "reviewedAt": "2026-10-25T10:05:44.645535+00:00",
-    "detailedFeatures": 4,
-    "technologyRoles": 5,
-    "engineeringDecisions": 2,
-    "contentStage": "source"
-  },
-  {
     "project": "DSA Preparation",
     "repo": "DSA-Preparation-FAANG",
     "commit": "70e302e33b9633a58c870fa8d7fdb21e098047d9",
@@ -446,6 +423,43 @@
     "detailedFeatures": 6,
     "technologyRoles": 7,
     "engineeringDecisions": 3,
+    "contentStage": "source"
+  },
+  {
+    "project": "LedgerShield",
+    "repo": "ledgershield-ai",
+    "commit": "05775801307e8092ffcdb411cc021c36789ec959",
+    "sourceFiles": [
+      "README.md",
+      "requirements.txt",
+      "frontend/package.json",
+      "frontend/src/App.jsx",
+      "frontend/src/LiveProvider.jsx",
+      "ledgershield/core.py",
+      "ledgershield/network.py",
+      "ledgershield/evidence.py",
+      "ledgershield/recovery.py",
+      "ledgershield/learning.py",
+      "ledgershield/experiments.py",
+      "backend/api.py",
+      "backend/persistence.py",
+      "docs/architecture.md",
+      "docs/API.md",
+      "docs/deployment.md",
+      "docs/experiments.md",
+      "docs/VALIDATION.md",
+      "docs/repository-migration.md",
+      "docs/experiments/resilience-comparison.json"
+    ],
+    "screenshots": 0,
+    "illustrations": 2,
+    "demo": null,
+    "release": null,
+    "limitations": "A centralized educational research simulator, not a production financial network: no real peer-to-peer replicas, formally verified Byzantine safety, complete PBFT view changes, or durable live-consensus restart is implemented. No public deployment or published GitHub release was available at review. Run the API and dashboard locally or use the documented Compose stack; no installer or hosted demo is claimed. The live API uses a rule policy; DQN training and checkpoint evaluation are explicit offline work. The recorded learned policy did not outperform the no-healing baseline. Synthetic anomaly performance and simulator timing are not real-world security accuracy or hardware benchmarks. Local operator/admin bearer tokens and process-local quotas do not provide deployment identity management or distributed abuse control. Research archives survive restarts, but active simulator state is volatile. Fresh rendered dashboard QA and independent security review remain outstanding.",
+    "reviewedAt": "2026-10-28",
+    "detailedFeatures": 7,
+    "technologyRoles": 8,
+    "engineeringDecisions": 4,
     "contentStage": "source"
   }
 ]

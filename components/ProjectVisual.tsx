@@ -4,6 +4,8 @@ import DsaCatScene from "@/components/DsaCatScene";
 import styles from "./DsaCatScene.module.css";
 import { MathLensAnimation } from "./MathLensGlassHero";
 import mathStyles from "./MathLensGlassHero.module.css";
+import { LedgerShieldAnimation } from "./LedgerShieldGlassHero";
+import ledgerStyles from "./LedgerShieldGlassHero.module.css";
 export default function ProjectVisual({
   project,
   priority = false,
@@ -17,6 +19,14 @@ export default function ProjectVisual({
   const image = project.screenshots[0];
   const showCat = priority && project.slug === "dsa";
   const showChase = !priority && project.slug === "dsa";
+  if (project.slug === "autoledger" && !priority) return (
+    <div className={`project-diagram ${ledgerStyles.preview}`} aria-label="LedgerShield animated resilience illustration">
+      <LedgerShieldAnimation preview />
+      <span className="diagram-label">RESILIENCE IN MOTION</span>
+      <span className={ledgerStyles.previewTitle}>Trust, with<br />evidence.</span>
+      <span className={ledgerStyles.previewCaption}>OBSERVE · VERIFY · RECOVER</span>
+    </div>
+  );
   if (project.slug === "mathlens" && !priority) return (
     <div className={`project-diagram ${mathStyles.preview}`} aria-label="MathLens animated mathematical illustration">
       <MathLensAnimation preview />
@@ -34,7 +44,7 @@ export default function ProjectVisual({
         sizes="(max-width:640px) 100vw, (max-width:1000px) 50vw, 420px"
         priority={priority}
       />
-      <span className="capture-label">{project.visualKind === "illustration" ? "MATHEMATICAL ILLUSTRATION" : "REPOSITORY CAPTURE"}</span>
+      <span className="capture-label">{project.visualKind === "illustration" ? "SOURCE ILLUSTRATION" : "REPOSITORY CAPTURE"}</span>
     </div>
   ) : (
     <div
