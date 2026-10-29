@@ -7,6 +7,8 @@
     <clipPath id="bounds"><rect x="1" y="1" width="1398" height="218" rx="26"/></clipPath>
   </defs>
   <style>
+    .city-flow{stroke-dasharray:6 94;animation:city-flow 8s linear infinite}.city-light{animation:city-light 5s ease-in-out infinite}@keyframes city-flow{to{stroke-dashoffset:-100}}@keyframes city-light{50%{opacity:.3}}
+    @media(prefers-reduced-motion:reduce){.city-flow,.city-light{animation:none}}
     .signal{stroke-dasharray:18 1190;animation:flow 14s linear infinite}.second{animation-delay:-7s}
     .pulse{animation:breathe 6s ease-in-out infinite}
     .math-dot{animation:descent 10s ease-in-out infinite}@keyframes descent{0%,8%{transform:translate(93px,28.7px);opacity:1}30%{transform:translate(78px,48.15px)}50%{transform:translate(65px,57.51px)}75%,90%{transform:translate(57px,59.81px);opacity:1}100%{transform:translate(57px,59.81px);opacity:0}}
@@ -21,8 +23,8 @@
     <path d="M-80 177C240 52 430 286 710 185S1130 90 1480 179" fill="none" stroke="url(#flow)" stroke-opacity=".12"/>
     <path class="signal" d="M-80 155C240 30 430 264 710 163S1130 68 1480 157" fill="none" stroke="url(#flow)" stroke-width="2"/>
     <path class="signal second" d="M-80 177C240 52 430 286 710 185S1130 90 1480 179" fill="none" stroke="url(#flow)" stroke-width="2"/>
-    <g fill="none" stroke="#a5adff" stroke-opacity=".3"><path d="M100 108q49-40 98 0m-98 0q49 72 98 40m-98-40 98 20M1202 108q49-40 98 0m-98 0q49 72 98 40m-98-40 98 20"/></g>
-    <g transform="translate(92 85)"><rect x="-16" y="-18" width="142" height="99" rx="23" fill="#182238" fill-opacity=".8" stroke="#a5adff" stroke-opacity=".3"/><path d="M0 0Q54 120 108 0M0 60h108" fill="none" stroke="#a5adff" stroke-opacity=".65" stroke-width="1.5"/><circle class="math-dot" r="4" fill="#68dacb"/></g>
+    <g fill="none" stroke="#a5adff" stroke-opacity=".3"><path d="M1202 108q49-40 98 0m-98 0q49 72 98 40m-98-40 98 20"/></g>
+    <g transform="translate(92 85)"><rect x="-16" y="-18" width="142" height="99" rx="23" fill="#182238" fill-opacity=".8" stroke="#a5adff" stroke-opacity=".3"/><path d="M0 60h108M6 60V27l18-9 18 9v33m7 0V8l20-10 20 10v52m7 0V39l12-6" fill="none" stroke="#a5adff" stroke-opacity=".65" stroke-width="1.3"/><path class="city-flow" pathLength="100" d="M0 60h108" fill="none" stroke="#68dacb" stroke-width="1.5"/><g class="city-light" stroke="#68dacb"><path d="M14 35h8m-8 11h8m35-29h9m-9 12h9m-9 12h9m-9 12h9"/></g></g>
     <g transform="translate(1251 113)"><path d="M0-40 29-28V-3C29 18 15 32 0 41-15 32-29 18-29-3v-25Z" fill="#182238" stroke="#68dacb" stroke-opacity=".55"/><path d="m-12 0 9 9 17-19" fill="none" stroke="#68dacb" stroke-width="2"/><g class="node second" fill="#b4a1f5"><circle cx="-52" cy="-5" r="4"/><circle cx="49" cy="-5" r="4"/><circle cx="49" cy="35" r="4"/></g><path class="shield-signal" pathLength="100" d="M-52-5H-29M29-5H49M29 15 49 35" fill="none" stroke="#68dacb" stroke-width="1.5"/></g>
     <g text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">
       <text x="700" y="56" fill="#a5adcf" font-size="10" letter-spacing="3.5">FROM AN IDEA TO SOMETHING USEFUL</text>

@@ -461,5 +461,37 @@
     "technologyRoles": 8,
     "engineeringDecisions": 4,
     "contentStage": "source"
+  },
+  {
+    "project": "CityPulse",
+    "repo": "CityPulse",
+    "commit": "2385ea7a3c6f9349c9c9ee67a56ace5f279fa992",
+    "sourceFiles": [
+      "README.md",
+      "apps/web/package.json",
+      "apps/web/lib/server-auth.ts",
+      "services/api/pom.xml",
+      "services/ai-engine/pyproject.toml",
+      "services/ai-engine/citypulse_ai/decisions.py",
+      "services/api/src/main/java/io/citypulse/decision/DecisionService.java",
+      "services/api/src/main/java/io/citypulse/pulseai/PulseAiService.java",
+      "services/ingestion/citypulse_ingestion/pipeline.py",
+      "blockchain/contracts/DatasetAttestationRegistry.sol",
+      "docs/decision-engine.md",
+      "docs/model-card.md",
+      "docs/pulseai.md",
+      "docs/operations/deployment.md",
+      "docs/assets/readme-provenance.json"
+    ],
+    "screenshots": 5,
+    "researchFigures": 1,
+    "demo": null,
+    "release": null,
+    "limitations": "No public deployment or published GitHub release was available at review. The application runs locally through Compose or native services. AWS modules, image packaging workflows, and reserved infrastructure directories do not imply cloud provisioning. The showcased application and reproducible benchmarks use labeled synthetic development data. Licensed geography is not a live supply-demand feed. Forecast errors, opportunity scores, and solver results do not imply real-city accuracy, investment success, or guaranteed profit. The allocation engine uses supplied direct lanes and explicit stocks; it does not infer a road network, solve vehicle tours, or dispatch resources. Missing demand/supply is unknown, stocks are not flows, and unlike units are not aggregated. Blockchain evidence comes from local EVM demonstrations. A digest match establishes content integrity rather than source truth. Real IdP/MFA rollout, public-chain deployment, external security review, production restore evidence, and distributed AI persistence remain operational work. The PDF report and presentation are preserved earlier drafts. Current Markdown, implementation, and revision-specific CI evidence take precedence over stale statements in those documents.",
+    "reviewedAt": "2026-10-30",
+    "detailedFeatures": 7,
+    "technologyRoles": 9,
+    "engineeringDecisions": 4,
+    "contentStage": "source"
   }
 ]

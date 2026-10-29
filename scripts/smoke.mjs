@@ -2,9 +2,9 @@ import fs from "node:fs/promises";
 import assert from "node:assert/strict";
 const base = process.env.PORTFOLIO_TEST_URL ?? "http://localhost:3000";
 const projects = JSON.parse(await fs.readFile("lib/projects.json", "utf8"));
-assert.equal(projects.length, 17);
+assert.equal(projects.length, 18);
 assert.equal(projects.filter((p) => p.featured).length, 6);
-assert.equal(new Set(projects.map((p) => p.slug)).size, 17);
+assert.equal(new Set(projects.map((p) => p.slug)).size, 18);
 const routes = [
   "/",
   "/robots.txt",

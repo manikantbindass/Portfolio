@@ -1,0 +1,24 @@
+.scene { opacity: .9; }
+.orbit { transform-origin: 310px 327px; animation: orbit 90s linear infinite; }
+.flow path { stroke-dasharray: 6 94; animation: signal 7s linear infinite; }
+.windows { animation: breathe 6s ease-in-out infinite; }
+.panel { animation: float 12s ease-in-out infinite; }
+.pulse { animation: pulse 6s ease-out infinite; }
+.card { position: relative; }
+.card[data-paused="true"] * { animation-play-state: paused; }
+.preview { position: relative; isolation: isolate; overflow: hidden; }
+.previewScene { position: absolute; right: -15%; top: 50%; width: 90%; transform: translateY(-50%); opacity: .85; pointer-events: none; mask-image: linear-gradient(90deg, transparent, #000 30%); }
+.previewScene svg { display: block; width: 100%; }
+.previewTitle { position: relative; z-index: 1; font-size: clamp(26px, 3vw, 38px); font-weight: 500; line-height: 1.15; letter-spacing: -.055em; color: var(--fg); margin-top: 30px; }
+.previewCaption { position: relative; z-index: 1; font: 8px monospace; letter-spacing: .12em; color: var(--teal); margin-top: 26px; }
+.cardControl { position: absolute; z-index: 2; top: 23px; right: 61px; display: grid; place-items: center; width: 30px; height: 30px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg2); color: var(--muted); cursor: pointer; }
+.cardControl:hover { color: var(--fg); border-color: var(--accent); }
+@keyframes orbit { to { transform: rotate(360deg); } }
+@keyframes signal { to { stroke-dashoffset: -100; } }
+@keyframes breathe { 50% { opacity: .35; } }
+@keyframes float { 50% { transform: translateY(-9px); } }
+@keyframes pulse { 0% { transform: scale(.7); opacity: .8; } 80%, 100% { transform: scale(1.6); opacity: 0; } }
+@media (max-width: 900px) { .scene { opacity: .38; } }
+@media (max-width: 600px) { .scene { opacity: .25; } }
+@media (prefers-reduced-motion: reduce) { .scene *, .previewScene * { animation: none !important; } .cardControl { display: none; } }
+@media (prefers-reduced-transparency: reduce) { .previewScene { display: none; } .preview { background: var(--bg2); } }

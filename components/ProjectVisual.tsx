@@ -6,6 +6,8 @@ import { MathLensAnimation } from "./MathLensGlassHero";
 import mathStyles from "./MathLensGlassHero.module.css";
 import { LedgerShieldAnimation } from "./LedgerShieldGlassHero";
 import ledgerStyles from "./LedgerShieldGlassHero.module.css";
+import { CityPulseAnimation } from "./CityPulseGlassHero";
+import cityStyles from "./CityPulseGlassHero.module.css";
 export default function ProjectVisual({
   project,
   priority = false,
@@ -19,6 +21,14 @@ export default function ProjectVisual({
   const image = project.screenshots[0];
   const showCat = priority && project.slug === "dsa";
   const showChase = !priority && project.slug === "dsa";
+  if (project.slug === "citypulse" && !priority) return (
+    <div className={`project-diagram ${cityStyles.preview}`} aria-label="CityPulse animated city illustration">
+      <CityPulseAnimation preview />
+      <span className="diagram-label">CITY IN MOTION</span>
+      <span className={cityStyles.previewTitle}>A city, in<br />perspective.</span>
+      <span className={cityStyles.previewCaption}>EVIDENCE · FORECAST · DECISION</span>
+    </div>
+  );
   if (project.slug === "autoledger" && !priority) return (
     <div className={`project-diagram ${ledgerStyles.preview}`} aria-label="LedgerShield animated resilience illustration">
       <LedgerShieldAnimation preview />

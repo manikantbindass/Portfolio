@@ -10,12 +10,14 @@ import DsaChaseScene from "@/components/DsaChaseScene";
 import dsaStyles from "@/components/DsaChaseScene.module.css";
 import mathStyles from "@/components/MathLensGlassHero.module.css";
 import ledgerStyles from "@/components/LedgerShieldGlassHero.module.css";
+import cityStyles from "@/components/CityPulseGlassHero.module.css";
 
 export default function Projects() {
   const [category, setCategory] = useState("All Projects");
   const [query, setQuery] = useState("");
   const [mathPaused, setMathPaused] = useState(false);
   const [ledgerPaused, setLedgerPaused] = useState(false);
+  const [cityPaused, setCityPaused] = useState(false);
   const filtered = projects.filter(
     (p) =>
       (category === "All Projects" || p.categories.includes(category)) &&
@@ -85,8 +87,8 @@ export default function Projects() {
                 duration: 0.4,
                 delay: Math.min((i % 3) * 0.06, 0.12),
               }}
-              className={`project-card glass card-hover${p.slug === "dsa" ? ` ${dsaStyles.card}` : p.slug === "mathlens" ? ` ${mathStyles.card}` : p.slug === "autoledger" ? ` ${ledgerStyles.card}` : ""}`}
-              data-paused={p.slug === "mathlens" ? mathPaused : p.slug === "autoledger" ? ledgerPaused : undefined}
+              className={`project-card glass card-hover${p.slug === "dsa" ? ` ${dsaStyles.card}` : p.slug === "mathlens" ? ` ${mathStyles.card}` : p.slug === "autoledger" ? ` ${ledgerStyles.card}` : p.slug === "citypulse" ? ` ${cityStyles.card}` : ""}`}
+              data-paused={p.slug === "mathlens" ? mathPaused : p.slug === "autoledger" ? ledgerPaused : p.slug === "citypulse" ? cityPaused : undefined}
               key={p.id}
             >
               {p.slug === "dsa" && <DsaChaseScene />}
@@ -101,6 +103,7 @@ export default function Projects() {
               </Link>
               {p.slug === "mathlens" && <button type="button" className={mathStyles.cardControl} onClick={() => setMathPaused(value => !value)} aria-pressed={mathPaused} aria-label={mathPaused ? "Play MathLens card animation" : "Pause MathLens card animation"}>{mathPaused ? <Play size={12} aria-hidden /> : <Pause size={12} aria-hidden />}</button>}
               {p.slug === "autoledger" && <button type="button" className={ledgerStyles.cardControl} onClick={() => setLedgerPaused(value => !value)} aria-pressed={ledgerPaused} aria-label={ledgerPaused ? "Play LedgerShield card animation" : "Pause LedgerShield card animation"}>{ledgerPaused ? <Play size={12} aria-hidden /> : <Pause size={12} aria-hidden />}</button>}
+              {p.slug === "citypulse" && <button type="button" className={cityStyles.cardControl} onClick={() => setCityPaused(value => !value)} aria-pressed={cityPaused} aria-label={cityPaused ? "Play CityPulse card animation" : "Pause CityPulse card animation"}>{cityPaused ? <Play size={12} aria-hidden /> : <Pause size={12} aria-hidden />}</button>}
               <div className="project-card-body">
                 <div className="eyebrow-row">
                   <span>{p.categories[0]}</span>

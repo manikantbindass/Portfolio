@@ -52,6 +52,8 @@ import {
   SiVite,
   SiVuedotjs,
   SiJavascript,
+  SiScipy,
+  SiMaplibre,
   SiSvg,
   SiWeb3Dotjs,
   SiWireguard,
@@ -59,6 +61,8 @@ import {
 import { FaJava, FaAws } from "react-icons/fa";
 const icons: Record<string, IconType> = {
   JavaScript: SiJavascript,
+  SciPy: SiScipy,
+  MapLibre: SiMaplibre,
   SVG: SiSvg,
   "Next.js": SiNextdotjs,
   "React Flow": SiReact,

@@ -26,7 +26,7 @@ test("new projects, project updates, and filtered inputs cannot reorder the pins
   assert.deepEqual(orderProjects(changed.filter(p => p.slug !== "dsa")).slice(0, 2).map(p => p.slug), ["chainpass", "enterprise-rag"]);
 });
 test("every project has substantive case-study sections with pinned source references", () => {
-  assert.equal(projects.length, 17);
+  assert.equal(projects.length, 18);
   for (const p of projects) {
     const s = p.caseStudy;
     const sources = new Set(p.evidence.map((e) => e.path));
@@ -119,7 +119,25 @@ test("LedgerShield replaces its former AutoLedger entry with current local resea
   assert(p.resources.some(r => r.url.endsWith("resilience-runs.csv")));
   assert(p.challenges.some(t => t.includes("did not outperform")));
   assert(p.challenges.some(t => t.includes("No public deployment or published GitHub release")));
-  assert.deepEqual(orderProjects(projects).slice(0, 4).map(p => p.slug), ["dsa", "chainpass", "enterprise-rag", "autoledger"]);
+  assert(orderProjects(projects).findIndex(p => p.slug === "autoledger") >= 3);
+});
+
+test("CityPulse retains real source captures, undeployed status, and the permanent project pins", () => {
+  const p = projects.find(p => p.slug === "citypulse");
+  assert(p);
+  assert.equal(p.live, null);
+  assert.equal(p.release, undefined);
+  assert.equal(p.screenshots.length, 6);
+  assert.equal(p.github, "https://github.com/manikantbindass/CityPulse");
+  for (const capture of p.screenshots) {
+    assert(fs.existsSync(new URL("../public" + capture.src, import.meta.url)));
+    assert(capture.source.includes("/blob/" + p.sourceCommit + "/"));
+  }
+  assert(p.resources.some(r => r.url.endsWith(".pdf") && r.label.includes("draft")));
+  assert(p.resources.some(r => r.url.endsWith(".pptx") && r.label.includes("draft")));
+  assert(p.challenges.some(t => t.includes("synthetic")));
+  assert(p.challenges.some(t => t.includes("No public deployment or published GitHub release")));
+  assert.deepEqual(orderProjects(projects).slice(0, 4).map(p => p.slug), ["dsa", "chainpass", "enterprise-rag", "citypulse"]);
 });
 test("project-specific explanations are not shared placeholder paragraphs", () => {
   const text = projects.flatMap((p) =>

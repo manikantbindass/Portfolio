@@ -1,5 +1,369 @@
 [
   {
+    "id": "citypulse",
+    "slug": "citypulse",
+    "title": "CityPulse",
+    "subtitle": "A city, in perspective · evidence, forecasts, and better decisions",
+    "description": "An urban intelligence workspace connecting geospatial supply-demand evidence, forecasting, constrained resource planning, cited PulseAI analysis, and local blockchain integrity verification.",
+    "categories": [
+      "Full Stack",
+      "AI / Machine Learning",
+      "Blockchain / Web3",
+      "Backend / Cloud / DevOps"
+    ],
+    "tags": [
+      "Next.js",
+      "TypeScript",
+      "Spring Boot",
+      "FastAPI",
+      "PostgreSQL",
+      "SciPy",
+      "Solidity",
+      "MapLibre"
+    ],
+    "github": "https://github.com/manikantbindass/CityPulse",
+    "live": null,
+    "featured": true,
+    "status": "Working local development application · source available",
+    "updatedAt": "2026-10-29T17:35:40Z",
+    "users": "Analysts, planners, and business operators investigating urban resource gaps, explicit decision assumptions, and evidence provenance.",
+    "problem": "Separate observations, incompatible units, missing supply records, and opaque forecasts can make urban resource decisions look more certain than the evidence supports.",
+    "solution": "Connect licensed or synthetic observations to explicit geospatial and temporal context, evaluate forecasts and bounded allocation scenarios, and retain provenance, citations, and integrity fingerprints for review.",
+    "technicalDetails": [
+      "A Next.js/React workspace and same-origin server adapters connect to a modular Spring Boot API. PostgreSQL/PostGIS owns tenant-scoped geographic, observation, inventory, scenario, and audit records; FastAPI supplies forecasting, bounded evidence selection, and numerical decisions.",
+      "The decision engine uses SciPy HiGHS LP/MILP with explicit stocks, categories, lanes, budgets, receiving capacities, and coverage floors. It validates residual constraints, distinguishes unknown values from zeros, and reports infeasibility without inventing allocations.",
+      "Forecast training uses chronological per-segment partitions, past-only features, validation-selected baselines/Ridge/XGBoost, held-out metrics, and inspectable artifact fingerprints. Published benchmark segments are synthetic and do not establish real-city accuracy.",
+      "PulseAI reads fixed tenant-authorized tools and allowlisted documentation. An optional provider can select approved statement IDs; the Java service constructs factual prose and citations. The default provider is disabled and missing evidence stays missing.",
+      "OIDC/PKCE and encrypted Redis-backed sessions are implemented but require real provider configuration. Local Solidity registries record authorized digests; independent verification proves byte integrity, not source truth. AWS infrastructure is code rather than a deployed environment."
+    ],
+    "features": [
+      "Geospatial evidence and supply-demand exploration",
+      "Chronological forecasting and model comparison",
+      "Constrained allocation and scenario comparison",
+      "Tenant-owned saved scenarios and exports",
+      "Evidence-grounded PulseAI analyst",
+      "Local dataset/report integrity verification"
+    ],
+    "architecture": [
+      "Next.js workspace + same-origin BFF",
+      "OIDC / sessions + Spring tenant authorization",
+      "PostgreSQL / PostGIS + provenance",
+      "FastAPI forecasting / evidence / SciPy",
+      "Local EVM registries + verification"
+    ],
+    "architectureReference": "flowchart LR\n  Browser[Next.js workspace] --> BFF[Same-origin server adapters]\n  IdP[Configured OIDC provider] --> BFF\n  BFF --> Sessions[(Encrypted Redis sessions)]\n  BFF --> API[Spring Boot tenant-scoped API]\n  API --> DB[(PostgreSQL / PostGIS)]\n  API --> AI[FastAPI forecasting / PulseAI / SciPy]\n  AI --> Models[Versioned artifacts + SQLite jobs]\n  API --> Audit[(Owned scenarios / audit / provenance)]\n  Operator[Authorized local operator] --> Chain[Solidity digest registries]\n  Chain --> Verify[Independent receipt and hash verification]\n  Verify --> API",
+    "challenges": [
+      "No public deployment or published GitHub release was available at review. The application runs locally through Compose or native services. AWS modules, image packaging workflows, and reserved infrastructure directories do not imply cloud provisioning.",
+      "The showcased application and reproducible benchmarks use labeled synthetic development data. Licensed geography is not a live supply-demand feed. Forecast errors, opportunity scores, and solver results do not imply real-city accuracy, investment success, or guaranteed profit.",
+      "The allocation engine uses supplied direct lanes and explicit stocks; it does not infer a road network, solve vehicle tours, or dispatch resources. Missing demand/supply is unknown, stocks are not flows, and unlike units are not aggregated.",
+      "Blockchain evidence comes from local EVM demonstrations. A digest match establishes content integrity rather than source truth. Real IdP/MFA rollout, public-chain deployment, external security review, production restore evidence, and distributed AI persistence remain operational work.",
+      "The PDF report and presentation are preserved earlier drafts. Current Markdown, implementation, and revision-specific CI evidence take precedence over stale statements in those documents."
+    ],
+    "screenshots": [
+      {
+        "src": "/projects/citypulse/readme-dashboard.png",
+        "caption": "Actual local analytics workspace with labeled synthetic development data. This capture preserves its rendered loading/chart state; no live city feed is implied.",
+        "source": "https://github.com/manikantbindass/CityPulse/blob/2385ea7a3c6f9349c9c9ee67a56ace5f279fa992/docs/assets/readme-dashboard.png"
+      },
+      {
+        "src": "/projects/citypulse/readme-decision.png",
+        "caption": "Actual local decision simulator after a Next.js → FastAPI → SciPy calculation on synthetic retail inputs. The result is local and unsaved; no allocation is dispatched.",
+        "source": "https://github.com/manikantbindass/CityPulse/blob/2385ea7a3c6f9349c9c9ee67a56ace5f279fa992/docs/assets/readme-decision.png"
+      },
+      {
+        "src": "/projects/citypulse/readme-verification.png",
+        "caption": "Actual verification workspace with the original empty/loading backend-evidence state and no active chain connection. It does not depict a public-chain transaction.",
+        "source": "https://github.com/manikantbindass/CityPulse/blob/2385ea7a3c6f9349c9c9ee67a56ace5f279fa992/docs/assets/readme-verification.png"
+      },
+      {
+        "src": "/projects/citypulse/pulseai-desktop.png",
+        "caption": "Actual local PulseAI desktop view before analytical records are retrieved. No external provider answer or real-city insight is shown.",
+        "source": "https://github.com/manikantbindass/CityPulse/blob/2385ea7a3c6f9349c9c9ee67a56ace5f279fa992/docs/assets/pulseai-desktop.png"
+      },
+      {
+        "src": "/projects/citypulse/pulseai-mobile.png",
+        "caption": "Actual local PulseAI mobile view with its data-context controls; an initial application state rather than a populated analytical conversation.",
+        "source": "https://github.com/manikantbindass/CityPulse/blob/2385ea7a3c6f9349c9c9ee67a56ace5f279fa992/docs/assets/pulseai-mobile.png"
+      },
+      {
+        "src": "/projects/citypulse/model-comparison.png",
+        "caption": "Repository-generated model comparison figure from the reproducible synthetic forecasting evaluation; a research figure, not an application screenshot or real-city benchmark.",
+        "source": "https://github.com/manikantbindass/CityPulse/blob/2385ea7a3c6f9349c9c9ee67a56ace5f279fa992/docs/assets/model-comparison.png"
+      }
+    ],
+    "resources": [
+      {
+        "label": "Technical report · PDF draft",
+        "url": "https://github.com/manikantbindass/CityPulse/blob/2385ea7a3c6f9349c9c9ee67a56ace5f279fa992/docs/reports/CityPulse-Technical-Report.pdf",
+        "description": "Preserved earlier implementation report. Current source and Markdown take precedence over stale draft claims."
+      },
+      {
+        "label": "Project presentation · PowerPoint draft",
+        "url": "https://github.com/manikantbindass/CityPulse/blob/2385ea7a3c6f9349c9c9ee67a56ace5f279fa992/docs/presentations/CityPulse-Project-Presentation.pptx",
+        "description": "Editable earlier presentation documenting the project foundation; not a final production-release guide."
+      },
+      {
+        "label": "Local development and setup",
+        "url": "https://github.com/manikantbindass/CityPulse/blob/2385ea7a3c6f9349c9c9ee67a56ace5f279fa992/docs/development.md",
+        "description": "Native prerequisites, local service configuration, and reproducible development commands."
+      },
+      {
+        "label": "Decision engine and constraints",
+        "url": "https://github.com/manikantbindass/CityPulse/blob/2385ea7a3c6f9349c9c9ee67a56ace5f279fa992/docs/decision-engine.md",
+        "description": "Opportunity factors, LP/MILP objectives, hard constraints, provenance, infeasibility, and known limits."
+      },
+      {
+        "label": "Measured model evaluation",
+        "url": "https://github.com/manikantbindass/CityPulse/blob/2385ea7a3c6f9349c9c9ee67a56ace5f279fa992/docs/reports/model-evaluation.json",
+        "description": "Actual held-out metrics for reproducible synthetic geographic/category segments."
+      },
+      {
+        "label": "Synthetic decision evaluation",
+        "url": "https://github.com/manikantbindass/CityPulse/blob/2385ea7a3c6f9349c9c9ee67a56ace5f279fa992/docs/reports/decision-evaluation.json",
+        "description": "Recorded numerical scenarios, explicit inputs, solver outcomes, and reproducibility fingerprints."
+      },
+      {
+        "label": "Verified source CI",
+        "url": "https://github.com/manikantbindass/CityPulse/actions/runs/40922823492",
+        "description": "Successful CI workflow for the reviewed source revision. Security and platform checks also completed successfully."
+      },
+      {
+        "label": "Deployment boundaries and operations",
+        "url": "https://github.com/manikantbindass/CityPulse/blob/2385ea7a3c6f9349c9c9ee67a56ace5f279fa992/docs/operations/deployment.md",
+        "description": "Local Compose, manual image packaging, configuration/promotion requirements, and undeployed cloud infrastructure."
+      }
+    ],
+    "evidence": [
+      {
+        "path": "README.md",
+        "url": "https://github.com/manikantbindass/CityPulse/blob/2385ea7a3c6f9349c9c9ee67a56ace5f279fa992/README.md"
+      },
+      {
+        "path": "apps/web/package.json",
+        "url": "https://github.com/manikantbindass/CityPulse/blob/2385ea7a3c6f9349c9c9ee67a56ace5f279fa992/apps/web/package.json"
+      },
+      {
+        "path": "apps/web/lib/server-auth.ts",
+        "url": "https://github.com/manikantbindass/CityPulse/blob/2385ea7a3c6f9349c9c9ee67a56ace5f279fa992/apps/web/lib/server-auth.ts"
+      },
+      {
+        "path": "services/api/pom.xml",
+        "url": "https://github.com/manikantbindass/CityPulse/blob/2385ea7a3c6f9349c9c9ee67a56ace5f279fa992/services/api/pom.xml"
+      },
+      {
+        "path": "services/ai-engine/pyproject.toml",
+        "url": "https://github.com/manikantbindass/CityPulse/blob/2385ea7a3c6f9349c9c9ee67a56ace5f279fa992/services/ai-engine/pyproject.toml"
+      },
+      {
+        "path": "services/ai-engine/citypulse_ai/decisions.py",
+        "url": "https://github.com/manikantbindass/CityPulse/blob/2385ea7a3c6f9349c9c9ee67a56ace5f279fa992/services/ai-engine/citypulse_ai/decisions.py"
+      },
+      {
+        "path": "services/api/src/main/java/io/citypulse/decision/DecisionService.java",
+        "url": "https://github.com/manikantbindass/CityPulse/blob/2385ea7a3c6f9349c9c9ee67a56ace5f279fa992/services/api/src/main/java/io/citypulse/decision/DecisionService.java"
+      },
+      {
+        "path": "services/api/src/main/java/io/citypulse/pulseai/PulseAiService.java",
+        "url": "https://github.com/manikantbindass/CityPulse/blob/2385ea7a3c6f9349c9c9ee67a56ace5f279fa992/services/api/src/main/java/io/citypulse/pulseai/PulseAiService.java"
+      },
+      {
+        "path": "services/ingestion/citypulse_ingestion/pipeline.py",
+        "url": "https://github.com/manikantbindass/CityPulse/blob/2385ea7a3c6f9349c9c9ee67a56ace5f279fa992/services/ingestion/citypulse_ingestion/pipeline.py"
+      },
+      {
+        "path": "blockchain/contracts/DatasetAttestationRegistry.sol",
+        "url": "https://github.com/manikantbindass/CityPulse/blob/2385ea7a3c6f9349c9c9ee67a56ace5f279fa992/blockchain/contracts/DatasetAttestationRegistry.sol"
+      },
+      {
+        "path": "docs/decision-engine.md",
+        "url": "https://github.com/manikantbindass/CityPulse/blob/2385ea7a3c6f9349c9c9ee67a56ace5f279fa992/docs/decision-engine.md"
+      },
+      {
+        "path": "docs/model-card.md",
+        "url": "https://github.com/manikantbindass/CityPulse/blob/2385ea7a3c6f9349c9c9ee67a56ace5f279fa992/docs/model-card.md"
+      },
+      {
+        "path": "docs/pulseai.md",
+        "url": "https://github.com/manikantbindass/CityPulse/blob/2385ea7a3c6f9349c9c9ee67a56ace5f279fa992/docs/pulseai.md"
+      },
+      {
+        "path": "docs/operations/deployment.md",
+        "url": "https://github.com/manikantbindass/CityPulse/blob/2385ea7a3c6f9349c9c9ee67a56ace5f279fa992/docs/operations/deployment.md"
+      },
+      {
+        "path": "docs/assets/readme-provenance.json",
+        "url": "https://github.com/manikantbindass/CityPulse/blob/2385ea7a3c6f9349c9c9ee67a56ace5f279fa992/docs/assets/readme-provenance.json"
+      }
+    ],
+    "sourceCommit": "2385ea7a3c6f9349c9c9ee67a56ace5f279fa992",
+    "verifiedAt": "2026-10-30",
+    "contentStage": "source",
+    "caseStudy": {
+      "architectureSummary": "CityPulse separates the Next.js workspace and server adapters from a modular Spring Boot API, authoritative PostgreSQL/PostGIS, and FastAPI numerical services. Tenant membership and scopes protect evidence, forecasts, and owner-specific scenarios. OIDC/PKCE sessions use encrypted server state and Redis. Validated ingestion publishes provenance-aware records; forecasting and SciPy decisions retain method/input fingerprints; local Solidity registries provide independent digest checks.",
+      "features": [
+        {
+          "title": "Keep observations grounded in context",
+          "description": "CSV, JSON, and GeoJSON intake validates quantities, units, offset-aware times, geographic bounds, and source identifiers. Normalization, duplicate/conflict checks, quality diagnostics, and provenance keep compatible observations together without silently turning missing values into zeros.",
+          "source": "services/ingestion/citypulse_ingestion/pipeline.py"
+        },
+        {
+          "title": "Forecast with inspectable evaluation",
+          "description": "Seasonal-naive, moving-average, Ridge, and XGBoost candidates are evaluated per segment using chronological train/validation/test splits and past-only features. Validation selects a model; held-out metrics and empirical residual intervals expose what the synthetic benchmark actually supports.",
+          "source": "docs/model-card.md"
+        },
+        {
+          "title": "Plan allocations within real constraints",
+          "description": "SciPy LP/MILP uses explicit stock, compatible categories, permitted direct lanes, budgets, receiving capacity, and coverage floors. Objectives include throughput, priority, cost, and fairness. Residual and integrality checks reject invalid solutions, and infeasible or insufficient-data requests have no fabricated plan.",
+          "source": "services/ai-engine/citypulse_ai/decisions.py"
+        },
+        {
+          "title": "Save a scenario that can be inspected again",
+          "description": "Spring protects snapshots, registered networks, and saved scenarios by tenant and subject. Frozen inputs, engine versions, input/result hashes, timestamps, and audit events support export and reproduction. A local preview solver result stays explicitly unsaved until the authorized API persists it.",
+          "source": "services/api/src/main/java/io/citypulse/decision/DecisionService.java"
+        },
+        {
+          "title": "Answer only from authorized evidence",
+          "description": "PulseAI executes fixed read-only queries and retrieves bounded allowlisted documentation. It preserves unknowns and source references. Optional model output is restricted to permitted statement IDs; factual text and citations are built from verified records, with a deterministic fallback when the provider is disabled or unavailable.",
+          "source": "services/api/src/main/java/io/citypulse/pulseai/PulseAiService.java"
+        },
+        {
+          "title": "Separate identity from development shortcuts",
+          "description": "The web implements OIDC code flow with PKCE, state/nonce validation, secure HttpOnly cookies, encrypted short-lived sessions, and a Redis-backed store. Production depends on configured issuer/client/session secrets; explicit local preview identity is not a replacement for deployment authorization.",
+          "source": "apps/web/lib/server-auth.ts"
+        },
+        {
+          "title": "Verify integrity without claiming truth",
+          "description": "Authorized-source and dataset registries accept bounded digest/reference attestations, roles, pause control, and duplicate protection. Local deployment and independent verification demonstrate hash matches and tamper rejection. The original observation can still be wrong even when the attested bytes match.",
+          "source": "blockchain/contracts/DatasetAttestationRegistry.sol"
+        }
+      ],
+      "technologies": [
+        {
+          "name": "Next.js",
+          "version": "16.4.3",
+          "stage": "source",
+          "source": "apps/web/package.json",
+          "description": "App Router workspace and same-origin adapters for authentication, evidence, forecasts, decisions, and analyst sessions."
+        },
+        {
+          "name": "React",
+          "version": "19.3.1",
+          "stage": "source",
+          "source": "apps/web/package.json",
+          "description": "Interactive analytics, decision controls, charts, data context, saved scenario views, and mobile navigation."
+        },
+        {
+          "name": "Spring Boot",
+          "version": "4.0.9 / Java 21",
+          "stage": "source",
+          "source": "services/api/pom.xml",
+          "description": "Modular API owning tenant authorization, geographic records, scenario persistence, service orchestration, and audit."
+        },
+        {
+          "name": "PostgreSQL",
+          "stage": "source",
+          "source": "README.md",
+          "description": "PostGIS-backed authoritative records for geography, observations, inventory, memberships, owned scenarios, and provenance."
+        },
+        {
+          "name": "FastAPI",
+          "version": "0.162.0",
+          "stage": "source",
+          "source": "services/ai-engine/pyproject.toml",
+          "description": "Private service for bounded forecasts, evidence selection, model metadata, and numerical decision evaluation."
+        },
+        {
+          "name": "SciPy",
+          "version": "1.18.1",
+          "stage": "source",
+          "source": "services/ai-engine/pyproject.toml",
+          "description": "HiGHS linear and mixed-integer transport allocation under explicit budget, capacity, lane, and coverage constraints."
+        },
+        {
+          "name": "scikit-learn",
+          "version": "1.8.0",
+          "stage": "source",
+          "source": "services/ai-engine/pyproject.toml",
+          "description": "Ridge candidate and reproducible model evaluation alongside baselines and the XGBoost candidate."
+        },
+        {
+          "name": "MapLibre",
+          "version": "^6.16.0",
+          "stage": "source",
+          "source": "apps/web/package.json",
+          "description": "Geospatial exploration with supplied geometry and explicit coordinate overlays; no inferred road network."
+        },
+        {
+          "name": "Solidity",
+          "version": "^0.8.28 contract pragma",
+          "stage": "source",
+          "source": "blockchain/contracts/DatasetAttestationRegistry.sol",
+          "description": "Local authorized digest attestations, revocable source permissions, pause controls, and independent integrity comparison."
+        }
+      ],
+      "decisions": [
+        {
+          "title": "Keep data meaning ahead of visual completeness",
+          "description": "Treat missing demand or supply as unknown, keep inventory stocks separate from time-window flows, and require compatible units and intervals. Synthetic preview data are labeled and never substitute for missing authorized records.",
+          "source": "docs/decision-engine.md",
+          "tradeoff": "Some requests cannot produce a score or allocation. Exposing missing evidence is preferable to filling gaps with invented values that would make the interface look more complete."
+        },
+        {
+          "title": "Make optional AI select evidence rather than invent prose",
+          "description": "Restrict provider output to an allowlist of verified statement IDs and construct factual text and citations within the Java service. Fixed tenant-scoped tools replace generated SQL, and disabled-provider mode remains useful.",
+          "source": "services/api/src/main/java/io/citypulse/pulseai/PulseAiService.java",
+          "tradeoff": "The analyst has a narrower expressiveness and bounded evidence window, but its conclusions can be traced to actual selected records instead of uncontrolled generated claims."
+        },
+        {
+          "title": "Use a bounded solver with visible assumptions",
+          "description": "Choose deterministic LP/MILP transport optimization with hard coverage and inventory constraints, explicit objectives, solver time limits, and independent residual checks. Save frozen inputs and hashes for later reproduction.",
+          "source": "docs/decision-engine.md",
+          "tradeoff": "The model does not solve road routing, vehicle schedules, legal permits, or business profitability. Results depend on the supplied data and assumptions and never dispatch resources automatically."
+        },
+        {
+          "title": "Introduce infrastructure progressively",
+          "description": "Keep the modular API and numerical service distinct, configure local Compose and observability, and prepare manual packaging and AWS modules with explicit operator gates. Leave real cloud promotion and distributed persistence as separate validated work.",
+          "source": "docs/operations/deployment.md",
+          "tradeoff": "The code describes a deployment path but does not prove a public environment, production capacity, successful restore, or security certification."
+        }
+      ],
+      "outcomes": [
+        {
+          "title": "A working cross-service urban decision workspace",
+          "description": "Current source connects geospatial evidence, forecasting, scenario evaluation, cited analysis, and local verification. The repository includes real development captures with synthetic data and a real Next.js-to-FastAPI-to-SciPy allocation result, while preserving visible unavailable-backend states.",
+          "source": "README.md"
+        },
+        {
+          "title": "Reproducible analysis with explicit evidence limits",
+          "description": "Published model and decision evaluations retain synthetic inputs, segment-specific metrics, method versions, and fingerprints. Forecast calibration and heuristic scores are documented as diagnostics and investigation aids rather than real-city accuracy or profit guarantees.",
+          "source": "docs/model-card.md"
+        },
+        {
+          "title": "Verified source workflows and inspectable documentation",
+          "description": "The reviewed revision has successful CI, security, and platform workflows. The README records revision-specific unit, integration, browser, ingestion, and contract results; these are source-project results, distinct from portfolio checks. PDF and PowerPoint drafts remain available with their age disclosed.",
+          "source": "README.md"
+        }
+      ],
+      "workflow": [
+        "Start the local Compose stack or configured native web/API/AI services with explicit development settings.",
+        "Import compatible observations with source, units, time interval, and geographic provenance.",
+        "Inspect supply-demand context and evaluate a versioned forecast with its limitations.",
+        "Define inventory, lanes, budget, coverage, and objectives; evaluate a constrained scenario.",
+        "Save and export authorized results, inspect PulseAI citations, and independently compare selected report digests."
+      ],
+      "commands": [
+        "python scripts/dev_stack.py up",
+        "python scripts/dev_stack.py up --chain --observability",
+        "npm ci",
+        "npm run dev",
+        "python scripts/data_pipeline.py demo",
+        "python scripts/decision_demo.py",
+        "npm run demo:ephemeral --workspace blockchain"
+      ],
+      "setup": "Use the repository launcher with Python 3.12–3.14 and Docker/Compose with a reachable Linux engine. python scripts/dev_stack.py up generates configuration only when missing, starts services, waits for health, and runs smoke checks. Native development additionally needs Node 22.14+ or 24, Java 21+, Maven, PostGIS, and Redis. Default ports are web 3000, API 8080, and AI 8000, bound to loopback. Real OIDC/provider/cloud/chain environments require separate configuration and verification."
+    }
+  },
+  {
     "id": "autoledger",
     "slug": "autoledger",
     "title": "LedgerShield",
@@ -1693,7 +2057,7 @@
     ],
     "github": "https://github.com/manikantbindass/AutoHealOps-Self-Healing-Kubernetes-Cluster-with-AI-Fault-Detection",
     "live": "https://autohealops.vercel.app",
-    "featured": true,
+    "featured": false,
     "status": "Public simulation + optional local integrations",
     "updatedAt": "2026-10-25T02:19:51Z",
     "users": "Operators learning to inspect faults and review constrained recovery actions.",
