@@ -493,5 +493,41 @@
     "technologyRoles": 9,
     "engineeringDecisions": 4,
     "contentStage": "source"
+  },
+  {
+    "project": "KubeSentinel AI",
+    "repo": "KubeSentinel-AI",
+    "commit": "c10b24d50cf131db73441c6590468903db0ec332",
+    "branch": "codex/phase-11-portfolio",
+    "review": "https://github.com/manikantbindass/KubeSentinel-AI/pull/14",
+    "sourceFiles": [
+      "README.md",
+      "apps/dashboard/package.json",
+      "pyproject.toml",
+      "docs/architecture/system-overview.md",
+      "docs/architecture/recovery-operator.md",
+      "docs/runbooks/operations-dashboard.md",
+      "docs/runbooks/observability.md",
+      "docs/runbooks/aiops-investigation.md",
+      "docs/runbooks/secure-delivery.md",
+      "docs/runbooks/resilience.md",
+      "docs/releases/v1.0.0-candidate.md",
+      "docs/reports/phase-11-validation.md",
+      "docs/screenshots/observability/README.md",
+      "docs/portfolio/README.md",
+      "ml/models/model-card.md",
+      "operator/internal/recovery/policy.go",
+      "apps/api/kubesentinel_api/intelligence.py"
+    ],
+    "screenshots": 6,
+    "researchFigures": 1,
+    "demo": null,
+    "release": null,
+    "limitations": "The implementation is on the unmerged codex/phase-11-portfolio branch and stacked source pull requests. Main is introduction-only. No public deployment, AWS environment, v1.0.0 tag, or published GitHub release exists at review; image/dependency findings keep the release blocked. ML and correlation evaluations are small synthetic experiments, not production accuracy or root-cause guarantees. Rules outperform the comparison models on the reference fixture, and advisory output never grants cluster mutation authority. The recovery controller is a trusted isolated-lab implementation for opted-in Deployments. It does not provide general exactly-once cluster transactions, restore database state, or certify production recovery. Ambiguous outcomes hold for manual investigation. Performance evidence is 900 loopback HTTP health requests, not database, queue, or cluster capacity. CPU/memory overhead, HPA scaling, repeated native-versus-platform recovery, HA/DR, real-label ML, and production identity certification remain unverified.",
+    "reviewedAt": "2026-11-04",
+    "detailedFeatures": 7,
+    "technologyRoles": 9,
+    "engineeringDecisions": 4,
+    "contentStage": "source"
   }
 ]

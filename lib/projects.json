@@ -1,5 +1,383 @@
 [
   {
+    "id": "kubesentinel",
+    "slug": "kubesentinel",
+    "title": "KubeSentinel AI",
+    "subtitle": "Observe clearly. Recover with evidence. · Kubernetes operations, in focus",
+    "description": "A Kubernetes operations development platform connecting scoped telemetry, advisory anomaly detection, evidence-led investigation, and a policy-governed Go recovery operator with signed approvals.",
+    "categories": [
+      "Backend / Cloud / DevOps",
+      "AI / Machine Learning",
+      "Full Stack",
+      "Developer Tools"
+    ],
+    "tags": [
+      "Next.js",
+      "FastAPI",
+      "Go",
+      "Kubernetes",
+      "PostgreSQL",
+      "Redis",
+      "scikit-learn",
+      "Terraform"
+    ],
+    "github": "https://github.com/manikantbindass/KubeSentinel-AI",
+    "live": null,
+    "featured": true,
+    "status": "Development branch · v1.0.0 unpublished / release gated",
+    "updatedAt": "2026-11-03T18:29:58Z",
+    "users": "Platform engineers and operators exploring Kubernetes observability, incident evidence, advisory detection, and constrained recovery in a trusted local or isolated lab environment.",
+    "problem": "Anomaly signals alone cannot justify changing a cluster. Operators need current workload identity, scoped evidence, deterministic policy, explicit approval, and verification before calling a remediation successful.",
+    "solution": "Bring telemetry, incident analysis, policy decisions, signed approvals, and bounded execution into an inspectable operations workspace, while keeping advisory ML and read-only investigation separate from mutation authority.",
+    "technicalDetails": [
+      "The reviewed implementation is on codex/phase-11-portfolio at the pinned commit, in open PR #14. Main currently contains the project introduction and license. The stacked phase pull requests remain unmerged; the portfolio does not merge or publish them.",
+      "Next.js and FastAPI connect a twelve-section operations dashboard to scoped APIs, PostgreSQL incident/action history, Redis coordination, audit records, and live updates. Real mode is the default; synthetic demo records occupy an explicit separate partition.",
+      "Prometheus, Loki, OpenTelemetry, and Grafana collect metrics, logs, traces, and normalized incident evidence. Rules, robust statistics, and Isolation Forest supply advisory anomaly records; they do not execute remediation or emit calibrated incident probabilities.",
+      "The Go controller independently revalidates exact Deployment identity and native evidence against opt-in labels, namespace/workload allowlists, maintenance windows, replica guards, budgets, cooldowns, and immutable Ed25519 approvals. Kubernetes custom resources retain action state and audit transitions.",
+      "Recovery verifies rollout state and repeated service observations; failed verification may trigger an explicitly authorized bounded undo or a safety hold. Terraform/EKS and GitOps source are prepared but undeployed, and security findings keep v1.0.0 blocked."
+    ],
+    "features": [
+      "Scoped operations dashboard and live evidence",
+      "Kubernetes telemetry and incident ingestion",
+      "Advisory rules and anomaly-model comparison",
+      "Signed approval and policy-governed recovery",
+      "Read-only incident correlation and runbook retrieval",
+      "Local kind/Helm and gated delivery source"
+    ],
+    "architecture": [
+      "Next.js operations workspace",
+      "FastAPI auth / scope / audit",
+      "PostgreSQL + Redis + observability",
+      "Advisory detection + read-only investigation",
+      "Policy / signed approval → Go operator → verification"
+    ],
+    "architectureReference": "flowchart LR\n  User[Operator / approver] --> Web[Next.js workspace]\n  Web --> API[FastAPI scope / audit]\n  Cluster[Kubernetes telemetry] --> Ingest[Normalize and correlate]\n  Ingest --> API\n  Ingest --> Detect[Advisory rules / statistics / Isolation Forest]\n  API --> DB[(PostgreSQL)]\n  API --> Redis[(Redis)]\n  API --> Observe[Prometheus / Loki / OTel]\n  API --> Plan[Policy plan + signed approval]\n  Plan --> Operator[Scoped Go operator]\n  Operator --> Verify[Revalidate / apply / verify / undo or hold]\n  Verify --> Cluster",
+    "challenges": [
+      "The implementation is on the unmerged codex/phase-11-portfolio branch and stacked source pull requests. Main is introduction-only. No public deployment, AWS environment, v1.0.0 tag, or published GitHub release exists at review; image/dependency findings keep the release blocked.",
+      "ML and correlation evaluations are small synthetic experiments, not production accuracy or root-cause guarantees. Rules outperform the comparison models on the reference fixture, and advisory output never grants cluster mutation authority.",
+      "The recovery controller is a trusted isolated-lab implementation for opted-in Deployments. It does not provide general exactly-once cluster transactions, restore database state, or certify production recovery. Ambiguous outcomes hold for manual investigation.",
+      "Performance evidence is 900 loopback HTTP health requests, not database, queue, or cluster capacity. CPU/memory overhead, HPA scaling, repeated native-versus-platform recovery, HA/DR, real-label ML, and production identity certification remain unverified."
+    ],
+    "screenshots": [
+      {
+        "src": "/projects/kubesentinel/dashboard.png",
+        "caption": "Actual Phase 07 operations dashboard capture, cropped by the source project with its synthetic-demo banner retained. Charts and decisions here are demo data, never sent to a cluster.",
+        "source": "https://github.com/manikantbindass/KubeSentinel-AI/blob/c10b24d50cf131db73441c6590468903db0ec332/docs/portfolio/figures/dashboard-crop.png"
+      },
+      {
+        "src": "/projects/kubesentinel/tablet.png",
+        "caption": "Actual tablet operations workspace from the documented browser run, with explicitly synthetic demonstration telemetry.",
+        "source": "https://github.com/manikantbindass/KubeSentinel-AI/blob/c10b24d50cf131db73441c6590468903db0ec332/docs/screenshots/phase-07/tablet.png"
+      },
+      {
+        "src": "/projects/kubesentinel/mobile.png",
+        "caption": "Actual mobile operations workspace from the Phase 07 browser run. This is synthetic demo mode, not production cluster data.",
+        "source": "https://github.com/manikantbindass/KubeSentinel-AI/blob/c10b24d50cf131db73441c6590468903db0ec332/docs/screenshots/phase-07/mobile.png"
+      },
+      {
+        "src": "/projects/kubesentinel/cluster-overview.png",
+        "caption": "Actual Grafana capture from a disposable Linux kind CI cluster: node capacity and namespace CPU/memory. Short-window local telemetry, not AWS or production.",
+        "source": "https://github.com/manikantbindass/KubeSentinel-AI/blob/c10b24d50cf131db73441c6590468903db0ec332/docs/screenshots/observability/cluster-overview.png"
+      },
+      {
+        "src": "/projects/kubesentinel/namespace-workload.png",
+        "caption": "Actual local CI workload telemetry showing restarts, readiness, replicas, and an OOM fault. Empty panels are preserved as captured.",
+        "source": "https://github.com/manikantbindass/KubeSentinel-AI/blob/c10b24d50cf131db73441c6590468903db0ec332/docs/screenshots/observability/namespace-workload.png"
+      },
+      {
+        "src": "/projects/kubesentinel/incident-timeline.png",
+        "caption": "Actual local-cluster incident counts and Loki JSON log timeline from the documented Linux observability run.",
+        "source": "https://github.com/manikantbindass/KubeSentinel-AI/blob/c10b24d50cf131db73441c6590468903db0ec332/docs/screenshots/observability/incident-timeline.png"
+      },
+      {
+        "src": "/projects/kubesentinel/load.png",
+        "caption": "Repository-generated research figure from 900 Windows loopback health requests. It measures HTTP health only, without database or cluster saturation.",
+        "source": "https://github.com/manikantbindass/KubeSentinel-AI/blob/c10b24d50cf131db73441c6590468903db0ec332/docs/portfolio/figures/load.png"
+      }
+    ],
+    "resources": [
+      {
+        "label": "Reviewed implementation branch",
+        "url": "https://github.com/manikantbindass/KubeSentinel-AI/tree/c10b24d50cf131db73441c6590468903db0ec332",
+        "description": "Exact Phase 11 source revision. The application is in open stacked pull requests rather than the introduction-only main branch."
+      },
+      {
+        "label": "Technical report · PDF",
+        "url": "https://github.com/manikantbindass/KubeSentinel-AI/blob/c10b24d50cf131db73441c6590468903db0ec332/KubeSentinel-AI-Technical-Report.pdf",
+        "description": "22-page technical report covering architecture, safety, experiments, costs, evidence, and limitations."
+      },
+      {
+        "label": "Editable 25-slide PowerPoint",
+        "url": "https://github.com/manikantbindass/KubeSentinel-AI/blob/c10b24d50cf131db73441c6590468903db0ec332/KubeSentinel-AI-Presentation.pptx",
+        "description": "Source presentation with speaker notes and five editable charts. A documentation deliverable, not a published software release."
+      },
+      {
+        "label": "Presentation · PDF export",
+        "url": "https://github.com/manikantbindass/KubeSentinel-AI/blob/c10b24d50cf131db73441c6590468903db0ec332/docs/presentations/KubeSentinel-AI-Presentation.pdf",
+        "description": "The readable 25-page slide export supplied with the reviewed portfolio branch."
+      },
+      {
+        "label": "Operations setup guide",
+        "url": "https://github.com/manikantbindass/KubeSentinel-AI/blob/c10b24d50cf131db73441c6590468903db0ec332/docs/runbooks/operations-dashboard.md",
+        "description": "Local credentials/signing material, real collection, optional labeled demo seeding, and dashboard launch instructions."
+      },
+      {
+        "label": "Recovery architecture and safeguards",
+        "url": "https://github.com/manikantbindass/KubeSentinel-AI/blob/c10b24d50cf131db73441c6590468903db0ec332/docs/architecture/recovery-operator.md",
+        "description": "Exact workload binding, signed approvals, policy guards, verification, bounded rollback, and ambiguity holds."
+      },
+      {
+        "label": "Release checklist · blocked / unpublished",
+        "url": "https://github.com/manikantbindass/KubeSentinel-AI/blob/c10b24d50cf131db73441c6590468903db0ec332/docs/releases/v1.0.0-candidate.md",
+        "description": "Prepared v1.0.0 notes, unresolved security gates, and requirements before any release or deployment."
+      },
+      {
+        "label": "Dated validation matrix",
+        "url": "https://github.com/manikantbindass/KubeSentinel-AI/blob/c10b24d50cf131db73441c6590468903db0ec332/docs/reports/phase-11-validation.md",
+        "description": "Local results, inherited versus fresh CI, documentation validation, and explicit evidence gaps."
+      },
+      {
+        "label": "Implementation review · PR #14",
+        "url": "https://github.com/manikantbindass/KubeSentinel-AI/pull/14",
+        "description": "Open Phase 11 documentation and release-preparation review on top of the earlier implementation phases."
+      }
+    ],
+    "evidence": [
+      {
+        "path": "README.md",
+        "url": "https://github.com/manikantbindass/KubeSentinel-AI/blob/c10b24d50cf131db73441c6590468903db0ec332/README.md"
+      },
+      {
+        "path": "apps/dashboard/package.json",
+        "url": "https://github.com/manikantbindass/KubeSentinel-AI/blob/c10b24d50cf131db73441c6590468903db0ec332/apps/dashboard/package.json"
+      },
+      {
+        "path": "pyproject.toml",
+        "url": "https://github.com/manikantbindass/KubeSentinel-AI/blob/c10b24d50cf131db73441c6590468903db0ec332/pyproject.toml"
+      },
+      {
+        "path": "docs/architecture/system-overview.md",
+        "url": "https://github.com/manikantbindass/KubeSentinel-AI/blob/c10b24d50cf131db73441c6590468903db0ec332/docs/architecture/system-overview.md"
+      },
+      {
+        "path": "docs/architecture/recovery-operator.md",
+        "url": "https://github.com/manikantbindass/KubeSentinel-AI/blob/c10b24d50cf131db73441c6590468903db0ec332/docs/architecture/recovery-operator.md"
+      },
+      {
+        "path": "docs/runbooks/operations-dashboard.md",
+        "url": "https://github.com/manikantbindass/KubeSentinel-AI/blob/c10b24d50cf131db73441c6590468903db0ec332/docs/runbooks/operations-dashboard.md"
+      },
+      {
+        "path": "docs/runbooks/observability.md",
+        "url": "https://github.com/manikantbindass/KubeSentinel-AI/blob/c10b24d50cf131db73441c6590468903db0ec332/docs/runbooks/observability.md"
+      },
+      {
+        "path": "docs/runbooks/aiops-investigation.md",
+        "url": "https://github.com/manikantbindass/KubeSentinel-AI/blob/c10b24d50cf131db73441c6590468903db0ec332/docs/runbooks/aiops-investigation.md"
+      },
+      {
+        "path": "docs/runbooks/secure-delivery.md",
+        "url": "https://github.com/manikantbindass/KubeSentinel-AI/blob/c10b24d50cf131db73441c6590468903db0ec332/docs/runbooks/secure-delivery.md"
+      },
+      {
+        "path": "docs/runbooks/resilience.md",
+        "url": "https://github.com/manikantbindass/KubeSentinel-AI/blob/c10b24d50cf131db73441c6590468903db0ec332/docs/runbooks/resilience.md"
+      },
+      {
+        "path": "docs/releases/v1.0.0-candidate.md",
+        "url": "https://github.com/manikantbindass/KubeSentinel-AI/blob/c10b24d50cf131db73441c6590468903db0ec332/docs/releases/v1.0.0-candidate.md"
+      },
+      {
+        "path": "docs/reports/phase-11-validation.md",
+        "url": "https://github.com/manikantbindass/KubeSentinel-AI/blob/c10b24d50cf131db73441c6590468903db0ec332/docs/reports/phase-11-validation.md"
+      },
+      {
+        "path": "docs/screenshots/observability/README.md",
+        "url": "https://github.com/manikantbindass/KubeSentinel-AI/blob/c10b24d50cf131db73441c6590468903db0ec332/docs/screenshots/observability/README.md"
+      },
+      {
+        "path": "docs/portfolio/README.md",
+        "url": "https://github.com/manikantbindass/KubeSentinel-AI/blob/c10b24d50cf131db73441c6590468903db0ec332/docs/portfolio/README.md"
+      },
+      {
+        "path": "ml/models/model-card.md",
+        "url": "https://github.com/manikantbindass/KubeSentinel-AI/blob/c10b24d50cf131db73441c6590468903db0ec332/ml/models/model-card.md"
+      },
+      {
+        "path": "operator/internal/recovery/policy.go",
+        "url": "https://github.com/manikantbindass/KubeSentinel-AI/blob/c10b24d50cf131db73441c6590468903db0ec332/operator/internal/recovery/policy.go"
+      },
+      {
+        "path": "apps/api/kubesentinel_api/intelligence.py",
+        "url": "https://github.com/manikantbindass/KubeSentinel-AI/blob/c10b24d50cf131db73441c6590468903db0ec332/apps/api/kubesentinel_api/intelligence.py"
+      }
+    ],
+    "sourceCommit": "c10b24d50cf131db73441c6590468903db0ec332",
+    "verifiedAt": "2026-11-04",
+    "contentStage": "source",
+    "caseStudy": {
+      "architectureSummary": "KubeSentinel separates its Next.js operations workspace and typed FastAPI read/control plane from an independently guarded Go recovery operator. PostgreSQL, Redis, and observability services preserve incident evidence and scoped operations state. Advisory ML and read-only correlation explain signals; policy-bound plans and signed approvals control execution. The operator revalidates native Kubernetes evidence, applies bounded Deployment actions, and verifies service/rollout state before success, undo, or escalation.",
+      "features": [
+        {
+          "title": "Inspect a scoped operations workspace",
+          "description": "Twelve dashboard sections connect cluster exploration, workloads, metrics, anomalies, incidents, recovery actions, policies, insights, audit, infrastructure, and settings. The API enforces scopes and records decisions; real mode stays empty until telemetry exists, while an explicit synthetic partition supports demos.",
+          "source": "docs/runbooks/operations-dashboard.md"
+        },
+        {
+          "title": "Follow metrics, logs, and incidents together",
+          "description": "Prometheus, Loki, OpenTelemetry, and Grafana connect workload telemetry to normalized durable incidents and investigation history. The source includes real kind-cluster captures of capacity, restarts, readiness, OOM faults, incident counts, and log timelines; they are local CI evidence rather than production claims.",
+          "source": "docs/runbooks/observability.md"
+        },
+        {
+          "title": "Compare anomaly methods without promoting them blindly",
+          "description": "Rules are the default, with robust statistics and Isolation Forest as advisory comparison models. Causal windows, training-only normalization, validation thresholds, held-out temporal/incident purging, and artifact checks expose lineage and missing coverage. Scores are uncalibrated, and no detector executes recovery.",
+          "source": "ml/models/model-card.md"
+        },
+        {
+          "title": "Bind recovery to exact evidence and consent",
+          "description": "The controller requires opted-in workload identity, a single matching policy, protected-namespace exclusions, maintenance windows, healthy-replica guards, cooldowns, and budgets. Immutable Ed25519 approvals bind a full plan digest and expiry; native evidence and policy revisions are rechecked at execution.",
+          "source": "docs/architecture/recovery-operator.md"
+        },
+        {
+          "title": "Verify progress before reporting success",
+          "description": "Deployment generation, template, replica state, and repeated service samples determine recovery success. Failed verification can use only an explicitly consented bounded undo. Action markers, optimistic preconditions, durable custom-resource state, and manual safety holds avoid blindly repeating uncertain mutations.",
+          "source": "docs/architecture/recovery-operator.md"
+        },
+        {
+          "title": "Investigate without granting execution rights",
+          "description": "Read-only correlation connects relevant evidence within workload and time boundaries and retrieves supported runbook steps. Unsupported causes remain hypotheses, missing evidence is explicit, and feedback annotations never become approval. No remote LLM or arbitrary generated action enters the execution path.",
+          "source": "apps/api/kubesentinel_api/intelligence.py"
+        },
+        {
+          "title": "Prepare delivery while retaining release gates",
+          "description": "kind/Helm, scoped RBAC, GitOps source, pinned image/security tooling, and Terraform EKS modules form a reviewable deployment path. Supply-chain checks and protected promotion gates remain enforced; unresolved vulnerability findings block publication rather than being relabeled as a successful release.",
+          "source": "docs/runbooks/secure-delivery.md"
+        }
+      ],
+      "technologies": [
+        {
+          "name": "Next.js",
+          "version": "16.4.4",
+          "stage": "source",
+          "source": "apps/dashboard/package.json",
+          "description": "App Router operations workspace and same-origin authenticated server adapters."
+        },
+        {
+          "name": "React",
+          "version": "19.3.1",
+          "stage": "source",
+          "source": "apps/dashboard/package.json",
+          "description": "Twelve-section dashboard, scoped controls, cluster canvas, evidence views, and responsive navigation."
+        },
+        {
+          "name": "FastAPI",
+          "version": "0.162.0",
+          "stage": "source",
+          "source": "pyproject.toml",
+          "description": "Typed API for scoped operations, incidents, audit, advisory evidence, and read-only investigation."
+        },
+        {
+          "name": "PostgreSQL",
+          "stage": "source",
+          "source": "docs/architecture/system-overview.md",
+          "description": "Durable application records, migrations, queue/incident state, and operations history."
+        },
+        {
+          "name": "Redis",
+          "version": "8.1.0 Python client",
+          "stage": "source",
+          "source": "pyproject.toml",
+          "description": "Coordination and application runtime integration alongside the authoritative SQL records."
+        },
+        {
+          "name": "Go",
+          "stage": "source",
+          "source": "operator/internal/recovery/policy.go",
+          "description": "Independently guarded reconciliation, Kubernetes action state, plan verification, and signed approval checks."
+        },
+        {
+          "name": "Kubernetes",
+          "stage": "source",
+          "source": "docs/architecture/recovery-operator.md",
+          "description": "Opted-in Deployments, exact UID/generation checks, custom remediation resources, Lease leadership, and scoped RBAC."
+        },
+        {
+          "name": "scikit-learn",
+          "version": "1.9.1",
+          "stage": "source",
+          "source": "pyproject.toml",
+          "description": "Experimental Isolation Forest reference training and reproducible advisory comparison with deterministic rules."
+        },
+        {
+          "name": "Terraform",
+          "stage": "source",
+          "source": "README.md",
+          "description": "Validated AWS EKS infrastructure source and prerequisites; no AWS environment is deployed."
+        }
+      ],
+      "decisions": [
+        {
+          "title": "Separate advisory intelligence from mutation authority",
+          "description": "Detection and correlation supply evidence, while an independent Go controller revalidates native workload identity, current incident conditions, deterministic policy, and consent. A nearby change or anomaly score cannot directly authorize a mutation.",
+          "source": "docs/architecture/recovery-operator.md",
+          "tradeoff": "This limits automatic remediation scope and may escalate ambiguous incidents, while preserving an inspectable trust boundary between observation and action."
+        },
+        {
+          "title": "Hold uncertain outcomes instead of retrying blindly",
+          "description": "Persist exact action intent, use UID/resourceVersion preconditions and action markers, and stop on an ambiguous patch result or external edit. Signed rollback consent and reserved budgets bound automatic undo.",
+          "source": "docs/architecture/recovery-operator.md",
+          "tradeoff": "Manual investigation may be required. The design avoids claiming general exactly-once behavior across Kubernetes objects or restoration of external application/database state."
+        },
+        {
+          "title": "Retain rules when small ML experiments do not justify promotion",
+          "description": "Compare trained detectors against a fixed rule baseline using explicit synthetic lineage, held-out incidents, and measured false positives/misses. Keep uncalibrated scores advisory and document where the reference rules perform better.",
+          "source": "ml/models/model-card.md",
+          "tradeoff": "A model artifact is available for experimentation but is not evidence of production detection quality or permission for autonomous recovery."
+        },
+        {
+          "title": "Keep release preparation distinct from release approval",
+          "description": "Package source evidence, screenshots, reports, and manifests while keeping security gates and review requirements intact. The candidate checklist records unresolved image/dependency findings and undeployed cloud components.",
+          "source": "docs/releases/v1.0.0-candidate.md",
+          "tradeoff": "The project can be reviewed and demonstrated locally, but the portfolio must not advertise an unpublished version or an unverified production endpoint."
+        }
+      ],
+      "outcomes": [
+        {
+          "title": "An implemented development-branch operations loop",
+          "description": "The reviewed Phase 11 branch brings the dashboard, scoped APIs, observability, advisory detection, and guarded operator into one documented architecture. Earlier isolated browser/cluster captures provide application evidence, while main remains introduction-only and the stacked PRs stay open.",
+          "source": "README.md"
+        },
+        {
+          "title": "Measured lab outcomes with explicit limits",
+          "description": "Recorded evidence includes 177 synthetic held-out windows, eight recovery action records with success/rejection/dry-run/rollback outcomes, and 900 loopback health requests. These do not establish production accuracy, repeated recovery improvement, or full-stack load capacity.",
+          "source": "README.md"
+        },
+        {
+          "title": "Reviewable artifacts and honest release status",
+          "description": "The branch contains an editable 25-slide presentation, 22-page report, slide PDF, source manifests, and dated validation. Local application/document checks are recorded, while unresolved security findings keep v1.0.0 unpublished and block promotion.",
+          "source": "docs/reports/phase-11-validation.md"
+        }
+      ],
+      "workflow": [
+        "Check out the reviewed implementation branch and follow its operations setup to generate local credentials and signing material.",
+        "Collect scoped real telemetry or explicitly select the labeled synthetic demo partition.",
+        "Investigate an incident through metrics, logs, advisory detector evidence, and read-only runbooks.",
+        "Review the exact policy-bound plan and sign an expiring approval where required.",
+        "Let the scoped operator revalidate evidence, apply a bounded action, and verify or hold/undo with audit records."
+      ],
+      "commands": [
+        "git switch codex/phase-11-portfolio",
+        "npm ci",
+        "uv sync --frozen --extra ml --extra ops",
+        "docker compose up --build --wait --wait-timeout 180",
+        "python scripts/setup/smoke.py",
+        "npm run build",
+        "uv run pytest -m \"not postgres\""
+      ],
+      "setup": "The main branch does not run the application. Check out codex/phase-11-portfolio or the pinned source revision, then use its development and operations guides. The documented toolchain is Node 24.14.1, Python 3.12, uv, and Docker/Compose with Linux containers; the operations guide generates local credentials/signing material and configures the full dashboard overlay. kind, Go, Helm, and Terraform checks have separate prerequisites. No AWS deployment or release publication is part of local setup."
+    }
+  },
+  {
     "id": "citypulse",
     "slug": "citypulse",
     "title": "CityPulse",
@@ -1776,7 +2154,7 @@
     ],
     "github": "https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant",
     "live": "https://enterprise-rag-knowledge-assistant-three.vercel.app",
-    "featured": true,
+    "featured": false,
     "status": "Live product showcase · working local application",
     "updatedAt": "2026-10-26T06:50:20Z",
     "users": "Teams exploring searchable document knowledge, cited answers, and an organization-scoped workspace.",

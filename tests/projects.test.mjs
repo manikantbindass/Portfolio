@@ -26,7 +26,7 @@ test("new projects, project updates, and filtered inputs cannot reorder the pins
   assert.deepEqual(orderProjects(changed.filter(p => p.slug !== "dsa")).slice(0, 2).map(p => p.slug), ["chainpass", "enterprise-rag"]);
 });
 test("every project has substantive case-study sections with pinned source references", () => {
-  assert.equal(projects.length, 18);
+  assert.equal(projects.length, 19);
   for (const p of projects) {
     const s = p.caseStudy;
     const sources = new Set(p.evidence.map((e) => e.path));
@@ -137,7 +137,27 @@ test("CityPulse retains real source captures, undeployed status, and the permane
   assert(p.resources.some(r => r.url.endsWith(".pptx") && r.label.includes("draft")));
   assert(p.challenges.some(t => t.includes("synthetic")));
   assert(p.challenges.some(t => t.includes("No public deployment or published GitHub release")));
-  assert.deepEqual(orderProjects(projects).slice(0, 4).map(p => p.slug), ["dsa", "chainpass", "enterprise-rag", "citypulse"]);
+  assert(orderProjects(projects).findIndex(p => p.slug === "citypulse") >= 3);
+});
+
+test("KubeSentinel showcases its reviewed branch without inventing a release or deployment", () => {
+  const p = projects.find(p => p.slug === "kubesentinel");
+  assert(p);
+  assert.equal(p.live, null);
+  assert.equal(p.release, undefined);
+  assert.equal(p.sourceCommit, "c10b24d50cf131db73441c6590468903db0ec332");
+  assert.equal(p.screenshots.length, 7);
+  for (const capture of p.screenshots) {
+    assert(fs.existsSync(new URL("../public" + capture.src, import.meta.url)));
+    assert(capture.source.includes("/blob/" + p.sourceCommit + "/"));
+  }
+  assert(p.resources.some(r => r.url === p.github + "/tree/" + p.sourceCommit));
+  assert(p.resources.some(r => r.url.endsWith(".pptx")));
+  assert.equal(p.resources.filter(r => r.url.endsWith(".pdf")).length, 2);
+  assert(p.status.includes("unpublished"));
+  assert(p.challenges.some(t => t.includes("unmerged") && t.includes("blocked")));
+  assert(p.challenges.some(t => t.includes("synthetic")));
+  assert.deepEqual(orderProjects(projects).slice(0, 4).map(p => p.slug), ["dsa", "chainpass", "enterprise-rag", "kubesentinel"]);
 });
 test("project-specific explanations are not shared placeholder paragraphs", () => {
   const text = projects.flatMap((p) =>

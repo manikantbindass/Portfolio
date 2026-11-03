@@ -10,6 +10,7 @@ import NeuroMapGlassHero from "@/components/NeuroMapGlassHero";
 import MathLensGlassHero from "@/components/MathLensGlassHero";
 import LedgerShieldGlassHero from "@/components/LedgerShieldGlassHero";
 import CityPulseGlassHero from "@/components/CityPulseGlassHero";
+import KubeSentinelGlassHero from "@/components/KubeSentinelGlassHero";
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
 }
@@ -40,7 +41,7 @@ export default async function ProjectPage({
   const { slug } = await params;
   const p = projects.find((p) => p.slug === slug);
   if (!p) notFound();
-  const headingId = slug === "enterprise-rag" ? "rag-project-heading" : slug === "flownova" ? "flownova-project-heading" : slug === "neuromap" ? "neuromap-project-heading" : slug === "mathlens" ? "mathlens-project-heading" : slug === "autoledger" ? "ledgershield-project-heading" : slug === "citypulse" ? "citypulse-project-heading" : undefined;
+  const headingId = slug === "enterprise-rag" ? "rag-project-heading" : slug === "flownova" ? "flownova-project-heading" : slug === "neuromap" ? "neuromap-project-heading" : slug === "mathlens" ? "mathlens-project-heading" : slug === "autoledger" ? "ledgershield-project-heading" : slug === "citypulse" ? "citypulse-project-heading" : slug === "kubesentinel" ? "kubesentinel-project-heading" : undefined;
   const introduction = (
     <>
         <p className="section-label">
@@ -85,7 +86,7 @@ export default async function ProjectPage({
         <Link href="/#projects" className="back-link">
           ← Back to projects
         </Link>
-        {slug === "enterprise-rag" ? <RagGlassHero>{introduction}</RagGlassHero> : slug === "flownova" ? <FlowNovaGlassHero>{introduction}</FlowNovaGlassHero> : slug === "neuromap" ? <NeuroMapGlassHero>{introduction}</NeuroMapGlassHero> : slug === "mathlens" ? <MathLensGlassHero>{introduction}</MathLensGlassHero> : slug === "autoledger" ? <LedgerShieldGlassHero>{introduction}</LedgerShieldGlassHero> : slug === "citypulse" ? <CityPulseGlassHero>{introduction}</CityPulseGlassHero> : introduction}
+        {slug === "enterprise-rag" ? <RagGlassHero>{introduction}</RagGlassHero> : slug === "flownova" ? <FlowNovaGlassHero>{introduction}</FlowNovaGlassHero> : slug === "neuromap" ? <NeuroMapGlassHero>{introduction}</NeuroMapGlassHero> : slug === "mathlens" ? <MathLensGlassHero>{introduction}</MathLensGlassHero> : slug === "autoledger" ? <LedgerShieldGlassHero>{introduction}</LedgerShieldGlassHero> : slug === "citypulse" ? <CityPulseGlassHero>{introduction}</CityPulseGlassHero> : slug === "kubesentinel" ? <KubeSentinelGlassHero>{introduction}</KubeSentinelGlassHero> : introduction}
         <ProjectDetails project={p} />
         <Link href="/#projects" className="back-link">
           ← Explore all {projects.length} projects

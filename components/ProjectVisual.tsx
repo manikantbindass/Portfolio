@@ -8,6 +8,8 @@ import { LedgerShieldAnimation } from "./LedgerShieldGlassHero";
 import ledgerStyles from "./LedgerShieldGlassHero.module.css";
 import { CityPulseAnimation } from "./CityPulseGlassHero";
 import cityStyles from "./CityPulseGlassHero.module.css";
+import { KubeSentinelAnimation } from "./KubeSentinelGlassHero";
+import kubeStyles from "./KubeSentinelGlassHero.module.css";
 export default function ProjectVisual({
   project,
   priority = false,
@@ -21,6 +23,14 @@ export default function ProjectVisual({
   const image = project.screenshots[0];
   const showCat = priority && project.slug === "dsa";
   const showChase = !priority && project.slug === "dsa";
+  if (project.slug === "kubesentinel" && !priority) return (
+    <div className={`project-diagram ${kubeStyles.preview}`} aria-label="KubeSentinel animated cluster illustration">
+      <KubeSentinelAnimation preview />
+      <span className="diagram-label">CLUSTER IN MOTION</span>
+      <span className={kubeStyles.previewTitle}>Clear signals.<br />Safer recovery.</span>
+      <span className={kubeStyles.previewCaption}>OBSERVE · INVESTIGATE · VERIFY</span>
+    </div>
+  );
   if (project.slug === "citypulse" && !priority) return (
     <div className={`project-diagram ${cityStyles.preview}`} aria-label="CityPulse animated city illustration">
       <CityPulseAnimation preview />
