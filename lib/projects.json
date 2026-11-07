@@ -1,5 +1,298 @@
 [
   {
+    "id": "neurovision",
+    "slug": "neurovision",
+    "title": "NeuroVision AI",
+    "subtitle": "Geometry to insight · segmentation, uncertainty, and reproducible research",
+    "description": "A brain MRI research workspace for validated imaging, segmentation experiments, uncertainty inspection, atlas quantification, longitudinal comparison, and traceable research reports.",
+    "categories": [
+      "AI / Machine Learning",
+      "Full Stack",
+      "Developer Tools"
+    ],
+    "tags": [
+      "React",
+      "TypeScript",
+      "FastAPI",
+      "Python",
+      "PyTorch",
+      "MONAI",
+      "PostgreSQL",
+      "Redis"
+    ],
+    "github": "https://github.com/manikantbindass/NeuroVision",
+    "live": null,
+    "featured": true,
+    "status": "Integrated research workspace · synthetic demo / benchmark pending",
+    "updatedAt": "2026-11-07T02:19:47Z",
+    "users": "Researchers and developers exploring imaging geometry, segmentation methods, uncertainty, and reproducible MRI analysis with authorized inputs.",
+    "problem": "A segmentation mask hides the geometry, preprocessing, model assumptions, uncertainty, and provenance needed to inspect an imaging experiment.",
+    "solution": "Connect bounded imaging intake and explicit geometry to trainable models, uncertainty views, quantitative mapping, registered time-point comparison, and reproducible research exports.",
+    "technicalDetails": [
+      "The React/TypeScript/Vite workspace runs an offline synthetic phantom and connects to authenticated FastAPI jobs. PostgreSQL stores owner-scoped artifact bytes and leased work; a separate worker publishes fenced results while Redis coordinates request limits.",
+      "Local NIfTI-1/2 and a privacy-gated classic DICOM subset retain canonical geometry. Preprocessing supports explicit spatial/intensity recipes, QC, reviewed transform/mask adapters, and provenance. Public API uploads accept reviewed NIfTI only.",
+      "PyTorch U-Nets and optional MONAI model families support local training and inference. Ensemble averaging, TTA, supported MC dropout, entropy, and disagreement are research methods; bundled API serving uses a synthetic threshold fixture.",
+      "NeuroMap measures physical label volumes and reviewed atlas overlap; NeuroTimeline compares registered research time points. Input sensitivity and uncertainty do not establish clinical rationale, calibration, or meaningful disease change."
+    ],
+    "features": [
+      "Bounded imaging and geometry checks",
+      "Preprocessing and QC provenance",
+      "Trainable segmentation model zoo",
+      "Ensemble uncertainty inspection",
+      "Atlas mapping and longitudinal research",
+      "Owner-scoped jobs and research reporting"
+    ],
+    "architecture": [
+      "React offline phantom / connected workspace",
+      "FastAPI owner-scoped upload and jobs",
+      "PostgreSQL artifacts + leased worker",
+      "Imaging → QC → segmentation / uncertainty",
+      "Mapping / timeline → reproducible report"
+    ],
+    "architectureReference": "flowchart LR\n  Web[React research workspace] --> API[FastAPI owner-scoped API]\n  API --> DB[(PostgreSQL artifacts and leased jobs)]\n  API --> Redis[(Shared request limits)]\n  Worker[Inference worker] --> DB\n  Worker --> Pipeline[Imaging / QC / synthetic inference]\n  Pipeline --> Analysis[Uncertainty / mapping / timeline]\n  Analysis --> Reports[Research reports and provenance]\n  Reports --> DB",
+    "challenges": [
+      "Research and educational use only; clinical diagnosis and treatment are outside scope. No trained MRI weights or patient images are distributed. Real MRI accuracy, calibration, scanner robustness, and independent benchmarks remain pending.",
+      "No public deployment or published GitHub release exists at review. The committed reports/presentations directories contain placeholders; the audit describes locally prepared documents rather than downloadable repository artifacts.",
+      "The shipped API catalog uses a synthetic threshold fixture. The dated final audit records split-integrity, discrete-mask interpolation, and training-to-API spatial-contract failures for its audited revision; review that evidence before real checkpoint serving or benchmark publication.",
+      "Registration and brain masks require reviewed external adapters. Atlas overlap and longitudinal changes can reflect acquisition or pipeline variation. CUDA execution, live Kubernetes/AWS, production identity integration, and institutional imaging privacy validation remain unverified."
+    ],
+    "screenshots": [
+      {
+        "src": "/projects/neurovision/workspace.png",
+        "caption": "Actual NeuroVision workspace with synchronized slice views of the built-in synthetic phantom. This demonstration is not patient imaging or a clinical result.",
+        "source": "https://github.com/manikantbindass/NeuroVision/blob/22ff13bb3fe94f0668fd816fac1cae7cceff548f/assets/screenshots/workspace.png"
+      }
+    ],
+    "resources": [
+      {
+        "label": "Research model card",
+        "url": "https://github.com/manikantbindass/NeuroVision/blob/22ff13bb3fe94f0668fd816fac1cae7cceff548f/MODEL_CARD.md",
+        "description": "Available architectures, synthetic-only evidence, artifact identity, and pending MRI benchmarks."
+      },
+      {
+        "label": "Capability and implementation matrix",
+        "url": "https://github.com/manikantbindass/NeuroVision/blob/22ff13bb3fe94f0668fd816fac1cae7cceff548f/docs/development/CAPABILITIES.md",
+        "description": "Implemented local paths, experimental analysis, adapter requirements, and planned validation."
+      },
+      {
+        "label": "Final audit and known defects",
+        "url": "https://github.com/manikantbindass/NeuroVision/blob/22ff13bb3fe94f0668fd816fac1cae7cceff548f/docs/development/FINAL_AUDIT.md",
+        "description": "Dated revision-specific pass/partial/fail findings. Historical integration statements precede the current main merge."
+      },
+      {
+        "label": "Research reporting guide",
+        "url": "https://github.com/manikantbindass/NeuroVision/blob/22ff13bb3fe94f0668fd816fac1cae7cceff548f/docs/research/REPORTING.md",
+        "description": "Generated JSON/HTML/optional PDF reports with geometry, QC, model identity, metrics, and limitations."
+      },
+      {
+        "label": "Local deployment and worker guide",
+        "url": "https://github.com/manikantbindass/NeuroVision/blob/22ff13bb3fe94f0668fd816fac1cae7cceff548f/docs/deployment/README.md",
+        "description": "Compose, owner-scoped artifacts, leased jobs, shared limits, and undeployed cloud/GPU targets."
+      },
+      {
+        "label": "Verified source CI",
+        "url": "https://github.com/manikantbindass/NeuroVision/actions/runs/42328693553",
+        "description": "Successful CI for the reviewed main revision; deployment-definition and security/privacy workflows also passed."
+      }
+    ],
+    "evidence": [
+      {
+        "path": "README.md",
+        "url": "https://github.com/manikantbindass/NeuroVision/blob/22ff13bb3fe94f0668fd816fac1cae7cceff548f/README.md"
+      },
+      {
+        "path": "MODEL_CARD.md",
+        "url": "https://github.com/manikantbindass/NeuroVision/blob/22ff13bb3fe94f0668fd816fac1cae7cceff548f/MODEL_CARD.md"
+      },
+      {
+        "path": "pyproject.toml",
+        "url": "https://github.com/manikantbindass/NeuroVision/blob/22ff13bb3fe94f0668fd816fac1cae7cceff548f/pyproject.toml"
+      },
+      {
+        "path": "apps/web/package.json",
+        "url": "https://github.com/manikantbindass/NeuroVision/blob/22ff13bb3fe94f0668fd816fac1cae7cceff548f/apps/web/package.json"
+      },
+      {
+        "path": "docs/development/CAPABILITIES.md",
+        "url": "https://github.com/manikantbindass/NeuroVision/blob/22ff13bb3fe94f0668fd816fac1cae7cceff548f/docs/development/CAPABILITIES.md"
+      },
+      {
+        "path": "docs/development/FINAL_AUDIT.md",
+        "url": "https://github.com/manikantbindass/NeuroVision/blob/22ff13bb3fe94f0668fd816fac1cae7cceff548f/docs/development/FINAL_AUDIT.md"
+      },
+      {
+        "path": "docs/deployment/README.md",
+        "url": "https://github.com/manikantbindass/NeuroVision/blob/22ff13bb3fe94f0668fd816fac1cae7cceff548f/docs/deployment/README.md"
+      },
+      {
+        "path": "docs/research/NEUROMAP.md",
+        "url": "https://github.com/manikantbindass/NeuroVision/blob/22ff13bb3fe94f0668fd816fac1cae7cceff548f/docs/research/NEUROMAP.md"
+      },
+      {
+        "path": "docs/research/NEUROTIMELINE.md",
+        "url": "https://github.com/manikantbindass/NeuroVision/blob/22ff13bb3fe94f0668fd816fac1cae7cceff548f/docs/research/NEUROTIMELINE.md"
+      },
+      {
+        "path": "docs/research/ENSEMBLE_INTELLIGENCE.md",
+        "url": "https://github.com/manikantbindass/NeuroVision/blob/22ff13bb3fe94f0668fd816fac1cae7cceff548f/docs/research/ENSEMBLE_INTELLIGENCE.md"
+      },
+      {
+        "path": "docs/research/REPORTING.md",
+        "url": "https://github.com/manikantbindass/NeuroVision/blob/22ff13bb3fe94f0668fd816fac1cae7cceff548f/docs/research/REPORTING.md"
+      },
+      {
+        "path": "docs/development/WEB_WORKSPACE.md",
+        "url": "https://github.com/manikantbindass/NeuroVision/blob/22ff13bb3fe94f0668fd816fac1cae7cceff548f/docs/development/WEB_WORKSPACE.md"
+      },
+      {
+        "path": "docs/development/MLOPS.md",
+        "url": "https://github.com/manikantbindass/NeuroVision/blob/22ff13bb3fe94f0668fd816fac1cae7cceff548f/docs/development/MLOPS.md"
+      }
+    ],
+    "sourceCommit": "22ff13bb3fe94f0668fd816fac1cae7cceff548f",
+    "verifiedAt": "2026-11-07",
+    "contentStage": "source",
+    "caseStudy": {
+      "architectureSummary": "NeuroVision combines an offline-capable React research viewer with an authenticated FastAPI service and separate leased inference worker. PostgreSQL retains owner-scoped artifacts and job state, Redis coordinates shared limits, and explicit imaging geometry/QC follows each artifact. Python research modules provide segmentation, uncertainty, mapping, longitudinal comparison, and provenance-rich exports; the shipped connected demo uses a synthetic fixture.",
+      "features": [
+        {
+          "title": "Preserve geometry through imaging intake",
+          "description": "Bounded scalar NIfTI loading checks dimensions, finite intensities, affine geometry, modality declarations, and channel alignment. Reviewed local DICOM is a separate privacy-gated subset; the API accepts NIfTI. Transform history and explicit units support later inspection.",
+          "source": "docs/development/CAPABILITIES.md"
+        },
+        {
+          "title": "Compare trainable segmentation architectures",
+          "description": "Native 2D/3D U-Nets and optional MONAI SegResNet, Attention U-Net, UNETR, and Swin UNETR share configuration, checkpoint, tensor, and inference contracts. Synthetic CPU examples exercise the implementations; the repository supplies no trained patient-MRI weights or validated benchmark.",
+          "source": "MODEL_CARD.md"
+        },
+        {
+          "title": "Inspect uncertainty rather than assume confidence",
+          "description": "Weighted probability ensembles, reversible flip augmentation, and supported MC dropout expose entropy, variance, confidence, and member disagreement. The synthetic NeuroConfidence examples exercise controls; calibration against MRI segmentation error has not been established.",
+          "source": "docs/research/ENSEMBLE_INTELLIGENCE.md"
+        },
+        {
+          "title": "Quantify and explain a fixed research target",
+          "description": "NeuroMap calculates physical label volumes and categorical atlas overlap on a reviewed aligned grid. Fixed-ROI input gradients and patch occlusion expose sensitivity to model inputs. Atlas licenses, registration quality, and target definitions remain explicit caller responsibilities.",
+          "source": "docs/research/NEUROMAP.md"
+        },
+        {
+          "title": "Compare registered time points with visible assumptions",
+          "description": "NeuroTimeline combines native region volumes, shared-coverage gain/loss maps, and optional paired replicate spread. Reviewed rigid transforms align the visits; acquisition, preprocessing, model, and registration differences can all contribute to observed changes.",
+          "source": "docs/research/NEUROTIMELINE.md"
+        },
+        {
+          "title": "Run bounded owner-scoped jobs and exports",
+          "description": "The API stores reviewed scans and job metadata under owner identity. Workers claim renewable database-clock leases and publish fenced results, with bounded retries and explicit failure states. Reports retain geometry, QC, model provenance, limitations, and evaluation only when a reference exists.",
+          "source": "docs/deployment/README.md"
+        }
+      ],
+      "technologies": [
+        {
+          "name": "React",
+          "version": "^19.2.0",
+          "stage": "source",
+          "source": "apps/web/package.json",
+          "description": "Linked slices, overlays, offline phantom, sampled 3D boundaries, and connected job/report controls."
+        },
+        {
+          "name": "TypeScript",
+          "version": "~5.9.3",
+          "stage": "source",
+          "source": "apps/web/package.json",
+          "description": "Typed browser volume, API, viewer, and research workspace modules."
+        },
+        {
+          "name": "Vite",
+          "version": "^7.3.0",
+          "stage": "source",
+          "source": "apps/web/package.json",
+          "description": "Builds and serves the local research frontend."
+        },
+        {
+          "name": "FastAPI",
+          "version": ">=0.115,<1",
+          "stage": "source",
+          "source": "pyproject.toml",
+          "description": "Authenticated versioned uploads, bounded research jobs, results, and exports."
+        },
+        {
+          "name": "PyTorch",
+          "version": ">=2.8,<3",
+          "stage": "source",
+          "source": "pyproject.toml",
+          "description": "Trainable 2D/3D U-Net and tensor inference experiments with checkpoint provenance."
+        },
+        {
+          "name": "MONAI",
+          "version": "1.6.1 optional",
+          "stage": "source",
+          "source": "pyproject.toml",
+          "description": "Optional research architectures including SegResNet, Attention U-Net, UNETR, and Swin UNETR."
+        },
+        {
+          "name": "PostgreSQL",
+          "stage": "source",
+          "source": "docs/deployment/README.md",
+          "description": "Durable owner-scoped artifact blobs, job metadata, lease recovery, and fenced result publication."
+        },
+        {
+          "name": "Redis",
+          "stage": "source",
+          "source": "docs/deployment/README.md",
+          "description": "Shared bounded request limits across connected API replicas."
+        }
+      ],
+      "decisions": [
+        {
+          "title": "Keep the synthetic application contract explicit",
+          "description": "Ship a threshold phantom model to exercise the viewer/API/worker path while leaving trained MRI architectures as separate reviewed research experiments. Publish the model card and pending benchmark requirements beside the capabilities.",
+          "source": "MODEL_CARD.md",
+          "tradeoff": "A working application demonstration does not establish real-MRI model quality or fix the audit’s training-to-serving spatial contract concerns."
+        },
+        {
+          "title": "Use leased work with fenced publication",
+          "description": "Persist owner-scoped artifacts and jobs in PostgreSQL, renew worker leases against the database clock, and reject result publication by expired workers. Crashed attempts can be retried within a fixed budget.",
+          "source": "docs/deployment/README.md",
+          "tradeoff": "Computation can repeat after worker loss. The design provides at-least-once execution and fenced publication rather than a general exactly-once inference guarantee."
+        },
+        {
+          "title": "Expose experimental measurement limits",
+          "description": "Require reviewed atlas/rigid registration inputs and preserve uncertainty, coverage, class semantics, and provenance. Distinguish local sensitivity and replicate spread from causal explanation or calibrated clinical confidence.",
+          "source": "docs/research/NEUROTIMELINE.md",
+          "tradeoff": "Some meaningful alignment, calibration, and clinical questions remain outside the implementation and require independent research validation."
+        }
+      ],
+      "outcomes": [
+        {
+          "title": "Integrated research workspace on main",
+          "description": "The reviewed main revision contains the library, responsive synthetic viewer, authenticated API, durable worker, and deployment definitions. Its CI, deployment-definition, and security/privacy workflows passed; live AWS/GPU/cluster execution is a separate evidence gap.",
+          "source": "README.md"
+        },
+        {
+          "title": "Traceable synthetic results and a candid audit",
+          "description": "The source provides synthetic training and analysis examples, report generation, and a dated audit with pass/partial/fail findings. Its recorded split, interpolation, and spatial-contract issues remain visible instead of being obscured by passing general CI.",
+          "source": "docs/development/FINAL_AUDIT.md"
+        }
+      ],
+      "workflow": [
+        "Start the offline phantom or configure the local API/worker stack.",
+        "Validate reviewed imaging inputs, geometry, modality order, preprocessing, and QC.",
+        "Run an explicit research model or the shipped synthetic fixture.",
+        "Inspect linked slices, uncertainty, physical measurements, and aligned time-point differences.",
+        "Export a provenance-rich report and review the audit before benchmark or checkpoint promotion."
+      ],
+      "commands": [
+        "npm ci --prefix apps/web",
+        "npm run dev --prefix apps/web",
+        "python -m neurovision",
+        "python scripts/create_local_secrets.py",
+        "docker compose up --build -d",
+        "python scripts/check_compose.py"
+      ],
+      "setup": "Use Node.js 22.12+ for the Vite workspace and Python 3.11+ with the documented optional imaging/training/API extras. Start the built-in phantom without uploading data, or generate local secrets and run the Compose web/API/worker/PostgreSQL/Redis stack on loopback port 8080. Connected use needs the local bearer credential. Real checkpoints, external identity, GPU devices, and cloud deployment require separate review and validation."
+    }
+  },
+  {
     "id": "kubesentinel",
     "slug": "kubesentinel",
     "title": "KubeSentinel AI",
@@ -1796,7 +2089,7 @@
     ],
     "github": "https://github.com/manikantbindass/FlowNovaAI",
     "live": "https://flownova-ai.vercel.app",
-    "featured": true,
+    "featured": false,
     "status": "Live hosted workflow demo · relational runtime available",
     "updatedAt": "2026-10-26T21:45:11Z",
     "users": "Builders exploring visual automation, versioned execution, and inspectable workflow results.",

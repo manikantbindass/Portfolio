@@ -10,6 +10,8 @@ import { CityPulseAnimation } from "./CityPulseGlassHero";
 import cityStyles from "./CityPulseGlassHero.module.css";
 import { KubeSentinelAnimation } from "./KubeSentinelGlassHero";
 import kubeStyles from "./KubeSentinelGlassHero.module.css";
+import { NeuroVisionAnimation } from "./NeuroVisionGlassHero";
+import neuroStyles from "./NeuroVisionGlassHero.module.css";
 export default function ProjectVisual({
   project,
   priority = false,
@@ -23,6 +25,9 @@ export default function ProjectVisual({
   const image = project.screenshots[0];
   const showCat = priority && project.slug === "dsa";
   const showChase = !priority && project.slug === "dsa";
+  if (project.slug === "neurovision" && !priority) return (
+    <div className={`project-diagram ${neuroStyles.preview}`} aria-label="NeuroVision animated research illustration"><NeuroVisionAnimation preview /><span className="diagram-label">IMAGING IN MOTION</span><span className={neuroStyles.previewTitle}>Research,<br />in focus.</span><span className={neuroStyles.previewCaption}>PREPARE · INSPECT · EXPLAIN</span></div>
+  );
   if (project.slug === "kubesentinel" && !priority) return (
     <div className={`project-diagram ${kubeStyles.preview}`} aria-label="KubeSentinel animated cluster illustration">
       <KubeSentinelAnimation preview />

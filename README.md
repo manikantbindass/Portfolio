@@ -35,7 +35,7 @@ A **responsive engineering portfolio** built with Next.js 16, React, TypeScript,
 
 The original cosmic identity lives on: **rolling technology marquees, a scroll-driven moon, starfield and aurora lighting, typewriter roles, interactive cursor, floating navigation, and animated counters**. Refined glass surfaces support both dark and light themes.
 
-> 🔗 **Live:** [Explore the portfolio](https://portfolio-ten-omega-4ibkho6f7u.vercel.app) · **19 project case studies** · **3 pinned projects** · **6 recent highlights** · **3 professional resumes**
+> 🔗 **Live:** [Explore the portfolio](https://portfolio-ten-omega-4ibkho6f7u.vercel.app) · **20 project case studies** · **3 pinned projects** · **6 recent highlights** · **3 professional resumes**
 
 ---
 
@@ -47,9 +47,9 @@ The original cosmic identity lives on: **rolling technology marquees, a scroll-d
 | 🔄 **Signature Technology Marquees** | Seamless forward/reverse rolling technology rows with recognizable logos and pause-on-hover |
 | 🌙 **Scroll-Driven Moon Arc** | Moon travels along the page's scroll arc using animation-frame scheduling and transforms |
 | ⌨️ **Typewriter Hero** | Rotating Full Stack, Blockchain, and Backend/DevSecOps roles beside the existing profile photograph |
-| 🚀 **19 Project Case Studies** | DSA Preparation, ChainPass, and RAG Knowledge Assistant pinned in positions 1–3; categories, search, repository links, and verified demo URLs |
+| 🚀 **20 Project Case Studies** | DSA Preparation, ChainPass, and RAG Knowledge Assistant pinned in positions 1–3; categories, search, repository links, and verified demo URLs |
 | 🗂️ **Detailed Project Tabs** | Overview, Architecture, Features, Technology Stack, Gallery, Engineering Challenges, and Results and Links |
-| 🖼️ **Genuine Project Galleries** | 44 repository images across nine projects; labeled source diagrams where screenshots are unavailable |
+| 🖼️ **Genuine Project Galleries** | 45 repository images across ten projects; labeled source diagrams where screenshots are unavailable |
 | 📄 **Three Resume Perspectives** | Full Stack, DevOps, and AI/ML PDFs with independent previews, downloads, and new-tab actions |
 | 📊 **Verified Statistics** | Official LeetCode GraphQL and GitHub REST APIs, six-hour caching, verification timestamps, and honest snapshot fallbacks |
 | 🤖 **Portfolio Guide** | Cost-free curated answers from shared project, resume, skills, experience, and statistics data |
@@ -103,19 +103,20 @@ The existing assistant keeps its **zero LLM API cost** architecture. It answers 
 
 ## 🚀 Project Showcase
 
-**19 real repositories** with their own technical case-study routes. **📌 marks permanent pins:** DSA Preparation, ChainPass, and RAG Knowledge Assistant occupy positions 1–3 in that order. New projects and metadata updates cannot displace them. Remaining projects follow their recorded update dates; ⭐ marks the six recent highlights. Lumina was refreshed on 26 October 2026; FlowNova AI and NeuroMap AI were reviewed on 27 October 2026; MathLens and the renamed LedgerShield were reviewed on 28 October 2026; CityPulse was reviewed on 30 October 2026; KubeSentinel AI’s implementation branch was reviewed on 4 November 2026.
+**20 real repositories** with their own technical case-study routes. **📌 marks permanent pins:** DSA Preparation, ChainPass, and RAG Knowledge Assistant occupy positions 1–3 in that order. New projects and metadata updates cannot displace them. Remaining projects follow their recorded update dates; ⭐ marks the six recent highlights. Lumina was refreshed on 26 October 2026; FlowNova AI and NeuroMap AI were reviewed on 27 October 2026; MathLens and the renamed LedgerShield were reviewed on 28 October 2026; CityPulse was reviewed on 30 October 2026; KubeSentinel AI’s implementation branch was reviewed on 4 November 2026.
 
 | Project / Case Study | Description | Technologies | GitHub |
 |---|---|---|---|
 | 📚 [DSA Preparation](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/dsa) 📌 | A structured collection of algorithm solutions, pattern notes, contest work, and synchronized LeetCode progress. | Java · Python · Go · Algorithms | [Source](https://github.com/manikantbindass/DSA-Preparation-FAANG) |
 | 🎟️ [ChainPass](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/chainpass) 📌 | A ticketing application with transactional inventory, private wallets, signed QR admission, and optional on-chain issuance proofs. | React · TypeScript · Fastify · PostgreSQL | [Source](https://github.com/manikantbindass/Blockchain-Based-Smart-Ticket-System-Concert-railway-public-and-Private-Transport-) |
 | 🧠 [Enterprise RAG Knowledge Assistant · Lumina](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/enterprise-rag) 📌 | Authenticated document ingestion, tenant-scoped BM25, cited streaming conversations, and a [live product tour](https://enterprise-rag-knowledge-assistant-three.vercel.app). | Next.js · TypeScript · FastAPI · SQLite · BM25 | [Source](https://github.com/manikantbindass/Enterprise-RAG-Knowledge-Assistant) |
+| ◉ [NeuroVision AI](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/neurovision) ⭐ | MRI research workspace for geometry/QC, segmentation experiments, uncertainty, mapping, longitudinal analysis, and reproducible reports. Synthetic demo; benchmarks pending. | React · FastAPI · PyTorch · MONAI · PostgreSQL | [Source](https://github.com/manikantbindass/NeuroVision) |
 | ⎈ [KubeSentinel AI](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/kubesentinel) ⭐ | Scoped Kubernetes operations, advisory detection, evidence-led investigation, and signed policy-governed recovery. Reviewed development branch; release unpublished. | Next.js · FastAPI · Go · Kubernetes · PostgreSQL | [Implementation](https://github.com/manikantbindass/KubeSentinel-AI/tree/c10b24d50cf131db73441c6590468903db0ec332) |
 | 🏙️ [CityPulse](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/citypulse) ⭐ | Geospatial evidence, chronological forecasts, SciPy resource planning, cited PulseAI analysis, and local integrity verification. Working local application with synthetic previews. | Next.js · Spring Boot · PostGIS · FastAPI · SciPy · Solidity | [Source](https://github.com/manikantbindass/CityPulse) |
 | 🛡️ [LedgerShield](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/autoledger) ⭐ | Signed ledger execution, seeded faults, explainable evidence/trust, guarded recovery, and matched offline policy experiments. Local research platform; formerly AutoLedgerAI. | React · FastAPI · NumPy · PostgreSQL · Docker | [Source](https://github.com/manikantbindass/ledgershield-ai) |
 | ∑ [MathLens](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/mathlens) ⭐ | A [live mathematical workbench](https://mathlens-wine.vercel.app) with numerical tools, model analysis, learning, and [experimental native releases](https://github.com/manikantbindass/mathlens/releases/tag/v0.2.0-alpha.1). | JavaScript · Node.js · SVG · Electron · Java | [Source](https://github.com/manikantbindass/mathlens) |
 | 🧬 [NeuroMap AI](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/neuromap) ⭐ | Private NIfTI inspection and reproducible synthetic ML experiments with traceable reports. [Windows / Android releases](https://github.com/manikantbindass/NeuroMap.AI/releases/tag/v0.1.1); no hosted demo. | React · Three.js · FastAPI · scikit-learn · SQLite | [Source](https://github.com/manikantbindass/NeuroMap.AI) |
-| 🌱 [FlowNova AI](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/flownova) ⭐ | A [live visual workflow workbench](https://flownova-ai.vercel.app) with graph editing, immutable publishing, durable execution, and persisted node results. | Next.js · React Flow · Vercel Workflows · Spring Boot | [Source](https://github.com/manikantbindass/FlowNovaAI) |
+| 🌱 [FlowNova AI](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/flownova) | A [live visual workflow workbench](https://flownova-ai.vercel.app) with graph editing, immutable publishing, durable execution, and persisted node results. | Next.js · React Flow · Vercel Workflows · Spring Boot | [Source](https://github.com/manikantbindass/FlowNovaAI) |
 | ☁️ [AutoHealOps](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/autohealops) | An operations console for workload telemetry, explainable fault detection, and bounded recovery workflows, with an isolated public browser simulation. | React · FastAPI · Python · Kubernetes | [Source](https://github.com/manikantbindass/AutoHealOps-Self-Healing-Kubernetes-Cluster-with-AI-Fault-Detection) |
 | 🔍 [TraceHunt AI](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/tracehunt) | An observability workspace bringing endpoint checks, structured logs, anomaly rules, and incident evidence into one place. | Next.js · FastAPI · PostgreSQL · Redis | [Source](https://github.com/manikantbindass/Tracehunt) |
 | 📊 [FinovaIQ](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/finovaiq) | A finance dashboard with manual accounts, precise transaction accounting, budgets, portfolios, and an explicitly labeled demo copilot. | Next.js · NestJS · Prisma · PostgreSQL | [Source](https://github.com/manikantbindass/FinovaIQ-AI-Personal-Finance-Investment-Dashboard) |
@@ -129,7 +130,17 @@ The existing assistant keeps its **zero LLM API cost** architecture. It answers 
 
 Each case study explains scope, architecture, implementation details, evidence, and trade-offs. **Intramind.AI contains a placeholder RAG pipeline**. LedgerShield is a local centralized research simulator and Linux Scheduler is a simulation; AutoHealOps separates its public browser simulation from optional local integrations. These boundaries are stated explicitly on the project pages.
 
-**Source image coverage:** KubeSentinel AI (6 application/monitoring captures + 1 health-only research figure), CityPulse (5 application captures + 1 model evaluation figure), NeuroMap AI (5), FlowNova AI (9), Lumina / Enterprise RAG (4), TraceHunt AI (3), AutoHealOps (4), FinovaIQ (2), and ChainPass (4). MathLens and LedgerShield each add two labeled source illustrations, not application screenshots. Other entries use labeled source visualizations, never fabricated application screens. See the [repository audit](docs/repository-audit.json) for pinned source evidence.
+**Source image coverage:** NeuroVision (1 synthetic-workspace capture), KubeSentinel AI (6 application/monitoring captures + 1 health-only research figure), CityPulse (5 application captures + 1 model evaluation figure), NeuroMap AI (5), FlowNova AI (9), Lumina / Enterprise RAG (4), TraceHunt AI (3), AutoHealOps (4), FinovaIQ (2), and ChainPass (4). MathLens and LedgerShield each add two labeled source illustrations, not application screenshots. Other entries use labeled source visualizations, never fabricated application screens. See the [repository audit](docs/repository-audit.json) for pinned source evidence.
+
+### NeuroVision AI · research in focus
+
+[Explore the case study](https://portfolio-ten-omega-4ibkho6f7u.vercel.app/projects/neurovision) · [Source](https://github.com/manikantbindass/NeuroVision) · [Model card](https://github.com/manikantbindass/NeuroVision/blob/22ff13bb3fe94f0668fd816fac1cae7cceff548f/MODEL_CARD.md)
+
+![Actual NeuroVision workspace using its built-in synthetic phantom](public/projects/neurovision/workspace.png)
+
+An integrated React/FastAPI research workspace connects bounded imaging and QC, trainable PyTorch/MONAI architectures, ensemble uncertainty, atlas quantification, registered time-point comparisons, and provenance-rich reports. PostgreSQL leases coordinate a separate worker; Redis provides shared limits. Rounded glass panels animate conceptual scan slices with independent pause controls.
+
+Research and education only. No trained MRI weights, real-MRI benchmark, public deployment, or published release is supplied. The dated audit records split, interpolation, and training-to-serving geometry findings; passing CI does not establish clinical validation. The repository has no committed PDF/PowerPoint downloads. [Final audit](https://github.com/manikantbindass/NeuroVision/blob/22ff13bb3fe94f0668fd816fac1cae7cceff548f/docs/development/FINAL_AUDIT.md) · [Deployment guide](https://github.com/manikantbindass/NeuroVision/blob/22ff13bb3fe94f0668fd816fac1cae7cceff548f/docs/deployment/README.md) · [Portfolio provenance](docs/assets/neurovision-showcase.md).
 
 ### KubeSentinel AI · observe clearly, recover with evidence
 
@@ -256,7 +267,7 @@ Portfolio/
 ├── app/
 │   ├── api/github/route.ts       # Cached verified GitHub statistics
 │   ├── api/leetcode/route.ts     # Validated official LeetCode query
-│   ├── projects/[slug]/page.tsx # 19 static case-study pages
+│   ├── projects/[slug]/page.tsx # 20 static case-study pages
 │   ├── resumes/[slug]/page.tsx  # Three independent resume viewers
 │   ├── globals.css              # Shared tokens, glass, cosmic effects
 │   ├── layout.tsx               # Theme initialization, providers, SEO
@@ -273,7 +284,7 @@ Portfolio/
 ├── lib/
 │   ├── data.ts                  # Public profile, skills, experience, certifications
 │   ├── projects.ts              # Typed project interface
-│   ├── projects.json            # 19 case studies and screenshot provenance
+│   ├── projects.json            # 20 case studies and screenshot provenance
 │   ├── resumes.ts               # Three resume descriptors and stable PDF paths
 │   ├── leetcode.ts              # Payload validation
 │   └── stats-snapshot.json      # Dated, verified fallback data
@@ -384,7 +395,7 @@ The website refreshes successful API reads through a **six-hour server cache**, 
 - 🎓 **B.Tech CSE (Blockchain Technology)** — Parul Institute of Engineering and Technology, Vadodara (**2023–2027**)
 - 📍 **Vadodara, Gujarat, India**
 - 📘 **CGPA: 7.49** **(till 6Th Sem)**
-- 🛠️ **19 showcased repositories**, with three permanent pins and six recent highlights
+- 🛠️ **20 showcased repositories**, with three permanent pins and six recent highlights
 - 💼 **Lab Tech Support**, CV Raman Center, Parul University — February–March 2026
 - 🖥️ **IT Intern, System Support Cell**, Parul University — September 2025–February 2026
 - 🌐 **Open to opportunities** across Full Stack, AI/ML, Backend, DevOps, and Blockchain

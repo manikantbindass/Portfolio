@@ -529,5 +529,34 @@
     "technologyRoles": 9,
     "engineeringDecisions": 4,
     "contentStage": "source"
+  },
+  {
+    "project": "NeuroVision AI",
+    "repo": "NeuroVision",
+    "commit": "22ff13bb3fe94f0668fd816fac1cae7cceff548f",
+    "sourceFiles": [
+      "README.md",
+      "MODEL_CARD.md",
+      "pyproject.toml",
+      "apps/web/package.json",
+      "docs/development/CAPABILITIES.md",
+      "docs/development/FINAL_AUDIT.md",
+      "docs/deployment/README.md",
+      "docs/research/NEUROMAP.md",
+      "docs/research/NEUROTIMELINE.md",
+      "docs/research/ENSEMBLE_INTELLIGENCE.md",
+      "docs/research/REPORTING.md",
+      "docs/development/WEB_WORKSPACE.md",
+      "docs/development/MLOPS.md"
+    ],
+    "screenshots": 1,
+    "demo": null,
+    "release": null,
+    "limitations": "Research and educational use only; clinical diagnosis and treatment are outside scope. No trained MRI weights or patient images are distributed. Real MRI accuracy, calibration, scanner robustness, and independent benchmarks remain pending. No public deployment or published GitHub release exists at review. The committed reports/presentations directories contain placeholders; the audit describes locally prepared documents rather than downloadable repository artifacts. The shipped API catalog uses a synthetic threshold fixture. The dated final audit records split-integrity, discrete-mask interpolation, and training-to-API spatial-contract failures for its audited revision; review that evidence before real checkpoint serving or benchmark publication. Registration and brain masks require reviewed external adapters. Atlas overlap and longitudinal changes can reflect acquisition or pipeline variation. CUDA execution, live Kubernetes/AWS, production identity integration, and institutional imaging privacy validation remain unverified.",
+    "reviewedAt": "2026-11-07",
+    "detailedFeatures": 6,
+    "technologyRoles": 8,
+    "engineeringDecisions": 3,
+    "contentStage": "source"
   }
 ]

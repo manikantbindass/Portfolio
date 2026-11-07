@@ -26,7 +26,7 @@ test("new projects, project updates, and filtered inputs cannot reorder the pins
   assert.deepEqual(orderProjects(changed.filter(p => p.slug !== "dsa")).slice(0, 2).map(p => p.slug), ["chainpass", "enterprise-rag"]);
 });
 test("every project has substantive case-study sections with pinned source references", () => {
-  assert.equal(projects.length, 19);
+  assert.equal(projects.length, 20);
   for (const p of projects) {
     const s = p.caseStudy;
     const sources = new Set(p.evidence.map((e) => e.path));
@@ -157,7 +157,7 @@ test("KubeSentinel showcases its reviewed branch without inventing a release or 
   assert(p.status.includes("unpublished"));
   assert(p.challenges.some(t => t.includes("unmerged") && t.includes("blocked")));
   assert(p.challenges.some(t => t.includes("synthetic")));
-  assert.deepEqual(orderProjects(projects).slice(0, 4).map(p => p.slug), ["dsa", "chainpass", "enterprise-rag", "kubesentinel"]);
+  assert.deepEqual(orderProjects(projects).slice(0, 4).map(p => p.slug), ["dsa", "chainpass", "enterprise-rag", "neurovision"]);
 });
 test("project-specific explanations are not shared placeholder paragraphs", () => {
   const text = projects.flatMap((p) =>
@@ -174,6 +174,21 @@ test("project-specific explanations are not shared placeholder paragraphs", () =
     "See the pinned source files and README for the implementation",
   ])
     assert(!renderer.includes(filler));
+});
+
+test("NeuroVision preserves synthetic research scope and real source image", () => {
+  const p = projects.find(p => p.slug === "neurovision");
+  assert(p);
+  assert.equal(p.live, null);
+  assert.equal(p.release, undefined);
+  assert.equal(p.github, "https://github.com/manikantbindass/NeuroVision");
+  assert.equal(p.screenshots.length, 1);
+  assert(fs.existsSync(new URL("../public" + p.screenshots[0].src, import.meta.url)));
+  assert(p.challenges.some(t => t.includes("spatial-contract")));
+  assert(p.challenges.some(t => t.includes("No trained MRI weights")));
+  assert(p.resources.some(r => r.url.endsWith("MODEL_CARD.md")));
+  assert(!p.resources.some(r => /\.(pdf|pptx)$/.test(r.url)));
+  assert.deepEqual(orderProjects(projects).slice(0,4).map(p => p.slug), ["dsa", "chainpass", "enterprise-rag", "neurovision"]);
 });
 test("FlowNova describes its hosted implementation with real captures and runtime boundaries", () => {
   const p = projects.find((p) => p.id === "flownova");

@@ -13,7 +13,10 @@ import ledgerStyles from "@/components/LedgerShieldGlassHero.module.css";
 import cityStyles from "@/components/CityPulseGlassHero.module.css";
 import kubeStyles from "@/components/KubeSentinelGlassHero.module.css";
 
+import neuroStyles from "@/components/NeuroVisionGlassHero.module.css";
+
 export default function Projects() {
+  const [neuroPaused, setNeuroPaused] = useState(false);
   const [category, setCategory] = useState("All Projects");
   const [query, setQuery] = useState("");
   const [mathPaused, setMathPaused] = useState(false);
@@ -89,8 +92,8 @@ export default function Projects() {
                 duration: 0.4,
                 delay: Math.min((i % 3) * 0.06, 0.12),
               }}
-              className={`project-card glass card-hover${p.slug === "dsa" ? ` ${dsaStyles.card}` : p.slug === "mathlens" ? ` ${mathStyles.card}` : p.slug === "autoledger" ? ` ${ledgerStyles.card}` : p.slug === "citypulse" ? ` ${cityStyles.card}` : p.slug === "kubesentinel" ? ` ${kubeStyles.card}` : ""}`}
-              data-paused={p.slug === "mathlens" ? mathPaused : p.slug === "autoledger" ? ledgerPaused : p.slug === "citypulse" ? cityPaused : p.slug === "kubesentinel" ? kubePaused : undefined}
+              className={`project-card glass card-hover${p.slug === "dsa" ? ` ${dsaStyles.card}` : p.slug === "mathlens" ? ` ${mathStyles.card}` : p.slug === "autoledger" ? ` ${ledgerStyles.card}` : p.slug === "citypulse" ? ` ${cityStyles.card}` : p.slug === "kubesentinel" ? ` ${kubeStyles.card}` : p.slug === "neurovision" ? ` ${neuroStyles.card}` : ""}`}
+              data-paused={p.slug === "mathlens" ? mathPaused : p.slug === "autoledger" ? ledgerPaused : p.slug === "citypulse" ? cityPaused : p.slug === "kubesentinel" ? kubePaused : p.slug === "neurovision" ? neuroPaused : undefined}
               key={p.id}
             >
               {p.slug === "dsa" && <DsaChaseScene />}
@@ -107,6 +110,7 @@ export default function Projects() {
               {p.slug === "autoledger" && <button type="button" className={ledgerStyles.cardControl} onClick={() => setLedgerPaused(value => !value)} aria-pressed={ledgerPaused} aria-label={ledgerPaused ? "Play LedgerShield card animation" : "Pause LedgerShield card animation"}>{ledgerPaused ? <Play size={12} aria-hidden /> : <Pause size={12} aria-hidden />}</button>}
               {p.slug === "citypulse" && <button type="button" className={cityStyles.cardControl} onClick={() => setCityPaused(value => !value)} aria-pressed={cityPaused} aria-label={cityPaused ? "Play CityPulse card animation" : "Pause CityPulse card animation"}>{cityPaused ? <Play size={12} aria-hidden /> : <Pause size={12} aria-hidden />}</button>}
               {p.slug === "kubesentinel" && <button type="button" className={kubeStyles.cardControl} onClick={() => setKubePaused(value => !value)} aria-pressed={kubePaused} aria-label={kubePaused ? "Play KubeSentinel card animation" : "Pause KubeSentinel card animation"}>{kubePaused ? <Play size={12} aria-hidden /> : <Pause size={12} aria-hidden />}</button>}
+              {p.slug === "neurovision" && <button type="button" className={neuroStyles.cardControl} onClick={() => setNeuroPaused(v => !v)} aria-pressed={neuroPaused} aria-label={neuroPaused ? "Play NeuroVision card animation" : "Pause NeuroVision card animation"}>{neuroPaused ? <Play size={12} aria-hidden /> : <Pause size={12} aria-hidden />}</button>}
               <div className="project-card-body">
                 <div className="eyebrow-row">
                   <span>{p.categories[0]}</span>
