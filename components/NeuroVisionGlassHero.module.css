@@ -1,4 +1,7 @@
 .scene { opacity: .88; }
+.interfacePreview:global(.project-image) { aspect-ratio: 1440 / 1084; }
+.interfacePreview:global(.project-image) img { object-fit: contain; }
+:global(.project-card):hover .interfacePreview:global(.project-image) img { transform: none; }
 .orbit { transform-origin: 310px 310px; animation: orbit 85s linear infinite; }
 .card { position: relative; }
 .card[data-paused="true"] * { animation-play-state: paused; }

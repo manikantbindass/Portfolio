@@ -10,8 +10,10 @@ The source identifies research/education use, pending MRI benchmarks, no distrib
 
 The case study covers bounded imaging, QC, trainable model families, ensemble uncertainty, atlas quantification, longitudinal analysis, leased owner-scoped work, and reproducible reporting. This is separate from the existing NeuroMap AI project/repository.
 
-`NeuroVisionGlassHero.tsx` renders decorative translucent scan panels, abstract brain outlines, a moving scan line, and orbital lighting in the homepage card and rounded header. It is conceptual artwork rather than imaging output. Unique SVG IDs, independent pause buttons outside navigation links, reduced motion, and reduced transparency follow the existing portfolio. The README top/bottom local SVGs gain matching slice/scan motifs; the source NeuroVision README is unchanged.
+`NeuroVisionGlassHero.tsx` renders decorative translucent scan panels, abstract brain outlines, a moving scan line, and orbital lighting in the rounded case-study header. It is conceptual artwork rather than imaging output. Unique SVG IDs, independent pause buttons outside navigation links, reduced motion, and reduced transparency follow the existing portfolio. The README top/bottom local SVGs gain matching slice/scan motifs; the source NeuroVision README is unchanged.
 
 The fixed order remains DSA Preparation, ChainPass, RAG Knowledge Assistant, then the newest unpinned project. Total projects: 20. Public-repository display remains `30+`.
 
 Validation: 16 project tests passed, targeted ESLint passed, and the production webpack build completed. Generated HTML verifies all 20 case studies, three fixed pins, independent pause controls, source links, gallery image, sitemap entry, and the `30+` hero count. The actual scene SVG was rendered and inspected in dark/light colors, and both README banners were rendered and inspected. These are static/source checks; no fresh interactive browser pass was completed.
+
+7 November follow-up: the homepage card now shows the actual README synthetic-workspace screenshot in full at its original aspect ratio. The case-study header retains its scan animation and pause control.
