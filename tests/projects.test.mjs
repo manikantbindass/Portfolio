@@ -157,7 +157,7 @@ test("KubeSentinel showcases its reviewed branch without inventing a release or 
   assert(p.status.includes("unpublished"));
   assert(p.challenges.some(t => t.includes("unmerged") && t.includes("blocked")));
   assert(p.challenges.some(t => t.includes("synthetic")));
-  assert.deepEqual(orderProjects(projects).slice(0, 4).map(p => p.slug), ["dsa", "chainpass", "enterprise-rag", "neurovision"]);
+  assert.deepEqual(orderProjects(projects).slice(0, 4).map(p => p.slug), ["dsa", "chainpass", "enterprise-rag", "remoteshield"]);
 });
 test("project-specific explanations are not shared placeholder paragraphs", () => {
   const text = projects.flatMap((p) =>
@@ -188,7 +188,7 @@ test("NeuroVision preserves synthetic research scope and real source image", () 
   assert(p.challenges.some(t => t.includes("No trained MRI weights")));
   assert(p.resources.some(r => r.url.endsWith("MODEL_CARD.md")));
   assert(!p.resources.some(r => /\.(pdf|pptx)$/.test(r.url)));
-  assert.deepEqual(orderProjects(projects).slice(0,4).map(p => p.slug), ["dsa", "chainpass", "enterprise-rag", "neurovision"]);
+  assert.deepEqual(orderProjects(projects).slice(0,4).map(p => p.slug), ["dsa", "chainpass", "enterprise-rag", "remoteshield"]);
 });
 test("FlowNova describes its hosted implementation with real captures and runtime boundaries", () => {
   const p = projects.find((p) => p.id === "flownova");
@@ -204,4 +204,22 @@ test("FlowNova describes its hosted implementation with real captures and runtim
   assert(p.challenges.some(text => text.includes("server configuration")));
   assert(p.resources.some(link => link.label.includes("PDF")));
   assert(p.resources.some(link => link.url.endsWith("/releases/latest")));
+});
+
+test("RemoteShield release preserves source-only and native network boundaries", () => {
+  const p = projects.find(p => p.slug === "remoteshield");
+  assert.equal(projects.filter(p => p.slug === "remoteshield").length, 1);
+  assert.equal(p.live, null);
+  assert(p.release.version.includes("source only"));
+  assert(p.release.url.endsWith("source-2.5.0-2026-11-20"));
+  assert.equal(p.screenshots.length, 4);
+  for (const capture of p.screenshots) {
+    assert(fs.existsSync(new URL("../public" + capture.src, import.meta.url)));
+    assert(capture.source.includes("/blob/" + p.sourceCommit + "/"));
+  }
+  assert(p.challenges.some(t => t.includes("reserved test origins")));
+  assert(p.challenges.some(t => t.includes("control-plane decision")));
+  assert(p.resources.some(r => r.url.endsWith(".pdf")));
+  assert(p.resources.some(r => r.url.endsWith(".pptx")));
+  assert(!p.resources.some(r => r.url.includes("/releases/download/v2.4.0/")));
 });

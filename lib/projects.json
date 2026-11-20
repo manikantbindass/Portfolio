@@ -1735,7 +1735,7 @@
       "version": "0.1.1",
       "url": "https://github.com/manikantbindass/NeuroMap.AI/releases/tag/v0.1.1"
     },
-    "featured": true,
+    "featured": false,
     "status": "Release v0.1.1 · local/server-backed research workspace",
     "updatedAt": "2026-10-27T06:58:02Z",
     "users": "Developers and researchers exploring bounded image inspection, synthetic ML methodology, and reproducible experiment records.",
@@ -2915,7 +2915,9 @@
         "Review or enable a bounded runbook.",
         "Verify rollout/telemetry and inspect the audit trail."
       ],
-      "commands": ["docker compose up --build -d --wait --wait-timeout 240"],
+      "commands": [
+        "docker compose up --build -d --wait --wait-timeout 240"
+      ],
       "setup": "Use Docker with Linux containers and Compose for the full stack. The public demo has no cluster/model attached. Follow setup guidance for local identity, optional monitoring, and real namespace credentials."
     },
     "contentStage": "source"
@@ -2926,8 +2928,16 @@
     "title": "DSA Preparation",
     "subtitle": "Patterns, practice, and recall",
     "description": "A structured collection of algorithm solutions, pattern notes, contest work, and synchronized LeetCode progress.",
-    "categories": ["Developer Tools"],
-    "tags": ["Java", "Python", "Go", "GitHub Actions", "JSON"],
+    "categories": [
+      "Developer Tools"
+    ],
+    "tags": [
+      "Java",
+      "Python",
+      "Go",
+      "GitHub Actions",
+      "JSON"
+    ],
     "github": "https://github.com/manikantbindass/DSA-Preparation-FAANG",
     "live": null,
     "featured": false,
@@ -3256,7 +3266,9 @@
         "Inspect an incident timeline and correlated releases.",
         "Run local/model analysis and review its evidence and suggestions."
       ],
-      "commands": ["docker compose up --build -d --wait"],
+      "commands": [
+        "docker compose up --build -d --wait"
+      ],
       "setup": "Use Docker with Linux containers and Compose for the full stack. Seeded records are synthetic. SSO, multi-tenancy, distributed tracing, and automatic remediation are outside this release."
     },
     "contentStage": "source"
@@ -3482,8 +3494,16 @@
     "title": "FlowPilot — SaaS Landing Page",
     "subtitle": "Interactive SaaS product experience",
     "description": "A responsive SaaS landing page with an interactive workflow sandbox, seat-based pricing calculator, and a trial configuration modal.",
-    "categories": ["Full Stack"],
-    "tags": ["React", "TypeScript", "Vite", "Recharts", "Vitest"],
+    "categories": [
+      "Full Stack"
+    ],
+    "tags": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Recharts",
+      "Vitest"
+    ],
     "github": "https://github.com/manikantbindass/SaaS-Product-Landing-Page-with-Interactive-Pricing-Demo",
     "live": "https://manikantbindass.github.io/SaaS-Product-Landing-Page-with-Interactive-Pricing-Demo/",
     "featured": false,
@@ -3632,7 +3652,10 @@
         "Carry the selected configuration into the trial modal.",
         "Inspect the locally validated demo confirmation."
       ],
-      "commands": ["npm ci", "npm run dev"],
+      "commands": [
+        "npm ci",
+        "npm run dev"
+      ],
       "setup": "Use Node.js/npm. npm test checks pricing; npm run build produces the Pages frontend. Local demo interactions need no API keys or backend."
     },
     "contentStage": "source"
@@ -3851,7 +3874,10 @@
         "View the private ticket and signed QR.",
         "Optionally anchor issuance, then verify or check in through organizer operations."
       ],
-      "commands": ["npm ci", "npm run dev"],
+      "commands": [
+        "npm ci",
+        "npm run dev"
+      ],
       "setup": "Use Node.js 24.x/npm 11.x for local SQLite. Docker, a wallet, and provider credentials are optional for the free demo. Follow provider/chain guides before enabling real integrations."
     },
     "contentStage": "source"
@@ -3860,196 +3886,328 @@
     "id": "remoteshield",
     "slug": "remoteshield",
     "title": "RemoteShield X",
-    "subtitle": "Secure remote-work browser",
-    "description": "A desktop browser and administration toolkit with Tauri, a Node gateway, VPN checks, and mobile project assets.",
-    "categories": ["Backend / Cloud / DevOps", "Full Stack"],
+    "subtitle": "RdpBrowser · managed access, visible boundaries",
+    "description": "A cross-platform managed browser with organization-scoped identity, enrolled devices, URL policy, live administration, and a separately operated WireGuard network path.",
+    "categories": [
+      "Backend / Cloud / DevOps",
+      "Full Stack",
+      "Developer Tools"
+    ],
     "tags": [
       "Tauri",
       "React",
       "TypeScript",
+      "Flutter",
       "Express",
       "PostgreSQL",
       "WireGuard",
-      "Socket.io"
+      "Socket.IO"
     ],
     "github": "https://github.com/manikantbindass/RdPBrowser",
     "live": null,
-    "featured": false,
-    "status": "Infrastructure prototype",
-    "updatedAt": "2026-04-29T23:59:02+05:30",
-    "users": "Teams investigating controlled remote browsing and central network egress.",
+    "release": {
+      "version": "2.5.0 (source only)",
+      "url": "https://github.com/manikantbindass/RdPBrowser/releases/tag/source-2.5.0-2026-11-20"
+    },
+    "featured": true,
+    "status": "v2.5.0 source release · verified test builds / signed distribution pending",
+    "updatedAt": "2026-11-20T08:27:06Z",
+    "users": "Teams evaluating organization-managed desktop and Android browsing, administrators managing access, and operators deploying a controlled network path.",
+    "problem": "A managed browser needs consistent identity, device and URL policy while keeping application authorization distinct from the operating-system network path.",
+    "solution": "Connect native browsing clients to a tenant-scoped control plane, live administrative workflows, and an independently provisioned WireGuard gateway with explicit release and deployment evidence.",
+    "technicalDetails": [
+      "Tauri 2/Rust/React desktop and Flutter/Android WebView clients request navigation decisions from an Express control plane. Approved website content loads through the native WebView and configured OS route; the API is not a website-content proxy.",
+      "PostgreSQL uses transaction-local organization context, forced row-level security and a restricted runtime role. Session access tokens, rotating refresh families, device key challenges, policy revisions and canonical audit events share tenant ownership.",
+      "URL denies take precedence. Every applicable nonempty allow group must match, including organization, user and directory-group assignments. Socket.IO and authorized admin operations propagate session and policy changes.",
+      "A separately administered WireGuard/Linux firewall/DNS profile controls packet routing. Application device/session revocation and WireGuard peer revocation remain separate operations. Source CI and preview packaging passed; signed distribution still requires protected release acceptance."
+    ],
     "features": [
-      "Tabbed desktop workspace",
-      "VPN state and retry UI",
-      "Session and URL administration",
-      "Gateway subnet policy"
+      "Native desktop and Android browsing",
+      "Organization-scoped identity and sessions",
+      "Device enrollment and lifecycle controls",
+      "Assigned URL policy and navigation checks",
+      "Live administration and audit evidence",
+      "Verified source and preview delivery"
     ],
     "architecture": [
-      "Tauri desktop",
-      "VPN guard / WireGuard",
-      "Express gateway",
-      "PostgreSQL"
+      "Tauri / Flutter managed browser",
+      "TLS edge → Express access decisions",
+      "PostgreSQL tenant state + realtime events",
+      "Native WebView → configured OS route",
+      "WireGuard / firewall / DNS → destination"
     ],
+    "architectureReference": "flowchart LR\n  Client[Tauri / Android native client] --> Edge[Nginx TLS edge]\n  Admin[Administration console] --> Edge\n  Edge --> API[Express control plane]\n  API --> DB[(PostgreSQL tenant state)]\n  API --> Events[Socket.IO session events]\n  Client --> Route[Native WebView / OS routing]\n  Route --> Gateway[Managed WireGuard / firewall / DNS]\n  Gateway --> Site[Destination website]",
     "challenges": [
-      "OS-level enforcement and VPN policy need deployment-specific validation. Source presence does not establish a security certification or support guarantee."
+      "The v2.5.0 release is source only. Preview installers and Android APKs are test artifacts from the preceding application commit, use reserved test origins, and require GitHub sign-in with 30-day artifact retention. Signed installer distribution and install/upgrade acceptance remain pending.",
+      "The repository explicitly warns against the historical v2.4.0 Android APKs: they use the example package ID and generic Flutter launcher. The portfolio links the current source release and verification context rather than promoting those binaries.",
+      "Navigation authorization is a control-plane decision, not proof that every packet uses a tunnel. Redirects, subresources, DNS, IPv6 and tunnel-loss behavior require endpoint policy and packet-level checks on the intended OS profile.",
+      "Physical managed Android acceptance, native enterprise OIDC handoff, live Okta/Entra validation, production signing and per-platform network acceptance remain open. Current source checks passed; older audit and README snapshots describe earlier security failures and must be read with their revision dates."
     ],
-    "screenshots": [],
+    "screenshots": [
+      {
+        "src": "/projects/remoteshield/desktop-browser.png",
+        "caption": "Actual archived Windows Tauri debug application at baseline ae49ba4. Placeholder IP/VPS and protection labels are illustrative, not verified infrastructure status.",
+        "source": "https://github.com/manikantbindass/RdPBrowser/blob/c79bce044737bad8020ea1122417b07f29c3f847/assets/readme/desktop-browser.png"
+      },
+      {
+        "src": "/projects/remoteshield/admin-dashboard.png",
+        "caption": "Actual administration console connected to Express and a disposable PostgreSQL organization. Counts and activity belong to seeded acceptance-test records.",
+        "source": "https://github.com/manikantbindass/RdPBrowser/blob/c79bce044737bad8020ea1122417b07f29c3f847/assets/readme/admin-dashboard.png"
+      },
+      {
+        "src": "/projects/remoteshield/device-management.png",
+        "caption": "Actual enrolled-device inventory from the disposable Console verification lab, showing enrollment and approval state.",
+        "source": "https://github.com/manikantbindass/RdPBrowser/blob/c79bce044737bad8020ea1122417b07f29c3f847/assets/readme/device-management.png"
+      },
+      {
+        "src": "/projects/remoteshield/policy-management.png",
+        "caption": "Actual URL-policy console after authenticated browser tests created, assigned and revised a policy. Values are lab fixtures.",
+        "source": "https://github.com/manikantbindass/RdPBrowser/blob/c79bce044737bad8020ea1122417b07f29c3f847/assets/readme/policy-management.png"
+      }
+    ],
+    "resources": [
+      {
+        "label": "v2.5.0 source release",
+        "url": "https://github.com/manikantbindass/RdPBrowser/releases/tag/source-2.5.0-2026-11-20",
+        "description": "Current main source archives, release notes, test-build links and signing status. This release contains no production installers."
+      },
+      {
+        "label": "Platform preview verification",
+        "url": "https://github.com/manikantbindass/RdPBrowser/actions/runs/44673849388/attempts/2",
+        "description": "Passing Windows, Linux, macOS, Android and server packaging rehearsal. Test origins, disposable Android signer, GitHub sign-in and retention limits apply."
+      },
+      {
+        "label": "Passing source quality checks",
+        "url": "https://github.com/manikantbindass/RdPBrowser/actions/runs/44674520821",
+        "description": "All 13 jobs, including the required gate, passed for reviewed main c79bce0. This supersedes earlier failed scan snapshots."
+      },
+      {
+        "label": "Technical report · PDF",
+        "url": "https://github.com/manikantbindass/RdPBrowser/blob/c79bce044737bad8020ea1122417b07f29c3f847/output/pdf/RemoteShield-X-Technical-Report.pdf",
+        "description": "Committed technical report. Interpret its verification snapshot alongside the newer source release and CI results."
+      },
+      {
+        "label": "Company briefing · PowerPoint",
+        "url": "https://github.com/manikantbindass/RdPBrowser/blob/c79bce044737bad8020ea1122417b07f29c3f847/docs/deliverables/RemoteShield-X-Company-Briefing.pptx",
+        "description": "Committed project presentation covering the platform and operating boundaries."
+      },
+      {
+        "label": "Local setup and administration",
+        "url": "https://github.com/manikantbindass/RdPBrowser/blob/c79bce044737bad8020ea1122417b07f29c3f847/docs/GETTING_STARTED.md",
+        "description": "Loopback Compose stack, first organization bootstrap, desktop tools and Android emulator requirements."
+      },
+      {
+        "label": "Security and network boundaries",
+        "url": "https://github.com/manikantbindass/RdPBrowser/blob/c79bce044737bad8020ea1122417b07f29c3f847/docs/SECURITY_MODEL.md",
+        "description": "Identity, native navigation, tenant isolation, packet enforcement and operator responsibilities."
+      },
+      {
+        "label": "Screenshot provenance",
+        "url": "https://github.com/manikantbindass/RdPBrowser/blob/c79bce044737bad8020ea1122417b07f29c3f847/assets/readme/SCREENSHOTS.md",
+        "description": "Archived desktop and live lab-console captures; no Android browsing capture is claimed."
+      }
+    ],
     "evidence": [
       {
         "path": "README.md",
-        "url": "https://github.com/manikantbindass/RdPBrowser/blob/0aa4b400aeb87c248632f7760db1be30ba4bac88/README.md"
+        "url": "https://github.com/manikantbindass/RdPBrowser/blob/c79bce044737bad8020ea1122417b07f29c3f847/README.md"
+      },
+      {
+        "path": "docs/ARCHITECTURE.md",
+        "url": "https://github.com/manikantbindass/RdPBrowser/blob/c79bce044737bad8020ea1122417b07f29c3f847/docs/ARCHITECTURE.md"
+      },
+      {
+        "path": "docs/SECURITY_MODEL.md",
+        "url": "https://github.com/manikantbindass/RdPBrowser/blob/c79bce044737bad8020ea1122417b07f29c3f847/docs/SECURITY_MODEL.md"
+      },
+      {
+        "path": "docs/GETTING_STARTED.md",
+        "url": "https://github.com/manikantbindass/RdPBrowser/blob/c79bce044737bad8020ea1122417b07f29c3f847/docs/GETTING_STARTED.md"
+      },
+      {
+        "path": "docs/RELEASE_PROCESS.md",
+        "url": "https://github.com/manikantbindass/RdPBrowser/blob/c79bce044737bad8020ea1122417b07f29c3f847/docs/RELEASE_PROCESS.md"
+      },
+      {
+        "path": "docs/RELEASE_READINESS_CHECKLIST.md",
+        "url": "https://github.com/manikantbindass/RdPBrowser/blob/c79bce044737bad8020ea1122417b07f29c3f847/docs/RELEASE_READINESS_CHECKLIST.md"
       },
       {
         "path": "backend/package.json",
-        "url": "https://github.com/manikantbindass/RdPBrowser/blob/0aa4b400aeb87c248632f7760db1be30ba4bac88/backend/package.json"
-      },
-      {
-        "path": "backend/src/__tests__/app.test.js",
-        "url": "https://github.com/manikantbindass/RdPBrowser/blob/0aa4b400aeb87c248632f7760db1be30ba4bac88/backend/src/__tests__/app.test.js"
-      },
-      {
-        "path": "backend/src/index.js",
-        "url": "https://github.com/manikantbindass/RdPBrowser/blob/0aa4b400aeb87c248632f7760db1be30ba4bac88/backend/src/index.js"
-      },
-      {
-        "path": "backend/src/middleware/vpnCheck.js",
-        "url": "https://github.com/manikantbindass/RdPBrowser/blob/0aa4b400aeb87c248632f7760db1be30ba4bac88/backend/src/middleware/vpnCheck.js"
-      },
-      {
-        "path": "backend/src/routes/admin.js",
-        "url": "https://github.com/manikantbindass/RdPBrowser/blob/0aa4b400aeb87c248632f7760db1be30ba4bac88/backend/src/routes/admin.js"
+        "url": "https://github.com/manikantbindass/RdPBrowser/blob/c79bce044737bad8020ea1122417b07f29c3f847/backend/package.json"
       },
       {
         "path": "desktop/package.json",
-        "url": "https://github.com/manikantbindass/RdPBrowser/blob/0aa4b400aeb87c248632f7760db1be30ba4bac88/desktop/package.json"
+        "url": "https://github.com/manikantbindass/RdPBrowser/blob/c79bce044737bad8020ea1122417b07f29c3f847/desktop/package.json"
       },
       {
-        "path": "desktop/src/components/Browser.tsx",
-        "url": "https://github.com/manikantbindass/RdPBrowser/blob/0aa4b400aeb87c248632f7760db1be30ba4bac88/desktop/src/components/Browser.tsx"
+        "path": "desktop/src-tauri/Cargo.toml",
+        "url": "https://github.com/manikantbindass/RdPBrowser/blob/c79bce044737bad8020ea1122417b07f29c3f847/desktop/src-tauri/Cargo.toml"
       },
       {
-        "path": "desktop/src/components/VpnGuard.tsx",
-        "url": "https://github.com/manikantbindass/RdPBrowser/blob/0aa4b400aeb87c248632f7760db1be30ba4bac88/desktop/src/components/VpnGuard.tsx"
+        "path": "android/pubspec.yaml",
+        "url": "https://github.com/manikantbindass/RdPBrowser/blob/c79bce044737bad8020ea1122417b07f29c3f847/android/pubspec.yaml"
+      },
+      {
+        "path": "backend/src/routes/proxy.js",
+        "url": "https://github.com/manikantbindass/RdPBrowser/blob/c79bce044737bad8020ea1122417b07f29c3f847/backend/src/routes/proxy.js"
+      },
+      {
+        "path": "backend/src/services/policy.js",
+        "url": "https://github.com/manikantbindass/RdPBrowser/blob/c79bce044737bad8020ea1122417b07f29c3f847/backend/src/services/policy.js"
+      },
+      {
+        "path": "backend/src/services/sessions.js",
+        "url": "https://github.com/manikantbindass/RdPBrowser/blob/c79bce044737bad8020ea1122417b07f29c3f847/backend/src/services/sessions.js"
+      },
+      {
+        "path": "assets/readme/SCREENSHOTS.md",
+        "url": "https://github.com/manikantbindass/RdPBrowser/blob/c79bce044737bad8020ea1122417b07f29c3f847/assets/readme/SCREENSHOTS.md"
       }
     ],
-    "sourceCommit": "0aa4b400aeb87c248632f7760db1be30ba4bac88",
-    "verifiedAt": "2026-10-25T10:05:44.630328+00:00",
-    "architectureReference": "┌──────────────────────────────────────────────────────────────────┐\n│                        USER DEVICES                              │\n│  ┌────────────────┐  ┌──────────────────┐  ┌─────────────────┐  │\n│  │ Windows Desktop│  │  Linux Desktop   │  │  macOS Desktop  │  │\n│  │  (Tauri App)   │  │   (Tauri App)    │  │   (Tauri App)   │  │\n│  └───────┬────────┘  └────────┬─────────┘  └────────┬────────┘  │\n│          │                   │                       │           │\n│          └───────────────────┼───────────────────────┘           │\n│                              │ WireGuard Encrypted Tunnel        │\n│  ┌───────────────────────────┼───────────────────────────────┐   │\n│  │          Android Device   │                               │   │\n│  │          (Flutter App)    │                               │   │\n│  └───────────────────────────┘                               │   │\n└──────────────────────────────┬───────────────────────────────────┘\n                               │\n                    ┌──────────▼──────────────┐\n                    │   VPS (Static IP)        │\n                    │  ┌────────────────────┐  │\n                    │  │   WireGuard VPN    │  │\n                    │  │   Kill-Switch ON   │  │\n                    │  └────────┬───────────┘  │\n                    │           │              │\n                    │  ┌────────▼───────────┐  │\n                    │  │   Nginx (SSL/TLS)  │  │\n                    │  └────────┬───────────┘  │\n                    │           │              │\n                    │  ┌────────▼───────────┐  │\n                    │  │  Node.js Backend   │  │\n                    │  │  Express + JWT     │  │\n                    │  │  Socket.io         │  │\n                    │  └────────┬───────────┘  │\n                    │           │              │\n                    │  ┌────────▼───────────┐  │\n                    │  │    PostgreSQL DB    │  │\n                    │  └────────────────────┘  │\n                    └──────────┬───────────────┘\n                               │\n                    ┌──────────▼──────────────┐\n                    │       INTERNET           │\n                    └─────────────────────────┘",
-    "problem": "Remote browsing policies depend on device, gateway, and network behavior working together.",
-    "solution": "Combine a Tauri browser, VPN checks, and a central gateway for experiments with controlled browsing.",
-    "technicalDetails": [
-      "The desktop source separates browser tabs, navigation, login, and VPN guards. The Node gateway separates authentication, admin, and proxy routes.",
-      "Networking and operating-system restrictions are deployment concerns in addition to application code. Their effectiveness must be tested on each supported platform."
-    ],
+    "sourceCommit": "c79bce044737bad8020ea1122417b07f29c3f847",
+    "verifiedAt": "2026-11-20",
+    "contentStage": "source",
     "caseStudy": {
-      "architectureSummary": "RemoteShield separates a Tauri/React desktop client, an Express gateway, PostgreSQL-backed session data, admin controls, and WireGuard/Nginx deployment configuration. A Flutter project provides a separate Android path.",
+      "architectureSummary": "RemoteShield X separates trusted native browsing controls from the authorization service and network enforcement layer. Tauri and Flutter clients consult Nginx/Express for live identity, session, device and URL decisions. PostgreSQL enforces tenant ownership, while Socket.IO publishes scoped updates. Website content follows the native WebView and OS route through the separately configured gateway; administrative and packet-level controls have distinct acceptance evidence.",
       "features": [
         {
-          "title": "Tabbed desktop workspace",
-          "description": "Browser, tab bar, sidebar, command UI, and login views are split into independent React components within the Tauri application.",
-          "source": "desktop/src/components/Browser.tsx"
+          "title": "Managed browsing across native clients",
+          "description": "Tauri 2 gives the React desktop workspace a Rust-owned shell, native WebViews, guarded navigation and download handling. Flutter uses Android WebView, secure refresh storage and device key possession. Compiled previews are available for testing; physical-device and signed install acceptance remain separate gates.",
+          "source": "docs/ARCHITECTURE.md"
         },
         {
-          "title": "VPN state and retry UI",
-          "description": "VpnGuard explains the tunnel requirement and provides retry behavior when the application determines access is blocked.",
-          "source": "desktop/src/components/VpnGuard.tsx"
+          "title": "Live identity and revocable sessions",
+          "description": "The control plane signs access tokens and stores hashed rotating refresh families. Protected requests re-evaluate organization, account and session state. Session maximum age, device proof and administrative termination remain server-owned decisions instead of trusting a stale client badge.",
+          "source": "backend/src/services/sessions.js"
         },
         {
-          "title": "Session and URL administration",
-          "description": "Role-guarded routes inspect sessions, force logout, query IP logs, and manage blocked URLs; selected actions notify clients through Socket.io.",
-          "source": "backend/src/routes/admin.js"
+          "title": "Scoped policy with explicit deny precedence",
+          "description": "Organization, user and directory-group assignments supply versioned policies. Deny patterns win, and each applicable nonempty allow group must admit the destination. Navigation records the result and returns an authorization decision rather than relaying the destination website.",
+          "source": "backend/src/services/policy.js"
         },
         {
-          "title": "Gateway subnet policy",
-          "description": "Outside configured development/test bypass modes, VPN middleware checks the request address against VPN_SUBNET.",
-          "source": "backend/src/middleware/vpnCheck.js"
+          "title": "Device enrollment and operational response",
+          "description": "Registered public keys, session-bound challenges, approval, quarantine and revocation form a device lifecycle. Administrators inspect users, devices, active sessions, incidents and audit records. App revocation and gateway peer removal require separate operational actions.",
+          "source": "docs/SECURITY_MODEL.md"
+        },
+        {
+          "title": "Tenant-scoped data and console operations",
+          "description": "PostgreSQL migrations, transaction-local organization context, forced RLS and a restricted runtime role preserve ownership boundaries. The same-origin console and realtime operations use authenticated APIs; screenshots show disposable lab records rather than customer production data.",
+          "source": "docs/ARCHITECTURE.md"
+        },
+        {
+          "title": "Delivery with inspectable provenance",
+          "description": "The source release identifies the exact reviewed main revision. A separate artifact-only preview exercises platform builds, inventories, checksums and independent verification. Protected signing and publication are explicit later stages; the source release does not ship signed production installers.",
+          "source": "docs/RELEASE_PROCESS.md"
         }
       ],
       "technologies": [
         {
           "name": "Tauri",
-          "description": "Wraps the desktop UI with native Rust integration.",
+          "version": "2.0.0 declared",
           "stage": "source",
-          "version": "^2.10.1",
-          "source": "desktop/package.json"
+          "source": "desktop/src-tauri/Cargo.toml",
+          "description": "Rust-owned desktop shell, native capabilities, WebView navigation and guarded client integration."
         },
         {
           "name": "React",
-          "description": "Builds browser navigation, login, and dashboard views.",
-          "stage": "source",
           "version": "^18.2.0",
-          "source": "desktop/package.json"
+          "stage": "source",
+          "source": "desktop/package.json",
+          "description": "Desktop browsing workspace, tabs, connection state and authenticated client controls."
         },
         {
           "name": "TypeScript",
-          "description": "Types desktop state and component interfaces.",
-          "stage": "source",
           "version": "^5.2.2",
-          "source": "desktop/package.json"
+          "stage": "source",
+          "source": "desktop/package.json",
+          "description": "Typed desktop state, policy responses and native shell interactions."
+        },
+        {
+          "name": "Flutter",
+          "version": ">=3.38.0",
+          "stage": "source",
+          "source": "android/pubspec.yaml",
+          "description": "Android managed browsing, secure session storage and native WebView presentation."
         },
         {
           "name": "Express",
-          "description": "Routes identity, proxy, and administration operations.",
-          "stage": "source",
           "version": "^4.18.2",
-          "source": "backend/package.json"
+          "stage": "source",
+          "source": "backend/package.json",
+          "description": "Versioned authorization, identity, enrollment and administrative HTTP operations on Node 24."
         },
         {
           "name": "PostgreSQL",
-          "description": "Stores gateway identity and session records.",
+          "version": "15 reference topology",
           "stage": "source",
-          "source": "README.md"
+          "source": "docs/ARCHITECTURE.md",
+          "description": "Tenant-owned records, session persistence, audited migrations and forced row-level security."
         },
         {
           "name": "WireGuard",
-          "description": "Provides the intended deployment tunnel.",
           "stage": "source",
-          "source": "README.md"
+          "source": "docs/SECURITY_MODEL.md",
+          "description": "Separately provisioned device peers and tunnel path with firewall, routing and DNS acceptance."
         },
         {
-          "name": "Socket.io",
-          "description": "Carries selected session and URL-policy updates.",
-          "stage": "source",
+          "name": "Socket.IO",
           "version": "^4.8.3",
-          "source": "backend/package.json"
+          "stage": "source",
+          "source": "backend/package.json",
+          "description": "Authorized realtime session, policy and administrative event delivery."
         }
       ],
       "decisions": [
         {
-          "title": "Separate UI guards from network policy",
-          "description": "The desktop reports tunnel state while gateway middleware checks the source subnet.",
-          "tradeoff": "A UI guard alone is not OS-level enforcement; trusted forwarding and tunnel-drop behavior need deployment-specific validation.",
-          "source": "backend/src/middleware/vpnCheck.js"
+          "title": "Keep authorization separate from page traffic",
+          "description": "Return a live access decision through the control plane while native WebViews load approved sites using the configured OS route. Model gateway, DNS and endpoint controls as independently operated parts of the system.",
+          "source": "backend/src/routes/proxy.js",
+          "tradeoff": "Application admission can pass while the intended network profile is misconfigured. Operators must verify actual routes, DNS, IPv6 and tunnel-loss behavior rather than infer protection from a connection indicator."
         },
         {
-          "title": "Centralize session administration",
-          "description": "Session and policy changes are protected behind administrative role checks.",
-          "tradeoff": "Remote controls require correct authorization, logging, and a deployment threat review.",
-          "source": "backend/src/routes/admin.js"
+          "title": "Enforce tenant ownership below the UI",
+          "description": "Set transaction-local organization context and use a restricted runtime database role with forced row-level security. Keep migrations and first-organization bootstrap in owner-scoped operator workflows.",
+          "source": "docs/ARCHITECTURE.md",
+          "tradeoff": "This adds operational roles and migration discipline. Administrative authorization and ownership still require integration checks, and host operators remain within the deployment trust boundary."
+        },
+        {
+          "title": "Publish source before signed distribution",
+          "description": "Separate source availability, artifact-only verification, release-candidate signing and stable publication. Link the exact source SHA and current preview evidence without presenting historical APKs as current builds.",
+          "source": "docs/RELEASE_PROCESS.md",
+          "tradeoff": "Test artifacts have temporary retention and reserved server origins. Users need an approved configured build and completed signing/install acceptance before a supported deployment."
         }
       ],
       "outcomes": [
         {
-          "title": "Published deliverable",
-          "description": "Desktop browser source, gateway/admin routes, Android project files, and infrastructure configuration.",
+          "title": "Updated implementation and source release",
+          "description": "Main c79bce0 is published as the v2.5.0 source-only release. The source quality run passed all 13 jobs, including security, contracts/PostgreSQL, native platform checks, isolated networking and the aggregate gate. Earlier audit failures describe older revisions.",
           "source": "README.md"
         },
         {
-          "title": "Verification assets",
-          "description": "The backend includes an application test file; OS-specific VPN behavior and security effectiveness need independent execution tests.",
-          "source": "backend/src/__tests__/app.test.js"
+          "title": "Real UI evidence and platform previews",
+          "description": "Four documented captures show the archived desktop application and a working administration fixture. The preview workflow passed packaging and independent verification for desktop, Android and server test artifacts; signed distribution and target-environment acceptance remain pending.",
+          "source": "assets/readme/SCREENSHOTS.md"
         }
       ],
       "workflow": [
-        "Sign in through the desktop client.",
-        "Establish/check the configured VPN tunnel.",
-        "Route permitted requests through the gateway.",
-        "Inspect sessions and apply administrator policy changes."
+        "Start the loopback control plane and bootstrap a disposable organization and administrator.",
+        "Enroll and approve a test device, configure its session and assigned URL policy.",
+        "Request navigation admission, then load permitted pages through the native WebView and configured OS path.",
+        "Review events, revise policies or revoke sessions/devices; independently revoke gateway peers when required.",
+        "Check packet behavior and release provenance before promoting a configured signed build."
       ],
-      "commands": ["cd backend", "npm install", "npm run dev"],
-      "setup": "Use PostgreSQL for gateway persistence. Desktop builds require Rust/Tauri OS prerequisites; real tunnel enforcement requires WireGuard/Nginx configuration. Development mode deliberately bypasses subnet checks."
-    },
-    "contentStage": "source"
+      "commands": [
+        "node scripts/setup-dev.mjs",
+        "npm ci --prefix backend",
+        "npm run config:check --prefix backend",
+        "docker compose --env-file docker/.env -f docker/docker-compose.yml -f docker/compose.dev.yml up -d --build --wait",
+        "npm ci --prefix desktop",
+        "npm run tauri:dev --prefix desktop"
+      ],
+      "setup": "Use Node 24, PostgreSQL 15 and Docker Compose 2.24.4+ for the local control plane. The setup script creates local credentials once; bootstrap the first administrator using the documented private inputs. The console runs at loopback port 8180 and readiness at 3001. Desktop needs Rust and OS-specific Tauri dependencies. Android needs the documented Flutter/Java toolchain; managed deployments require their own approved HTTPS origin, device peers and tested network policy."
+    }
   },
   {
     "id": "intramind",
@@ -4057,7 +4215,10 @@
     "title": "Intramind.AI",
     "subtitle": "Knowledge retrieval exploration",
     "description": "An early knowledge-platform scaffold exploring a Next.js interface and a FastAPI document-questioning architecture.",
-    "categories": ["AI / Machine Learning", "Backend / Cloud / DevOps"],
+    "categories": [
+      "AI / Machine Learning",
+      "Backend / Cloud / DevOps"
+    ],
     "tags": [
       "Next.js",
       "React",
@@ -4222,7 +4383,11 @@
         "Inspect the API/chat entry points.",
         "Extend the pipeline with a document index and query retrieval."
       ],
-      "commands": ["cd knowflow-ai/frontend", "npm install", "npm run dev"],
+      "commands": [
+        "cd knowflow-ai/frontend",
+        "npm install",
+        "npm run dev"
+      ],
       "setup": "The frontend scaffold can be inspected with Node.js/npm. Several backend imports refer to modules absent from the same partial directory layout, so no complete backend startup is asserted."
     },
     "contentStage": "source"
@@ -4233,8 +4398,17 @@
     "title": "MetaRole.AI",
     "subtitle": "AI career co-pilot",
     "description": "Resume analysis, skill graphs, career suggestions, and tailored document generation in a terminal-inspired workspace.",
-    "categories": ["AI / Machine Learning", "Full Stack"],
-    "tags": ["Next.js", "TypeScript", "OpenAI", "D3.js", "PDF.js"],
+    "categories": [
+      "AI / Machine Learning",
+      "Full Stack"
+    ],
+    "tags": [
+      "Next.js",
+      "TypeScript",
+      "OpenAI",
+      "D3.js",
+      "PDF.js"
+    ],
     "github": "https://github.com/manikantbindass/MetaRole.ai",
     "live": "https://meta-role-ai.vercel.app",
     "featured": false,
@@ -4380,7 +4554,11 @@
         "Analyze skills and display graph nodes/edges.",
         "Request role suggestions or generated material with that session."
       ],
-      "commands": ["cd frontend", "npm install", "npm run dev"],
+      "commands": [
+        "cd frontend",
+        "npm install",
+        "npm run dev"
+      ],
       "setup": "Use Node.js/npm. Optional OpenAI credentials enable model output; read setup.md before configuring the separate backend and AI-engine directories."
     },
     "contentStage": "source"
@@ -4391,8 +4569,18 @@
     "title": "SecureRxChain",
     "subtitle": "Pharmaceutical traceability",
     "description": "A drug-batch tracking prototype combining role-based dashboards, QR verification, and wallet-signed registry interactions.",
-    "categories": ["Blockchain / Web3", "Full Stack"],
-    "tags": ["React", "Express", "MongoDB", "Solidity", "Ethers.js", "Flask"],
+    "categories": [
+      "Blockchain / Web3",
+      "Full Stack"
+    ],
+    "tags": [
+      "React",
+      "Express",
+      "MongoDB",
+      "Solidity",
+      "Ethers.js",
+      "Flask"
+    ],
     "github": "https://github.com/manikantbindass/SecureRxChain-Blockchain-Based-Drug-Supply-Chain-Counterfeit-Medicine-Prevention-System",
     "live": "https://securerxchain.vercel.app",
     "featured": false,
@@ -4559,7 +4747,11 @@
         "Register or transfer a batch through a signed transaction.",
         "Inspect metadata and provenance through the batch verification link."
       ],
-      "commands": ["cd frontend", "npm install", "npm run dev"],
+      "commands": [
+        "cd frontend",
+        "npm install",
+        "npm run dev"
+      ],
       "setup": "Configure MongoDB, the Express service, and a deployed EVM registry separately. Python is needed for the optional Flask service. The root scripts reference older client/server folder names; follow the actual frontend/backend directories."
     },
     "contentStage": "source"
@@ -4575,7 +4767,13 @@
       "AI / Machine Learning",
       "Developer Tools"
     ],
-    "tags": ["Python", "Solidity", "React", "Slither", "Transformers"],
+    "tags": [
+      "Python",
+      "Solidity",
+      "React",
+      "Slither",
+      "Transformers"
+    ],
     "github": "https://github.com/manikantbindass/SolGuardAI-An-AI-Powered-Blockchain-Smart-Contract-",
     "live": null,
     "featured": false,
@@ -4723,7 +4921,11 @@
         "Request optional reasoning and candidate patches.",
         "Inspect phase reports and independently validate each proposed change."
       ],
-      "commands": ["cd frontend", "npm install", "npm run dev"],
+      "commands": [
+        "cd frontend",
+        "npm install",
+        "npm run dev"
+      ],
       "setup": "The frontend uses Node.js/npm. Python phases require their selected Solidity/static/model tools; the repository has no complete root bootstrap manifest for every agent dependency."
     },
     "contentStage": "source"
@@ -4734,8 +4936,17 @@
     "title": "AI-Adaptive Linux Scheduler",
     "subtitle": "Workload scheduling visualization",
     "description": "A full-stack simulation of process metrics and rule-based priority adjustments, visualized through a responsive monitoring dashboard.",
-    "categories": ["Backend / Cloud / DevOps", "Developer Tools"],
-    "tags": ["React", "Vite", "Express", "Recharts", "Framer Motion"],
+    "categories": [
+      "Backend / Cloud / DevOps",
+      "Developer Tools"
+    ],
+    "tags": [
+      "React",
+      "Vite",
+      "Express",
+      "Recharts",
+      "Framer Motion"
+    ],
     "github": "https://github.com/manikantbindass/AI-adaptive-LINUX-Schedular-Dashboard-for-workload-optimization",
     "live": null,
     "featured": false,
@@ -4877,7 +5088,11 @@
         "Apply the high-load rule to eligible records.",
         "Inspect adjusted priorities and optimization logs."
       ],
-      "commands": ["cd backend", "npm install", "npm run dev"],
+      "commands": [
+        "cd backend",
+        "npm install",
+        "npm run dev"
+      ],
       "setup": "Use Node.js/npm and start the frontend Vite app separately. The backend listens on port 5000; all process actions affect simulation records only."
     },
     "contentStage": "source"

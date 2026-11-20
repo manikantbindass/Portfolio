@@ -1,0 +1,26 @@
+.scene { opacity: .8; }
+.orbit { transform-origin: 310px 310px; animation: orbit 90s linear infinite; }
+.browser { animation: float 14s ease-in-out infinite; }
+.phone { animation: float 14s ease-in-out -7s infinite; }
+.shield { animation: float 12s ease-in-out -3s infinite; }
+.controlFlow { stroke-dasharray: 9 91; animation: flow 7s linear infinite; }
+.trafficFlow { stroke-dasharray: 13 87; animation: flow 11s linear -4s infinite; }
+.check { animation: pulse 6s ease-in-out infinite; }
+.card { position: relative; }
+.card[data-paused="true"] * { animation-play-state: paused; }
+.preview { overflow: hidden; background: var(--bg2); }
+.capture:global(.project-image) { aspect-ratio: 16 / 9; }
+.capture:global(.project-image) img { object-fit: contain; }
+:global(.project-card):hover .capture:global(.project-image) img { transform: none; }
+.previewScene { pointer-events: none; padding: 0 6px; border-top: 1px solid var(--border); background: linear-gradient(110deg, color-mix(in srgb, var(--accent) 8%, transparent), color-mix(in srgb, var(--teal) 4%, transparent)); }
+.previewScene svg { display: block; width: 100%; }
+.cardControl { position: absolute; z-index: 2; top: 23px; right: 61px; display: grid; place-items: center; width: 30px; height: 30px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg2); color: var(--muted); cursor: pointer; }
+.cardControl:hover { color: var(--fg); border-color: var(--accent); }
+@keyframes orbit { to { transform: rotate(360deg); } }
+@keyframes float { 50% { transform: translateY(-9px); } }
+@keyframes flow { to { stroke-dashoffset: -100; } }
+@keyframes pulse { 50% { opacity: .4; } }
+@media (max-width: 900px) { .scene { opacity: .35; } }
+@media (max-width: 600px) { .scene { opacity: .23; } }
+@media (prefers-reduced-motion: reduce) { .scene *, .previewScene * { animation: none !important; } .cardControl { display: none; } }
+@media (prefers-reduced-transparency: reduce) { .previewScene { background: var(--bg2); } }

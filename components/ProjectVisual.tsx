@@ -11,6 +11,8 @@ import cityStyles from "./CityPulseGlassHero.module.css";
 import { KubeSentinelAnimation } from "./KubeSentinelGlassHero";
 import kubeStyles from "./KubeSentinelGlassHero.module.css";
 import neuroStyles from "./NeuroVisionGlassHero.module.css";
+import { RemoteShieldAnimation } from "./RemoteShieldGlassHero";
+import remoteStyles from "./RemoteShieldGlassHero.module.css";
 export default function ProjectVisual({
   project,
   priority = false,
@@ -24,6 +26,15 @@ export default function ProjectVisual({
   const image = project.screenshots[0];
   const showCat = priority && project.slug === "dsa";
   const showChase = !priority && project.slug === "dsa";
+  if (project.slug === "remoteshield" && !priority && image) return (
+    <div className={remoteStyles.preview}>
+      <div className={`project-image ${remoteStyles.capture}`}>
+        <Image src={image.src} alt={image.caption} fill sizes="(max-width:640px) 100vw, (max-width:1000px) 50vw, 420px" />
+        <span className="capture-label">ARCHIVED DESKTOP CAPTURE</span>
+      </div>
+      <RemoteShieldAnimation preview />
+    </div>
+  );
   if (project.slug === "kubesentinel" && !priority) return (
     <div className={`project-diagram ${kubeStyles.preview}`} aria-label="KubeSentinel animated cluster illustration">
       <KubeSentinelAnimation preview />

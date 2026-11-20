@@ -1,12 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1400" height="220" viewBox="0 0 1400 220" role="img" aria-labelledby="title desc">
   <title id="title">Let's build what's next — Manikant Kumar</title>
-  <desc id="desc">A calm glass footer with gently moving lavender and teal connection lines and an invitation to collaborate.</desc>
+  <desc id="desc">A calm glass footer with a floating access shield and lock, gently moving lavender and teal connection lines, and an invitation to collaborate.</desc>
   <defs>
     <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#10162a"/><stop offset="1" stop-color="#0b1120"/></linearGradient>
     <linearGradient id="flow"><stop stop-color="#818cf8" stop-opacity="0"/><stop offset=".3" stop-color="#a79be6"/><stop offset=".7" stop-color="#6ccbbf"/><stop offset="1" stop-color="#4bd8c1" stop-opacity="0"/></linearGradient>
     <clipPath id="bounds"><rect x="1" y="1" width="1398" height="218" rx="26"/></clipPath>
   </defs>
   <style>
+    .rs-flow{stroke-dasharray:10 90;animation:rs-flow 8s linear infinite}.rs-lock{animation:rs-pulse 6s ease-in-out infinite}@keyframes rs-flow{to{stroke-dashoffset:-100}}@keyframes rs-pulse{50%{opacity:.4}}@media(prefers-reduced-motion:reduce){.rs-flow,.rs-lock{animation:none}}
     .nv-scan{animation:nv-scan 8s ease-in-out infinite}@keyframes nv-scan{0%,100%{transform:translateY(0);opacity:.1}50%{transform:translateY(27px);opacity:.8}}@media(prefers-reduced-motion:reduce){.nv-scan{animation:none}}
     .kube-core{animation:kube-float 10s ease-in-out infinite}@keyframes kube-float{50%{transform:translateY(-4px)}}@media(prefers-reduced-motion:reduce){.kube-core{animation:none}}
     .city-flow{stroke-dasharray:6 94;animation:city-flow 8s linear infinite}.city-light{animation:city-light 5s ease-in-out infinite}@keyframes city-flow{to{stroke-dashoffset:-100}}@keyframes city-light{50%{opacity:.3}}
@@ -27,7 +28,7 @@
     <path class="signal second" d="M-80 177C240 52 430 286 710 185S1130 90 1480 179" fill="none" stroke="url(#flow)" stroke-width="2"/>
     <g fill="none" stroke="#a5adff" stroke-opacity=".3"><path d="M1202 108q49-40 98 0m-98 0q49 72 98 40m-98-40 98 20"/></g>
     <g transform="translate(92 85)"><rect x="-16" y="-18" width="142" height="99" rx="23" fill="#182238" fill-opacity=".8" stroke="#a5adff" stroke-opacity=".3"/><path d="M0 60h108M6 60V27l18-9 18 9v33m7 0V8l20-10 20 10v52m7 0V39l12-6" fill="none" stroke="#a5adff" stroke-opacity=".65" stroke-width="1.3"/><path class="city-flow" pathLength="100" d="M0 60h108" fill="none" stroke="#68dacb" stroke-width="1.5"/><g class="city-light" stroke="#68dacb"><path d="M14 35h8m-8 11h8m35-29h9m-9 12h9m-9 12h9m-9 12h9"/></g></g>
-    <g transform="translate(1251 113)"><path d="M0-40 29-28V-3C29 18 15 32 0 41-15 32-29 18-29-3v-25Z" fill="#182238" stroke="#68dacb" stroke-opacity=".55"/><g class="kube-core" fill="none" stroke="#68dacb" stroke-width="1.3" stroke-linejoin="round"><rect x="-14" y="-20" width="28" height="40" rx="9"/><path d="M-3-10c-9-5-13 5-9 11-4 8 2 13 9 9m6-20c9-5 13 5 9 11 4 8-2 13-9 9"/><path class="nv-scan" d="M-17-13h34"/></g><g class="node second" fill="#b4a1f5"><circle cx="-52" cy="-5" r="4"/><circle cx="49" cy="-5" r="4"/><circle cx="49" cy="35" r="4"/></g><path class="shield-signal" pathLength="100" d="M-52-5H-29M29-5H49M29 15 49 35" fill="none" stroke="#68dacb" stroke-width="1.5"/></g>
+    <g transform="translate(1251 113)"><path d="M0-40 29-28V-3C29 18 15 32 0 41-15 32-29 18-29-3v-25Z" fill="#182238" stroke="#68dacb" stroke-opacity=".55"/><g class="kube-core" fill="none" stroke="#68dacb" stroke-width="1.3" stroke-linejoin="round"><rect class="rs-lock" x="-13" y="-4" width="26" height="24" rx="7"/><path d="M-7-4v-9a7 7 0 0 1 14 0v9"/><circle class="rs-lock" cy="7" r="2" fill="#68dacb"/></g><g class="node second" fill="#b4a1f5"><circle cx="-52" cy="-5" r="4"/><circle cx="49" cy="-5" r="4"/><circle cx="49" cy="35" r="4"/></g><path class="rs-flow" pathLength="100" d="M-52-5H-29M29-5H49M29 15 49 35" fill="none" stroke="#68dacb" stroke-width="1.5"/></g>
     <g text-anchor="middle" font-family="Segoe UI,Arial,sans-serif">
       <text x="700" y="56" fill="#a5adcf" font-size="10" letter-spacing="3.5">FROM AN IDEA TO SOMETHING USEFUL</text>
       <text x="700" y="108" fill="#eef1fc" font-size="37" font-weight="500" letter-spacing="-1">Let's build what's next.</text>
