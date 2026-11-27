@@ -11,10 +11,10 @@ const config: Config = {
     extend: {
       colors: {
         space: {
-          950: "var(--obsidian)",
-          900: "var(--espresso)",
-          800: "var(--espresso)",
-          700: "var(--espresso)",
+          950: "var(--ink)",
+          900: "var(--ink-soft)",
+          800: "var(--ink-soft)",
+          700: "var(--ink-soft)",
         },
         accent:  { DEFAULT: "var(--accent)", light: "var(--accent)", dark: "var(--accent)" },
         violet:  { DEFAULT: "var(--accent2)", light: "var(--accent2)" },

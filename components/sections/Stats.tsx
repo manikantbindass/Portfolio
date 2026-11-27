@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { usePortfolioStats } from "@/components/StatsProvider";
+import { useWarmPalette } from "@/lib/appearance";
 import DifficultyChart from "@/components/sections/DifficultyChart";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 function Source({
@@ -26,6 +27,7 @@ function Source({
 }
 export default function Stats() {
   const { lc, gh } = usePortfolioStats();
+  const contributionColor = useWarmPalette() ? "795541" : "818cf8";
   return (
     <section id="stats" className="section-pad">
       <div className="content-width">
@@ -141,7 +143,8 @@ export default function Stats() {
             rel="noopener noreferrer"
           >
             <img
-              src="https://ghchart.rshah.org/795541/manikantbindass"
+              key={contributionColor}
+              src={`https://ghchart.rshah.org/${contributionColor}/manikantbindass`}
               alt="Manikant Kumar's public GitHub contribution calendar"
               width="1000"
               height="160"

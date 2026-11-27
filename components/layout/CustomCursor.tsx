@@ -358,7 +358,7 @@ export default function CustomCursor() {
                 width: "100%",
                 height: "100%",
                 borderRadius: "50%",
-                background: "color-mix(in srgb, var(--obsidian) 85%, transparent)",
+                background: "color-mix(in srgb, var(--ink) 85%, transparent)",
                 backdropFilter: "blur(4px)",
               }}
             />

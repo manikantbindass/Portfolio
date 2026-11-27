@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Moon, Sun, Menu, X, ArrowUpRight } from "lucide-react";
+import { Moon, Sun, Palette, Menu, X, ArrowUpRight } from "lucide-react";
 const links = [
   ["hero", "Home"],
   ["about", "About"],
@@ -15,13 +15,18 @@ const links = [
 ];
 export default function TopBar({
   dark,
-  toggle,
+  warm,
+  toggleMode,
+  togglePalette,
 }: {
   dark: boolean;
-  toggle: () => void;
+  warm: boolean;
+  toggleMode: () => void;
+  togglePalette: () => void;
 }) {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("hero");
+  const paletteLabel = warm ? "Switch to classic palette" : "Switch to warm palette";
   useEffect(() => {
     const obs = new IntersectionObserver(
       (entries) => {
@@ -67,11 +72,21 @@ export default function TopBar({
       </nav>
       <div className="header-actions">
         <button
+          type="button"
           className="icon-button"
-          onClick={toggle}
+          onClick={toggleMode}
           aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
         >
           {dark ? <Sun size={18} /> : <Moon size={18} />}
+        </button>
+        <button
+          type="button"
+          className="icon-button palette-toggle"
+          onClick={togglePalette}
+          aria-label={paletteLabel}
+          title={paletteLabel}
+        >
+          <Palette size={18} aria-hidden="true" />
         </button>
         <Link className="button header-contact" href="/#contact">
           Let’s talk <ArrowUpRight size={14} />

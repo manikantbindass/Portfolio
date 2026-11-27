@@ -151,7 +151,7 @@ export default function Hero() {
               className="flex items-center gap-2 text-sm font-semibold text-[var(--action-ink)] px-6 py-3 rounded-2xl transition-all"
               style={{
                 background: "var(--action-fill)",
-                boxShadow: "0 8px 24px color-mix(in srgb, var(--mocha) 28%, transparent)",
+                boxShadow: "0 8px 24px color-mix(in srgb, var(--accent-deep) 28%, transparent)",
               }}
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.97 }}

@@ -5,9 +5,12 @@
   display: block;
   min-height: max(900px, 100svh);
   padding: 150px 0 100px;
+  background: radial-gradient(ellipse at 12% 22%, color-mix(in srgb, var(--accent) 7%, transparent), transparent 48%), var(--bg);
+}
+:global([data-palette="warm"]) .hero:global(#hero) {
   background:
-    radial-gradient(ellipse at 82% 26%, color-mix(in srgb, var(--beige) 23%, transparent), transparent 58%),
-    radial-gradient(ellipse at 8% 14%, color-mix(in srgb, var(--mocha) 9%, transparent), transparent 45%),
+    radial-gradient(ellipse at 82% 26%, color-mix(in srgb, var(--accent-light) 23%, transparent), transparent 58%),
+    radial-gradient(ellipse at 8% 14%, color-mix(in srgb, var(--accent-deep) 9%, transparent), transparent 45%),
     linear-gradient(150deg, var(--bg), var(--bg2));
 }
 .portrait {

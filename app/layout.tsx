@@ -44,6 +44,7 @@ export default function RootLayout({
     <html
       lang="en"
       className="dark"
+      data-palette="warm"
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
@@ -64,7 +65,17 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `
-          (function(){try{var t=localStorage.getItem('theme');var d=matchMedia('(prefers-color-scheme:dark)').matches;document.documentElement.classList.toggle('dark',t==='dark'||(t!=='light'&&d));}catch(e){document.documentElement.classList.toggle('dark',matchMedia('(prefers-color-scheme:dark)').matches);}})();
+          (function () {
+            var root = document.documentElement;
+            var prefersDark = matchMedia('(prefers-color-scheme: dark)').matches;
+            try {
+              var mode = localStorage.getItem('theme');
+              root.classList.toggle('dark', mode === 'dark' || (mode !== 'light' && prefersDark));
+              root.dataset.palette = localStorage.getItem('portfolio-palette') === 'classic' ? 'classic' : 'warm';
+            } catch {
+              root.classList.toggle('dark', prefersDark);
+            }
+          })();
         `,
           }}
         />

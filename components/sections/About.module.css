@@ -18,6 +18,26 @@
   --about-scene-opacity: 0.4;
   --about-panel: color-mix(in srgb, var(--bg2) 82%, transparent);
 }
+:global([data-palette="classic"]) .section {
+  --about-scene-wash: rgba(247, 250, 255, 0.85);
+  --about-scene-wash-soft: rgba(247, 250, 255, 0.6);
+  --about-panel: rgba(255, 255, 255, 0.76);
+  --about-edge: rgba(255, 255, 255, 0.9);
+  --about-inset: rgba(255, 255, 255, 0.85);
+  --about-chip: rgba(255, 255, 255, 0.48);
+  --about-line: rgba(60, 65, 75, 0.16);
+  --about-shade: linear-gradient(180deg, rgba(235, 241, 251, 0.36), rgba(235, 241, 251, 0.12) 40%, rgba(235, 241, 251, 0.42));
+}
+:global([data-palette="classic"].dark) .section {
+  --about-scene-wash: rgba(9, 15, 29, 0.85);
+  --about-scene-wash-soft: rgba(9, 15, 29, 0.72);
+  --about-panel: rgba(13, 19, 33, 0.68);
+  --about-edge: rgba(235, 238, 245, 0.18);
+  --about-inset: rgba(255, 255, 255, 0.14);
+  --about-chip: rgba(255, 255, 255, 0.065);
+  --about-line: rgba(235, 238, 245, 0.16);
+  --about-shade: linear-gradient(180deg, rgba(6, 9, 19, 0.5), rgba(12, 17, 31, 0.16) 40%, rgba(6, 9, 19, 0.48));
+}
 .section[data-animations-paused="true"] { --about-animation-state: paused; }
 
 .heading { min-height: 650px; }

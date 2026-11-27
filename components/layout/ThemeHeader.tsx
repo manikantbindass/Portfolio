@@ -1,26 +1,26 @@
 "use client";
-import { useSyncExternalStore } from "react";
+import { useDarkMode, useWarmPalette } from "@/lib/appearance";
 import TopBar from "./TopBar";
-const subscribe = (callback: () => void) => {
-  const observer = new MutationObserver(callback);
-  observer.observe(document.documentElement, {
-    attributes: true,
-    attributeFilter: ["class"],
-  });
-  return () => observer.disconnect();
-};
+
 export default function ThemeHeader() {
-  const dark = useSyncExternalStore(
-    subscribe,
-    () => document.documentElement.classList.contains("dark"),
-    () => true,
-  );
-  function toggle() {
+  const dark = useDarkMode();
+  const warm = useWarmPalette();
+
+  function toggleMode() {
     const next = !dark;
     document.documentElement.classList.toggle("dark", next);
     try {
       localStorage.setItem("theme", next ? "dark" : "light");
     } catch {}
   }
-  return <TopBar dark={dark} toggle={toggle} />;
+
+  function togglePalette() {
+    const palette = warm ? "classic" : "warm";
+    document.documentElement.dataset.palette = palette;
+    try {
+      localStorage.setItem("portfolio-palette", palette);
+    } catch {}
+  }
+
+  return <TopBar dark={dark} warm={warm} toggleMode={toggleMode} togglePalette={togglePalette} />;
 }
