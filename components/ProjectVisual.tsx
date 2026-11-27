@@ -16,16 +16,18 @@ import remoteStyles from "./RemoteShieldGlassHero.module.css";
 export default function ProjectVisual({
   project,
   priority = false,
+  showStudyBreak = true,
 }: {
   project: Pick<
     Project,
     "slug" | "title" | "screenshots" | "architecture" | "contentStage" | "visualKind"
   >;
   priority?: boolean;
+  showStudyBreak?: boolean;
 }) {
   const image = project.screenshots[0];
   const showCat = priority && project.slug === "dsa";
-  const showChase = !priority && project.slug === "dsa";
+  const showChase = showStudyBreak && !priority && project.slug === "dsa";
   if (project.slug === "remoteshield" && !priority && image) return (
     <div className={remoteStyles.preview}>
       <div className={`project-image ${remoteStyles.capture}`}>

@@ -68,6 +68,11 @@ export default function Hero() {
       id="hero"
       className={styles.hero}
     >
+      <div className={styles.orbit} aria-hidden="true">
+        <span className={styles.orbitRing} />
+        <span className={styles.orbitRing} />
+        <span className={styles.orbitRing} />
+      </div>
       <motion.div
         className={styles.portrait}
         initial={{ opacity: 0 }}

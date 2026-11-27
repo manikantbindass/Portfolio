@@ -3,6 +3,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import ProjectVisual from "@/components/ProjectVisual";
+import ProjectSpotlight from "@/components/sections/ProjectSpotlight";
 import { projects, projectCategories } from "@/lib/projects";
 import { isProjectPinned, pinnedProjectSlugs } from "@/lib/project-order";
 import { ArrowUpRight, Search, SlidersHorizontal, X, Pause, Play } from "lucide-react";
@@ -46,6 +47,7 @@ export default function Projects() {
             Explore the decisions behind the code.
           </p>
         </div>
+        <ProjectSpotlight />
         <div className="project-toolbar">
           <div
             className="filter-list"

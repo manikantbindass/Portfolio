@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { usePortfolioStats } from "@/components/StatsProvider";
+import DifficultyChart from "@/components/sections/DifficultyChart";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 function Source({
   provider,
@@ -127,6 +128,7 @@ export default function Stats() {
             <Source {...gh} />
           </motion.article>
         </div>
+        <DifficultyChart stats={lc} />
         <div className="glass contribution-card">
           <h3>Small steps. A visible trail.</h3>
           <p>

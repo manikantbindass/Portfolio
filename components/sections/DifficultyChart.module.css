@@ -1,0 +1,135 @@
+@property --difficulty-chart-angle {
+  syntax: "<angle>";
+  initial-value: 360deg;
+  inherits: false;
+}
+
+.chart {
+  display: grid;
+  grid-template-columns: minmax(200px, 0.48fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(22px, 5vw, 70px);
+  margin-top: 24px;
+  padding: clamp(20px, 4vw, 42px);
+  border: 1px solid color-mix(in srgb, var(--accent) 24%, var(--border));
+  border-radius: 24px;
+  background:
+    radial-gradient(ellipse at 5% 20%, color-mix(in srgb, var(--teal) 10%, transparent), transparent 60%),
+    radial-gradient(ellipse at 86% 100%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 70%),
+    var(--bg2);
+  box-shadow: inset 0 1px var(--glass-highlight), var(--shadow);
+}
+
+.donut {
+  position: relative;
+  justify-self: center;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+  width: min(100%, 230px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--fg) 9%, var(--bg2));
+  box-shadow: 0 0 0 8px color-mix(in srgb, var(--accent) 7%, transparent);
+}
+
+.ring,
+.donut::after {
+  position: absolute;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.ring {
+  inset: 0;
+  background: conic-gradient(
+    var(--chart-easy) 0 var(--easy-end),
+    var(--chart-medium) var(--easy-end) var(--medium-end),
+    var(--chart-hard) var(--medium-end) 100%
+  );
+  mask-image: conic-gradient(black var(--difficulty-chart-angle, 360deg), transparent 0);
+}
+
+.ring[data-empty="true"] { background: none; }
+.ring[data-visible="true"] { animation: chartSweep 950ms cubic-bezier(0.2, 0.7, 0.3, 1) both; }
+
+@keyframes chartSweep {
+  from { --difficulty-chart-angle: 0deg; }
+  to { --difficulty-chart-angle: 360deg; }
+}
+
+.donut::after {
+  content: "";
+  inset: 12%;
+  background: var(--bg2);
+  box-shadow: inset 0 0 24px color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+.center {
+  z-index: 1;
+  display: grid;
+  gap: 4px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.center span:first-child {
+  color: var(--fg);
+  font-size: clamp(2rem, 4.7vw, 3.55rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+
+.center span:last-child,
+.summary > p {
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.summary h3 {
+  margin-bottom: 6px;
+  color: var(--fg);
+  font-size: clamp(1.4rem, 3vw, 2.05rem);
+  font-weight: 750;
+  letter-spacing: -0.03em;
+}
+
+.legend { display: grid; gap: 8px; margin-top: 14px; }
+
+.legend button {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--fg);
+  font-size: 0.86rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 200ms, border-color 200ms;
+}
+
+.legend button:hover,
+.legend button[aria-pressed="true"] {
+  border-color: color-mix(in srgb, var(--accent) 67%, var(--border));
+  background: color-mix(in srgb, var(--accent) 13%, var(--surface));
+}
+
+.legend strong { font-variant-numeric: tabular-nums; }
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+
+@media (max-width: 630px) {
+  .chart { grid-template-columns: minmax(0, 1fr); padding-top: 28px; }
+  .donut { width: min(67vw, 205px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ring[data-visible="true"] { animation: none; }
+  .legend button { transition: none; }
+}
