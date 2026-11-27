@@ -35,15 +35,14 @@
   position: absolute;
   inset: 0;
   background: url("/about/animals-rest.webp") 0 0 / 100% 100% no-repeat;
-  filter: saturate(0.82) drop-shadow(0 12px 20px rgba(15, 22, 40, 0.14));
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .animals[data-frames-ready="true"] {
-    /* Each row blends one pose into the next across ten frames. */
+    /* Each row contains eight frames moving from one pose to the next. */
     background-image: url("/about/animals-motion.webp");
-    background-size: 1000% 800%;
-    animation: animal-frames 400ms steps(10) infinite,
+    background-size: 800% 800%;
+    animation: animal-frames 400ms steps(8) infinite,
       animal-poses 3200ms steps(8) infinite;
     animation-play-state: var(--about-animation-state);
   }
@@ -57,7 +56,7 @@
 
 @keyframes animal-frames {
   from { background-position-x: 0; }
-  to { background-position-x: calc(1000% / 9); }
+  to { background-position-x: calc(800% / 7); }
 }
 
 @keyframes animal-poses {
