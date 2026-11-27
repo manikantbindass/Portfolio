@@ -45,7 +45,7 @@ function getResponse(text: string, lc: LCStats, gh: GHStats): string {
       .map((e) => `**${e.role}** — ${e.company} (${e.period})\n${e.desc}`)
       .join("\n\n");
   if (/certif|credential/.test(q))
-    return `Certifications listed in the supplied resumes:\n${certifications.map((c) => `${c.title} — ${c.issuer}`).join("\n")}\nIndependent credential URLs have not been supplied.`;
+    return `Certifications listed in the portfolio:\n${certifications.map((c) => `${c.title} — ${c.issuer}`).join("\n")}\nIndependent credential URLs have not been supplied.`;
   if (/contact|email|hire|available|connect/.test(q))
     return `Manikant is open to full-time and freelance opportunities.\n[Email](${`mailto:${personal.email}`}) · [LinkedIn](${personal.links.linkedin})\nBased in ${personal.location}.`;
   if (/skill|stack|backend|ai|blockchain|devops|language/.test(q))

@@ -170,4 +170,10 @@ export const certifications = [
     date: "May 2026",
     emoji: "⛓️",
   },
+  {
+    title: "Introduction to Internet of Things",
+    issuer: "NPTEL",
+    date: "Nov 2026",
+    emoji: "🌐",
+  },
 ];
