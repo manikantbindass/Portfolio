@@ -226,21 +226,21 @@ export default function CustomCursor() {
   /* Outer ring border */
   const outerBorder = isText
     ? "2px solid rgba(255,255,255,0.7)"
-    : "1.5px solid rgba(99,102,241,0.7)";
+    : "1.5px solid color-mix(in srgb, var(--accent) 70%, transparent)";
 
   /* Outer ring bg */
   const outerBg = isText
     ? "transparent"
     : isHover
-      ? "rgba(99,102,241,0.08)"
-      : "rgba(99,102,241,0.03)";
+      ? "color-mix(in srgb, var(--accent) 8%, transparent)"
+      : "color-mix(in srgb, var(--accent) 3%, transparent)";
 
   /* Outer ring shadow */
   const outerShadow = clicking
-    ? "0 0 40px rgba(99,102,241,1), 0 0 70px rgba(167,139,250,0.5), inset 0 0 16px rgba(99,102,241,0.3)"
+    ? "0 0 40px color-mix(in srgb, var(--accent) 100%, transparent), 0 0 70px color-mix(in srgb, var(--accent2) 50%, transparent), inset 0 0 16px color-mix(in srgb, var(--accent) 30%, transparent)"
     : isHover
-      ? "0 0 28px rgba(99,102,241,0.75), 0 0 55px rgba(167,139,250,0.35), inset 0 0 12px rgba(99,102,241,0.12)"
-      : "0 0 14px rgba(99,102,241,0.45), inset 0 0 6px rgba(99,102,241,0.08)";
+      ? "0 0 28px color-mix(in srgb, var(--accent) 75%, transparent), 0 0 55px color-mix(in srgb, var(--accent2) 35%, transparent), inset 0 0 12px color-mix(in srgb, var(--accent) 12%, transparent)"
+      : "0 0 14px color-mix(in srgb, var(--accent) 45%, transparent), inset 0 0 6px color-mix(in srgb, var(--accent) 8%, transparent)";
 
   return (
     <>
@@ -266,7 +266,7 @@ export default function CustomCursor() {
             marginTop: -80,
             borderRadius: "50%",
             background:
-              "radial-gradient(circle, rgba(99,102,241,0.18) 0%, rgba(167,139,250,0.08) 50%, transparent 80%)",
+              "radial-gradient(circle, color-mix(in srgb, var(--accent) 18%, transparent) 0%, color-mix(in srgb, var(--accent2) 8%, transparent) 50%, transparent 80%)",
             filter: "blur(20px)",
             opacity: isHidden ? 0 : isHover ? 1 : 0.6,
             transition: "opacity 0.4s ease",
@@ -295,11 +295,11 @@ export default function CustomCursor() {
               marginTop: -size / 2,
               background:
                 i < 3
-                  ? "rgba(99,102,241,0.9)"
+                  ? "color-mix(in srgb, var(--accent) 90%, transparent)"
                   : i < 6
-                    ? "rgba(167,139,250,0.65)"
-                    : "rgba(45,212,191,0.45)",
-              boxShadow: i < 4 ? `0 0 ${6 - i}px rgba(99,102,241,0.7)` : "none",
+                    ? "color-mix(in srgb, var(--accent2) 65%, transparent)"
+                    : "color-mix(in srgb, var(--teal) 45%, transparent)",
+              boxShadow: i < 4 ? `0 0 ${6 - i}px color-mix(in srgb, var(--accent) 70%, transparent)` : "none",
               transform: "translate(-200px,-200px)",
               opacity: 0,
               transition: "opacity 0.1s ease",
@@ -344,7 +344,7 @@ export default function CustomCursor() {
             ...(isHover
               ? {
                   background:
-                    "conic-gradient(rgba(99,102,241,0.15) 0deg, rgba(167,139,250,0.15) 120deg, rgba(45,212,191,0.15) 240deg, rgba(99,102,241,0.15) 360deg)",
+                    "conic-gradient(color-mix(in srgb, var(--accent) 15%, transparent) 0deg, color-mix(in srgb, var(--accent2) 15%, transparent) 120deg, color-mix(in srgb, var(--teal) 15%, transparent) 240deg, color-mix(in srgb, var(--accent) 15%, transparent) 360deg)",
                   border: "none",
                   padding: "1.5px",
                 }
@@ -358,7 +358,7 @@ export default function CustomCursor() {
                 width: "100%",
                 height: "100%",
                 borderRadius: "50%",
-                background: "rgba(3,7,18,0.85)",
+                background: "color-mix(in srgb, var(--obsidian) 85%, transparent)",
                 backdropFilter: "blur(4px)",
               }}
             />
@@ -399,7 +399,7 @@ export default function CustomCursor() {
               color: "#fff",
               textTransform: "uppercase" as const,
               fontFamily: "'Plus Jakarta Sans', sans-serif",
-              textShadow: "0 0 8px rgba(99,102,241,0.8)",
+              textShadow: "0 0 8px color-mix(in srgb, var(--accent) 80%, transparent)",
               transform: hasLabel ? "scale(1)" : "scale(0.6)",
               transition: "transform 0.2s cubic-bezier(0.16,1,0.3,1)",
               display: "block",
@@ -432,13 +432,13 @@ export default function CustomCursor() {
             background: clicking
               ? "rgba(255,255,255,1)"
               : isHover
-                ? "rgba(167,139,250,1)"
-                : "rgba(99,102,241,1)",
+                ? "color-mix(in srgb, var(--accent2) 100%, transparent)"
+                : "color-mix(in srgb, var(--accent) 100%, transparent)",
             boxShadow: clicking
-              ? "0 0 12px #fff, 0 0 24px rgba(99,102,241,0.9)"
+              ? "0 0 12px #fff, 0 0 24px color-mix(in srgb, var(--accent) 90%, transparent)"
               : isHover
-                ? "0 0 8px rgba(167,139,250,0.9)"
-                : "0 0 6px rgba(99,102,241,0.9)",
+                ? "0 0 8px color-mix(in srgb, var(--accent2) 90%, transparent)"
+                : "0 0 6px color-mix(in srgb, var(--accent) 90%, transparent)",
             opacity: isHidden ? 0 : 1,
             transition: [
               "width 0.2s ease",
@@ -470,7 +470,7 @@ export default function CustomCursor() {
               marginLeft: -30,
               marginTop: -30,
               borderRadius: "50%",
-              border: "1px solid rgba(99,102,241,0.7)",
+              border: "1px solid color-mix(in srgb, var(--accent) 70%, transparent)",
               animation:
                 "cursor-ripple-anim 0.5s cubic-bezier(0,0,0.2,1) forwards",
             }}

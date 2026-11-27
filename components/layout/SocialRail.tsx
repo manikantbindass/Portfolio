@@ -82,8 +82,8 @@ export default function SocialRail() {
         </motion.a>
       ))}
       <div className="flex flex-col items-center mt-1">
-        <div className="w-px h-12 bg-white/10" />
-        <div className="w-1.5 h-1.5 rounded-full bg-white/15 mt-1" />
+        <div className="w-px h-12 bg-[var(--border)]" />
+        <div className="w-1.5 h-1.5 rounded-full bg-[var(--border)] mt-1" />
       </div>
     </motion.aside>
   );

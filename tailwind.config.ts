@@ -11,16 +11,16 @@ const config: Config = {
     extend: {
       colors: {
         space: {
-          950: "#030712",
-          900: "#050A18",
-          800: "#0A1628",
-          700: "#0F1F38",
+          950: "var(--obsidian)",
+          900: "var(--espresso)",
+          800: "var(--espresso)",
+          700: "var(--espresso)",
         },
-        accent:  { DEFAULT: "#6366F1", light: "#818CF8", dark: "#4F46E5" },
-        violet:  { DEFAULT: "#A78BFA", light: "#C4B5FD" },
-        teal:    { DEFAULT: "#2DD4BF", dark: "#14B8A6" },
-        gold:    { DEFAULT: "#F59E0B" },
-        rose:    { DEFAULT: "#F43F5E" },
+        accent:  { DEFAULT: "var(--accent)", light: "var(--accent)", dark: "var(--accent)" },
+        violet:  { DEFAULT: "var(--accent2)", light: "var(--accent2)" },
+        teal:    { DEFAULT: "var(--teal)", dark: "var(--teal)" },
+        gold:    { DEFAULT: "var(--gold)" },
+        rose:    { DEFAULT: "var(--rose)" },
       },
       fontFamily: {
         display: ["Plus Jakarta Sans", "sans-serif"],
@@ -33,9 +33,9 @@ const config: Config = {
       backgroundImage: {
         "gradient-radial":  "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":   "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "aurora-1":         "radial-gradient(ellipse at top left, rgba(99,102,241,0.3) 0%, transparent 60%)",
-        "aurora-2":         "radial-gradient(ellipse at bottom right, rgba(167,139,250,0.25) 0%, transparent 60%)",
-        "aurora-3":         "radial-gradient(ellipse at top right, rgba(45,212,191,0.15) 0%, transparent 50%)",
+        "aurora-1":         "radial-gradient(ellipse at top left, color-mix(in srgb, var(--accent) 30%, transparent) 0%, transparent 60%)",
+        "aurora-2":         "radial-gradient(ellipse at bottom right, color-mix(in srgb, var(--accent2) 25%, transparent) 0%, transparent 60%)",
+        "aurora-3":         "radial-gradient(ellipse at top right, color-mix(in srgb, var(--teal) 15%, transparent) 0%, transparent 50%)",
       },
       animation: {
         "float":          "float 6s ease-in-out infinite",
@@ -80,8 +80,8 @@ const config: Config = {
           "100%": { transform: "translateX(0%)" },
         },
         "border-glow": {
-          "0%,100%": { boxShadow: "0 0 4px rgba(99,102,241,0.3)" },
-          "50%":     { boxShadow: "0 0 20px rgba(99,102,241,0.7), 0 0 40px rgba(167,139,250,0.3)" },
+          "0%,100%": { boxShadow: "0 0 4px color-mix(in srgb, var(--accent) 30%, transparent)" },
+          "50%":     { boxShadow: "0 0 20px color-mix(in srgb, var(--accent) 70%, transparent), 0 0 40px color-mix(in srgb, var(--accent2) 30%, transparent)" },
         },
         "text-shimmer": {
           "0%,100%": { backgroundPosition: "0% 50%" },

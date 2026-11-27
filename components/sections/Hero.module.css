@@ -5,7 +5,10 @@
   display: block;
   min-height: max(900px, 100svh);
   padding: 150px 0 100px;
-  background: radial-gradient(ellipse at 12% 22%, color-mix(in srgb, var(--accent) 7%, transparent), transparent 48%), var(--bg);
+  background:
+    radial-gradient(ellipse at 82% 26%, color-mix(in srgb, var(--beige) 23%, transparent), transparent 58%),
+    radial-gradient(ellipse at 8% 14%, color-mix(in srgb, var(--mocha) 9%, transparent), transparent 45%),
+    linear-gradient(150deg, var(--bg), var(--bg2));
 }
 .portrait {
   position: absolute;
@@ -118,6 +121,7 @@
 }
 @media (max-width: 600px) {
   .orbit { top: 128px; width: 115vw; }
+  .portraitImage { -webkit-mask-image: linear-gradient(180deg, #000 52%, transparent 84%); mask-image: linear-gradient(180deg, #000 52%, transparent 84%); }
   .hero:global(#hero) h1 { font-size: clamp(3.2rem, 13vw, 4.5rem) !important; }
   .layout { padding-inline: 22px; }
   .quickStats { gap: 6px; }

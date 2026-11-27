@@ -14,11 +14,11 @@ const fadeUp = (delay = 0) => ({
 });
 
 const CATS = [
-  { key: "frontend", label: "Frontend", color: "#6366F1" },
-  { key: "backend", label: "Backend", color: "#A78BFA" },
-  { key: "aiml", label: "AI / ML", color: "#2DD4BF" },
-  { key: "blockchain", label: "Blockchain", color: "#F59E0B" },
-  { key: "devops", label: "DevOps", color: "#F43F5E" },
+  { key: "frontend", label: "Frontend", color: "var(--accent)" },
+  { key: "backend", label: "Backend", color: "var(--accent2)" },
+  { key: "aiml", label: "AI / ML", color: "var(--teal)" },
+  { key: "blockchain", label: "Blockchain", color: "var(--gold)" },
+  { key: "devops", label: "DevOps", color: "var(--rose)" },
 ] as const;
 
 export default function Skills() {
@@ -37,7 +37,7 @@ export default function Skills() {
       style={{ background: "var(--bg2)" }}
     >
       <div
-        className="aurora-blob w-[450px] h-[450px] bg-[#2DD4BF] opacity-[0.06] absolute -bottom-10 -left-20 pointer-events-none"
+        className="aurora-blob w-[450px] h-[450px] bg-[var(--teal)] opacity-[0.06] absolute -bottom-10 -left-20 pointer-events-none"
         aria-hidden
       />
 
@@ -115,7 +115,7 @@ export default function Skills() {
                 active === c.key
                   ? {
                       background: `color-mix(in srgb, ${c.color} 14%, var(--surface))`,
-                      borderColor: `${c.color}70`,
+                      borderColor: `color-mix(in srgb, ${c.color} 45%, var(--border))`,
                       boxShadow: "inset 0 1px 0 var(--glass-highlight)",
                     }
                   : {}
@@ -143,21 +143,21 @@ export default function Skills() {
                 transition={{ delay: i * 0.06, duration: 0.4 }}
                 whileHover={{ y: -3, scale: 1.01 }}
                 className="glass rounded-2xl p-5 border border-white/7 flex flex-col gap-3 items-center text-center group cursor-default"
-                style={{ borderColor: `${cat.color}20` }}
+                style={{ borderColor: `color-mix(in srgb, ${cat.color} 15%, var(--border))` }}
               >
                 {/* Icon container */}
                 <div
                   className="w-14 h-14 rounded-2xl flex items-center justify-center relative overflow-hidden"
                   style={{
-                    background: `${cat.color}12`,
-                    border: `1px solid ${cat.color}30`,
+                    background: `color-mix(in srgb, ${cat.color} 8%, transparent)`,
+                    border: `1px solid color-mix(in srgb, ${cat.color} 20%, var(--border))`,
                   }}
                 >
                   {/* Glow pulse on hover */}
                   <div
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
                     style={{
-                      background: `radial-gradient(circle at center, ${cat.color}35 0%, transparent 70%)`,
+                      background: `radial-gradient(circle at center, color-mix(in srgb, ${cat.color} 22%, transparent) 0%, transparent 70%)`,
                     }}
                   />
 

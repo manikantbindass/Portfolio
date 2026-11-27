@@ -102,7 +102,7 @@ export default function Hero() {
           {/* Badge */}
           <motion.div variants={fadeUp}>
             <div className={`${styles.availability} inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-xs font-semibold text-[var(--muted)]`}>
-              <span className="w-2 h-2 rounded-full bg-[#2DD4BF] animate-pulse-soft" />
+              <span className="w-2 h-2 rounded-full bg-[var(--teal)] animate-pulse-soft" />
               Available for freelance &amp; full-time
             </div>
           </motion.div>
@@ -122,7 +122,7 @@ export default function Hero() {
           <motion.div variants={fadeUp} className={`${styles.role} flex items-center`}>
             <span className="font-mono text-base sm:text-lg font-semibold text-[var(--accent2)]">
               {role}
-              <span className="inline-block w-0.5 h-5 bg-[#A78BFA] ml-1 animate-blink align-middle" />
+              <span className="inline-block w-0.5 h-5 bg-[var(--accent2)] ml-1 animate-blink align-middle" />
             </span>
           </motion.div>
 
@@ -148,10 +148,10 @@ export default function Hero() {
             <motion.a
               href="#projects"
               data-magnetic
-              className="flex items-center gap-2 text-sm font-semibold text-[var(--fg)] px-6 py-3 rounded-2xl transition-all"
+              className="flex items-center gap-2 text-sm font-semibold text-[var(--action-ink)] px-6 py-3 rounded-2xl transition-all"
               style={{
-                background: "linear-gradient(135deg,#6366F1,#A78BFA)",
-                boxShadow: "0 6px 24px rgba(99,102,241,0.4)",
+                background: "var(--action-fill)",
+                boxShadow: "0 8px 24px color-mix(in srgb, var(--mocha) 28%, transparent)",
               }}
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.97 }}
@@ -165,7 +165,7 @@ export default function Hero() {
               whileHover={{
                 scale: 1.04,
                 y: -2,
-                borderColor: "rgba(99,102,241,0.4)",
+                borderColor: "color-mix(in srgb, var(--accent) 40%, transparent)",
               }}
               whileTap={{ scale: 0.97 }}
             >
@@ -174,11 +174,11 @@ export default function Hero() {
             <motion.a
               href="#contact"
               data-magnetic
-              className="flex items-center gap-2 text-sm font-semibold text-[var(--teal)] px-6 py-3 rounded-2xl border border-[#2DD4BF]/25"
+              className="flex items-center gap-2 text-sm font-semibold text-[var(--teal)] px-6 py-3 rounded-2xl border border-[var(--teal)]/25"
               whileHover={{
                 scale: 1.04,
                 y: -2,
-                borderColor: "rgba(45,212,191,0.5)",
+                borderColor: "color-mix(in srgb, var(--teal) 50%, transparent)",
               }}
               whileTap={{ scale: 0.97 }}
             >
@@ -238,9 +238,9 @@ export default function Hero() {
         <motion.div
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 1.8, repeat: Infinity }}
-          className="w-5 h-8 rounded-full border border-white/15 flex items-start justify-center pt-1.5"
+          className="w-5 h-8 rounded-full border border-[var(--border)] flex items-start justify-center pt-1.5"
         >
-          <div className="w-1 h-2 rounded-full bg-white/30" />
+          <div className="w-1 h-2 rounded-full bg-[var(--accent)] opacity-60" />
         </motion.div>
       </motion.div>
     </section>

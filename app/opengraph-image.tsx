@@ -9,15 +9,15 @@ export default function Image() {
         style={{
           width: "100%",
           height: "100%",
-          background: "#060913",
+          background: "#151210",
           padding: 90,
-          color: "#f8fafc",
+          color: "#f9f4ea",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
         }}
       >
-        <div style={{ fontSize: 20, color: "#a78bfa", letterSpacing: 6 }}>
+        <div style={{ fontSize: 20, color: "#dfc8af", letterSpacing: 6 }}>
           ENGINEER & BUILDER
         </div>
         <div
@@ -30,10 +30,10 @@ export default function Image() {
         >
           Manikant Kumar
         </div>
-        <div style={{ fontSize: 27, color: "#94a3b8", marginTop: 28 }}>
+        <div style={{ fontSize: 27, color: "#b5a69a", marginTop: 28 }}>
           AI-powered applications · Backend systems · Full stack
         </div>
-        <div style={{ fontSize: 20, color: "#818cf8", marginTop: 65 }}>
+        <div style={{ fontSize: 20, color: "#dfc8af", marginTop: 65 }}>
           Explore the code. Understand the decisions.
         </div>
       </div>

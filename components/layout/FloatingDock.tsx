@@ -60,8 +60,7 @@ export default function FloatingDock() {
           <div
             className="glass flex items-center gap-1 px-4 py-3 rounded-2xl"
             style={{
-              boxShadow:
-                "0 8px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06)",
+              boxShadow: "var(--shadow)",
             }}
           >
             {links.map(({ href, label, Icon }) => {
@@ -76,14 +75,14 @@ export default function FloatingDock() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 8, scale: 0.85 }}
                         transition={{ duration: 0.15 }}
-                        className="absolute -top-10 left-1/2 -translate-x-1/2 px-2.5 py-1 rounded-lg text-[11px] font-semibold text-[var(--fg)] whitespace-nowrap pointer-events-none z-50"
+                        className="absolute -top-10 left-1/2 -translate-x-1/2 px-2.5 py-1 rounded-lg text-[11px] font-semibold text-[var(--action-ink)] whitespace-nowrap pointer-events-none z-50"
                         style={{
-                          background: "linear-gradient(135deg,#6366F1,#A78BFA)",
-                          boxShadow: "0 4px 14px rgba(99,102,241,0.4)",
+                          background: "var(--action-fill)",
+                          boxShadow: "0 4px 14px color-mix(in srgb, var(--accent) 40%, transparent)",
                         }}
                       >
                         {label}
-                        <div className="absolute top-full left-1/2 -translate-x-1/2 border-t-4 border-t-[#A78BFA] border-x-4 border-x-transparent" />
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 border-t-4 border-t-[var(--action-end)] border-x-4 border-x-transparent" />
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -96,7 +95,7 @@ export default function FloatingDock() {
                     aria-label={label}
                     className={`relative flex items-center justify-center w-10 h-10 rounded-xl transition-all duration-200 hover:scale-110 active:scale-95 ${
                       isActive
-                        ? "text-[var(--fg)]"
+                        ? "text-[var(--action-ink)]"
                         : "text-[var(--muted)] hover:text-[var(--fg)]"
                     }`}
                   >
@@ -105,8 +104,8 @@ export default function FloatingDock() {
                         layoutId="dock-active"
                         className="absolute inset-0 rounded-xl"
                         style={{
-                          background: "linear-gradient(135deg,#6366F1,#A78BFA)",
-                          boxShadow: "0 4px 16px rgba(99,102,241,0.45)",
+                          background: "var(--action-fill)",
+                          boxShadow: "0 4px 16px color-mix(in srgb, var(--accent) 45%, transparent)",
                         }}
                         transition={{
                           type: "spring",

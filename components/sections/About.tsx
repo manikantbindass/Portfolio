@@ -20,11 +20,11 @@ const fadeUp = (delay = 0) => ({
 });
 
 const skills = [
-  { label: "Backend & API Development", color: "#6366F1" },
-  { label: "AI / ML Engineering", color: "#A78BFA" },
-  { label: "Full Stack Development", color: "#2DD4BF" },
-  { label: "Data Structures & Algorithms", color: "#F59E0B" },
-  { label: "DevOps / Cloud", color: "#F43F5E" },
+  { label: "Backend & API Development", color: "var(--accent)" },
+  { label: "AI / ML Engineering", color: "var(--accent2)" },
+  { label: "Full Stack Development", color: "var(--teal)" },
+  { label: "Data Structures & Algorithms", color: "var(--gold)" },
+  { label: "DevOps / Cloud", color: "var(--rose)" },
 ];
 
 function SkillBar({

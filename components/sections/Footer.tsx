@@ -25,8 +25,8 @@ export default function Footer() {
         >
           <div className="flex items-center gap-2">
             <div
-              className="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-black text-[var(--fg)]"
-              style={{ background: "linear-gradient(135deg,#6366F1,#A78BFA)" }}
+              className="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-black text-[var(--action-ink)]"
+              style={{ background: "var(--action-fill)" }}
             >
               MK
             </div>
@@ -56,7 +56,7 @@ export default function Footer() {
             <span
               key={t}
               className="px-2.5 py-1 rounded-full border border-white/8 text-[var(--muted)] font-medium"
-              style={{ background: "rgba(255,255,255,0.03)" }}
+              style={{ background: "var(--surface)" }}
             >
               {t}
             </span>

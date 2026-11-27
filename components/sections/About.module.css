@@ -1,14 +1,14 @@
 .section {
   --about-animation-state: running;
   --about-scene-opacity: 0.32;
-  --about-scene-wash: rgba(247, 250, 255, 0.85);
-  --about-scene-wash-soft: rgba(247, 250, 255, 0.6);
-  --about-panel: rgba(255, 255, 255, 0.76);
-  --about-edge: rgba(255, 255, 255, 0.9);
-  --about-inset: rgba(255, 255, 255, 0.85);
-  --about-chip: rgba(255, 255, 255, 0.48);
-  --about-line: rgba(60, 65, 75, 0.16);
-  --about-shade: linear-gradient(180deg, rgba(235, 241, 251, 0.36), rgba(235, 241, 251, 0.12) 40%, rgba(235, 241, 251, 0.42));
+  --about-scene-wash: color-mix(in srgb, var(--bg) 86%, transparent);
+  --about-scene-wash-soft: color-mix(in srgb, var(--bg) 62%, transparent);
+  --about-panel: color-mix(in srgb, var(--bg) 82%, transparent);
+  --about-edge: var(--border);
+  --about-inset: var(--glass-highlight);
+  --about-chip: color-mix(in srgb, var(--accent) 6%, transparent);
+  --about-line: var(--border);
+  --about-shade: linear-gradient(180deg, color-mix(in srgb, var(--bg) 45%, transparent), color-mix(in srgb, var(--bg) 10%, transparent) 40%, color-mix(in srgb, var(--bg2) 36%, transparent));
   isolation: isolate;
   color: var(--fg);
   background: radial-gradient(ellipse at 50% 25%, color-mix(in srgb, var(--accent2) 16%, transparent), transparent 65%), linear-gradient(145deg, var(--bg2), var(--bg));
@@ -16,14 +16,7 @@
 
 :global(.dark) .section {
   --about-scene-opacity: 0.4;
-  --about-scene-wash: rgba(9, 15, 29, 0.85);
-  --about-scene-wash-soft: rgba(9, 15, 29, 0.72);
-  --about-panel: rgba(13, 19, 33, 0.68);
-  --about-edge: rgba(235, 238, 245, 0.18);
-  --about-inset: rgba(255, 255, 255, 0.14);
-  --about-chip: rgba(255, 255, 255, 0.065);
-  --about-line: rgba(235, 238, 245, 0.16);
-  --about-shade: linear-gradient(180deg, rgba(6, 9, 19, 0.5), rgba(12, 17, 31, 0.16) 40%, rgba(6, 9, 19, 0.48));
+  --about-panel: color-mix(in srgb, var(--bg2) 82%, transparent);
 }
 .section[data-animations-paused="true"] { --about-animation-state: paused; }
 
@@ -98,8 +91,8 @@
 .avatar {
   flex-shrink: 0;
   border: 1px solid var(--about-edge);
-  color: #fff;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: var(--action-ink);
+  background: var(--action-fill);
   box-shadow: inset 0 1px 0 var(--about-inset), 0 5px 12px rgba(20, 23, 30, 0.04);
   transform: rotate(-5deg);
 }

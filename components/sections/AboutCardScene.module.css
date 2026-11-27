@@ -34,7 +34,7 @@
   background-repeat: no-repeat;
   animation: frames 4s steps(1, end) infinite;
   animation-delay: var(--scene-delay);
-  filter: saturate(0.72);
+  filter: saturate(0.58) sepia(0.32);
 }
 .nextFrame {
   animation: next-frames 4s steps(1, end) infinite, dissolve 0.5s linear infinite;

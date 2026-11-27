@@ -141,7 +141,7 @@ export default function Stats() {
             rel="noopener noreferrer"
           >
             <img
-              src="https://ghchart.rshah.org/818cf8/manikantbindass"
+              src="https://ghchart.rshah.org/795541/manikantbindass"
               alt="Manikant Kumar's public GitHub contribution calendar"
               width="1000"
               height="160"

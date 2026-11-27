@@ -1,35 +1,24 @@
 .messageCard {
-  --citrus: #456706;
-  --field-bg: rgba(248, 255, 244, 0.8);
-  --field-border: rgba(71, 103, 38, 0.3);
-  --field-text: #152f29;
-  --field-placeholder: #49695e;
-  --aquarium-wash: rgba(239, 252, 236, 0.58);
+  --citrus: var(--accent);
+  --field-bg: color-mix(in srgb, var(--bg) 90%, transparent);
+  --field-border: var(--border);
+  --field-text: var(--fg);
+  --field-placeholder: var(--muted);
+  --aquarium-wash: color-mix(in srgb, var(--bg) 78%, transparent);
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  border: 1px solid rgba(199, 226, 153, 0.65);
-  background: linear-gradient(145deg, #ddf5e6, #e8f6c9 65%, #fff1c9);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.8), 0 20px 60px rgba(30,80,60,.1);
+  border: 1px solid var(--border);
+  background: linear-gradient(145deg, var(--bg), var(--bg2));
+  box-shadow: inset 0 1px 0 var(--glass-highlight), var(--shadow);
   color: var(--field-text);
-}
-:global(.dark) .messageCard {
-  --citrus: #d5f579;
-  --field-bg: rgba(5, 28, 32, 0.72);
-  --field-border: rgba(215, 239, 151, 0.3);
-  --field-text: #f1faef;
-  --field-placeholder: #c0d7cc;
-  --aquarium-wash: rgba(4, 27, 31, 0.55);
-  background: linear-gradient(145deg, #0a292e, #0a2427 65%, #193824);
-  border-color: rgba(211, 238, 163, 0.28);
-  box-shadow: inset 0 1px 0 rgba(241,255,223,.18), 0 20px 60px rgba(0,15,16,.16);
 }
 .content { position: relative; z-index: 1; }
 .messageCard h3 { padding-right: 135px; color: var(--field-text); }
 .messageCard label { color: var(--field-text); }
 .messageCard .content p { color: var(--field-text); }
 .titleIcon { color: var(--citrus); flex-shrink: 0; }
-.aquarium { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; border-radius: inherit; background: url("/contact/aquarium-poster.webp") center / cover no-repeat; }
+.aquarium { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; border-radius: inherit; background: url("/contact/aquarium-poster.webp") center / cover no-repeat; filter: saturate(0.48) sepia(0.4); }
 .aquarium::after { content: ""; position: absolute; inset: 0; background: linear-gradient(130deg, var(--aquarium-wash), transparent 65%), linear-gradient(0deg, var(--aquarium-wash), transparent 70%); }
 .video {
   position: absolute;
@@ -59,7 +48,7 @@
 }
 .field::placeholder { color: var(--field-placeholder); opacity: 1; }
 .field:focus-visible { outline: 2px solid var(--citrus); outline-offset: 3px; border-color: var(--citrus); box-shadow: 0 0 0 4px color-mix(in srgb, var(--citrus) 15%, transparent); }
-.submit { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 14px; border: 1px solid rgba(244,255,187,.5); border-radius: 18px; background: linear-gradient(115deg, #d9f56c, #ffcf63 75%, #ffb956); color: #203410; font-size: 14px; font-weight: 750; box-shadow: inset 0 1px 0 rgba(255,255,255,.6), 0 8px 22px rgba(130,170,45,.14); cursor: pointer; }
+.submit { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: 18px; background: var(--action-fill); color: var(--action-ink); font-size: 14px; font-weight: 750; box-shadow: inset 0 1px 0 var(--glass-highlight), var(--shadow); cursor: pointer; }
 @media (max-width: 640px) {
   .messageCard { padding: 24px; }
   .messageCard h3 { padding-right: 38px; }

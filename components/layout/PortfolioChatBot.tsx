@@ -178,9 +178,9 @@ export default function PortfolioChatBot() {
         }
         className="fixed bottom-6 right-6 z-[60] w-14 h-14 rounded-full flex items-center justify-center shadow-2xl"
         style={{
-          background: "linear-gradient(135deg, #6366F1 0%, #A78BFA 100%)",
+          background: "var(--action-fill)",
           boxShadow:
-            "0 8px 32px rgba(99,102,241,0.55), 0 2px 8px rgba(0,0,0,0.4)",
+            "0 8px 32px color-mix(in srgb, var(--accent) 55%, transparent), 0 2px 8px rgba(0,0,0,0.4)",
         }}
       >
         <AnimatePresence mode="wait">
@@ -192,7 +192,7 @@ export default function PortfolioChatBot() {
               exit={{ rotate: 90, opacity: 0 }}
               transition={{ duration: 0.18 }}
             >
-              <X size={22} className="text-[var(--fg)]" />
+              <X size={22} className="text-[var(--action-ink)]" />
             </motion.span>
           ) : (
             <motion.span
@@ -202,12 +202,12 @@ export default function PortfolioChatBot() {
               exit={{ scale: 0.5, opacity: 0 }}
               transition={{ duration: 0.18 }}
             >
-              <MessageCircle size={22} className="text-[var(--fg)]" />
+              <MessageCircle size={22} className="text-[var(--action-ink)]" />
             </motion.span>
           )}
         </AnimatePresence>
         {!open && (
-          <span className="absolute inset-0 rounded-full animate-ping opacity-25 bg-[#6366F1]" />
+          <span className="absolute inset-0 rounded-full animate-ping opacity-25 bg-[var(--accent)]" />
         )}
       </motion.button>
 
@@ -228,10 +228,10 @@ export default function PortfolioChatBot() {
             style={{
               maxHeight: "min(540px, 80vh)",
               background: "var(--bg2)",
-              border: "1px solid rgba(99,102,241,0.28)",
+              border: "1px solid color-mix(in srgb, var(--accent) 28%, transparent)",
               backdropFilter: "blur(28px)",
               boxShadow:
-                "0 32px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(99,102,241,0.12), inset 0 1px 0 rgba(255,255,255,0.05)",
+                "0 32px 80px rgba(0,0,0,0.7), 0 0 0 1px color-mix(in srgb, var(--accent) 12%, transparent), inset 0 1px 0 rgba(255,255,255,0.05)",
             }}
           >
             {/* Header */}
@@ -239,8 +239,8 @@ export default function PortfolioChatBot() {
               className="flex items-center gap-3 px-4 py-3 flex-shrink-0"
               style={{
                 background:
-                  "linear-gradient(135deg,rgba(99,102,241,0.18),rgba(167,139,250,0.10))",
-                borderBottom: "1px solid rgba(255,255,255,0.07)",
+                  "linear-gradient(135deg,color-mix(in srgb, var(--accent) 18%, transparent),color-mix(in srgb, var(--accent2) 10%, transparent))",
+                borderBottom: "1px solid var(--border)",
               }}
             >
               <motion.div
@@ -252,11 +252,11 @@ export default function PortfolioChatBot() {
                 }}
                 className="w-9 h-9 rounded-2xl flex items-center justify-center flex-shrink-0"
                 style={{
-                  background: "linear-gradient(135deg,#6366F1,#A78BFA)",
-                  boxShadow: "0 4px 16px rgba(99,102,241,0.5)",
+                  background: "var(--action-fill)",
+                  boxShadow: "0 4px 16px color-mix(in srgb, var(--accent) 50%, transparent)",
                 }}
               >
-                <Sparkles size={17} className="text-[var(--fg)]" />
+                  <Sparkles size={17} className="text-[var(--action-ink)]" />
               </motion.div>
               <div className="flex-1 min-w-0">
                 <p className="text-[var(--fg)] font-bold text-sm">
@@ -264,7 +264,7 @@ export default function PortfolioChatBot() {
                 </p>
                 <p className="text-[10px] text-[var(--teal)] flex items-center gap-1.5 font-medium">
                   <span
-                    className="w-1.5 h-1.5 rounded-full bg-[#2DD4BF] inline-block"
+                    className="w-1.5 h-1.5 rounded-full bg-[var(--teal)] inline-block"
                     style={{ animation: "pulse 2s infinite" }}
                   />
                   Curated portfolio guide · no live LLM
@@ -286,7 +286,7 @@ export default function PortfolioChatBot() {
               className="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-3"
               style={{
                 scrollbarWidth: "thin",
-                scrollbarColor: "rgba(99,102,241,0.3) transparent",
+                scrollbarColor: "color-mix(in srgb, var(--accent) 30%, transparent) transparent",
               }}
             >
               {msgs.map((m, i) => (
@@ -300,21 +300,20 @@ export default function PortfolioChatBot() {
                   {/* Avatar */}
                   <div
                     className={`w-7 h-7 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5 ${
-                      m.role === "bot"
-                        ? "bg-gradient-to-br from-[#6366F1] to-[#A78BFA]"
-                        : "bg-gradient-to-br from-[#2DD4BF] to-[#06B6D4]"
+                      m.role === "bot" ? "text-[var(--action-ink)]" : "text-[var(--fg)]"
                     }`}
                     style={{
+                      background: m.role === "bot" ? "var(--action-fill)" : "var(--surface)",
                       boxShadow:
                         m.role === "bot"
-                          ? "0 2px 8px rgba(99,102,241,0.4)"
-                          : "0 2px 8px rgba(45,212,191,0.4)",
+                          ? "0 2px 8px color-mix(in srgb, var(--accent) 40%, transparent)"
+                          : "0 2px 8px color-mix(in srgb, var(--teal) 40%, transparent)",
                     }}
                   >
                     {m.role === "bot" ? (
-                      <Bot size={13} className="text-[var(--fg)]" />
+                      <Bot size={13} />
                     ) : (
-                      <User size={13} className="text-[var(--fg)]" />
+                      <User size={13} />
                     )}
                   </div>
 
@@ -326,13 +325,12 @@ export default function PortfolioChatBot() {
                     style={
                       m.role === "user"
                         ? {
-                            background:
-                              "linear-gradient(135deg,#6366F1,#A78BFA)",
-                            color: "#fff",
+                            background: "var(--action-fill)",
+                            color: "var(--action-ink)",
                           }
                         : {
-                            background: "rgba(255,255,255,0.055)",
-                            border: "1px solid rgba(255,255,255,0.09)",
+                            background: "var(--surface)",
+                            border: "1px solid var(--border)",
                             color: "var(--fg)",
                           }
                     }
@@ -351,20 +349,20 @@ export default function PortfolioChatBot() {
                     exit={{ opacity: 0 }}
                     className="flex gap-2"
                   >
-                    <div className="w-7 h-7 rounded-full flex-shrink-0 flex items-center justify-center bg-gradient-to-br from-[#6366F1] to-[#A78BFA]">
-                      <Bot size={13} className="text-[var(--fg)]" />
+                    <div className="w-7 h-7 rounded-full flex-shrink-0 flex items-center justify-center text-[var(--action-ink)]" style={{ background: "var(--action-fill)" }}>
+                      <Bot size={13} />
                     </div>
                     <div
                       className="px-3.5 py-3 rounded-2xl rounded-tl-sm flex items-center gap-1.5"
                       style={{
-                        background: "rgba(255,255,255,0.055)",
-                        border: "1px solid rgba(255,255,255,0.09)",
+                        background: "var(--surface)",
+                        border: "1px solid var(--border)",
                       }}
                     >
                       {[0, 1, 2].map((j) => (
                         <span
                           key={j}
-                          className="w-1.5 h-1.5 rounded-full bg-[#6366F1]"
+                          className="w-1.5 h-1.5 rounded-full bg-[var(--accent)]"
                           style={{
                             animation: `typingBounce 1s ${j * 0.15}s infinite`,
                           }}
@@ -392,8 +390,8 @@ export default function PortfolioChatBot() {
                       onClick={() => send(s)}
                       className="text-[10px] font-semibold px-2.5 py-1 rounded-full border transition-all hover:scale-105"
                       style={{
-                        borderColor: "rgba(99,102,241,0.35)",
-                        background: "rgba(99,102,241,0.10)",
+                        borderColor: "color-mix(in srgb, var(--accent) 35%, transparent)",
+                        background: "color-mix(in srgb, var(--accent) 10%, transparent)",
                         color: "var(--muted)",
                       }}
                     >
@@ -407,13 +405,13 @@ export default function PortfolioChatBot() {
             {/* Input bar */}
             <div
               className="px-3 pb-3 pt-2 flex-shrink-0"
-              style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}
+              style={{ borderTop: "1px solid var(--border)" }}
             >
               <div
                 className="flex items-center gap-2 rounded-2xl px-3 py-2"
                 style={{
-                  background: "rgba(255,255,255,0.05)",
-                  border: "1px solid rgba(255,255,255,0.10)",
+                  background: "var(--surface)",
+                  border: "1px solid var(--border)",
                 }}
               >
                 <input
@@ -438,10 +436,10 @@ export default function PortfolioChatBot() {
                   whileTap={{ scale: 0.9 }}
                   className="w-7 h-7 rounded-xl flex items-center justify-center disabled:opacity-30 transition-opacity flex-shrink-0"
                   style={{
-                    background: "linear-gradient(135deg,#6366F1,#A78BFA)",
+                    background: "var(--action-fill)",
                   }}
                 >
-                  <Send size={12} className="text-[var(--fg)]" />
+                  <Send size={12} className="text-[var(--action-ink)]" />
                 </motion.button>
               </div>
               <p className="text-[9px] text-[var(--muted)] text-center mt-1.5">

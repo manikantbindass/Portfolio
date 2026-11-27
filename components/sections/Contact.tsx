@@ -20,32 +20,32 @@ const socials = [
     label: "GitHub",
     href: personal.links.github,
     emoji: "🐙",
-    color: "#6366F1",
+    color: "var(--accent)",
   },
   {
     label: "LinkedIn",
     href: personal.links.linkedin,
     emoji: "💼",
-    color: "#0077B5",
+    color: "var(--teal)",
   },
-  { label: "X", href: personal.links.twitter, emoji: "🐦", color: "#A78BFA" },
+  { label: "X", href: personal.links.twitter, emoji: "🐦", color: "var(--accent2)" },
   {
     label: "LeetCode",
     href: personal.links.leetcode,
     emoji: "⚡",
-    color: "#F59E0B",
+    color: "var(--gold)",
   },
   {
     label: "Medium",
     href: personal.links.medium,
     emoji: "📝",
-    color: "#2DD4BF",
+    color: "var(--teal)",
   },
   {
     label: "Instagram",
     href: personal.links.instagram,
     emoji: "📷",
-    color: "#E4405F",
+    color: "var(--rose)",
   },
 ];
 
@@ -73,7 +73,7 @@ export default function Contact() {
       style={{ background: "var(--bg)" }}
     >
       <div
-        className="aurora-blob w-[600px] h-[600px] bg-[#6366F1] opacity-[0.08] absolute -bottom-20 left-1/4 pointer-events-none"
+        className="aurora-blob w-[600px] h-[600px] bg-[var(--accent)] opacity-[0.08] absolute -bottom-20 left-1/4 pointer-events-none"
         aria-hidden
       />
 
@@ -121,7 +121,7 @@ export default function Contact() {
                     <CheckCircle
                       size={52}
                       className="text-[var(--teal)]"
-                      style={{ filter: "drop-shadow(0 0 12px #2DD4BF)" }}
+                      style={{ filter: "drop-shadow(0 0 12px var(--teal))" }}
                     />
                     <p className="font-bold text-[var(--fg)] text-xl">
                       Email draft prepared
@@ -224,8 +224,8 @@ export default function Contact() {
               <div
                 className="w-12 h-12 rounded-2xl flex items-center justify-center text-xl"
                 style={{
-                  background: "rgba(99,102,241,0.12)",
-                  border: "1px solid rgba(99,102,241,0.2)",
+                  background: "color-mix(in srgb, var(--accent) 12%, transparent)",
+                  border: "1px solid color-mix(in srgb, var(--accent) 20%, transparent)",
                 }}
               >
                 📧
@@ -248,8 +248,8 @@ export default function Contact() {
               <div
                 className="w-12 h-12 rounded-2xl flex items-center justify-center text-xl"
                 style={{
-                  background: "rgba(45,212,191,0.10)",
-                  border: "1px solid rgba(45,212,191,0.2)",
+                  background: "color-mix(in srgb, var(--teal) 10%, transparent)",
+                  border: "1px solid color-mix(in srgb, var(--teal) 20%, transparent)",
                 }}
               >
                 📍
@@ -294,10 +294,10 @@ export default function Contact() {
 
             {/* Availability */}
             <div
-              className="glass rounded-3xl p-5 border border-[#2DD4BF]/15 flex items-center gap-3"
-              style={{ background: "rgba(45,212,191,0.04)" }}
+              className="glass rounded-3xl p-5 border border-[var(--teal)]/15 flex items-center gap-3"
+              style={{ background: "color-mix(in srgb, var(--teal) 4%, transparent)" }}
             >
-              <span className="w-3 h-3 rounded-full bg-[#2DD4BF] flex-shrink-0 animate-pulse-soft" />
+              <span className="w-3 h-3 rounded-full bg-[var(--teal)] flex-shrink-0 animate-pulse-soft" />
               <div>
                 <p className="text-[var(--fg)] font-semibold text-sm">
                   Available for new opportunities
